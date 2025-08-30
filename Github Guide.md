@@ -30,7 +30,7 @@ Be careful with this, this may cause some irreversible changes.
 
 ### Stuck on Merge Message
 
-[https://stackoverflow.com/questions/19085807/please-enter-a-commit-message-to-explain-why-this-merge-is-necessary-especially](Please enter a commit message to explain why this merge is necessary, especially if it merges an updated upstream into a topic branch - Stack Overflow) 
+[Please enter a commit message to explain why this merge is necessary, especially if it merges an updated upstream into a topic branch - Stack Overflow](https://stackoverflow.com/questions/19085807/please-enter-a-commit-message-to-explain-why-this-merge-is-necessary-especially) 
 
 1. press "i" (i for insert)  
 2. write your merge message  
