@@ -1,0 +1,41 @@
+# badge format is pretty straight forward
+# if you need a second line in your badge description use \n
+#
+# (badge_id):
+#   name: name of badge
+#   description: the text to be displayed below the name
+#   img: the image to be shown when the badge is unlocked (must be in img/system)
+#   locked_img: the image to be shown when the badge is locked (must be in img/system) (optional)
+#   locked_desc: the description to be shown when the badge is locked ('???' by default) (optional)
+#
+# you may also include metadata like so, although all metadata fields are optional
+# 
+# meta: (optional)
+#   name: the name to be shown (will be an uppercased mod id by default) (optional)
+#   color: the color of the mod name displayed ("#FFFFFF" by default) (optional)
+#   badge_toast_border: the image in img/system to be used for badge notifications, should be 180 by 94 (must be in img/system) (optional)
+#   badge_toast_corner: the corner where the notification will appear. either top-left, top-right, bottom-left, or bottom-right (top-right by default) (optional)
+
+meta:
+  name: "EXAMPLE//mod"
+  color: "#FF0000"
+  badge_toast_border: 'badge_toast_border_examplemod'
+  badge_toast_corner: top-right
+  badge_toast_image_offset_x: 113
+  badge_toast_image_offset_y: 14
+
+badge_1:
+  name: Example Badge
+  description: Very Examply very cool. For debug purposes,\nthis badge is considered always unlocked.
+  img: 'toast2' # must be in img/system (or atlassed into img/system)
+  locked_img: 'locked_badge' # will be locked_badge by default, but can be customized or left out
+badge_2:
+  name: Another example
+  description: Even better than badge_1!
+  img: 'omori_release_energy'
+  locked_img: 'transition-1'
+  locked_desc: '? ! ?'
+badge_3:
+  name: Example the third
+  description: Fow debug pupowses, dis bawdge haves a\nfify per cent chance to be unwockted!!
+  img: 'blackletter_bg'

@@ -1,0 +1,205 @@
+
+# =========================================================================================
+# Reverie Battle Text
+# %1 is Subject, %2 is Target
+#
+# In order of priorities:
+# userActorText: Used when the user is an actor
+# userEnemyText: Used when the user is an enemy
+# targetActorText: Used when the target is an actor
+# targetEnemyText: Used when the target is an enemy
+# text: Basic text
+# =========================================================================================
+
+# =========================================================================================
+# COMMON
+# =========================================================================================
+
+# BASIC ATTACKS - Mostly in form of "X verbs Y"
+attack_basic:
+  text: "%1 attacks %2!"
+  
+attack_basic2:
+  text: "%1 attacks!"
+
+attack_nibble:
+  text: "%1 nibbles at %2!"
+
+attack_bite:
+  text: "%1 bites at %2!"
+
+attack_slash:
+  text: "%1 slashes at %2!"
+
+attack_flame: # Common with fire enemies, tend to relate to burn or angry
+  text: "%1 flames %2!"
+  
+attack_shoot:
+  text: "%1 fires!"
+  
+attack_kick:
+  text: "%1 kicks %2!"
+
+attack_slap:
+  text: "%1 slaps %2!"
+
+attack_slam:
+  text: "%1 slams into %2!"
+
+attack_scratch:
+  text: "%1 scratches %2!"
+
+attack_trip: # Omori and few enemies have it; lower speed
+  text: "%1 trips %2!"
+
+# Common but Fancier Skills
+
+gen_explode: # Self destruct enemies
+  text: "%1 explodes!"
+
+# EMOTIONS
+
+multi_angry:
+  targetActorText: "All friends feels ANGRY!"
+  targetEnemyText: "All foes feels ANGRY!"
+
+multi_sad:
+  targetActorText: "All friends feels SAD..."
+  targetEnemyText: "All foes feels SAD..."
+
+multi_happy:
+  targetActorText: "All friends feels HAPPY!"
+  targetEnemyText: "All foes feels HAPPY!"
+
+# BUFF AND DEBUFFING
+
+buff_stats:
+  text: "%1's STATS rose!"
+
+debuff_stats:
+  text: "%1's STATS fell!"
+
+buff_stats_other:
+  text: "%2's STATS rose!"
+
+debuff_stats_other:
+  text: "%2's STATS fell!"
+
+multi_buff_atk:
+  targetActorText: "All friends' ATTACK rose!"
+  targetEnemyText: "All foes' ATTACK rose!"
+
+multi_buff_def:
+  targetActorText: "All friends' DEFENSE rose!"
+  targetEnemyText: "All foes' DEFENSE rose!"
+
+multi_buff_spd:
+  targetActorText: "All friends' SPEED rose!"
+  targetEnemyText: "All foes' SPEED rose!"
+  
+multi_buff_hit:
+  targetActorText: "All friends' HIT/EVA rose!"
+  targetEnemyText: "All foes' HIT/EVA rose!"
+
+multi_buff_stats:
+  targetActorText: "All friends' STATS rose!"
+  targetEnemyText: "All foes' STATS rose!"
+
+multi_debuff_atk:
+  targetActorText: "All friends' ATTACK fell!"
+  targetEnemyText: "All foes' ATTACK fell!"
+
+multi_debuff_def:
+  targetActorText: "All friends' DEFENSE fell!"
+  targetEnemyText: "All foes' DEFENSE fell!"
+
+multi_debuff_spd:
+  targetActorText: "All friends' SPEED fell!"
+  targetEnemyText: "All foes' SPEED fell!"
+  
+multi_debuff_hit:
+  targetActorText: "All friends' HIT/EVA fell!"
+  targetEnemyText: "All foes' HIT/EVA fell!"
+
+multi_debuff_stats:
+  targetActorText: "All friends' STATS fell!"
+  targetEnemyText: "All foes' STATS fell!"
+
+# BUFF MAXIMIZE / MINIMIZE
+
+max_buff_atk:
+  text: "%1's ATTACK maximized!"
+
+max_buff_def:
+  text: "%1's DEFENSE maximized!"
+
+max_buff_spd:
+  text: "%1's SPEED maximized!"
+
+max_buff_hit:
+  text: "%1's HIT/EVA maximized!"
+
+min_buff_atk:
+  text: "%1's ATTACK minimized!"
+
+min_buff_def:
+  text: "%1's DEFENSE minimized!"
+
+min_buff_spd:
+  text: "%1's SPEED minimized!"
+
+min_buff_hit:
+  text: "%1's HIT/EVA minimized!"
+
+multi_max_buff_atk:
+  targetActorText: "All friends' ATTACK maximized!"
+  targetEnemyText: "All foes' ATTACK maximized!"
+
+multi_max_buff_def:
+  targetActorText: "All friends' DEFENSE maximized!"
+  targetEnemyText: "All foes' DEFENSE maximized!"
+
+multi_max_buff_spd:
+  targetActorText: "All friends' SPEED maximized!"
+  targetEnemyText: "All foes' SPEED maximized!"
+
+multi_max_buff_hit:
+  targetActorText: "All friends' HIT/EVA maximized!"
+  targetEnemyText: "All foes' HIT/EVA maximized!"
+
+multi_min_buff_atk:
+  targetActorText: "All friends' ATTACK minimized!"
+  targetEnemyText: "All foes' ATTACK minimized!"
+
+multi_min_buff_def:
+  targetActorText: "All friends' DEFENSE minimized!"
+  targetEnemyText: "All foes' DEFENSE minimized!"
+
+multi_min_buff_spd:
+  targetActorText: "All friends' SPEED minimized!"
+  targetEnemyText: "All foes' SPEED minimized!"
+
+multi_min_buff_hit:
+  targetActorText: "All friends' HIT/EVA minimized!"
+  targetEnemyText: "All foes' HIT/EVA minimized!"
+
+# CLEAN BUFF / DEBUFF - Also applies to dekaja/dekunda skills
+clean_buff:
+  targetActorText: "All friends' BUFFS were removed!"
+  targetEnemyText: "All foes' BUFFS were removed!"
+
+clean_debuff:
+  targetActorText: "All friends' DEBUFFS were removed!"
+  targetEnemyText: "All foes' DEBUFFS were removed!"
+
+clean_ailment:
+  targetActorText: "All friends' AILMENTS were removed!"
+  targetEnemyText: "All foes' AILMENTS were removed!"
+
+# FAIL TEXT
+
+fail_no_juice:
+  text: "%1 does not have enough JUICE!"
+  
+fail_generic:
+  text: "%1 fails to cast a skill."
