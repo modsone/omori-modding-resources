@@ -1,0 +1,25 @@
+# =========================================================================================
+# * Example Options
+# =========================================================================================
+Options:
+    # Options starting with "/save/" Indicates the option is only for the save. The word would be removed on display.
+    header:
+        header: "-------------------- REVERIE --------------------"
+        options: []
+        helpText: "REVERIE Options Below"
+    difficulty:
+        header: "/save/[IN SAVE] DIFFICULTY"
+        options: ["EASY", "NORMAL", "HARD"]
+        helpText: "Changes Difficulty of REVERIE's game. This is per SAVE."
+    turnorder:
+        header: "ACTUAL TURN ORDER"
+        options: ["ON", "OFF"]
+        helpText:  "Makes the menu turn order be based on character's speed."
+    showstats:
+        header: "DISPLAY STATS"
+        options: ["ON", "OFF"]
+        helpText:  "Makes the enemy info show more stat details. (Recommend: ON)"
+    showstateicons:
+        header: "DISPLAY STATE ICONS"
+        options: ["ON", "OFF"]
+        helpText:  "Makes both actor and enemy show state icons. (Recommend: ON)"

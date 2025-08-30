@@ -1,0 +1,70 @@
+# =========================================================================================
+# SHOP TEMPLATE 
+# =========================================================================================
+
+itemShopMenu:
+    ownedText: OWN
+    buyOptions: [YES, NO]
+    defaultText:
+      shopName: WELCOME TO MY SHOP!
+      buyHeader: WHAT WOULD YOU LIKE TO BUY?
+      sellHeader: WHAT WOULD YOU LIKE TO SELL?
+    shopKeepers:
+      spamton: 
+        showMailboxShopkeeper: true # This technically shouldn't matter.
+        shopName: HEY EVERY       !
+        buyHeader: BUY BUY BUY BUY BUY!
+        sellHeader: WHAT THE [[!$#@]] ARE YOU DOING!?!?!
+        texts: #You have to do it like this btw
+          maxItemMessage: 'ShopTemplate.maxItemMessage' 
+          notEnoughMoneyMessage: 'ShopTemplate.notEnoughMoneyMessage' 
+          onItemListBuyOkMessage: 'ShopTemplate.onItemListBuyOkMessage' 
+          onItemListSellOkMessage: 'ShopTemplate.onItemListSellOkMessage' 
+          itemBuyingPromptMessage: 'ShopTemplate.itemBuyingPromptMessage' 
+          itemSellingPromptMessage: 'ShopTemplate.itemSellingPromptMessage' 
+          itemBuyingConfirmationMessage: 'ShopTemplate.itemBuyingConfirmationMessage' 
+          itemSellingConfirmationMessage: 'ShopTemplate.itemSellingConfirmationMessage' 
+          itemBuyingCancelMessage: 'ShopTemplate.itemBuyingCancelMessage' 
+          itemSellingCancelMessage: 'ShopTemplate.itemSellingCancelMessage' 
+        pictureName: ShopTemplate_Spamton 
+        indexes: #These indexes work the same way that event CustomFrames work. ie. it's a coordinate grid with the origin at the top left. So for example the second across and third down would be [1,2]
+          maxItemIndex: [0,1]
+          notEnoughMoneyIndex: [0,0]
+          onItemListBuyOkIndex: [1,0]
+          onItemListSellOkIndex: [0,1]
+          itemBuyingPromptIndex: [1,0]
+          itemSellingPromptIndex: [0,1]
+          itemBuyingConfirmationIndex: [0,0]
+          itemSellingConfirmationIndex: [1,1]
+          itemBuyingCancelIndex: [0,1]
+          itemSellingCancelIndex: [1,1]
+
+maxItemMessage:
+    text: \n<SPAMTON G. SPAMTON>WHOA WHOA WHOA!!! YOURE [[DEEP ABYSS]] ALREADY HAS SO MUCH [Half-priced cilantro!]!!!
+
+notEnoughMoneyMessage:
+    text: \n<SPAMTON G. SPAMTON>INSUFFICIENT [kromer]
+
+onItemListBuyOkMessage:
+    text: \n<SPAMTON G. SPAMTON>HOW [[Pick a card! Any card will do!]]?
+
+onItemListSellOkMessage:    
+    text: \n<SPAMTON G. SPAMTON>PLEASE I CAN'T AFFORD SUCH [Jaws, the newest thriller on the market]!!!
+
+itemBuyingPromptMessage:
+    text: \n<SPAMTON G. SPAMTON>PLEASE [Insert cash or] [[<SHOPTOTAL>]]\G
+
+itemSellingPromptMessage:
+    text: \n<SPAMTON G. SPAMTON>DO I LOOK LIKE A [Get your Black Friday deals now!] TO YOU???
+
+itemBuyingConfirmationMessage:
+    text: \n<SPAMTON G. SPAMTON>YUM YUM DELICIOUS KROMER
+
+itemSellingConfirmationMessage:
+    text: \n<SPAMTON G. SPAMTON>I DON'T WANT YOURE [Oreoes]!!!
+
+itemBuyingCancelMessage:
+    text: \n<SPAMTON G. SPAMTON>WHAT!? YOU WERE SO CLOSE!!!
+
+itemSellingCancelMessage:    
+    text: \n<SPAMTON G. SPAMTON>WHAT KIND OF [Press Alt + F4 for Wallhacks] WAS THAT!?!?!?!
