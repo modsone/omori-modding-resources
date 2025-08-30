@@ -1,0 +1,1 @@
+This is just a folder for images for documentation for Markdown format
