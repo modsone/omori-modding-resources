@@ -1,12 +1,12 @@
 //=============================================================================
-// ★ FD_WeatherExtension ★                                        1.0.1
+// ★ FD_WeatherExtension ★                                        1.1.2
 //=============================================================================
 /*:
- * @plugindesc v1.0.1 An extension to the Aries Weather Control plugin.
+ * @plugindesc v1.1.2 An extension to the Aries Weather Control plugin.
  * @author FruitDragon
  * 
  * @help
- * ★ FD_WeatherExtension ★                                        1.0.1
+ * ★ FD_WeatherExtension ★                                        1.1.2
  * --------------------------------------------------------------------------
  * 
  * Currently overwrites part of the plugin Aries Weather Control. This plugin
@@ -45,30 +45,46 @@
  * 
  * Plugin: SetTint [weather] [tint]
  * 
- * Sets the RGB tint of the chosen weather.
- * [weather]: leaves, snow, embers, rain, storm, shine
- * [tint]: RGB color scale value, except when chosen weather is Shine.
+ * Sets the RGB tint of the chosen weather or effect.
+ * [weather]: leaves, snow, embers, rain, storm, shine, screen
+ * [tint]: RGB color scale value, except when chosen effect is Shine or Screen.
  *         If setting tint of Shine, use 'on' or 'off'.
+ *         If setting tint of Screen, can use 'on' or 'off', or set RGB tint.
  * 
  * Examples:
  * 
  * SetTint embers 255 200 0
  * SetTint rain 0 0 0
  * SetTint shine on
+ * SetTint screen off
+ * SetTint screen 95 95 95
  * 
  * --------------------------------------------------------------------------
  * 
  * Plugin: ResetTint [weather]
  * 
- * Resets the chosen weather tint to the default from the plugin parameters.
- * [weather]: leaves, snow, embers, rain, storm, shine
+ * Resets the chosen weather/effect tint to the default from the plugin parameters.
+ * [weather]: leaves, snow, embers, rain, storm, shine, screen
  * 
  * --------------------------------------------------------------------------
  * 
  * Plugin: ClearTint [weather]
  * 
- * Turns off or clears tint for the chosen weather.
- * [weather]: leaves, snow, embers, rain, storm, shine
+ * Turns off or clears tint for the chosen weather or effect.
+ * [weather]: leaves, snow, embers, rain, storm, shine, screen
+ * 
+ * --------------------------------------------------------------------------
+ * Changelog:
+ * 
+ * v1.0.0 Finished plugin!
+ * 
+ * v1.0.1 Minor edits, cleaned up plugin
+ * 
+ * v1.1.0 Added ability to control screen tint
+ * 
+ * v1.1.1 Fixed minor bug with screen tint on/off
+ * 
+ * v1.1.2 Fixed bug with plugin commands and params not working as intended
  * 
  * 
  * 
@@ -76,6 +92,9 @@
  * @default
  * 
  * @param ---Tints---
+ * @default
+ * 
+ * @param ---Screen Tint---
  * @default
  * 
  * @param LeafDefaultList
@@ -122,38 +141,38 @@
  * 
  * @param LeafDefaultTint
  * @text Default Leaf Tint
- * @type []
+ * @type struct<RGB>
  * @parent ---Tints---
- * @desc The default RGB value of the leaf tint. [0,0,0,0] means no tint.
- * @default [0,0,0,0]
+ * @desc The default RGB value of the leaf tint. [0,0,0] means no tint.
+ * @default {"red":"0","green":"0","blue":"0"}
  * 
  * @param SnowDefaultTint
  * @text Default Snow Tint
- * @type []
+ * @type struct<RGB>
  * @parent ---Tints---
- * @desc The default RGB value of the snow tint. [0,0,0,0] means no tint.
- * @default [0,0,0,0]
+ * @desc The default RGB value of the snow tint. [0,0,0] means no tint.
+ * @default {"red":"0","green":"0","blue":"0"}
  * 
  * @param EmbersDefaultTint
  * @text Default Embers Tint
- * @type []
+ * @type struct<RGB>
  * @parent ---Tints---
- * @desc The default RGB value of the embers tint. [0,0,0,0] means no tint.
- * @default [255,200,0,0]
+ * @desc The default RGB value of the embers tint. [0,0,0] means no tint.
+ * @default {"red":"255","green":"200","blue":"0"}
  * 
  * @param RainDefaultTint
  * @text Default Rain Tint
- * @type []
+ * @type struct<RGB>
  * @parent ---Tints---
- * @desc The default RGB value of the rain tint. [0,0,0,0] means no tint.
- * @default [0,0,0,0]
+ * @desc The default RGB value of the rain tint. [0,0,0] means no tint.
+ * @default {"red":"0","green":"0","blue":"0"}
  * 
  * @param StormDefaultTint
  * @text Default Storm Tint
- * @type []
+ * @type struct<RGB>
  * @parent ---Tints---
- * @desc The default RGB value of the storm tint. [0,0,0,0] means no tint.
- * @default [0,0,0,0]
+ * @desc The default RGB value of the storm tint. [0,0,0] means no tint.
+ * @default {"red":"0","green":"0","blue":"0"}
  * 
  * @param ShineDefaultTint
  * @text Default Shine Tint
@@ -162,8 +181,43 @@
  * @desc Whether Shine tint is on or not.
  * ON - true     OFF - false
  * @default true
+ * 
+ * @param ScreenTintOn
+ * @text Screen Tint On
+ * @type boolean
+ * @parent ---Screen Tint---
+ * @desc Whether the screen tint that appears at stronger weather levels is on or not.
+ * ON - true     OFF - false
+ * @default true
+ * 
+ * @param ScreenDefaultTint
+ * @text Default Screen Tint
+ * @type struct<RGB>
+ * @parent ---Screen Tint---
+ * @desc The RGB color of the tint that the screen takes on at stronger weather levels.
+ * @default {"red":"95","green":"95","blue":"95"}
  */
-
+/*~struct~RGB:
+* 
+* @param red
+* @type number
+* @min 0
+* @max 255
+* @desc Red value
+*
+* @param green
+* @type number
+* @min 0
+* @max 255
+* @desc Green value
+* 
+* @param blue
+* @type number
+* @min 0
+* @max 255
+* @desc Blue value
+*
+*/
 
 
 var Imported = Imported || {};
@@ -194,14 +248,44 @@ Aries.P003_WCT.ShineBitmapList = []
 Aries.P003_WCT.RainBitmapList = []
 Aries.P003_WCT.StormBitmapList = []
 
-Aries.P003_WCT.NoTint = [0,0,0,0]
+Aries.P003_WCT.NoTint = {}
+Aries.P003_WCT.NoTint.red = 0
+Aries.P003_WCT.NoTint.green = 0
+Aries.P003_WCT.NoTint.blue = 0
 
-Aries.P003_WCT.DefaultLeafTint = JSON.parse(FD.WeatherExtension.Param["LeafDefaultTint"]).map(Number)
-Aries.P003_WCT.DefaultSnowTint = JSON.parse(FD.WeatherExtension.Param["SnowDefaultTint"]).map(Number)
-Aries.P003_WCT.DefaultEmbersTint = JSON.parse(FD.WeatherExtension.Param["EmbersDefaultTint"]).map(Number)
+Aries.P003_WCT.DefaultLeafTint = JSON.parse(FD.WeatherExtension.Param["LeafDefaultTint"])
+Aries.P003_WCT.DefaultLeafTint.red = Number(Aries.P003_WCT.DefaultLeafTint.red)
+Aries.P003_WCT.DefaultLeafTint.green = Number(Aries.P003_WCT.DefaultLeafTint.green)
+Aries.P003_WCT.DefaultLeafTint.blue = Number(Aries.P003_WCT.DefaultLeafTint.blue)
+
+Aries.P003_WCT.DefaultSnowTint = JSON.parse(FD.WeatherExtension.Param["SnowDefaultTint"])
+Aries.P003_WCT.DefaultSnowTint.red = Number(Aries.P003_WCT.DefaultSnowTint.red)
+Aries.P003_WCT.DefaultSnowTint.green = Number(Aries.P003_WCT.DefaultSnowTint.green)
+Aries.P003_WCT.DefaultSnowTint.blue = Number(Aries.P003_WCT.DefaultSnowTint.blue)
+
+Aries.P003_WCT.DefaultEmbersTint = JSON.parse(FD.WeatherExtension.Param["EmbersDefaultTint"])
+Aries.P003_WCT.DefaultEmbersTint.red = Number(Aries.P003_WCT.DefaultEmbersTint.red)
+Aries.P003_WCT.DefaultEmbersTint.green = Number(Aries.P003_WCT.DefaultEmbersTint.green)
+Aries.P003_WCT.DefaultEmbersTint.blue = Number(Aries.P003_WCT.DefaultEmbersTint.blue)
+
 Aries.P003_WCT.DefaultShineTint = eval(FD.WeatherExtension.Param["ShineDefaultTint"])
-Aries.P003_WCT.DefaultRainTint = JSON.parse(FD.WeatherExtension.Param["RainDefaultTint"]).map(Number)
-Aries.P003_WCT.DefaultStormTint = JSON.parse(FD.WeatherExtension.Param["StormDefaultTint"]).map(Number)
+
+Aries.P003_WCT.DefaultRainTint = JSON.parse(FD.WeatherExtension.Param["RainDefaultTint"])
+Aries.P003_WCT.DefaultRainTint.red = Number(Aries.P003_WCT.DefaultRainTint.red)
+Aries.P003_WCT.DefaultRainTint.green = Number(Aries.P003_WCT.DefaultRainTint.green)
+Aries.P003_WCT.DefaultRainTint.blue = Number(Aries.P003_WCT.DefaultRainTint.blue)
+
+Aries.P003_WCT.DefaultStormTint = JSON.parse(FD.WeatherExtension.Param["StormDefaultTint"])
+Aries.P003_WCT.DefaultStormTint.red = Number(Aries.P003_WCT.DefaultStormTint.red)
+Aries.P003_WCT.DefaultStormTint.green = Number(Aries.P003_WCT.DefaultStormTint.green)
+Aries.P003_WCT.DefaultStormTint.blue = Number(Aries.P003_WCT.DefaultStormTint.blue)
+
+Aries.P003_WCT.DefaultScreenTint = JSON.parse(FD.WeatherExtension.Param["ScreenDefaultTint"])
+Aries.P003_WCT.DefaultScreenTint.red = Number(Aries.P003_WCT.DefaultScreenTint.red)
+Aries.P003_WCT.DefaultScreenTint.green = Number(Aries.P003_WCT.DefaultScreenTint.green)
+Aries.P003_WCT.DefaultScreenTint.blue = Number(Aries.P003_WCT.DefaultScreenTint.blue)
+
+Aries.P003_WCT.DefaultScreenTintOn = eval(FD.WeatherExtension.Param["ScreenTintOn"])
 
 Aries.P003_WCT.LeafTint = Aries.P003_WCT.DefaultLeafTint
 Aries.P003_WCT.SnowTint = Aries.P003_WCT.DefaultSnowTint
@@ -210,158 +294,31 @@ Aries.P003_WCT.ShineTint = Aries.P003_WCT.DefaultShineTint
 Aries.P003_WCT.RainTint = Aries.P003_WCT.DefaultRainTint
 Aries.P003_WCT.StormTint = Aries.P003_WCT.DefaultStormTint
 
+Aries.P003_WCT.ScreenTint = Aries.P003_WCT.DefaultScreenTint
+Aries.P003_WCT.ScreenTintOn = Aries.P003_WCT.DefaultScreenTintOn
+
 // Adds the plugin commands
 FD.WeatherExtension.GameInterpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
 Game_Interpreter.prototype.pluginCommand = function(command,args) {
     switch (command.toLowerCase()) {
         case 'setlist':
-            temp = args.shift();
-            if (temp === 'leaves') {
-                Aries.P003_WCT.LeafImageList = args;
-                Weather.prototype._createLeafBitmapList();
-            }
-            else if (temp === 'snow') {
-                Aries.P003_WCT.SnowImageList = args;
-                Weather.prototype._createSnowBitmapList();
-            }
-            else if (temp === 'embers') {
-                Aries.P003_WCT.EmbersImageList = args;
-                Weather.prototype._createHeatBitmapList();
-            }
-            else if (temp === 'shine') {
-                Aries.P003_WCT.ShineImageList = args;
-                Weather.prototype._createMysticBitmapList();
-            }
-            else if (temp === 'rain') {
-                Aries.P003_WCT.RainImageList = args;
-                Weather.prototype._createRainBitmapList();
-            }
-            else if (temp === 'storm') {
-                Aries.P003_WCT.StormImageList = args;
-                Weather.prototype._createStormBitmapList();
-            }
+            Weather.prototype.handleSetList(args);
             return;
         case 'resetlist':
-            temp = args.shift();
-            if (temp === 'leaves') {
-                Aries.P003_WCT.LeafImageList = Aries.P003_WCT.DefaultLeafImageList;
-                Weather.prototype._createLeafBitmapList();
-            }
-            else if (temp === 'snow') {
-                Aries.P003_WCT.SnowImageList = Aries.P003_WCT.DefaultSnowImageList;
-                Weather.prototype._createSnowBitmapList();
-            }
-            else if (temp === 'embers') {
-                Aries.P003_WCT.EmbersImageList = Aries.P003_WCT.DefaultEmbersImageList;
-                Weather.prototype._createHeatBitmapList();
-            }
-            else if (temp === 'shine') {
-                Aries.P003_WCT.ShineImageList = Aries.P003_WCT.DefaultShineImageList;
-                Weather.prototype._createMysticBitmapList();
-            }
-            else if (temp === 'rain') {
-                Aries.P003_WCT.RainImageList = Aries.P003_WCT.DefaultRainImageList;
-                Weather.prototype._createRainBitmapList();
-            }
-            else if (temp === 'storm') {
-                Aries.P003_WCT.StormImageList = Aries.P003_WCT.DefaultStormImageList;
-                Weather.prototype._createStormBitmapList();
-            }
+            Weather.prototype.handleResetList(args);
             return;
         case 'clearlist':
-            temp = args.shift();
-            if (temp === 'leaves') {
-                Aries.P003_WCT.LeafImageList = [];
-                Aries.P003_WCT.LeafBitmapList = [];
-            }
-            else if (temp === 'snow') {
-                Aries.P003_WCT.SnowImageList = [];
-                Aries.P003_WCT.SnowBitmapList = [];
-            }
-            else if (temp === 'embers') {
-                Aries.P003_WCT.EmbersImageList = [];
-                Aries.P003_WCT.EmbersBitmapList = [];
-            }
-            else if (temp === 'shine') {
-                Aries.P003_WCT.ShineImageList = [];
-                Aries.P003_WCT.ShineBitmapList = [];
-            }
-            else if (temp === 'rain') {
-                Aries.P003_WCT.RainImageList = [];
-                Aries.P003_WCT.RainBitmapList = [];
-            }
-            else if (temp === 'shine') {
-                Aries.P003_WCT.StormImageList = [];
-                Aries.P003_WCT.StormBitmapList = [];
-            }
+            Weather.prototype.handleClearList(args);
             return;
         case 'settint':
-            temp = args.shift();
-            if (temp === 'leaves') {
-                Aries.P003_WCT.LeafTint = [Number(args[0]), Number(args[1]), Number(args[2]), 0]
-            }
-            else if (temp === 'snow') {
-                Aries.P003_WCT.SnowTint = [Number(args[0]), Number(args[1]), Number(args[2]), 0]
-            }
-            else if (temp === 'embers') {
-                Aries.P003_WCT.EmbersTint = [Number(args[0]), Number(args[1]), Number(args[2]), 0]
-            }
-            else if (temp === 'shine') {
-
-                if (args[0].toLowerCase() === 'on') {
-                    Aries.P003_WCT.ShineTint = true;
-                }
-                else if (args[0].toLowerCase() === 'off') {
-                    Aries.P003_WCT.ShineTint = false;
-                }
-
-            }
-            else if (temp === 'rain') {
-                Aries.P003_WCT.RainTint = [Number(args[0]), Number(args[1]), Number(args[2]), 0]
-            }
-            else if (temp === 'storm') {
-                Aries.P003_WCT.StormTint = [Number(args[0]), Number(args[1]), Number(args[2]), 0]
-            }
+            Weather.prototype.handleSetTint(args);
+            return;
         case 'resettint':
-            temp = args.shift();
-            if (temp === 'leaves') {
-                Aries.P003_WCT.LeafTint = Aries.P003_WCT.DefaultLeafTint
-            }
-            else if (temp === 'snow') {
-                Aries.P003_WCT.SnowTint = Aries.P003_WCT.DefaultSnowTint
-            }
-            else if (temp === 'embers') {
-                Aries.P003_WCT.EmbersTint = Aries.P003_WCT.DefaultEmbersTint
-            }
-            else if (temp === 'shine') {
-                Aries.P003_WCT.ShineTint = Aries.P003_WCT.DefaultShineTint
-            }
-            else if (temp === 'rain') {
-                Aries.P003_WCT.RainTint = Aries.P003_WCT.DefaultRainTint
-            }
-            else if (temp === 'storm') {
-                Aries.P003_WCT.StormTint = Aries.P003_WCT.DefaultStormTint
-            }
+            Weather.prototype.handleResetTint(args);
+            return;
         case 'cleartint':
-            temp = args.shift();
-            if (temp === 'leaves') {
-                Aries.P003_WCT.LeafTint = Aries.P003_WCT.NoTint
-            }
-            else if (temp === 'snow') {
-                Aries.P003_WCT.SnowTint = Aries.P003_WCT.NoTint
-            }
-            else if (temp === 'embers') {
-                Aries.P003_WCT.EmbersTint = Aries.P003_WCT.NoTint
-            }
-            else if (temp === 'shine') {
-                Aries.P003_WCT.ShineTint = false
-            }
-            else if (temp === 'rain') {
-                Aries.P003_WCT.RainTint = Aries.P003_WCT.NoTint
-            }
-            else if (temp === 'storm') {
-                Aries.P003_WCT.StormTint = Aries.P003_WCT.NoTint
-            }
+            Weather.prototype.handleClearTint(args);
+            return;
         default:
             FD.WeatherExtension.GameInterpreter_pluginCommand.call(this,command,args);
             return;
@@ -468,6 +425,194 @@ Aries.P003_WCT.getShineBitmap = function() {
         return Weather.prototype._createMysticBitmap()
     }
 
+}
+
+Weather.prototype.handleSetList = function(args) {
+    temp = args.shift().toLowerCase();
+    if (temp === 'leaves') {
+        Aries.P003_WCT.LeafImageList = args;
+        this._createLeafBitmapList();
+    }
+    else if (temp === 'snow') {
+        Aries.P003_WCT.SnowImageList = args;
+        this._createSnowBitmapList();
+    }
+    else if (temp === 'embers') {
+        Aries.P003_WCT.EmbersImageList = args;
+        this._createHeatBitmapList();
+    }
+    else if (temp === 'shine') {
+        Aries.P003_WCT.ShineImageList = args;
+        this._createMysticBitmapList();
+    }
+    else if (temp === 'rain') {
+        Aries.P003_WCT.RainImageList = args;
+        this._createRainBitmapList();
+    }
+    else if (temp === 'storm') {
+        Aries.P003_WCT.StormImageList = args;
+        this._createStormBitmapList();
+    }
+    return;
+}
+
+Weather.prototype.handleResetList = function(args) {
+    temp = args.shift().toLowerCase();
+    if (temp === 'leaves') {
+        Aries.P003_WCT.LeafImageList = Aries.P003_WCT.DefaultLeafImageList;
+        this._createLeafBitmapList();
+    }
+    else if (temp === 'snow') {
+        Aries.P003_WCT.SnowImageList = Aries.P003_WCT.DefaultSnowImageList;
+        this._createSnowBitmapList();
+    }
+    else if (temp === 'embers') {
+        Aries.P003_WCT.EmbersImageList = Aries.P003_WCT.DefaultEmbersImageList;
+        this._createHeatBitmapList();
+    }
+    else if (temp === 'shine') {
+        Aries.P003_WCT.ShineImageList = Aries.P003_WCT.DefaultShineImageList;
+        this._createMysticBitmapList();
+    }
+    else if (temp === 'rain') {
+        Aries.P003_WCT.RainImageList = Aries.P003_WCT.DefaultRainImageList;
+        this._createRainBitmapList();
+    }
+    else if (temp === 'storm') {
+        Aries.P003_WCT.StormImageList = Aries.P003_WCT.DefaultStormImageList;
+        this._createStormBitmapList();
+    }
+    return;
+}
+
+Weather.prototype.handleClearList = function(args) {
+    temp = args.shift();
+    if (temp === 'leaves') {
+        Aries.P003_WCT.LeafImageList = [];
+        Aries.P003_WCT.LeafBitmapList = [];
+    }
+    else if (temp === 'snow') {
+        Aries.P003_WCT.SnowImageList = [];
+        Aries.P003_WCT.SnowBitmapList = [];
+    }
+    else if (temp === 'embers') {
+        Aries.P003_WCT.EmbersImageList = [];
+        Aries.P003_WCT.EmbersBitmapList = [];
+    }
+    else if (temp === 'shine') {
+        Aries.P003_WCT.ShineImageList = [];
+        Aries.P003_WCT.ShineBitmapList = [];
+    }
+    else if (temp === 'rain') {
+        Aries.P003_WCT.RainImageList = [];
+        Aries.P003_WCT.RainBitmapList = [];
+    }
+    else if (temp === 'shine') {
+        Aries.P003_WCT.StormImageList = [];
+        Aries.P003_WCT.StormBitmapList = [];
+    }
+    return;
+}
+
+Weather.prototype.handleSetTint = function(args) {
+    temp = args.shift().toLowerCase();
+    if (temp === 'leaves') {
+        temp2 = Aries.P003_WCT.LeafTint
+    }
+    else if (temp === 'snow') {
+        temp2 = Aries.P003_WCT.SnowTint
+    }
+    else if (temp === 'embers') {
+        temp2 = Aries.P003_WCT.EmbersTint
+    }
+    else if (temp === 'shine') {
+
+        if (args[0].toLowerCase() === 'on') {
+            Aries.P003_WCT.ShineTint = true;
+        }
+        else if (args[0].toLowerCase() === 'off') {
+            Aries.P003_WCT.ShineTint = false;
+        }
+        return;
+    }
+    else if (temp === 'screen') {
+
+        if (args[0].toLowerCase() === 'on') {
+            Aries.P003_WCT.ScreenTintOn = true;
+            return;
+        }
+        else if (args[0].toLowerCase() === 'off') {
+            Aries.P003_WCT.ScreenTintOn = false;
+            return;
+        }
+        else {
+            temp2 = Aries.P003_WCT.ScreenTint
+        }
+
+    }
+    else if (temp === 'rain') {
+        temp2 = Aries.P003_WCT.RainTint
+    }
+    else if (temp === 'storm') {
+        temp2 = Aries.P003_WCT.StormTint
+    }
+    temp2.red = Number(args[0]) 
+    temp2.green = Number(args[1])
+    temp2.blue = Number(args[2])
+    return;
+}
+
+Weather.prototype.handleResetTint = function(args) {
+    temp = args.shift().toLowerCase();
+    if (temp === 'leaves') {
+        Aries.P003_WCT.LeafTint = Aries.P003_WCT.DefaultLeafTint
+    }
+    else if (temp === 'snow') {
+        Aries.P003_WCT.SnowTint = Aries.P003_WCT.DefaultSnowTint
+    }
+    else if (temp === 'embers') {
+        Aries.P003_WCT.EmbersTint = Aries.P003_WCT.DefaultEmbersTint
+    }
+    else if (temp === 'shine') {
+        Aries.P003_WCT.ShineTint = Aries.P003_WCT.DefaultShineTint
+    }
+    else if (temp === 'rain') {
+        Aries.P003_WCT.RainTint = Aries.P003_WCT.DefaultRainTint
+    }
+    else if (temp === 'storm') {
+        Aries.P003_WCT.StormTint = Aries.P003_WCT.DefaultStormTint
+    }
+    else if (temp === 'screen') {
+        Aries.P003_WCT.ScreenTint = Aries.P003_WCT.DefaultScreenTint
+        Aries.P003_WCT.ScreenTintOn = Aries.P003_WCT.DefaultScreenTintOn
+    }
+    return;
+}
+
+Weather.prototype.handleClearTint = function(args) {
+    temp = args.shift().toLowerCase();
+    if (temp === 'leaves') {
+        Aries.P003_WCT.LeafTint = Aries.P003_WCT.NoTint
+    }
+    else if (temp === 'snow') {
+        Aries.P003_WCT.SnowTint = Aries.P003_WCT.NoTint
+    }
+    else if (temp === 'embers') {
+        Aries.P003_WCT.EmbersTint = Aries.P003_WCT.NoTint
+    }
+    else if (temp === 'shine') {
+        Aries.P003_WCT.ShineTint = false
+    }
+    else if (temp === 'rain') {
+        Aries.P003_WCT.RainTint = Aries.P003_WCT.NoTint
+    }
+    else if (temp === 'storm') {
+        Aries.P003_WCT.StormTint = Aries.P003_WCT.NoTint
+    }
+    else if (temp === 'screen') {
+        Aries.P003_WCT.ScreenTintOn = false
+    }
+    return;
 }
 
 Weather.prototype._addSprite=function(){
@@ -653,34 +798,39 @@ Sprite_Weather.prototype.setUp=function(type,life,size,getangle,alpha,snowSpeed=
         this.scale.y=1;
         this.anchor=new Point(0.5,0.5);
         this.blendMode=PIXI.BLEND_MODES.NORMAL;
-        this.setColorTone(Aries.P003_WCT.LeafTint)
+        temp2 = Aries.P003_WCT.LeafTint;
+        this.setColorTone([temp2.red,temp2.green,temp2.blue,0])
     }
     else if(this._type==='embers'){
         this.scale.x=1;
         this.scale.y=1;this.anchor=new Point(0.5,0.5);
         this.blendMode=PIXI.BLEND_MODES.NORMAL;
-        this.setColorTone(Aries.P003_WCT.EmbersTint)
+        temp2 = Aries.P003_WCT.EmbersTint;
+        this.setColorTone([temp2.red,temp2.green,temp2.blue,0])
     }
     else if(this._type ==='snow'){
         this.scale.x=1;
         this.scale.y=1
         this.anchor=new Point(0,0);
         this.blendMode=PIXI.BLEND_MODES.NORMAL;
-        this.setColorTone(Aries.P003_WCT.SnowTint);
+        temp2 = Aries.P003_WCT.SnowTint;
+        this.setColorTone([temp2.red,temp2.green,temp2.blue,0])
     }
     else if(this._type === 'rain') {
         this.scale.x=1;
         this.scale.y=1
         this.anchor=new Point(0,0);
         this.blendMode=PIXI.BLEND_MODES.NORMAL;
-        this.setColorTone(Aries.P003_WCT.RainTint);
+        temp2 = Aries.P003_WCT.RainTint;
+        this.setColorTone([temp2.red,temp2.green,temp2.blue,0])
     }
     else {
         this.scale.x=1;
         this.scale.y=1
         this.anchor=new Point(0,0);
         this.blendMode=PIXI.BLEND_MODES.NORMAL;
-        this.setColorTone(Aries.P003_WCT.StormTint);
+        temp2 = Aries.P003_WCT.StormTint;
+        this.setColorTone([temp2.red,temp2.green,temp2.blue,0])
     }
     this.setUpDone=!0
 };
@@ -769,5 +919,20 @@ Sprite_Weather.prototype.update=function(){
                 this.opacity-=48
             }
         }
+    }
+};
+
+Weather.prototype._createDimmer = function() {
+    this._dimmerSprite = new ScreenSprite();
+    this._dimmerSprite.setColor(Aries.P003_WCT.ScreenTint.red, Aries.P003_WCT.ScreenTint.green, Aries.P003_WCT.ScreenTint.blue);
+    this.addChild(this._dimmerSprite);
+};
+
+Weather.prototype._updateDimmer = function() {
+    if (Aries.P003_WCT.ScreenTintOn) {
+        this._dimmerSprite.opacity = Math.floor(this.power * 6);
+    }
+    else {
+        this._dimmerSprite.opacity = 0;
     }
 };
