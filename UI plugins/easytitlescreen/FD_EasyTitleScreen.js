@@ -807,24 +807,28 @@
 * @param toggle
 * @type boolean
 * @desc Whether the color background is turned on or not.
+* @default false
 * 
 * @param red
 * @type number
 * @min 0
 * @max 255
 * @desc Red value
+* @default 0
 *
 * @param green
 * @type number
 * @min 0
 * @max 255
 * @desc Green value
+* @default 0
 * 
 * @param blue
 * @type number
 * @min 0
 * @max 255
 * @desc Blue value
+* @default 0
 *
 */
 /*~struct~AnimatedBG:
@@ -840,16 +844,19 @@
 * @text Framerate
 * @type number
 * @desc Number of in-game frames between each frame switch.
+* @default 45
 * 
 * @param framecount
 * @text Frame Count
 * @type number
 * @desc How many frames are in the image
+* @default 1
 * 
 * @param pattern
 * @text Frame pattern
 * @type number[]
 * @desc Order of frames (count from 0 to total number of frames - 1)
+* @default [0]
 *
 */
 /*~struct~ScrollingBG:
@@ -865,11 +872,13 @@
 * @text Horizontal Speed
 * @type number
 * @desc Horizontal scroll speed for the scrolling parallax background.
+* @default 0
 * 
 * @param yspeed
 * @text Vertical Speed
 * @type number
 * @desc Vertical scroll speed for the scrolling parallax background.
+* @default 0
 *
 */
 /*~struct~StillBG:
@@ -895,26 +904,31 @@
 * @text Image File Width
 * @type number
 * @desc The width of the image file.
+* @default 1
 * 
 * @param height
 * @text Image File Height
 * @type number
 * @desc The height of the image file.
+* @default 1
 * 
 * @param framecount
 * @text Frame Count
 * @type number
 * @desc The number of frames in the character's image sheet.
+* @default 1
 * 
 * @param framerate
 * @text Framerate
 * @type number
 * @desc Number of in-game frames between each frame switch
+* @default 45
 * 
 * @param pattern
 * @text Frame pattern
 * @type number[]
 * @desc Order of frames (count from 0 to total number of frames - 1)
+* @default ["0"]
 *
 */
 /*~struct~ObjectEX:
@@ -930,31 +944,37 @@
 * @text Image File Width
 * @type number
 * @desc The width of the image file.
+* @default 1
 * 
 * @param height
 * @text Image File Height
 * @type number
 * @desc The height of the image file.
+* @default 1
 * 
 * @param framecount
 * @text Frame Count
 * @type number
 * @desc The number of frames in the character's image sheet.
+* @default 1
 * 
 * @param framerate
 * @text Framerate
 * @type number
 * @desc Number of in-game frames between each frame switch
+* @default 45
 * 
 * @param pattern
 * @text Frame pattern
 * @type number[]
 * @desc Order of frames (count from 0 to total number of frames - 1)
+* @default ["0"]
 * 
 * @param xpos
 * @text Horizontal shift
 * @type number
 * @desc The horizontal offset in pixels from the center of the screen
+* @default 0
 * 
 * @param direction
 * @text Shift direction
@@ -962,6 +982,7 @@
 * @on LEFT
 * @off RIGHT
 * @desc The direction of the horizontal offset
+* @default false
 * 
 * @param ypos
 * @text Vertical position
@@ -969,6 +990,7 @@
 * @min 0
 * @max 440
 * @desc Number of pixels from initial position that the title is shifted downward
+* @default 0
 */
 /*~struct~ObjectGlitch:
 * @param glitchtoggle
@@ -988,6 +1010,7 @@
 * @text Frequency
 * @type number
 * @desc How many frames between each glitch.
+* @default 240
 */
 /*~struct~Title:
  * @param image
@@ -1189,7 +1212,7 @@ Title.Screen1.CustomTitle.pattern = JSON.parse(Title.Screen1.CustomTitle.pattern
 Title.Screen1.CustomTitle.direction = eval(Title.Screen1.CustomTitle.direction)
 if (Title.Screen1.CustomTitle.direction) Title.Screen1.CustomTitle.direction = -1
 Title.Screen1.CustomTitle.xpos = Number(Title.Screen1.CustomTitle.xpos) * Title.Screen1.CustomTitle.direction
-Title.Default.CustomTitle.ypos = Number(Title.Screen1.CustomTitle.ypos)
+Title.Screen1.CustomTitle.ypos = Number(Title.Screen1.CustomTitle.ypos)
 
 Title.Screen1.BGM = JSON.parse(Title.Param["screen444bgm"])
 Title.Screen1.BGM.volume = Number(Title.Screen1.BGM.volume)
