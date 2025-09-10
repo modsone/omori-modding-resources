@@ -1,49 +1,108 @@
 //=============================================================================
-// ★ FD_EasyTitleScreen ★                                        1.0.0
+// ★ FD_EasyTitleScreen ★                                        1.1.3
 //=============================================================================
 /*:
- * @plugindesc v1.0.0 An easy title screen for modders who dont wanna deal with JS.
+ * @plugindesc v1.1.3 An easy title screen for modders who dont wanna deal with JS.
  * @author FruitDragon
+ * @version 1.1.3
  * 
  * @help
- * ★ FD_EasyTitleScreen ★                                        1.0.0
+ * ★ FD_EasyTitleScreen ★                                        1.1.3
  * --------------------------------------------------------------------------
  * This plugin completely overwrites the base Omori Title Screen plugin.
- * It is compatible with Badges and other plugins that edit the button placements.
- * This plugin does not alter those.
+ * It is compatible with Badges and other plugins that edit the button 
+ * placements. This plugin does not alter those.
  * 
  * Use plugin parameters. Do not edit the plugin.
  * 
  * All images associated with background must go in the img/parallaxes folder.
- * All images associated with characters/title components must go in img/pictures.
+ * All images associated with characters/title pieces must go in img/pictures.
  * 
- * Defaults are set to base OMORI title screens. You can change the switches that
- * are used for the title screen. You can also use the script to force write to file.
+ * Defaults are set to base OMORI title screens. You can change the switches 
+ * that are used for the title screen. You can also use the script to force 
+ * write to file. Note: saving afterwards will overwite this. You need to
+ * manually quit the game.
  * 
  * DataManager.forceWriteToFile(SWITCH NUM)
  * 
- * Order of priority for switches is the higher number screen overwrites the lower 
- * number screens. This means if the switch for Screens 5 and 6 are on, the switch 
- * for Screen 6 will overwrite the switch for Screen 5, making 6 the title screen
- * that will be used upon loading the game.
+ * Order of priority for switches is the higher number screen overwrites the 
+ * lower number screens. This means if the switch for Screens 5 and 6 are on, 
+ * the switch for Screen 6 will overwrite the switch for Screen 5, making 6 
+ * the title screen that will be used upon loading the game.
  * 
- * This plugin comes with a folder of images. This is the base game atlas cut up
- * into pieces. These pieces must be placed in the img/pictures folder.
+ * This plugin comes with a folder of images. This is the base game atlas 
+ * cut up into pieces. These pieces must be placed in the img/pictures folder.
  * 
- * If using the glitch function, the image must be the same dimensions and have
- * the same number of frames as the initial defined character. 
+ * If using the glitch function, the image must be the same dimensions and 
+ * have the same number of frames as the initial defined character. 
  * 
  * You can also choose to disable the character entirely, or disable parts or 
  * all of the title entirely.
  * 
- * For more questions, please reach out to FruitDragon. For requests for more 
- * customizability, why.
+ * For more questions, please reach out to FruitDragon. Also please report any
+ * bugs to FruitDragon. 
+ * 
+ * For requests for more customizability, why.
+ * 
+ * 
+ * --------------------------------------------------------------------------
+ * FAQ
+ * --------------------------------------------------------------------------
+ * 
+ * Q: My custom title/character/etc isn't showing up. What do I do?
+ * A: There could be a few reasons for this. 
+ *    1. Make sure that the horizontal or vertical shift isn't sending it 
+ *       off screen.
+ *    2. Make sure that the frame pattern is defined. It should be [0] 
+ *       if there is no animation.
+ *    3. Make sure no values are not defined, such as image width, height, 
+ *       or shift.
+ *    4. Make sure that the width and height of the image are correct.
+ * 
+ * 
+ * 
+ * Q: What if I need more than 7 possible title screens?
+ * A: You'll need to copy and paste some portions of code. Please
+ *    reach out to FruitDragon on the Modding Hub Discord Server so I can
+ *    walk you through it. You can find the link on the Mods.one page.
+ *    
+ *    If you end up needing more, it's always recommended to write
+ *    down all the plugin parameters you've inputted before updating
+ *    the plugin, as there's a chance your changes can get overwritten.
+ * 
+ * 
+ * 
+ * Q: Does image width mean the whole image with all frames included, or
+ *    the width of just one frame?
+ * A: It means the width of the whole image. The plugin automatically
+ *    calculates individual frame widths based on the width of the image
+ *    and the number of frames. 
+ * 
+ * 
+ * 
+ * Q: How do I format my animations?
+ * A: Always format them with all frames in one (1) row.
+ * 
  * 
  * --------------------------------------------------------------------------
  * Changelog
  * --------------------------------------------------------------------------
  * v1.0.0
  * Initial release
+ * 
+ * v1.1.0
+ * Updated switch file writing to work automatically.
+ * 
+ * v1.1.1
+ * Fixed bugs
+ * 
+ * v1.1.2
+ * Fixed bugs
+ * 
+ * v1.1.3
+ * Added QA section, updated default parameters 
+ * 
+ * --------------------------------------------------------------------------
  * 
  * 
  * @param Applied to All
@@ -112,31 +171,27 @@
  * @text Scrolling BG
  * @parent defaultbg
  * @type struct<ScrollingBG>
- * @default {"image":"","xspeed":"0","yspeed":"0"}
  * 
  * @param defaultstillbg
  * @text Still BG
  * @parent defaultbg
  * @type struct<StillBG>
- * @default {"image":""}
  * 
  * @param defaultanimatedbg
  * @text Animated BG
  * @parent defaultbg
  * @type struct<AnimatedBG>
- * @default {"image":"","framerate":"45","framecount":"3","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param defaultcharacter
  * @text Character
  * @parent defaultobjects
- * @type struct<Object>
+ * @type struct<ObjectCharacter>
  * @default {"image":"OMO_WS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param defaultcharacterglitch
  * @text Glitch Character
  * @parent defaultobjects
  * @type struct<ObjectGlitch>
- * @default {"glitchtoggle":"false","image":"","frequency":""}
  * 
  * @param defaulttitle
  * @text Title Toggle
@@ -166,7 +221,6 @@
  * @text Custom Title
  * @parent defaultobjects
  * @type struct<ObjectEX>
- * @default {"image":"","width":"","height":"","framecount":"","framerate":"","pattern":"[]","xpos":"","direction":"","ypos":""}
  * 
  * @param defaultbgm
  * @text BGM
@@ -178,7 +232,6 @@
  * @text BGS
  * @parent defaultaudio
  * @type struct<AudioBGS>
- * @default {"bgs":"","volume":"100","pitch":"100"}
  * 
  * @param SCREEN 1: Black Space
  * @default
@@ -215,31 +268,27 @@
  * @text Scrolling BG
  * @parent screen444bg
  * @type struct<ScrollingBG>
- * @default {"image":"","xspeed":"0","yspeed":"0"}
  * 
  * @param screen444stillbg
  * @text Still BG
  * @parent screen444bg
  * @type struct<StillBG>
- * @default {"image":""}
  * 
  * @param screen444animatedbg
  * @text Animated BG
  * @parent screen444bg
  * @type struct<AnimatedBG>
- * @default {"image":"","framerate":"45","framecount":"3","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen444character
  * @text Character
  * @parent screen444objects
- * @type struct<Object>
+ * @type struct<ObjectCharacter>
  * @default {"image":"OMO_BS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen444characterglitch
  * @text Glitch Character
  * @parent screen444objects
  * @type struct<ObjectGlitch>
- * @default {"glitchtoggle":"false","image":"","frequency":""}
  * 
  * @param screen444title
  * @text Title Toggle
@@ -269,7 +318,6 @@
  * @text Custom Title
  * @parent screen444objects
  * @type struct<ObjectEX>
- * @default {"image":"","width":"","height":"","framecount":"","framerate":"","pattern":"[]","xpos":"","direction":"","ypos":""}
  * 
  * @param screen444bgm
  * @text BGM
@@ -281,7 +329,6 @@
  * @text BGS
  * @parent screen444audio
  * @type struct<AudioBGS>
- * @default {"bgs":"","volume":"100","pitch":"100"}
  * 
  * 
  * @param SCREEN 2: Red Space
@@ -325,18 +372,16 @@
  * @text Still BG
  * @parent screen445bg
  * @type struct<StillBG>
- * @default {"image":""}
  * 
  * @param screen445animatedbg
  * @text Animated BG
  * @parent screen445bg
  * @type struct<AnimatedBG>
- * @default {"image":"","framerate":"45","framecount":"3","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen445character
  * @text Character
  * @parent screen445objects
- * @type struct<Object>
+ * @type struct<ObjectCharacter>
  * @default {"image":"OMO_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen445characterglitch
@@ -373,7 +418,6 @@
  * @text Custom Title
  * @parent screen445objects
  * @type struct<ObjectEX>
- * @default {"image":"","width":"","height":"","framecount":"","framerate":"","pattern":"[]","xpos":"","direction":"","ypos":""}
  * 
  * @param screen445bgm
  * @text BGM
@@ -423,31 +467,27 @@
  * @text Scrolling BG
  * @parent screen446bg
  * @type struct<ScrollingBG>
- * @default {"image":"","xspeed":"0","yspeed":"0"}
  * 
  * @param screen446stillbg
  * @text Still BG
  * @parent screen446bg
  * @type struct<StillBG>
- * @default {"image":""}
  * 
  * @param screen446animatedbg
  * @text Animated BG
  * @parent screen446bg
  * @type struct<AnimatedBG>
- * @default {"image":"","framerate":"45","framecount":"3","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen446character
  * @text Character
  * @parent screen446objects
- * @type struct<Object>
+ * @type struct<ObjectCharacter>
  * @default {"image":"OMO_WS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen446characterglitch
  * @text Glitch Character
  * @parent screen446objects
  * @type struct<ObjectGlitch>
- * @default {"glitchtoggle":"false","image":"","frequency":""}
  * 
  * @param screen446title
  * @text Title Toggle
@@ -477,7 +517,6 @@
  * @text Custom Title
  * @parent screen446objects
  * @type struct<ObjectEX>
- * @default {"image":"","width":"","height":"","framecount":"","framerate":"","pattern":"[]","xpos":"","direction":"","ypos":""}
  * 
  * @param screen446bgm
  * @text BGM
@@ -489,7 +528,6 @@
  * @text BGS
  * @parent screen446audio
  * @type struct<AudioBGS>
- * @default {"bgs":"","volume":"100","pitch":"100"}
  * 
  * @param SCREEN 4: Faraway
  * @default
@@ -520,7 +558,6 @@
  * @text Solid Color BG
  * @parent screen447bg
  * @type struct<RGB>
- * @default {"toggle":"false","red":"0","green":"0","blue":"0"}
  * 
  * @param screen447scrollingbg
  * @text Scrolling BG
@@ -532,25 +569,22 @@
  * @text Still BG
  * @parent screen447bg
  * @type struct<StillBG>
- * @default {"image":""}
  * 
  * @param screen447animatedbg
  * @text Animated BG
  * @parent screen447bg
  * @type struct<AnimatedBG>
- * @default {"image":"","framerate":"45","framecount":"3","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen447character
  * @text Character
  * @parent screen447objects
- * @type struct<Object>
+ * @type struct<ObjectCharacter>
  * @default {"image":"OMO_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen447characterglitch
  * @text Glitch Character
  * @parent screen447objects
  * @type struct<ObjectGlitch>
- * @default {"glitchtoggle":"false","image":"","frequency":""}
  * 
  * @param screen447title
  * @text Title Toggle
@@ -580,7 +614,6 @@
  * @text Custom Title
  * @parent screen447objects
  * @type struct<ObjectEX>
- * @default {"image":"","width":"","height":"","framecount":"","framerate":"","pattern":"[]","xpos":"","direction":"","ypos":""}
  * 
  * @param screen447bgm
  * @text BGM
@@ -623,7 +656,6 @@
  * @text Solid Color BG
  * @parent screen448bg
  * @type struct<RGB>
- * @default {"toggle":"false","red":"0","green":"0","blue":"0"}
  * 
  * @param screen448scrollingbg
  * @text Scrolling BG
@@ -635,25 +667,21 @@
  * @text Still BG
  * @parent screen448bg
  * @type struct<StillBG>
- * @default {"image":""}
  * 
  * @param screen448animatedbg
  * @text Animated BG
  * @parent screen448bg
  * @type struct<AnimatedBG>
- * @default {"image":"","framerate":"45","framecount":"3","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen448character
  * @text Character
  * @parent screen448objects
- * @type struct<Object>
- * @default {"image":"","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
+ * @type struct<ObjectCharacter>
  * 
  * @param screen448characterglitch
  * @text Glitch Character
  * @parent screen448objects
  * @type struct<ObjectGlitch>
- * @default {"glitchtoggle":"false","image":"","frequency":""}
  * 
  * @param screen448title
  * @text Title Toggle
@@ -683,7 +711,6 @@
  * @text Custom Title
  * @parent screen448objects
  * @type struct<ObjectEX>
- * @default {"image":"","width":"","height":"","framecount":"","framerate":"","pattern":"[]","xpos":"","direction":"","ypos":""}
  * 
  * @param screen448bgm
  * @text BGM
@@ -695,7 +722,6 @@
  * @text BGS
  * @parent screen448audio
  * @type struct<AudioBGS>
- * @default {"bgs":"","volume":"100","pitch":"100"}
  * 
  * @param SCREEN 6: Good End
  * @default
@@ -726,7 +752,6 @@
  * @text Solid Color BG
  * @parent screen449bg
  * @type struct<RGB>
- * @default {"toggle":"false","red":"0","green":"0","blue":"0"}
  * 
  * @param screen449scrollingbg
  * @text Scrolling BG
@@ -738,25 +763,22 @@
  * @text Still BG
  * @parent screen449bg
  * @type struct<StillBG>
- * @default {"image":""}
  * 
  * @param screen449animatedbg
  * @text Animated BG
  * @parent screen449bg
  * @type struct<AnimatedBG>
- * @default {"image":"","framerate":"45","framecount":"3","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen449character
  * @text Character
  * @parent screen449objects
- * @type struct<Object>
+ * @type struct<ObjectCharacter>
  * @default {"image":"OMO_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen449characterglitch
  * @text Glitch Character
  * @parent screen449objects
  * @type struct<ObjectGlitch>
- * @default {"glitchtoggle":"false","image":"","frequency":""}
  * 
  * @param screen449title
  * @text Title Toggle
@@ -786,7 +808,6 @@
  * @text Custom Title
  * @parent screen449objects
  * @type struct<ObjectEX>
- * @default {"image":"","width":"","height":"","framecount":"","framerate":"","pattern":"[]","xpos":"","direction":"","ypos":""}
  * 
  * @param screen449bgm
  * @text BGM
@@ -850,13 +871,13 @@
 * @text Frame Count
 * @type number
 * @desc How many frames are in the image
-* @default 1
+* @default 3
 * 
 * @param pattern
 * @text Frame pattern
 * @type number[]
 * @desc Order of frames (count from 0 to total number of frames - 1)
-* @default [0]
+* @default ["0","1","2"]
 *
 */
 /*~struct~ScrollingBG:
@@ -931,6 +952,46 @@
 * @default ["0"]
 *
 */
+/*~struct~ObjectCharacter:
+* @param image
+* @type file
+* @text Image
+* @dir img/pictures/
+* @desc Image file used for the character.
+* Image goes in img/pictures/. Dimensions under 640x480 per frame.
+* Leave empty for no character. Animation frames arranged horizontally.
+* 
+* @param width
+* @text Image File Width
+* @type number
+* @desc The width of the image file.
+* @default 918
+* 
+* @param height
+* @text Image File Height
+* @type number
+* @desc The height of the image file.
+* @default 351
+* 
+* @param framecount
+* @text Frame Count
+* @type number
+* @desc The number of frames in the character's image sheet.
+* @default 3
+* 
+* @param framerate
+* @text Framerate
+* @type number
+* @desc Number of in-game frames between each frame switch
+* @default 20
+* 
+* @param pattern
+* @text Frame pattern
+* @type number[]
+* @desc Order of frames (count from 0 to total number of frames - 1)
+* @default ["0","1","2"]
+*
+*/
 /*~struct~ObjectEX:
 * @param image
 * @type file
@@ -997,6 +1058,7 @@
 * @text Glitch Animation Toggle
 * @type boolean
 * @desc Whether the character has the Red Space glitch animation.
+* @default false
 * 
 * @param image
 * @type file
