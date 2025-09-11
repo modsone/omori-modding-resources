@@ -1,13 +1,13 @@
 //=============================================================================
-// ★ FD_EasyTitleScreen ★                                        1.1.3
+// ★ FD_EasyTitleScreen ★                                        1.2.0
 //=============================================================================
 /*:
- * @plugindesc v1.1.3 An easy title screen for modders who dont wanna deal with JS.
+ * @plugindesc v1.2.0 An easy title screen for modders who dont wanna deal with JS.
  * @author FruitDragon
- * @version 1.1.3
+ * @version 1.2.0
  * 
  * @help
- * ★ FD_EasyTitleScreen ★                                        1.1.3
+ * ★ FD_EasyTitleScreen ★                                        1.2.0
  * --------------------------------------------------------------------------
  * This plugin completely overwrites the base Omori Title Screen plugin.
  * It is compatible with Badges and other plugins that edit the button 
@@ -84,6 +84,11 @@
  * A: Always format them with all frames in one (1) row.
  * 
  * 
+ * 
+ * Q: Why isn't my title screen working?
+ * A: Check for undefined parameters.
+ * 
+ * 
  * --------------------------------------------------------------------------
  * Changelog
  * --------------------------------------------------------------------------
@@ -101,6 +106,11 @@
  * 
  * v1.1.3
  * Added QA section, updated default parameters 
+ * 
+ * v1.2.0
+ * Added extreme fallback in case of undefined values
+ * Added to QA section
+ * Ported img from OMO_ to OMORI_ to avoid the atlas
  * 
  * --------------------------------------------------------------------------
  * 
@@ -186,7 +196,7 @@
  * @text Character
  * @parent defaultobjects
  * @type struct<ObjectCharacter>
- * @default {"image":"OMO_WS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
+ * @default {"image":"OMORI_WS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param defaultcharacterglitch
  * @text Glitch Character
@@ -203,19 +213,19 @@
  * @text Title Lightbulb
  * @parent defaulttitle
  * @type struct<Title>
- * @default {"image":"OMO_BULB_WS"}
+ * @default {"image":"OMORI_BULB_WS"}
  * 
  * @param defaulttitleglow
  * @text Title Glow
  * @parent defaulttitle
  * @type struct<Object>
- * @default {"image":"OMO_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
+ * @default {"image":"OMORI_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
  * 
  * @param defaulttitletext
  * @text Title Text
  * @parent defaulttitle
  * @type struct<Title>
- * @default {"image":"OMO_TITLE_WS"}
+ * @default {"image":"OMORI_TITLE_WS"}
  * 
  * @param defaultcustomtitle
  * @text Custom Title
@@ -283,7 +293,7 @@
  * @text Character
  * @parent screen444objects
  * @type struct<ObjectCharacter>
- * @default {"image":"OMO_BS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
+ * @default {"image":"OMORI_BS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen444characterglitch
  * @text Glitch Character
@@ -300,19 +310,19 @@
  * @text Title Lightbulb
  * @parent screen444title
  * @type struct<Title>
- * @default {"image":"OMO_BULB_BS"}
+ * @default {"image":"OMORI_BULB_BS"}
  * 
  * @param screen444titleglow
  * @text Title Glow
  * @parent screen444title
  * @type struct<Object>
- * @default {"image":"OMO_BULB_BS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
+ * @default {"image":"OMORI_BULB_BS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
  * 
  * @param screen444titletext
  * @text Title Text
  * @parent screen444title
  * @type struct<Title>
- * @default {"image":"OMO_TITLE_BS"}
+ * @default {"image":"OMORI_TITLE_BS"}
  * 
  * @param screen444customtitle
  * @text Custom Title
@@ -382,13 +392,13 @@
  * @text Character
  * @parent screen445objects
  * @type struct<ObjectCharacter>
- * @default {"image":"OMO_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
+ * @default {"image":"OMORI_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen445characterglitch
  * @text Glitch Character
  * @parent screen445objects
  * @type struct<ObjectGlitch>
- * @default {"glitchtoggle":"true","image":"OMO_WS","frequency":"240"}
+ * @default {"glitchtoggle":"true","image":"OMORI_WS","frequency":"240"}
  * 
  * @param screen445title
  * @text Title Toggle
@@ -400,19 +410,19 @@
  * @text Title Lightbulb
  * @parent screen445title
  * @type struct<Title>
- * @default {"image":"OMO_BULB_BS"}
+ * @default {"image":"OMORI_BULB_BS"}
  * 
  * @param screen445titleglow
  * @text Title Glow
  * @parent screen445title
  * @type struct<Object>
- * @default {"image":"OMO_BULB_BS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
+ * @default {"image":"OMORI_BULB_BS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
  * 
  * @param screen445titletext
  * @text Title Text
  * @parent screen445title
  * @type struct<Title>
- * @default {"image":"OMO_TITLE_BS"}
+ * @default {"image":"OMORI_TITLE_BS"}
  * 
  * @param screen445customtitle
  * @text Custom Title
@@ -482,7 +492,7 @@
  * @text Character
  * @parent screen446objects
  * @type struct<ObjectCharacter>
- * @default {"image":"OMO_WS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
+ * @default {"image":"OMORI_WS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen446characterglitch
  * @text Glitch Character
@@ -499,19 +509,19 @@
  * @text Title Lightbulb
  * @parent screen446title
  * @type struct<Title>
- * @default {"image":"OMO_BULB_WS"}
+ * @default {"image":"OMORI_BULB_WS"}
  * 
  * @param screen446titleglow
  * @text Title Glow
  * @parent screen446title
  * @type struct<Object>
- * @default {"image":"OMO_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
+ * @default {"image":"OMORI_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
  * 
  * @param screen446titletext
  * @text Title Text
  * @parent screen446title
  * @type struct<Title>
- * @default {"image":"OMO_TITLE_WS"}
+ * @default {"image":"OMORI_TITLE_WS"}
  * 
  * @param screen446customtitle
  * @text Custom Title
@@ -579,7 +589,7 @@
  * @text Character
  * @parent screen447objects
  * @type struct<ObjectCharacter>
- * @default {"image":"OMO_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
+ * @default {"image":"OMORI_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen447characterglitch
  * @text Glitch Character
@@ -596,19 +606,19 @@
  * @text Title Lightbulb
  * @parent screen447title
  * @type struct<Title>
- * @default {"image":"OMO_BULB_WS"}
+ * @default {"image":"OMORI_BULB_WS"}
  * 
  * @param screen447titleglow
  * @text Title Glow
  * @parent screen447title
  * @type struct<Object>
- * @default {"image":"OMO_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
+ * @default {"image":"OMORI_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
  * 
  * @param screen447titletext
  * @text Title Text
  * @parent screen447title
  * @type struct<Title>
- * @default {"image":"OMO_TITLE_WS"}
+ * @default {"image":"OMORI_TITLE_WS"}
  * 
  * @param screen447customtitle
  * @text Custom Title
@@ -693,19 +703,19 @@
  * @text Title Lightbulb
  * @parent screen448title
  * @type struct<Title>
- * @default {"image":"OMO_BULB_WS"}
+ * @default {"image":"OMORI_BULB_WS"}
  * 
  * @param screen448titleglow
  * @text Title Glow
  * @parent screen448title
  * @type struct<Object>
- * @default {"image":"OMO_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
+ * @default {"image":"OMORI_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
  * 
  * @param screen448titletext
  * @text Title Text
  * @parent screen448title
  * @type struct<Title>
- * @default {"image":"OMO_TITLE_WS"}
+ * @default {"image":"OMORI_TITLE_WS"}
  * 
  * @param screen448customtitle
  * @text Custom Title
@@ -773,7 +783,7 @@
  * @text Character
  * @parent screen449objects
  * @type struct<ObjectCharacter>
- * @default {"image":"OMO_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
+ * @default {"image":"OMORI_RS","width":"918","height":"351","framecount":"3","framerate":"20","pattern":"[\"0\",\"1\",\"2\"]"}
  * 
  * @param screen449characterglitch
  * @text Glitch Character
@@ -790,19 +800,19 @@
  * @text Title Lightbulb
  * @parent screen449title
  * @type struct<Title>
- * @default {"image":"OMO_BULB_WS"}
+ * @default {"image":"OMORI_BULB_WS"}
  * 
  * @param screen449titleglow
  * @text Title Glow
  * @parent screen449title
  * @type struct<Object>
- * @default {"image":"OMO_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
+ * @default {"image":"OMORI_BULB_WS_LINES","width":"204","height":"150","framecount":"3","framerate":"15","pattern":"[\"0\",\"1\",\"2\",\"1\"]"}
  * 
  * @param screen449titletext
  * @text Title Text
  * @parent screen449title
  * @type struct<Title>
- * @default {"image":"OMO_TITLE_WS"}
+ * @default {"image":"OMORI_TITLE_WS"}
  * 
  * @param screen449customtitle
  * @text Custom Title
@@ -1154,6 +1164,24 @@ Title.AppliedToAll.titleBulbOn = eval(Title.Param["titlelightbulbon"])
 Title.AppliedToAll.titleGlowOn = eval(Title.Param["titleglowon"])
 Title.AppliedToAll.titleTextOn = eval(Title.Param["titletexton"])
 
+FD.EasyTitleScreen.Templates = FD.EasyTitleScreen.Templates || {}
+t = FD.EasyTitleScreen.Templates
+t.ColorBG = {toggle:true,red:0,green:0,blue:0}
+t.ScrollingBG = {image:"",xspeed:0,yspeed:0}
+t.StillBG = {image:""}
+t.AnimatedBG = {image:"",framerate:45,framecount:3,pattern:"[\"0\",\"1\",\"2\"]"}
+t.Character = {image:"",width:918,height:351,framecount:3,framerate:20,pattern:"[\"0\",\"1\",\"2\"]"}
+t.CharacterGlitch = {glitchtoggle:false,image:"",frequency:240}
+t.Title = t.Title || {}
+t.Title.toggle = false
+t.Title.lightbulb = {image:""}
+t.Title.glow = {image:"",width:204,height:150,framecount:3,framerate:15,pattern:"[\"0\",\"1\",\"2\"]"}
+t.Title.text = {image:""}
+t.CustomTitle = {image:"",width:1,height:1,framecount:1,framerate:45,pattern:"[\"0\"]",xpos:0,direction:false,ypos:0}
+t.BGM = {bgm:"",volume:100,pitch:100}
+t.BGS = {bgs:"",volume:100,pitch:100}
+
+
 // =============
 // DEFAULT
 // =============
@@ -1161,46 +1189,46 @@ Title.AppliedToAll.titleTextOn = eval(Title.Param["titletexton"])
 Title.Switches = [0]
 Title.Default.Switch = 100000
 
-Title.Default.ColorBG = JSON.parse(Title.Param["defaultcolorbg"])
+Title.Default.ColorBG = Title.Param["defaultcolorbg"] ? JSON.parse(Title.Param["defaultcolorbg"]) : JSON.parse(JSON.stringify(t.ColorBG));
 Title.Default.ColorBG.toggle = eval(Title.Default.ColorBG["toggle"])
 Title.Default.ColorBG.red = Number(Title.Default.ColorBG["red"])
 Title.Default.ColorBG.green = Number(Title.Default.ColorBG["green"])
 Title.Default.ColorBG.blue = Number(Title.Default.ColorBG["blue"])
 
-Title.Default.ScrollingBG = JSON.parse(Title.Param["defaultscrollingbg"])
+Title.Default.ScrollingBG = Title.Param["defaultscrollingbg"] ? JSON.parse(Title.Param["defaultscrollingbg"]) : JSON.parse(JSON.stringify(t.ScrollingBG));
 Title.Default.ScrollingBG.xspeed = Number(Title.Default.ScrollingBG["xspeed"])
 Title.Default.ScrollingBG.yspeed = Number(Title.Default.ScrollingBG["yspeed"])
 
-Title.Default.StillBG = JSON.parse(Title.Param["defaultstillbg"])
+Title.Default.StillBG = Title.Param["defaultstillbg"] ? JSON.parse(Title.Param["defaultstillbg"]) : JSON.parse(JSON.stringify(t.StillBG));
 
-Title.Default.AnimatedBG = JSON.parse(Title.Param["defaultanimatedbg"])
+Title.Default.AnimatedBG = Title.Param["defaultanimatedbg"] ? JSON.parse(Title.Param["defaultanimatedbg"]) : JSON.parse(JSON.stringify(t.AnimatedBG))
 Title.Default.AnimatedBG.framerate = Number(Title.Default.AnimatedBG.framerate)
 Title.Default.AnimatedBG.framecount = Number(Title.Default.AnimatedBG.framecount)
 Title.Default.AnimatedBG.pattern = JSON.parse(Title.Default.AnimatedBG.pattern).map(Number)
 
-Title.Default.Character = JSON.parse(Title.Param["defaultcharacter"])
+Title.Default.Character = Title.Param["defaultcharacter"] ? JSON.parse(Title.Param["defaultcharacter"]) : JSON.parse(JSON.stringify(t.Character))
 Title.Default.Character.width = Number(Title.Default.Character.width)
 Title.Default.Character.height = Number(Title.Default.Character.height)
 Title.Default.Character.framecount = Number(Title.Default.Character.framecount)
 Title.Default.Character.framerate = Number(Title.Default.Character.framerate)
 Title.Default.Character.pattern = JSON.parse(Title.Default.Character.pattern).map(Number)
 
-Title.Default.CharacterGlitch = JSON.parse(Title.Param["defaultcharacterglitch"])
+Title.Default.CharacterGlitch = Title.Param["defaultcharacterglitch"] ? JSON.parse(Title.Param["defaultcharacterglitch"]) : JSON.parse(JSON.stringify(t.CharacterGlitch))
 Title.Default.CharacterGlitch.glitchtoggle = eval(Title.Default.CharacterGlitch.glitchtoggle)
 Title.Default.CharacterGlitch.frequency = Number(Title.Default.CharacterGlitch.frequency)
 
 Title.Default.Title = Title.Default.Title || {};
-Title.Default.Title.toggle = eval(Title.Param["defaulttitle"])
-Title.Default.Title.lightbulb = JSON.parse(Title.Param["defaulttitlelightbulb"])
-Title.Default.Title.glow = JSON.parse(Title.Param["defaulttitleglow"])
+Title.Default.Title.toggle = Title.Param["defaulttitle"] ? eval(Title.Param["defaulttitle"]) : JSON.parse(JSON.stringify(t.Title.toggle))
+Title.Default.Title.lightbulb = Title.Param["defaulttitlelightbulb"] ? JSON.parse(Title.Param["defaulttitlelightbulb"]) : JSON.parse(JSON.stringify(t.Title.lightbulb))
+Title.Default.Title.glow = Title.Param["defaulttitleglow"] ? JSON.parse(Title.Param["defaulttitleglow"]) : JSON.parse(JSON.stringify(t.Title.glow))
 Title.Default.Title.glow.width = Number(Title.Default.Title.glow.width)
 Title.Default.Title.glow.height = Number(Title.Default.Title.glow.height)
 Title.Default.Title.glow.framecount = Number(Title.Default.Title.glow.framecount)
 Title.Default.Title.glow.framerate = Number(Title.Default.Title.glow.framerate)
 Title.Default.Title.glow.pattern = JSON.parse(Title.Default.Title.glow.pattern).map(Number)
-Title.Default.Title.text = JSON.parse(Title.Param["defaulttitletext"])
+Title.Default.Title.text = Title.Param["defaulttitletext"] ? JSON.parse(Title.Param["defaulttitletext"]) : JSON.parse(JSON.stringify(t.Title.text))
 
-Title.Default.CustomTitle = JSON.parse(Title.Param["defaultcustomtitle"])
+Title.Default.CustomTitle = Title.Param["defaultcustomttitle"] ? JSON.parse(Title.Param["defaultcustomtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
 Title.Default.CustomTitle.width = Number(Title.Default.CustomTitle.width)
 Title.Default.CustomTitle.height = Number(Title.Default.CustomTitle.height)
 Title.Default.CustomTitle.framecount = Number(Title.Default.CustomTitle.framecount)
@@ -1211,11 +1239,11 @@ if (Title.Default.CustomTitle.direction) Title.Default.CustomTitle.direction = -
 Title.Default.CustomTitle.xpos = Number(Title.Default.CustomTitle.xpos) * Title.Default.CustomTitle.direction
 Title.Default.CustomTitle.ypos = Number(Title.Default.CustomTitle.ypos)
 
-Title.Default.BGM = JSON.parse(Title.Param["defaultbgm"])
+Title.Default.BGM = Title.Param["defaultbgm"] ? JSON.parse(Title.Param["defaultbgm"]) : JSON.parse(JSON.stringify(t.BGM))
 Title.Default.BGM.volume = Number(Title.Default.BGM.volume)
 Title.Default.BGM.pitch = Number(Title.Default.BGM.pitch)
 
-Title.Default.BGS = JSON.parse(Title.Param["defaultbgs"])
+Title.Default.BGS = Title.Param["defaultbgs"] ? JSON.parse(Title.Param["defaultbgs"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Default.BGS.volume = Number(Title.Default.BGS.volume)
 Title.Default.BGS.pitch = Number(Title.Default.BGS.pitch)
 
@@ -1223,49 +1251,49 @@ Title.Default.BGS.pitch = Number(Title.Default.BGS.pitch)
 // SCREEN 1
 // =============
 
-Title.Screen1.Switch = Number(Title.Param["screen444switch"])
+Title.Screen1.Switch = Number(Title.Param["screen444switch"]) || 444
 Title.Switches.push(Title.Screen1.Switch)
 
-Title.Screen1.ColorBG = JSON.parse(Title.Param["screen444colorbg"])
+Title.Screen1.ColorBG = Title.Param["screen444colorbg"] ? JSON.parse(Title.Param["screen444colorbg"]) : JSON.parse(JSON.stringify(t.ColorBG))
 Title.Screen1.ColorBG.toggle = eval(Title.Screen1.ColorBG["toggle"])
 Title.Screen1.ColorBG.red = Number(Title.Screen1.ColorBG["red"])
 Title.Screen1.ColorBG.green = Number(Title.Screen1.ColorBG["green"])
 Title.Screen1.ColorBG.blue = Number(Title.Screen1.ColorBG["blue"])
 
-Title.Screen1.ScrollingBG = JSON.parse(Title.Param["screen444scrollingbg"])
+Title.Screen1.ScrollingBG = Title.Param["screen444scrollingbg"] ? JSON.parse(Title.Param["screen444scrollingbg"]) : JSON.parse(JSON.stringify(t.ScrollingBG))
 Title.Screen1.ScrollingBG.xspeed = Number(Title.Screen1.ScrollingBG["xspeed"])
 Title.Screen1.ScrollingBG.yspeed = Number(Title.Screen1.ScrollingBG["yspeed"])
 
-Title.Screen1.StillBG = JSON.parse(Title.Param["screen444stillbg"])
+Title.Screen1.StillBG = Title.Param["screen444stillbg"] ? JSON.parse(Title.Param["screen444stillbg"]) : JSON.parse(JSON.stringify(t.StillBG))
 
-Title.Screen1.AnimatedBG = JSON.parse(Title.Param["screen444animatedbg"])
+Title.Screen1.AnimatedBG = Title.Param["screen444animatedbg"] ? JSON.parse(Title.Param["screen444animatedbg"]) : JSON.parse(JSON.stringify(t.AnimatedBG))
 Title.Screen1.AnimatedBG.framerate = Number(Title.Screen1.AnimatedBG.framerate)
 Title.Screen1.AnimatedBG.framecount = Number(Title.Screen1.AnimatedBG.framecount)
 Title.Screen1.AnimatedBG.pattern = JSON.parse(Title.Screen1.AnimatedBG.pattern).map(Number)
 
-Title.Screen1.Character = JSON.parse(Title.Param["screen444character"])
+Title.Screen1.Character = Title.Param["screen444character"] ? JSON.parse(Title.Param["screen444character"]) : JSON.parse(JSON.stringify(t.Character))
 Title.Screen1.Character.width = Number(Title.Screen1.Character.width)
 Title.Screen1.Character.height = Number(Title.Screen1.Character.height)
 Title.Screen1.Character.framecount = Number(Title.Screen1.Character.framecount)
 Title.Screen1.Character.framerate = Number(Title.Screen1.Character.framerate)
 Title.Screen1.Character.pattern = JSON.parse(Title.Screen1.Character.pattern).map(Number)
 
-Title.Screen1.CharacterGlitch = JSON.parse(Title.Param["screen444characterglitch"])
+Title.Screen1.CharacterGlitch = Title.Param["screen444characterglitch"] ? JSON.parse(Title.Param["screen444characterglitch"]) : JSON.parse(JSON.stringify(t.CharacterGlitch))
 Title.Screen1.CharacterGlitch.glitchtoggle = eval(Title.Screen1.CharacterGlitch.glitchtoggle)
 Title.Screen1.CharacterGlitch.frequency = Number(Title.Screen1.CharacterGlitch.frequency)
 
 Title.Screen1.Title = Title.Screen1.Title || {};
-Title.Screen1.Title.toggle = eval(Title.Param["screen444title"])
-Title.Screen1.Title.lightbulb = JSON.parse(Title.Param["screen444titlelightbulb"])
-Title.Screen1.Title.glow = JSON.parse(Title.Param["screen444titleglow"])
+Title.Screen1.Title.toggle = Title.Param["screen444title"] ? eval(Title.Param["screen444title"]) : JSON.parse(JSON.stringify(t.Title.toggle))
+Title.Screen1.Title.lightbulb = Title.Param["screen444titlelightbulb"] ? JSON.parse(Title.Param["screen444titlelightbulb"]) : JSON.parse(JSON.stringify(t.Title.lightbulb))
+Title.Screen1.Title.glow = Title.Param["screen444titleglow"] ? JSON.parse(Title.Param["screen444titleglow"]) : JSON.parse(JSON.stringify(t.Title.glow))
 Title.Screen1.Title.glow.width = Number(Title.Screen1.Title.glow.width)
 Title.Screen1.Title.glow.height = Number(Title.Screen1.Title.glow.height)
 Title.Screen1.Title.glow.framecount = Number(Title.Screen1.Title.glow.framecount)
 Title.Screen1.Title.glow.framerate = Number(Title.Screen1.Title.glow.framerate)
 Title.Screen1.Title.glow.pattern = JSON.parse(Title.Screen1.Title.glow.pattern).map(Number)
-Title.Screen1.Title.text = JSON.parse(Title.Param["screen444titletext"])
+Title.Screen1.Title.text = Title.Param["screen444titletext"] ? JSON.parse(Title.Param["screen444titletext"]) : JSON.parse(JSON.stringify(t.Title.text))
 
-Title.Screen1.CustomTitle = JSON.parse(Title.Param["screen444customtitle"])
+Title.Screen1.CustomTitle = Title.Param["screen444customtitle"] ? JSON.parse(Title.Param["screen444customtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
 Title.Screen1.CustomTitle.width = Number(Title.Screen1.CustomTitle.width)
 Title.Screen1.CustomTitle.height = Number(Title.Screen1.CustomTitle.height)
 Title.Screen1.CustomTitle.framecount = Number(Title.Screen1.CustomTitle.framecount)
@@ -1276,11 +1304,11 @@ if (Title.Screen1.CustomTitle.direction) Title.Screen1.CustomTitle.direction = -
 Title.Screen1.CustomTitle.xpos = Number(Title.Screen1.CustomTitle.xpos) * Title.Screen1.CustomTitle.direction
 Title.Screen1.CustomTitle.ypos = Number(Title.Screen1.CustomTitle.ypos)
 
-Title.Screen1.BGM = JSON.parse(Title.Param["screen444bgm"])
+Title.Screen1.BGM = Title.Param["screen444bgm"] ? JSON.parse(Title.Param["screen444bgm"]) : JSON.parse(JSON.stringify(t.BGM))
 Title.Screen1.BGM.volume = Number(Title.Screen1.BGM.volume)
 Title.Screen1.BGM.pitch = Number(Title.Screen1.BGM.pitch)
 
-Title.Screen1.BGS = JSON.parse(Title.Param["screen444bgs"])
+Title.Screen1.BGS = Title.Param["screen444bgs"] ? JSON.parse(Title.Param["screen444bgs"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen1.BGS.volume = Number(Title.Screen1.BGS.volume)
 Title.Screen1.BGS.pitch = Number(Title.Screen1.BGS.pitch)
 
@@ -1288,49 +1316,49 @@ Title.Screen1.BGS.pitch = Number(Title.Screen1.BGS.pitch)
 // SCREEN 2
 // =============
 
-Title.Screen2.Switch = Number(Title.Param["screen445switch"])
+Title.Screen2.Switch = Number(Title.Param["screen445switch"]) || 445
 Title.Switches.push(Title.Screen2.Switch)
 
-Title.Screen2.ColorBG = JSON.parse(Title.Param["screen445colorbg"])
+Title.Screen2.ColorBG = Title.Param["screen445colorbg"] ? JSON.parse(Title.Param["screen445colorbg"]) : JSON.parse(JSON.stringify(t.ColorBG))
 Title.Screen2.ColorBG.toggle = eval(Title.Screen2.ColorBG["toggle"])
 Title.Screen2.ColorBG.red = Number(Title.Screen2.ColorBG["red"])
 Title.Screen2.ColorBG.green = Number(Title.Screen2.ColorBG["green"])
 Title.Screen2.ColorBG.blue = Number(Title.Screen2.ColorBG["blue"])
 
-Title.Screen2.ScrollingBG = JSON.parse(Title.Param["screen445scrollingbg"])
+Title.Screen2.ScrollingBG = Title.Param["screen445scrollingbg"] ? JSON.parse(Title.Param["screen445scrollingbg"]) : JSON.parse(JSON.stringify(t.ScrollingBG))
 Title.Screen2.ScrollingBG.xspeed = Number(Title.Screen2.ScrollingBG["xspeed"])
 Title.Screen2.ScrollingBG.yspeed = Number(Title.Screen2.ScrollingBG["yspeed"])
 
-Title.Screen2.StillBG = JSON.parse(Title.Param["screen445stillbg"])
+Title.Screen2.StillBG = Title.Param["screen445stillbg"] ? JSON.parse(Title.Param["screen445stillbg"]) : JSON.parse(JSON.stringify(t.StillBG))
 
-Title.Screen2.AnimatedBG = JSON.parse(Title.Param["screen445animatedbg"])
+Title.Screen2.AnimatedBG = Title.Param["screen445animatedbg"] ? JSON.parse(Title.Param["screen445animatedbg"]) : JSON.parse(JSON.stringify(t.AnimatedBG))
 Title.Screen2.AnimatedBG.framerate = Number(Title.Screen2.AnimatedBG.framerate)
 Title.Screen2.AnimatedBG.framecount = Number(Title.Screen2.AnimatedBG.framecount)
 Title.Screen2.AnimatedBG.pattern = JSON.parse(Title.Screen2.AnimatedBG.pattern).map(Number)
 
-Title.Screen2.Character = JSON.parse(Title.Param["screen445character"])
+Title.Screen2.Character = Title.Param["screen445character"] ? JSON.parse(Title.Param["screen445character"]) : JSON.parse(JSON.stringify(t.Character))
 Title.Screen2.Character.width = Number(Title.Screen2.Character.width)
 Title.Screen2.Character.height = Number(Title.Screen2.Character.height)
 Title.Screen2.Character.framecount = Number(Title.Screen2.Character.framecount)
 Title.Screen2.Character.framerate = Number(Title.Screen2.Character.framerate)
 Title.Screen2.Character.pattern = JSON.parse(Title.Screen2.Character.pattern).map(Number)
 
-Title.Screen2.CharacterGlitch = JSON.parse(Title.Param["screen445characterglitch"])
+Title.Screen2.CharacterGlitch = Title.Param["screen445characterglitch"] ? JSON.parse(Title.Param["screen445characterglitch"]) : JSON.parse(JSON.stringify(t.CharacterGlitch))
 Title.Screen2.CharacterGlitch.glitchtoggle = eval(Title.Screen2.CharacterGlitch.glitchtoggle)
 Title.Screen2.CharacterGlitch.frequency = Number(Title.Screen2.CharacterGlitch.frequency)
 
 Title.Screen2.Title = Title.Screen2.Title || {};
-Title.Screen2.Title.toggle = eval(Title.Param["screen445title"])
-Title.Screen2.Title.lightbulb = JSON.parse(Title.Param["screen445titlelightbulb"])
-Title.Screen2.Title.glow = JSON.parse(Title.Param["screen445titleglow"])
+Title.Screen2.Title.toggle = Title.Param["screen445title"] ? eval(Title.Param["screen445title"]) : JSON.parse(JSON.stringify(t.Title.toggle))
+Title.Screen2.Title.lightbulb = Title.Param["screen445titlelightbulb"] ? JSON.parse(Title.Param["screen445titlelightbulb"]) : JSON.parse(JSON.stringify(t.Title.lightbulb))
+Title.Screen2.Title.glow = Title.Param["screen445titleglow"] ? JSON.parse(Title.Param["screen445titleglow"]) : JSON.parse(JSON.stringify(t.Title.glow))
 Title.Screen2.Title.glow.width = Number(Title.Screen2.Title.glow.width)
 Title.Screen2.Title.glow.height = Number(Title.Screen2.Title.glow.height)
 Title.Screen2.Title.glow.framecount = Number(Title.Screen2.Title.glow.framecount)
 Title.Screen2.Title.glow.framerate = Number(Title.Screen2.Title.glow.framerate)
 Title.Screen2.Title.glow.pattern = JSON.parse(Title.Screen2.Title.glow.pattern).map(Number)
-Title.Screen2.Title.text = JSON.parse(Title.Param["screen445titletext"])
+Title.Screen2.Title.text = Title.Param["screen445titletext"] ? JSON.parse(Title.Param["screen445titletext"]) : JSON.parse(JSON.stringify(t.Title.text))
 
-Title.Screen2.CustomTitle = JSON.parse(Title.Param["screen445customtitle"])
+Title.Screen2.CustomTitle = Title.Param["screen445customtitle"] ? JSON.parse(Title.Param["screen445customtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
 Title.Screen2.CustomTitle.width = Number(Title.Screen2.CustomTitle.width)
 Title.Screen2.CustomTitle.height = Number(Title.Screen2.CustomTitle.height)
 Title.Screen2.CustomTitle.framecount = Number(Title.Screen2.CustomTitle.framecount)
@@ -1341,11 +1369,11 @@ if (Title.Screen2.CustomTitle.direction) Title.Screen2.CustomTitle.direction = -
 Title.Screen2.CustomTitle.xpos = Number(Title.Screen2.CustomTitle.xpos) * Title.Screen2.CustomTitle.direction
 Title.Screen2.CustomTitle.ypos = Number(Title.Screen2.CustomTitle.ypos)
 
-Title.Screen2.BGM = JSON.parse(Title.Param["screen445bgm"])
+Title.Screen2.BGM = Title.Param["screen445bgm"] ? JSON.parse(Title.Param["screen445bgm"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen2.BGM.volume = Number(Title.Screen2.BGM.volume)
 Title.Screen2.BGM.pitch = Number(Title.Screen2.BGM.pitch)
 
-Title.Screen2.BGS = JSON.parse(Title.Param["screen445bgs"])
+Title.Screen2.BGS = Title.Param["screen445bgs"] ? JSON.parse(Title.Param["screen445bgs"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen2.BGS.volume = Number(Title.Screen2.BGS.volume)
 Title.Screen2.BGS.pitch = Number(Title.Screen2.BGS.pitch)
 
@@ -1353,49 +1381,49 @@ Title.Screen2.BGS.pitch = Number(Title.Screen2.BGS.pitch)
 // SCREEN 3
 // =============
 
-Title.Screen3.Switch = Number(Title.Param["screen446switch"])
+Title.Screen3.Switch = Number(Title.Param["screen446switch"]) || 446
 Title.Switches.push(Title.Screen3.Switch)
 
-Title.Screen3.ColorBG = JSON.parse(Title.Param["screen446colorbg"])
+Title.Screen3.ColorBG = Title.Param["screen446colorbg"] ? JSON.parse(Title.Param["screen446colorbg"]) : JSON.parse(JSON.stringify(t.ColorBG))
 Title.Screen3.ColorBG.toggle = eval(Title.Screen3.ColorBG["toggle"])
 Title.Screen3.ColorBG.red = Number(Title.Screen3.ColorBG["red"])
 Title.Screen3.ColorBG.green = Number(Title.Screen3.ColorBG["green"])
 Title.Screen3.ColorBG.blue = Number(Title.Screen3.ColorBG["blue"])
 
-Title.Screen3.ScrollingBG = JSON.parse(Title.Param["screen446scrollingbg"])
+Title.Screen3.ScrollingBG = Title.Param["screen446scrollingbg"] ? JSON.parse(Title.Param["screen446scrollingbg"]) : JSON.parse(JSON.stringify(t.ScrollingBG))
 Title.Screen3.ScrollingBG.xspeed = Number(Title.Screen3.ScrollingBG["xspeed"])
 Title.Screen3.ScrollingBG.yspeed = Number(Title.Screen3.ScrollingBG["yspeed"])
 
-Title.Screen3.StillBG = JSON.parse(Title.Param["screen446stillbg"])
+Title.Screen3.StillBG = Title.Param["screen446stillbg"] ? JSON.parse(Title.Param["screen446stillbg"]) : JSON.parse(JSON.stringify(t.StillBG))
 
-Title.Screen3.AnimatedBG = JSON.parse(Title.Param["screen446animatedbg"])
+Title.Screen3.AnimatedBG = Title.Param["screen446animatedbg"] ? JSON.parse(Title.Param["screen446animatedbg"]) : JSON.parse(JSON.stringify(t.AnimatedBG))
 Title.Screen3.AnimatedBG.framerate = Number(Title.Screen3.AnimatedBG.framerate)
 Title.Screen3.AnimatedBG.framecount = Number(Title.Screen3.AnimatedBG.framecount)
 Title.Screen3.AnimatedBG.pattern = JSON.parse(Title.Screen3.AnimatedBG.pattern).map(Number)
 
-Title.Screen3.Character = JSON.parse(Title.Param["screen446character"])
+Title.Screen3.Character = Title.Param["screen446character"] ? JSON.parse(Title.Param["screen446character"]) : JSON.parse(JSON.stringify(t.Character))
 Title.Screen3.Character.width = Number(Title.Screen3.Character.width)
 Title.Screen3.Character.height = Number(Title.Screen3.Character.height)
 Title.Screen3.Character.framecount = Number(Title.Screen3.Character.framecount)
 Title.Screen3.Character.framerate = Number(Title.Screen3.Character.framerate)
 Title.Screen3.Character.pattern = JSON.parse(Title.Screen3.Character.pattern).map(Number)
 
-Title.Screen3.CharacterGlitch = JSON.parse(Title.Param["screen446characterglitch"])
+Title.Screen3.CharacterGlitch = Title.Param["screen446characterglitch"] ? JSON.parse(Title.Param["screen446characterglitch"]) : JSON.parse(JSON.stringify(t.CharacterGlitch))
 Title.Screen3.CharacterGlitch.glitchtoggle = eval(Title.Screen3.CharacterGlitch.glitchtoggle)
 Title.Screen3.CharacterGlitch.frequency = Number(Title.Screen3.CharacterGlitch.frequency)
 
 Title.Screen3.Title = Title.Screen3.Title || {};
-Title.Screen3.Title.toggle = eval(Title.Param["screen446title"])
-Title.Screen3.Title.lightbulb = JSON.parse(Title.Param["screen446titlelightbulb"])
-Title.Screen3.Title.glow = JSON.parse(Title.Param["screen446titleglow"])
+Title.Screen3.Title.toggle = Title.Param["screen446title"] ? eval(Title.Param["screen446title"]) : JSON.parse(JSON.stringify(t.Title.toggle))
+Title.Screen3.Title.lightbulb = Title.Param["screen446titlelightbulb"] ? JSON.parse(Title.Param["screen446titlelightbulb"]) : JSON.parse(JSON.stringify(t.Title.lightbulb))
+Title.Screen3.Title.glow = Title.Param["screen446titleglow"] ? JSON.parse(Title.Param["screen446titleglow"]) : JSON.parse(JSON.stringify(t.Title.glow))
 Title.Screen3.Title.glow.width = Number(Title.Screen3.Title.glow.width)
 Title.Screen3.Title.glow.height = Number(Title.Screen3.Title.glow.height)
 Title.Screen3.Title.glow.framecount = Number(Title.Screen3.Title.glow.framecount)
 Title.Screen3.Title.glow.framerate = Number(Title.Screen3.Title.glow.framerate)
 Title.Screen3.Title.glow.pattern = JSON.parse(Title.Screen3.Title.glow.pattern).map(Number)
-Title.Screen3.Title.text = JSON.parse(Title.Param["screen446titletext"])
+Title.Screen3.Title.text = Title.Param["screen446titletext"] ? JSON.parse(Title.Param["screen446titletext"]) : JSON.parse(JSON.stringify(t.Title.text))
 
-Title.Screen3.CustomTitle = JSON.parse(Title.Param["screen446customtitle"])
+Title.Screen3.CustomTitle = Title.Param["screen446customtitle"] ? JSON.parse(Title.Param["screen446customtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
 Title.Screen3.CustomTitle.width = Number(Title.Screen3.CustomTitle.width)
 Title.Screen3.CustomTitle.height = Number(Title.Screen3.CustomTitle.height)
 Title.Screen3.CustomTitle.framecount = Number(Title.Screen3.CustomTitle.framecount)
@@ -1406,11 +1434,11 @@ if (Title.Screen3.CustomTitle.direction) Title.Screen3.CustomTitle.direction = -
 Title.Screen3.CustomTitle.xpos = Number(Title.Screen3.CustomTitle.xpos) * Title.Screen3.CustomTitle.direction
 Title.Screen3.CustomTitle.ypos = Number(Title.Screen3.CustomTitle.ypos)
 
-Title.Screen3.BGM = JSON.parse(Title.Param["screen446bgm"])
+Title.Screen3.BGM = Title.Param["screen446bgm"] ? JSON.parse(Title.Param["screen446bgm"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen3.BGM.volume = Number(Title.Screen3.BGM.volume)
 Title.Screen3.BGM.pitch = Number(Title.Screen3.BGM.pitch)
 
-Title.Screen3.BGS = JSON.parse(Title.Param["screen446bgs"])
+Title.Screen3.BGS = Title.Param["screen446bgs"] ? JSON.parse(Title.Param["screen446bgs"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen3.BGS.volume = Number(Title.Screen3.BGS.volume)
 Title.Screen3.BGS.pitch = Number(Title.Screen3.BGS.pitch)
 
@@ -1418,49 +1446,49 @@ Title.Screen3.BGS.pitch = Number(Title.Screen3.BGS.pitch)
 // SCREEN 4
 // =============
 
-Title.Screen4.Switch = Number(Title.Param["screen447switch"])
+Title.Screen4.Switch = Number(Title.Param["screen447switch"]) || 447
 Title.Switches.push(Title.Screen4.Switch)
 
-Title.Screen4.ColorBG = JSON.parse(Title.Param["screen447colorbg"])
+Title.Screen4.ColorBG = Title.Param["screen447colorbg"] ? JSON.parse(Title.Param["screen447colorbg"]) : JSON.parse(JSON.stringify(t.ColorBG))
 Title.Screen4.ColorBG.toggle = eval(Title.Screen4.ColorBG["toggle"])
 Title.Screen4.ColorBG.red = Number(Title.Screen4.ColorBG["red"])
 Title.Screen4.ColorBG.green = Number(Title.Screen4.ColorBG["green"])
 Title.Screen4.ColorBG.blue = Number(Title.Screen4.ColorBG["blue"])
 
-Title.Screen4.ScrollingBG = JSON.parse(Title.Param["screen447scrollingbg"])
+Title.Screen4.ScrollingBG = Title.Param["screen447scrollingbg"] ? JSON.parse(Title.Param["screen447scrollingbg"]) : JSON.parse(JSON.stringify(t.ScrollingBG))
 Title.Screen4.ScrollingBG.xspeed = Number(Title.Screen4.ScrollingBG["xspeed"])
 Title.Screen4.ScrollingBG.yspeed = Number(Title.Screen4.ScrollingBG["yspeed"])
 
-Title.Screen4.StillBG = JSON.parse(Title.Param["screen447stillbg"])
+Title.Screen4.StillBG = Title.Param["screen447stillbg"] ? JSON.parse(Title.Param["screen447stillbg"]) : JSON.parse(JSON.stringify(t.StillBG))
 
-Title.Screen4.AnimatedBG = JSON.parse(Title.Param["screen447animatedbg"])
+Title.Screen4.AnimatedBG = Title.Param["screen447animatedbg"] ? JSON.parse(Title.Param["screen447animatedbg"]) : JSON.parse(JSON.stringify(t.AnimatedBG))
 Title.Screen4.AnimatedBG.framerate = Number(Title.Screen4.AnimatedBG.framerate)
 Title.Screen4.AnimatedBG.framecount = Number(Title.Screen4.AnimatedBG.framecount)
 Title.Screen4.AnimatedBG.pattern = JSON.parse(Title.Screen4.AnimatedBG.pattern).map(Number)
 
-Title.Screen4.Character = JSON.parse(Title.Param["screen447character"])
+Title.Screen4.Character = Title.Param["screen447character"] ? JSON.parse(Title.Param["screen447character"]) : JSON.parse(JSON.stringify(t.Character))
 Title.Screen4.Character.width = Number(Title.Screen4.Character.width)
 Title.Screen4.Character.height = Number(Title.Screen4.Character.height)
 Title.Screen4.Character.framecount = Number(Title.Screen4.Character.framecount)
 Title.Screen4.Character.framerate = Number(Title.Screen4.Character.framerate)
 Title.Screen4.Character.pattern = JSON.parse(Title.Screen4.Character.pattern).map(Number)
 
-Title.Screen4.CharacterGlitch = JSON.parse(Title.Param["screen447characterglitch"])
+Title.Screen4.CharacterGlitch = Title.Param["screen447characterglitch"] ? JSON.parse(Title.Param["screen447characterglitch"]) : JSON.parse(JSON.stringify(t.CharacterGlitch))
 Title.Screen4.CharacterGlitch.glitchtoggle = eval(Title.Screen4.CharacterGlitch.glitchtoggle)
 Title.Screen4.CharacterGlitch.frequency = Number(Title.Screen4.CharacterGlitch.frequency)
 
 Title.Screen4.Title = Title.Screen4.Title || {};
-Title.Screen4.Title.toggle = eval(Title.Param["screen447title"])
-Title.Screen4.Title.lightbulb = JSON.parse(Title.Param["screen447titlelightbulb"])
-Title.Screen4.Title.glow = JSON.parse(Title.Param["screen447titleglow"])
+Title.Screen4.Title.toggle = Title.Param["screen447title"] ? eval(Title.Param["screen447title"]) : JSON.parse(JSON.stringify(t.Title.toggle))
+Title.Screen4.Title.lightbulb = Title.Param["screen447titlelightbulb"] ? JSON.parse(Title.Param["screen447titlelightbulb"]) : JSON.parse(JSON.stringify(t.Title.lightbulb))
+Title.Screen4.Title.glow = Title.Param["screen447titleglow"] ? JSON.parse(Title.Param["screen447titleglow"]) : JSON.parse(JSON.stringify(t.Title.glow))
 Title.Screen4.Title.glow.width = Number(Title.Screen4.Title.glow.width)
 Title.Screen4.Title.glow.height = Number(Title.Screen4.Title.glow.height)
 Title.Screen4.Title.glow.framecount = Number(Title.Screen4.Title.glow.framecount)
 Title.Screen4.Title.glow.framerate = Number(Title.Screen4.Title.glow.framerate)
 Title.Screen4.Title.glow.pattern = JSON.parse(Title.Screen4.Title.glow.pattern).map(Number)
-Title.Screen4.Title.text = JSON.parse(Title.Param["screen447titletext"])
+Title.Screen4.Title.text = Title.Param["screen447titletext"] ? JSON.parse(Title.Param["screen447titletext"]) : JSON.parse(JSON.stringify(t.Title.text))
 
-Title.Screen4.CustomTitle = JSON.parse(Title.Param["screen447customtitle"])
+Title.Screen4.CustomTitle = Title.Param["screen447customtitle"] ? JSON.parse(Title.Param["screen447customtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
 Title.Screen4.CustomTitle.width = Number(Title.Screen4.CustomTitle.width)
 Title.Screen4.CustomTitle.height = Number(Title.Screen4.CustomTitle.height)
 Title.Screen4.CustomTitle.framecount = Number(Title.Screen4.CustomTitle.framecount)
@@ -1471,11 +1499,11 @@ if (Title.Screen4.CustomTitle.direction) Title.Screen4.CustomTitle.direction = -
 Title.Screen4.CustomTitle.xpos = Number(Title.Screen4.CustomTitle.xpos) * Title.Screen4.CustomTitle.direction
 Title.Screen4.CustomTitle.ypos = Number(Title.Screen4.CustomTitle.ypos)
 
-Title.Screen4.BGM = JSON.parse(Title.Param["screen447bgm"])
+Title.Screen4.BGM = Title.Param["screen447bgm"] ? JSON.parse(Title.Param["screen447bgm"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen4.BGM.volume = Number(Title.Screen4.BGM.volume)
 Title.Screen4.BGM.pitch = Number(Title.Screen4.BGM.pitch)
 
-Title.Screen4.BGS = JSON.parse(Title.Param["screen447bgs"])
+Title.Screen4.BGS = Title.Param["screen447bgs"] ? JSON.parse(Title.Param["screen447bgs"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen4.BGS.volume = Number(Title.Screen4.BGS.volume)
 Title.Screen4.BGS.pitch = Number(Title.Screen4.BGS.pitch)
 
@@ -1483,49 +1511,49 @@ Title.Screen4.BGS.pitch = Number(Title.Screen4.BGS.pitch)
 // SCREEN 5
 // =============
 
-Title.Screen5.Switch = Number(Title.Param["screen448switch"])
+Title.Screen5.Switch = Number(Title.Param["screen448switch"]) || 448
 Title.Switches.push(Title.Screen5.Switch)
 
-Title.Screen5.ColorBG = JSON.parse(Title.Param["screen448colorbg"])
+Title.Screen5.ColorBG = Title.Param["screen448colorbg"] ? JSON.parse(Title.Param["screen448colorbg"]) : JSON.parse(JSON.stringify(t.ColorBG))
 Title.Screen5.ColorBG.toggle = eval(Title.Screen5.ColorBG["toggle"])
 Title.Screen5.ColorBG.red = Number(Title.Screen5.ColorBG["red"])
 Title.Screen5.ColorBG.green = Number(Title.Screen5.ColorBG["green"])
 Title.Screen5.ColorBG.blue = Number(Title.Screen5.ColorBG["blue"])
 
-Title.Screen5.ScrollingBG = JSON.parse(Title.Param["screen448scrollingbg"])
+Title.Screen5.ScrollingBG = Title.Param["screen448scrollingbg"] ? JSON.parse(Title.Param["screen448scrollingbg"]) : JSON.parse(JSON.stringify(t.ScrollingBG))
 Title.Screen5.ScrollingBG.xspeed = Number(Title.Screen5.ScrollingBG["xspeed"])
 Title.Screen5.ScrollingBG.yspeed = Number(Title.Screen5.ScrollingBG["yspeed"])
 
-Title.Screen5.StillBG = JSON.parse(Title.Param["screen448stillbg"])
+Title.Screen5.StillBG = Title.Param["screen448stillbg"] ? JSON.parse(Title.Param["screen448stillbg"]) : JSON.parse(JSON.stringify(t.StillBG))
 
-Title.Screen5.AnimatedBG = JSON.parse(Title.Param["screen448animatedbg"])
+Title.Screen5.AnimatedBG = Title.Param["screen448animatedbg"] ? JSON.parse(Title.Param["screen448animatedbg"]) : JSON.parse(JSON.stringify(t.AnimatedBG))
 Title.Screen5.AnimatedBG.framerate = Number(Title.Screen5.AnimatedBG.framerate)
 Title.Screen5.AnimatedBG.framecount = Number(Title.Screen5.AnimatedBG.framecount)
 Title.Screen5.AnimatedBG.pattern = JSON.parse(Title.Screen5.AnimatedBG.pattern).map(Number)
 
-Title.Screen5.Character = JSON.parse(Title.Param["screen448character"])
+Title.Screen5.Character = Title.Param["screen448character"] ? JSON.parse(Title.Param["screen448character"]) : JSON.parse(JSON.stringify(t.Character))
 Title.Screen5.Character.width = Number(Title.Screen5.Character.width)
 Title.Screen5.Character.height = Number(Title.Screen5.Character.height)
 Title.Screen5.Character.framecount = Number(Title.Screen5.Character.framecount)
 Title.Screen5.Character.framerate = Number(Title.Screen5.Character.framerate)
 Title.Screen5.Character.pattern = JSON.parse(Title.Screen5.Character.pattern).map(Number)
 
-Title.Screen5.CharacterGlitch = JSON.parse(Title.Param["screen448characterglitch"])
+Title.Screen5.CharacterGlitch = Title.Param["screen448characterglitch"] ? JSON.parse(Title.Param["screen448characterglitch"]) : JSON.parse(JSON.stringify(t.CharacterGlitch))
 Title.Screen5.CharacterGlitch.glitchtoggle = eval(Title.Screen5.CharacterGlitch.glitchtoggle)
 Title.Screen5.CharacterGlitch.frequency = Number(Title.Screen5.CharacterGlitch.frequency)
 
 Title.Screen5.Title = Title.Screen5.Title || {};
-Title.Screen5.Title.toggle = eval(Title.Param["screen448title"])
-Title.Screen5.Title.lightbulb = JSON.parse(Title.Param["screen448titlelightbulb"])
-Title.Screen5.Title.glow = JSON.parse(Title.Param["screen448titleglow"])
+Title.Screen5.Title.toggle = Title.Param["screen448title"] ? eval(Title.Param["screen448title"]) : JSON.parse(JSON.stringify(t.Title.toggle))
+Title.Screen5.Title.lightbulb = Title.Param["screen448titlelightbulb"] ? JSON.parse(Title.Param["screen448titlelightbulb"]) : JSON.parse(JSON.stringify(t.Title.lightbulb))
+Title.Screen5.Title.glow = Title.Param["screen448titleglow"] ? JSON.parse(Title.Param["screen448titleglow"]) : JSON.parse(JSON.stringify(t.Title.glow))
 Title.Screen5.Title.glow.width = Number(Title.Screen5.Title.glow.width)
 Title.Screen5.Title.glow.height = Number(Title.Screen5.Title.glow.height)
 Title.Screen5.Title.glow.framecount = Number(Title.Screen5.Title.glow.framecount)
 Title.Screen5.Title.glow.framerate = Number(Title.Screen5.Title.glow.framerate)
 Title.Screen5.Title.glow.pattern = JSON.parse(Title.Screen5.Title.glow.pattern).map(Number)
-Title.Screen5.Title.text = JSON.parse(Title.Param["screen448titletext"])
+Title.Screen5.Title.text = Title.Param["screen448titletext"] ? JSON.parse(Title.Param["screen448titletext"]) : JSON.parse(JSON.stringify(t.Title.text))
 
-Title.Screen5.CustomTitle = JSON.parse(Title.Param["screen448customtitle"])
+Title.Screen5.CustomTitle = Title.Param["screen448customtitle"] ? JSON.parse(Title.Param["screen448customtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
 Title.Screen5.CustomTitle.width = Number(Title.Screen5.CustomTitle.width)
 Title.Screen5.CustomTitle.height = Number(Title.Screen5.CustomTitle.height)
 Title.Screen5.CustomTitle.framecount = Number(Title.Screen5.CustomTitle.framecount)
@@ -1536,11 +1564,11 @@ if (Title.Screen5.CustomTitle.direction) Title.Screen5.CustomTitle.direction = -
 Title.Screen5.CustomTitle.xpos = Number(Title.Screen5.CustomTitle.xpos) * Title.Screen5.CustomTitle.direction
 Title.Screen5.CustomTitle.ypos = Number(Title.Screen5.CustomTitle.ypos)
 
-Title.Screen5.BGM = JSON.parse(Title.Param["screen448bgm"])
+Title.Screen5.BGM = Title.Param["screen448bgm"] ? JSON.parse(Title.Param["screen448bgm"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen5.BGM.volume = Number(Title.Screen5.BGM.volume)
 Title.Screen5.BGM.pitch = Number(Title.Screen5.BGM.pitch)
 
-Title.Screen5.BGS = JSON.parse(Title.Param["screen448bgs"])
+Title.Screen5.BGS = Title.Param["screen448bgs"] ? JSON.parse(Title.Param["screen448bgs"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen5.BGS.volume = Number(Title.Screen5.BGS.volume)
 Title.Screen5.BGS.pitch = Number(Title.Screen5.BGS.pitch)
 
@@ -1548,49 +1576,49 @@ Title.Screen5.BGS.pitch = Number(Title.Screen5.BGS.pitch)
 // SCREEN 6
 // =============
 
-Title.Screen6.Switch = Number(Title.Param["screen449switch"])
+Title.Screen6.Switch = Number(Title.Param["screen449switch"]) || 449
 Title.Switches.push(Title.Screen6.Switch)
 
-Title.Screen6.ColorBG = JSON.parse(Title.Param["screen449colorbg"])
+Title.Screen6.ColorBG = Title.Param["screen449colorbg"] ? JSON.parse(Title.Param["screen449colorbg"]) : JSON.parse(JSON.stringify(t.ColorBG))
 Title.Screen6.ColorBG.toggle = eval(Title.Screen6.ColorBG["toggle"])
 Title.Screen6.ColorBG.red = Number(Title.Screen6.ColorBG["red"])
 Title.Screen6.ColorBG.green = Number(Title.Screen6.ColorBG["green"])
 Title.Screen6.ColorBG.blue = Number(Title.Screen6.ColorBG["blue"])
 
-Title.Screen6.ScrollingBG = JSON.parse(Title.Param["screen449scrollingbg"])
+Title.Screen6.ScrollingBG = Title.Param["screen449scrollingbg"] ? JSON.parse(Title.Param["screen449scrollingbg"]) : JSON.parse(JSON.stringify(t.ScrollingBG))
 Title.Screen6.ScrollingBG.xspeed = Number(Title.Screen6.ScrollingBG["xspeed"])
 Title.Screen6.ScrollingBG.yspeed = Number(Title.Screen6.ScrollingBG["yspeed"])
 
-Title.Screen6.StillBG = JSON.parse(Title.Param["screen449stillbg"])
+Title.Screen6.StillBG = Title.Param["screen449stillbg"] ? JSON.parse(Title.Param["screen449stillbg"]) : JSON.parse(JSON.stringify(t.StillBG))
 
-Title.Screen6.AnimatedBG = JSON.parse(Title.Param["screen449animatedbg"])
+Title.Screen6.AnimatedBG = Title.Param["screen449animatedbg"] ? JSON.parse(Title.Param["screen449animatedbg"]) : JSON.parse(JSON.stringify(t.AnimatedBG))
 Title.Screen6.AnimatedBG.framerate = Number(Title.Screen6.AnimatedBG.framerate)
 Title.Screen6.AnimatedBG.framecount = Number(Title.Screen6.AnimatedBG.framecount)
 Title.Screen6.AnimatedBG.pattern = JSON.parse(Title.Screen6.AnimatedBG.pattern).map(Number)
 
-Title.Screen6.Character = JSON.parse(Title.Param["screen449character"])
+Title.Screen6.Character = Title.Param["screen449character"] ? JSON.parse(Title.Param["screen449character"]) : JSON.parse(JSON.stringify(t.Character))
 Title.Screen6.Character.width = Number(Title.Screen6.Character.width)
 Title.Screen6.Character.height = Number(Title.Screen6.Character.height)
 Title.Screen6.Character.framecount = Number(Title.Screen6.Character.framecount)
 Title.Screen6.Character.framerate = Number(Title.Screen6.Character.framerate)
 Title.Screen6.Character.pattern = JSON.parse(Title.Screen6.Character.pattern).map(Number)
 
-Title.Screen6.CharacterGlitch = JSON.parse(Title.Param["screen449characterglitch"])
+Title.Screen6.CharacterGlitch = Title.Param["screen449characterglitch"] ? JSON.parse(Title.Param["screen449characterglitch"]) : JSON.parse(JSON.stringify(t.CharacterGlitch))
 Title.Screen6.CharacterGlitch.glitchtoggle = eval(Title.Screen6.CharacterGlitch.glitchtoggle)
 Title.Screen6.CharacterGlitch.frequency = Number(Title.Screen6.CharacterGlitch.frequency)
 
 Title.Screen6.Title = Title.Screen6.Title || {};
-Title.Screen6.Title.toggle = eval(Title.Param["screen449title"])
-Title.Screen6.Title.lightbulb = JSON.parse(Title.Param["screen449titlelightbulb"])
-Title.Screen6.Title.glow = JSON.parse(Title.Param["screen449titleglow"])
+Title.Screen6.Title.toggle = Title.Param["screen449title"] ? eval(Title.Param["screen449title"]) : JSON.parse(JSON.stringify(t.Title.toggle))
+Title.Screen6.Title.lightbulb = Title.Param["screen449titlelightbulb"] ? JSON.parse(Title.Param["screen449titlelightbulb"]) : JSON.parse(JSON.stringify(t.Title.lightbulb))
+Title.Screen6.Title.glow = Title.Param["screen449titleglow"] ? JSON.parse(Title.Param["screen449titleglow"]) : JSON.parse(JSON.stringify(t.Title.glow))
 Title.Screen6.Title.glow.width = Number(Title.Screen6.Title.glow.width)
 Title.Screen6.Title.glow.height = Number(Title.Screen6.Title.glow.height)
 Title.Screen6.Title.glow.framecount = Number(Title.Screen6.Title.glow.framecount)
 Title.Screen6.Title.glow.framerate = Number(Title.Screen6.Title.glow.framerate)
 Title.Screen6.Title.glow.pattern = JSON.parse(Title.Screen6.Title.glow.pattern).map(Number)
-Title.Screen6.Title.text = JSON.parse(Title.Param["screen449titletext"])
+Title.Screen6.Title.text = Title.Param["screen449titletext"] ? JSON.parse(Title.Param["screen449titletext"]) : JSON.parse(JSON.stringify(t.Title.text))
 
-Title.Screen6.CustomTitle = JSON.parse(Title.Param["screen449customtitle"])
+Title.Screen6.CustomTitle = Title.Param["screen449customtitle"] ? JSON.parse(Title.Param["screen449customtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
 Title.Screen6.CustomTitle.width = Number(Title.Screen6.CustomTitle.width)
 Title.Screen6.CustomTitle.height = Number(Title.Screen6.CustomTitle.height)
 Title.Screen6.CustomTitle.framecount = Number(Title.Screen6.CustomTitle.framecount)
@@ -1601,11 +1629,11 @@ if (Title.Screen6.CustomTitle.direction) Title.Screen6.CustomTitle.direction = -
 Title.Screen6.CustomTitle.xpos = Number(Title.Screen6.CustomTitle.xpos) * Title.Screen6.CustomTitle.direction
 Title.Screen6.CustomTitle.ypos = Number(Title.Screen6.CustomTitle.ypos)
 
-Title.Screen6.BGM = JSON.parse(Title.Param["screen449bgm"])
+Title.Screen6.BGM = Title.Param["screen449bgm"] ? JSON.parse(Title.Param["screen449bgm"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen6.BGM.volume = Number(Title.Screen6.BGM.volume)
 Title.Screen6.BGM.pitch = Number(Title.Screen6.BGM.pitch)
 
-Title.Screen6.BGS = JSON.parse(Title.Param["screen449bgs"])
+Title.Screen6.BGS = Title.Param["screen449bgs"] ? JSON.parse(Title.Param["screen449bgs"]) : JSON.parse(JSON.stringify(t.BGS))
 Title.Screen6.BGS.volume = Number(Title.Screen6.BGS.volume)
 Title.Screen6.BGS.pitch = Number(Title.Screen6.BGS.pitch)
 
