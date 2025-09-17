@@ -41,6 +41,25 @@ KOFFIN.MusicPlayer = KOFFIN.MusicPlayer || {};
  *     e.g., { name: "Built to Scale", bgm: "00 BGM_BUILTTOSCALE", description: "Vex's battle theme.", menu: "MENU_2", unlockSwitch: 2001 }
  * ---------------------------------------------------------------------------
  */
+/*
+This is an example of what a YAML would look like for this.
+soundtrack:
+    header: TEXT #This is the text that will show in the header.
+    headerSize: 48 #This is the fontSize of the header text.
+    Title: #The order in the music player is based on yaml position, so this name doesn't matter.
+      # This is the filename. It has to be a bgm. For single play songs you can give them custom looping that makes them loop silence.
+      bgm: user_title
+      # This is the actual OST title
+      name: Title
+      # These lines get quoted due to having colons in them. 
+      description: "Composer: Pedro Silva\nThe title screen music."
+      # This is the background picture to display for the song. If excluded it resorts to KOFFIN.MusicPlayer.backgroundImage (which you can change ingame)
+      menu: white_screen 
+      # This is the ID of the switch that must be active for the song to be displayed. 0 or exclusion makes it available at start.
+      unlockSwitch: 122
+      # These are the list of possible world values a song can appear in. World Value is variable 22 [1-DW,2-FA,3-WS,4-BS,5-FinalOmori]. 0 or exclusion makes it appear in all worlds.
+      world: 0
+*/
 
 //=============================================================================
 // Configurable Variables
@@ -49,14 +68,20 @@ KOFFIN.MusicPlayer.transparentWindows        = false;              // true = hea
 KOFFIN.MusicPlayer.transparentWindowBorders   = false;              // true = remove borders (window frames) of header & item list.
 KOFFIN.MusicPlayer.backgroundImage            = "";                 // Default background image (from img/pictures); leave "" for none.
 KOFFIN.MusicPlayer.keepMusicOnClose           = true;              // true = keep music playing on close; false = simulate "Turn Off".
+KOFFIN.MusicPlayer.yaml                       = "prl_sys_soundtrack"; // The YAML to obtain when getting song info.
 
 //=============================================================================
 // Define Music Tracks
 //=============================================================================
 var MusicPlayerTracks = [
-    { name: "Turn Off", bgm: "default", description: "Reverts to the map's background music.", unlockSwitch: 0 },
-    { name: "Title", bgm: "user_title", description: "The Title theme of the game.", unlockSwitch: 0 }
-];
+    //{ name: "Turn Off", bgm: "default", description: "Reverts to the map's background music.", unlockSwitch: 0 },
+]
+if (KOFFIN.MusicPlayer.yaml) {
+    var tracks = Object.values(LanguageManager.getMessageData(KOFFIN.MusicPlayer.yaml))
+    for (let i = 1;i < tracks.length;i++) {
+        MusicPlayerTracks.push(tracks[i])
+    }
+}
 
 //=============================================================================
 // Scene_MusicPlayer
@@ -219,7 +244,8 @@ Window_MusicPlayerHeader.prototype.initialize = function() {
 
 Window_MusicPlayerHeader.prototype.refresh = function() {
     this.contents.clear();
-    this.drawText("MUSIC PLAYER", 0, 0, this.contents.width, "center");
+    this.contents.fontSize = LanguageManager.getMessageData(KOFFIN.MusicPlayer.yaml).headerSize
+    this.drawText(LanguageManager.getMessageData(KOFFIN.MusicPlayer.yaml).header, 0, -5, this.contents.width, "center");
 };
 
 //=============================================================================
@@ -253,7 +279,22 @@ Window_MusicPlayerItemList.prototype.maxItems = function() {
 };
 
 Window_MusicPlayerItemList.prototype.makeItemList = function() {
-    this._data = MusicPlayerTracks.slice();
+    var list = new Array()
+    console.log(list)
+    MusicPlayerTracks.forEach(function(track) {
+        console.log(track)
+        if (track) {
+            if (!track.unlockSwitch || $gameSwitches.value(track.unlockSwitch)) { 
+                if (!track.world || Number(track.world) === NaN) {
+                    list.push(track); 
+                } else {
+                    if ($gameVariables.value(22) === track.world) { list.push(track);}
+                }
+            }
+        }
+        console.log(list)
+    })
+    this._data = list
 };
 
 Window_MusicPlayerItemList.prototype.item = function() {
@@ -315,3 +356,5 @@ if (KOFFIN.MusicPlayer.transparentWindowBorders) {
     Window_MusicPlayerHeader.prototype._refreshFrame = function() {};
     Window_MusicPlayerItemList.prototype._refreshFrame = function() {};
 }
+
+// Trans Rights!
