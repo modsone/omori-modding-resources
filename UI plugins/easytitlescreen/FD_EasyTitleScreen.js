@@ -1,13 +1,13 @@
 //=============================================================================
-// ★ FD_EasyTitleScreen ★                                        1.2.0
+// ★ FD_EasyTitleScreen ★                                        1.2.1
 //=============================================================================
 /*:
- * @plugindesc v1.2.0 An easy title screen for modders who dont wanna deal with JS.
+ * @plugindesc v1.2.1 An easy title screen for modders who dont wanna deal with JS.
  * @author FruitDragon
- * @version 1.2.0
+ * @version 1.2.1
  * 
  * @help
- * ★ FD_EasyTitleScreen ★                                        1.2.0
+ * ★ FD_EasyTitleScreen ★                                        1.2.1
  * --------------------------------------------------------------------------
  * This plugin completely overwrites the base Omori Title Screen plugin.
  * It is compatible with Badges and other plugins that edit the button 
@@ -43,6 +43,14 @@
  * bugs to FruitDragon. 
  * 
  * For requests for more customizability, why.
+ * 
+ * NOTE: When naming any images used with the plugin, NEVER name them any of
+ * the following:
+ * 
+ * OMO_BS, OMO_WS, OMO_RS, OMO_BULB_BS, OMO_BULB_WS, OMO_BULB_BS_LINES,
+ * OMO_BULB_WS_LINES, OMO_TITLE_BS, OMO_TITLE_WS
+ * 
+ * This will always overwrite your file with the base game image files.
  * 
  * 
  * --------------------------------------------------------------------------
@@ -111,6 +119,9 @@
  * Added extreme fallback in case of undefined values
  * Added to QA section
  * Ported img from OMO_ to OMORI_ to avoid the atlas
+ * 
+ * v1.2.1
+ * Fixed a bug that caused the default custom title to not load
  * 
  * --------------------------------------------------------------------------
  * 
@@ -1228,7 +1239,7 @@ Title.Default.Title.glow.framerate = Number(Title.Default.Title.glow.framerate)
 Title.Default.Title.glow.pattern = JSON.parse(Title.Default.Title.glow.pattern).map(Number)
 Title.Default.Title.text = Title.Param["defaulttitletext"] ? JSON.parse(Title.Param["defaulttitletext"]) : JSON.parse(JSON.stringify(t.Title.text))
 
-Title.Default.CustomTitle = Title.Param["defaultcustomttitle"] ? JSON.parse(Title.Param["defaultcustomtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
+Title.Default.CustomTitle = Title.Param["defaultcustomtitle"] ? JSON.parse(Title.Param["defaultcustomtitle"]) : JSON.parse(JSON.stringify(t.CustomTitle))
 Title.Default.CustomTitle.width = Number(Title.Default.CustomTitle.width)
 Title.Default.CustomTitle.height = Number(Title.Default.CustomTitle.height)
 Title.Default.CustomTitle.framecount = Number(Title.Default.CustomTitle.framecount)
