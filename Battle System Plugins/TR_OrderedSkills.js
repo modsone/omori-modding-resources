@@ -8,12 +8,12 @@ Imported.TR_OrderedSkills = true;
 
 var TR = TR || {};
 TR.OS = TR.OS || {};
-TR.OS.version = 1.0;
+TR.OS.version = 1.1;
 
 /*: 
  *
  * @plugindesc Allows hardcoded ordering of the skills in an actor's skill select menu.
- * Version 1.0
+ * Version 1.1
  * @author TomatoRadio
  * 
  * @help
@@ -53,14 +53,16 @@ Window_OmoMenuActorSkillEquip.prototype.skillAtIndex = function(index) {
 Game_Actor.prototype.orderedSkills = function() {
   var skills = this.skills()
   var returnArray = [];
-  if (this.orderedSkills) {
+  if (TR.OS.OrderedSkills[this._actorId].orderedSkills && Array.isArray(TR.OS.OrderedSkills[this._actorId])) {
       for (const skill of TR.OS.OrderedSkills[this._actorId]) {
         if (skills.includes(skill)) returnArray.push(skill);
       }
-  } else {
+  }
+  if (skills && Array.isArray(skills)) {
     for (const skill of this.skills()) {
       if (!returnArray.includes(skill)) returnArray.push(skill);
     }
   }
   return returnArray;
+
 }
