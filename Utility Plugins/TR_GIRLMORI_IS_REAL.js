@@ -72,15 +72,16 @@ TR.GIR.Param = PluginManager.parameters('TR_GIRLMORI_IS_REAL');
 TR.PlaytestActive = eval(TR.GIR.Param["PlaytestActive"]);
 TR.DeniedActive = eval(TR.GIR.Param["DeniedActive"]);
 
-	TR.GIR.loadBitmap = ImageManager.loadBitmap;
-	ImageManager.loadBitmap = function(folder, filename, hue, smooth) {
-	if (filename.toLowerCase().includes("sunny") && ImageManager.isGirlmoriActive()) {
-		let newimage = ''
-		if (filename.toLowerCase().includes("%(")) {
-			newimage = `${filename.replace("%","_girl%")}`
-		} else {
-			newimage = `${filename}_girl`
-		}
+TR.GIR.loadBitmap = ImageManager.loadBitmap;
+ImageManager.loadBitmap = function(folder, filename, hue, smooth) {
+	if (filename) {
+		if (filename.toLowerCase().includes("sunny") && ImageManager.isGirlmoriActive()) {
+			let newimage = ''
+			if (filename.toLowerCase().includes("%(")) {
+				newimage = `${filename.replace("%","_girl%")}`
+			} else {
+				newimage = `${filename}_girl`
+			}
 			console.log(newimage);
 			var path = folder + encodeURIComponent(newimage) + '.png';
 			var bitmap = this.loadNormalBitmap(path, hue || 0);
