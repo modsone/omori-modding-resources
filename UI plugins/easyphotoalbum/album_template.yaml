@@ -1,0 +1,128 @@
+# FD_EasyPhotoAlbum Yaml Album Setup
+
+# This plugin comes with a variety of features, some from base game and some unique to the plugin.
+# Here is an overview of how to set up an album through yaml and link it to the items in-game.
+
+# Claim an item ID for the album and 1 item ID for every single polaroid that will go in the album.
+# In the album's Item Notes, put the following two tags:
+    # <Album:Word ID>
+    # <HideInMenu>
+
+    # The Word ID can be anything that you want it to be. Basegame uses 'Dreamworld', 'Faraway', and 'BlackSpace.'
+
+# In each Polaroid's Item Notes, put the following two tags:
+    # <Polaroid:Word ID>
+    # <HideInMenu>
+
+    # The Polaroid's Word ID must match the Word ID of the album that it belongs to.
+
+
+# To call the album menu, use the following plugin commands
+
+# PhotoAlbum view (item ID for the album)
+    # EX: PhotoAlbum view 876 (this opens the Dreamworld album)
+        # The script for this is this.callAlbumMenu(876, 1);
+
+# PhotoAlbum modify (item ID for the album)
+    # EX: PhotoAlbum modify 876 (opens the Dreamworld album in picture placing mode)
+        # The script for this is this.callAlbumMenu(876, 0);
+
+# In order to fill your album, add every single polaroid that needs to be placed in the album into the player's inventory.
+# Then, run the following script to place polaroids in their specific spots. 
+
+# this.setPictureInAlbum(Word ID, Index where Photo will be placed, Item Id of Photo)
+    # EX: this.setPictureInAlbum('Dreamworld', 0, 877) (places Photo 877 into Slot 0 (the first slot) of the 'Dreamworld' album)
+
+# Once you've done that, calling a polaroid menu will automatically populate all the photos you've set into the album.
+
+# For placing a photo in the album, simply add it to the player's inventory but don't run the setPictureInAlbum script.
+# Then call the command for opening the photo in picture placing mode and it'll appear on the tray.
+
+
+# -------------------------------------------------------------------------------------------
+# Now to set up the yaml portion of the album. Here is a template.
+# For an example on a base game album set up with the yaml, please see album_example.yaml.
+# ------------------------------------------------------------------------------------------
+
+
+Word ID: # The Word ID of your album.
+
+    maxPages: # The maximum number of pages (sets of 6) that your album can fit. Faraway has 8, BlackSpace 4, and Dreamworld 2.
+
+    maxPictures: # The exact number of pictures that your album can fit. Typically just maxPages mutiplied by 6.
+
+    bookImage: # The empty page template that your pages will use. Basegame's are found in img/atlases/[Word ID]Atlas_Pages images.
+    # Must go in the img/pictures folder.
+
+    bookCoverImage: # The closed cover of your album. Basegame's are found in img/atlases/PhotoAlbumCovers.png
+    # Must go in the img/pictures folder
+
+    textPageImage: # The overlay with page decorations that goes over your black page. Basegame's are found in img/atlases/[Word ID]Atlas_Pages images.
+    # IMPORTANT NOTE
+    # These have a specific naming scheme. All images start with the same text, then end with the page number that they are on.
+    # Example: dreamworld_pg1, dreamworld_pg2, dreamworld_pg3...
+    # The image name that would be put here in this case is dreamworld_pg
+    # Must go in the img/pictures folder.
+
+    defaultBackImage: # The default image that will be used for the backs of polaroids. This is optional. And useless. 
+    # Goes in the img/pictures folder if you must.
+
+    albumBackground: # The picture that goes above the parallax in album backgrounds. An example is the Dreamworld one in img/pictures/Dreamworld_polaroidBG_FA
+    # Must go in the img/pictures folder.
+
+    albumParallax: # The settings used for the parallax
+        image: # The picture used for the parallax. Must go in img/pictures folder. Example: Dreamworld_polaroidBG_FA_day in img/pictures.
+        speedX: # Horizontal scrolling speed. Can be a decimal. Base game defaults to 0.1
+        speedY: # Vertical scrolling speed. Can be a decimal. Base game defaults to 0
+
+    pages: # The predetermined array of what photo (by Item ID) goes in what slot on each page. Only useful when placing pictures in the album. Otherwise, can leave undefined.
+        1: 0, 0, 0, 0, 0, 0
+        2: 0, 0, 0, 0, 0, 0
+
+    lockEmptyPages: # A true/false value that determines if empty pages in your photo album are skipped/ignored. False if undefined.
+
+    # Next is the definition for each polaroid. You must make a copy of this for each polaroid.
+
+    0: #The polaroid's item id.
+        
+        image: # The large image that the polaroid has. Basegame's are found in img/atlases/DreamworldAtlas_01, FarawayAtlas_01, BlackSpaceAtlas_01, etc. 
+        # Basegame's dimensions are 361x437 pixels. Other sizes will load.
+        # Must go in the img/pictures folder.
+
+        imageBack: # Useless. Utterly useless. It's the exact same as defaultBackImage.
+
+        thumbnail: # The thumbnail that is displayed on the pages of the polaroid album. Basegame's are found in img/atlases/Dreamworld_PolaroidAtlas, etc.
+        # Dimensions are 86x101. Other sizes will load, but alignment may not be perfect.
+        # Must go in the img/pictures folder. 
+
+        text: # The text that is displayed upon reading a photo. Optional. Must be a valid yaml message ID.
+        # You can also have multiple messages. Simply format them in a list.
+            # EX: ALBUM.dreamworld_message1, ALBUM.dreamworld_message2, ALBUM.dreamworld_message3
+        
+        wait: # In the case that you have multiple messages, the number of frames that is waited between each message.
+        # Does nothing if there is one or no messages on a photo.
+
+
+
+Template:
+    maxPages: 
+    maxPictures: 
+    bookImage: 
+    bookCoverImage: 
+    textPageImage: 
+    albumBackground: 
+    albumParallax: 
+        image: 
+        speedX: 
+        speedY: 
+    pages:
+        1: 0, 0, 0, 0, 0, 0
+        2: 0, 0, 0, 0, 0, 0
+    lockEmptyPages: 
+
+
+    0: #polaroid item id 
+        image: 
+        thumbnail: 
+        text: 
+        wait: 

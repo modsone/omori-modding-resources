@@ -8,10 +8,10 @@ Imported.TR_GIRLMORI_IS_REAL = true;
 
 var TR = TR || {};
 TR.GIR = TR.GIR || {};
-TR.GIR.version = 3.0;
+TR.GIR.version = 3.1;
 
 /*: 
- * @plugindesc v3.0 Plugin to detect if Girlmori is present and adjust images with sunny's name to account for this.
+ * @plugindesc v3.1 Plugin to detect if Girlmori is present and adjust images with sunny's name to account for this.
  * @author TomatoRadio
  * 
  * @help
@@ -22,8 +22,9 @@ TR.GIR.version = 3.0;
  * It does this for all img/ subfolders.
  * 
  * If you want to make pronoun changes, you can use \caseEval{e?a:b}
- * OR \girlmori{femm:masc}
+ * OR \transrights{femm:masc}
  * These can be placed in macros.
+ * v3.1: macro changed from \girlmori to \transrights as it would detect \g macro instead.
  * 
  * Examples of both in the same message:
  * \caseEval{ImageManager.isGirlmoriActive()?She:He} is really the just quietest \girlmori{girl:boy} I've ever met...
@@ -73,7 +74,6 @@ TR.DeniedActive = eval(TR.GIR.Param["DeniedActive"]);
 
 	TR.GIR.loadBitmap = ImageManager.loadBitmap;
 	ImageManager.loadBitmap = function(folder, filename, hue, smooth) {
-    if (filename) {
 	if (filename.toLowerCase().includes("sunny") && ImageManager.isGirlmoriActive()) {
 		let newimage = ''
 		if (filename.toLowerCase().includes("%(")) {
@@ -81,7 +81,7 @@ TR.DeniedActive = eval(TR.GIR.Param["DeniedActive"]);
 		} else {
 			newimage = `${filename}_girl`
 		}
-			//console.log(newimage);
+			console.log(newimage);
 			var path = folder + encodeURIComponent(newimage) + '.png';
 			var bitmap = this.loadNormalBitmap(path, hue || 0);
 			bitmap.smooth = smooth;
@@ -113,15 +113,14 @@ ImageManager.isGirlmoriActive = function() {
 
 TR.GIR.convertCaseText = Window_Base.prototype.convertCaseText
 Window_Base.prototype.convertCaseText = function(text) {
-  text = text.replace(/\x1bGIRLMORI\{(.*?):(.*?)\}/gi, function() {
+  text = text.replace(/\x1bTRANSRIGHTS\{(.*?):(.*?)\}/gi, function() {
     var x = arguments[1];
     var y = arguments[2];
-    var text = ImageManager ? x : y;
+    var text = ImageManager.isGirlmoriActive() ? x : y;
     return text;
   }.bind(this));
 
   return TR.GIR.convertCaseText.call(this,text);
-  
 };
 
 TR.GIR.pluginCommand = Game_Interpreter.prototype.pluginCommand;

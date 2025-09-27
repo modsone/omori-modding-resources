@@ -1,0 +1,85 @@
+# The Dreamworld album item (the hidden one) would have the following notetags:
+  # <Album: Dreamworld>
+  # <HideInMenu>
+
+# Each Polaroid used for it would have the following notetags:
+  # <Polaroid: Dreamworld>
+  # <HideInMenu>
+
+Dreamworld:
+    maxPages: 2
+    maxPictures: 12
+    bookImage: Dreamworld_dreamworld_album
+    bookCoverImage: Dreamworld_polaroid_FA_cover
+    textPageImage: Dreamworld_dreamworld_pg
+    albumBackground: Dreamworld_polaroidBG_FA
+    lockEmptyPages: false
+    albumParallax: 
+        image: Dreamworld_polaroidBG_FA_day
+        speedX: 0.1
+        speedY: 0
+    pages:
+        1: 877, 878, 879, 880, 881, 882
+        2: 883, 884, 885, 886, 887, 888
+
+
+    877: 
+        image: Dreamworld_DW_A_01
+        thumbnail: Dreamworld_DW_POLAROID_01
+        text: ALBUM.dreamworld_message1, ALBUM.dreamworld_message2 # Note: this is not how base game does this polaroid, its just a demonstration
+        wait: 60                                                   # Base game only has ALBUM_dreamworld_message1 and no wait.
+
+    878: 
+        image: Dreamworld_DW_A_02
+        thumbnail: Dreamworld_DW_POLAROID_02
+        text: ALBUM.dreamworld_message2
+    
+    879: 
+        image: Dreamworld_DW_A_03
+        thumbnail: Dreamworld_DW_POLAROID_03
+        text: ALBUM.dreamworld_message3
+
+    880: 
+        image: Dreamworld_DW_A_04
+        thumbnail: Dreamworld_DW_POLAROID_04
+        text: ALBUM.dreamworld_message4
+    
+    881: 
+        image: Dreamworld_DW_A_05
+        thumbnail: Dreamworld_DW_POLAROID_05
+        text: ALBUM.dreamworld_message5
+    
+    882: 
+        image: Dreamworld_DW_A_06
+        thumbnail: Dreamworld_DW_POLAROID_06
+        text: ALBUM.dreamworld_message6
+    
+    883: 
+        image: Dreamworld_DW_A_07
+        thumbnail: Dreamworld_DW_POLAROID_07
+        text: ALBUM.dreamworld_message7
+
+    884: 
+        image: Dreamworld_DW_A_08
+        thumbnail: Dreamworld_DW_POLAROID_08
+        text: ALBUM.dreamworld_message8
+    
+    885: 
+        image: Dreamworld_DW_A_09
+        thumbnail: Dreamworld_DW_POLAROID_09
+        text: ALBUM.dreamworld_message9
+
+    886: 
+        image: Dreamworld_DW_A_10
+        thumbnail: Dreamworld_DW_POLAROID_10
+        text: ALBUM.dreamworld_message10
+    
+    887: 
+        image: Dreamworld_DW_A_11
+        thumbnail: Dreamworld_DW_POLAROID_11
+        text: ALBUM.dreamworld_message11
+    
+    888: 
+        image: Dreamworld_DW_A_12
+        thumbnail: Dreamworld_DW_POLAROID_12
+        text: ALBUM.dreamworld_message12
