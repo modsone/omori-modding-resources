@@ -24,6 +24,7 @@ TR.GIR.version = 3.1;
  * If you want to make pronoun changes, you can use \caseEval{e?a:b}
  * OR \transrights{femm:masc}
  * These can be placed in macros.
+ * v3.1: macro changed from \girlmori to \transrights as it would detect \g macro instead.
  * 
  * Examples of both in the same message:
  * \caseEval{ImageManager.isGirlmoriActive()?She:He} is really the just quietest \girlmori{girl:boy} I've ever met...
@@ -66,10 +67,6 @@ TR.GIR.version = 3.1;
  * @default true
 */
 
-//PARALLELS BULLSHIT
-const WTFsunny = ["FA_SUNNY_DIALOGUE","FA_SUNNY_FUNERAL"]
-
-
 TR.GIR.Param = PluginManager.parameters('TR_GIRLMORI_IS_REAL');
 
 TR.PlaytestActive = eval(TR.GIR.Param["PlaytestActive"]);
@@ -77,13 +74,6 @@ TR.DeniedActive = eval(TR.GIR.Param["DeniedActive"]);
 
 	TR.GIR.loadBitmap = ImageManager.loadBitmap;
 	ImageManager.loadBitmap = function(folder, filename, hue, smooth) {
-    if (filename) {
-	/*
-		if (filename !== undefined && $gameVariables != null && $gameVariables.value(143) >= 12) {
-		WTFsunny.forEach(function(key) {
-			if (filename !== undefined && filename.includes(key)) { let filename = `${filename.replace(`${key}`,`${key}_WTF`)}`; }
-		})
-	}*/
 	if (filename.toLowerCase().includes("sunny") && ImageManager.isGirlmoriActive()) {
 		let newimage = ''
 		if (filename.toLowerCase().includes("%(")) {
