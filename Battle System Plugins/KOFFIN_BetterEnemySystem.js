@@ -1,5 +1,5 @@
 /*:
- * @plugindesc (v1.1) Simplifies OMORI enemy setup by automating emotion-based systems.
+ * @plugindesc (v1.5) Simplifies OMORI enemy setup by automating emotion-based systems.
  * 
  * @author KoffinKrypt
  *
@@ -403,111 +403,80 @@ function createDefaultMotionsForEnemy(enemy) {
         var disableRewards = (typeof rewardParams['Disable Reward Modifier'] !== 'undefined' &&
                               String(rewardParams['Disable Reward Modifier']).toLowerCase() === "true");
 
-        function hasNoDropChance(enemy) {
-            return /<NoDropChance>/i.test(enemy.enemy().note);
+        Game_Enemy.prototype.doDropChance = function() {
+            return !((/<NoDropChance>/i).test(this.enemy().note));
         }
 
-    // Store original exp and gold values for enemies
-    Game_Enemy.prototype.initRewardValues = function() {
-        this._originalExp = this.enemy().exp;
-        this._originalGold = this.enemy().gold;
-        this._currentExp = this._originalExp;
-        this._currentGold = this._originalGold;
-    };
+        var _Game_Enemy_setup = Game_Enemy.prototype.setup;
+        Game_Enemy.prototype.setup = function(enemyId, x, y) {
+            _Game_Enemy_setup.call(this, enemyId, x, y);
+            this._atDeathStates = [];
+        };
 
-    var _Game_Enemy_setup = Game_Enemy.prototype.setup;
-    Game_Enemy.prototype.setup = function(enemyId, x, y) {
-        _Game_Enemy_setup.call(this, enemyId, x, y);
-        this.initRewardValues();
-    };
+        var _Game_Enemy_die = Game_Enemy.prototype.die;
+        Game_Enemy.prototype.die = function() {
+            this._atDeathStates = this._states.slice(); // Copies the states array before death.
+            _Game_Enemy_die.call(this);
+        };
 
-    // Extend addState safely
-    var _Game_Battler_addState = Game_Battler.prototype.addState;
-    Game_Battler.prototype.addState = function(stateId) {
-        var wasAlive = this.isAlive();
-
-        if (_Game_Battler_addState) {
-            _Game_Battler_addState.call(this, stateId);
-        } else {
-            Game_BattlerBase.prototype.addState.call(this, stateId);  // Fallback
+        Game_Enemy.prototype.isStateAffectedAtDeath = function(id) {
+            return this._atDeathStates.contains(id);
         }
 
-        if (wasAlive && this instanceof Game_Enemy) {
-            this.updateRewardModifiers();
-        }
-    };
-
-    // Extend removeState safely
-    var _Game_Battler_removeState = Game_Battler.prototype.removeState;
-    Game_Battler.prototype.removeState = function(stateId) {
-        var wasAlive = this.isAlive();
-
-        if (_Game_Battler_removeState) {
-            _Game_Battler_removeState.call(this, stateId);
-        } else {
-            Game_BattlerBase.prototype.removeState.call(this, stateId);  // Fallback
+        Game_Enemy.prototype.isDeathStateAffectedMoreGold = function() {
+            return moreGoldStates.some((id) => this.isStateAffectedAtDeath(id))
         }
 
-        if (wasAlive && this instanceof Game_Enemy) {
-            this.updateRewardModifiers();
-        }
-    };
-
-    // Calculate new EXP and Gold values based on current states
-    Game_Enemy.prototype.updateRewardModifiers = function() {
-        if (disableRewards || hasNoDropChance(this)) {
-            return; // Prevents changes if rewards are disabled
+        Game_Enemy.prototype.isDeathStateAffectedMoreExp = function() {
+            return moreExpStates.some((id) => this.isStateAffectedAtDeath(id))
         }
 
-        // NEW: Prevent changes if the enemy is dead
-        if (this.isStateAffected(1)) {
-            console.log(`${this.name()} is dead. Keeping final rewards: Gold = ${this._currentGold}, EXP = ${this._currentExp}`);
-            return;
+        Game_Enemy.prototype.isDeathStateAffectedLessRewards = function() {
+            return lessRewardStates.some((id) => this.isStateAffectedAtDeath(id))
         }
 
-        var multiplierGold = 1;
-        var multiplierExp = 1;
+        const _Game_Enemy_exp = Game_Enemy.prototype.exp;
+        Game_Enemy.prototype.exp = function() {
+            return Math.floor(_Game_Enemy_exp.call(this) * this.getIndividualExpMultiplier());
+        };
+        
+        const _Game_Enemy_gold = Game_Enemy.prototype.gold;
+        Game_Enemy.prototype.gold = function() {
+            return Math.floor(_Game_Enemy_gold.call(this) * this.getIndividualGoldMultiplier());
+        };
 
-        for (var i = 0; i < moreGoldStates.length; i++) {
-            if (this.isStateAffected(moreGoldStates[i])) {
-                multiplierGold *= 1.5;
-                break;
-            }
+        // Named "Individual" to avoid confusing with Gold/Exp Rate that is a party-wise buff
+        Game_Enemy.prototype.getIndividualGoldMultiplier = function() {
+            var value = 1;
+            if (!this.doDropChance()) { return value; }
+            if (this.isDeathStateAffectedMoreGold()) {value *= 1.50;}
+            if (this.isDeathStateAffectedLessRewards()) {value *= 0.75;}
+            console.log("Gold Mult:", value);
+            return value
         }
 
-        for (var i = 0; i < moreExpStates.length; i++) {
-            if (this.isStateAffected(moreExpStates[i])) {
-                multiplierExp *= 1.5;
-                break;
-            }
+        Game_Enemy.prototype.getIndividualExpMultiplier = function() {
+            var value = 1;
+            if (!this.doDropChance()) { return value; }
+            if (this.isDeathStateAffectedMoreExp()) {value *= 1.50;}
+            if (this.isDeathStateAffectedLessRewards()) {value *= 0.75;}
+            console.log("Exp Mult:", value);
+            return value
         }
 
-        for (var i = 0; i < lessRewardStates.length; i++) {
-            if (this.isStateAffected(lessRewardStates[i])) {
-                multiplierGold *= 0.75;
-                multiplierExp *= 0.75;
-                break;
-            }
-        }
+        // ==============================
+        // DROP RATE TWEAKS
+        // ==============================
 
-        this._currentGold = Math.floor(this._originalGold * multiplierGold);
-        this._currentExp = Math.floor(this._originalExp * multiplierExp);
-
-        console.log(`${this.name()} updated rewards: Gold = ${this._currentGold}, EXP = ${this._currentExp}`);
-    };
-
-    // Return modified values in troop calculations
-    Game_Troop.prototype.expTotal = function() {
-        return this.deadMembers().reduce(function(r, enemy) {
-            return r + enemy._currentExp;
-        }, 0);
-    };
-
-    Game_Troop.prototype.goldTotal = function() {
-        return this.deadMembers().reduce(function(r, enemy) {
-            return r + enemy._currentGold;
-        }, 0);
-    };
+        const _Game_Enemy_dropItemRate = Game_Enemy.prototype.dropItemRate;
+        Game_Enemy.prototype.dropItemRate = function() {
+            var value = _Game_Enemy_dropItemRate.call(this);
+            if (!this.doDropChance()) { return value; }
+            if (this.isDeathStateAffectedMoreGold()) {value *= 2.0;}
+            if (this.isDeathStateAffectedLessRewards()) {value *= 0.5;}
+            console.log("ItemRate Mult:", value);
+            return value;
+        };
 
         console.log("Reward Modifier logic applied successfully.");
     }, 1);
@@ -517,37 +486,22 @@ function createDefaultMotionsForEnemy(enemy) {
     // ==============================
 
     setTimeout(function() {
-  // Define the emotion arrays (using uppercase for the category names as YEP_X_StateCategories does)
-  const AI_PRIORITY_TAGS = {
-    "HAPPY": [6, 8, 9, 197, 122, 124],
-    "SAD":   [10, 11, 12, 124, 125, 126],
-    "ANGRY": [14, 15, 16, 119, 120, 121]
-  };
+    // Define the emotion arrays (using uppercase for the category names as YEP_X_StateCategories does)
+    const AI_PRIORITY_TAGS = {
+        "HAPPY": [6, 8, 9, 197, 122, 124],
+        "SAD": [10, 11, 12, 124, 125, 126],
+        "ANGRY": [14, 15, 16, 119, 120, 121]
+    };
 
-  // Patch states once the database is loaded
-  const _DataManager_isDatabaseLoaded = DataManager.isDatabaseLoaded;
-  DataManager.isDatabaseLoaded = function() {
-    if (!_DataManager_isDatabaseLoaded.call(this)) return false;
-    
-    // Only patch once
-    if (!$dataStates._emotionPatched) {
-      for (let i = 1; i < $dataStates.length; i++) {
-        let state = $dataStates[i];
-        if (!state) continue;
-        // Loop through each emotion category
-        for (const emotion in AI_PRIORITY_TAGS) {
-          // If the state id is in the list for this emotion and doesn't already include the category:
-          if (AI_PRIORITY_TAGS[emotion].includes(state.id)) {
-            if (!state.category.contains(emotion.toUpperCase())) {
-              state.category.push(emotion.toUpperCase());
-            }
-          }
+    const _DataManager_isDatabaseLoaded = DataManager.isDatabaseLoaded;
+    DataManager.isDatabaseLoaded = function() {
+        if (!_DataManager_isDatabaseLoaded.call(this)) return false;
+        if (!this._loaded_AIPriorityAddon) {
+            this.processAIPriorityNotetags($dataEnemies);
+            this._loaded_AIPriorityAddon = true;
         }
-      }
-      $dataStates._emotionPatched = true;
-    }
-    return true;
-  };
+        return true;
+    };
 
     DataManager.processAIPriorityNotetags = function(group) {
         const noteRegex = /<AI PRIORITY (.+)>/i;
@@ -555,6 +509,9 @@ function createDefaultMotionsForEnemy(enemy) {
         for (let enemy of group) {
             if (!enemy) continue;
             enemy.aiPriorityTags = {};
+            // Sets the default to be the base YEP ai pattern.
+            // This is only called at start, so this should not change later.
+            enemy.aiPriorityTags["DEFAULT"] = enemy.aiPattern;
             let currentTag = null;
             enemy.note.split(/\r?\n/).forEach(line => {
                 if (noteRegex.test(line)) {
@@ -570,78 +527,106 @@ function createDefaultMotionsForEnemy(enemy) {
     };
 
     Game_Enemy.prototype.getActiveAIPriority = function() {
-        if (!this.enemy().aiPatternDefault) {
-            this.enemy().aiPatternDefault = Array.from(this.enemy().aiPattern);
-        }
-        for (const key of Object.keys(this.enemy().aiPriorityTags)) {
-            if (this.isStateCategoryAffected(key) && this.enemy().aiPriorityTags[key]) {
-                // Custom String Tag, assume YEP State Category
-                console.log(this.name(), "Got AI (State Category):", key);
-                return this.enemy().aiPriorityTags[key];
+        var enemyData = this.enemy();
+
+        // Ensure aiPriorityTags is defined
+        var priorityTags = enemyData.aiPriorityTags || {};
+        
+        // First, check custom state category notetags
+        for (const key of Object.keys(priorityTags)) {
+            if (this.isStateCategoryAffected(key) && priorityTags[key]) {
+            console.log(this.name(), "Got AI (State Category):", key);
+            return priorityTags[key];
             }
         }
+        
+        // Next, check default emotion state IDs
         for (const [tag, states] of Object.entries(AI_PRIORITY_TAGS)) {
-            if (states.some(stateId => this.isStateAffected(stateId)) && this.enemy().aiPriorityTags[tag]) {
-                // Default Emotion Tag names
-                console.log(this.name(), "Got AI (Emotion Default):", tag);
-                return this.enemy().aiPriorityTags[tag];
+            if (states.some(stateId => this.isStateAffected(stateId)) && priorityTags[tag]) {
+            console.log(this.name(), "Got AI (Emotion Default):", tag);
+            return priorityTags[tag];
             }
         }
-        return this.enemy().aiPattern; // Default AI Priority
+        
+        // Fallback: return the default AI Priority
+        console.log(this.name(), "Got AI DEFAULT (no state found)");
+        return priorityTags["DEFAULT"];
     };
 
+
     Game_Enemy.prototype.getSpecificAI = function(tag) {
-        if (!tag || tag == "DEFAULT") {
-            return this.enemy().aiPatternDefault;
+        if (!tag) {
+            return this.enemy().aiPriorityTags["DEFAULT"];
         }
         return this.enemy().aiPriorityTags[tag];
     }
 
     // Overrides entirely to support changing AI mid-loop
-    Game_Enemy.prototype.setAIPattern = function() {
-        Game_Battler.prototype.setAIPattern.call(this);
-        this.enemy().aiPattern = this.getActiveAIPriority();
-        if (this.numActions() <= 0) return;
-        AIManager.setBattler(this);
-        for (var i = 0; i < this.enemy().aiPattern.length; ++i) {
-            if (Math.random() > this.aiLevel()) continue;
-            var line = this.enemy().aiPattern[i];
+Game_Enemy.prototype.setAIPattern = function() {
+    Game_Battler.prototype.setAIPattern.call(this);
+    this.enemy().aiPattern = this.getActiveAIPriority();
+    if (this.numActions() <= 0) return;
+    AIManager.setBattler(this);
+    
+    var i = 0;
+    var maxIterations = 100; // Safety measure to prevent infinite loops
+    var iterationCount = 0;
+    
+    while (i < this.enemy().aiPattern.length && iterationCount < maxIterations) {
+        iterationCount++;
+        var line = this.enemy().aiPattern[i];
+        
+        // Skip line if random check fails (unless we're continuing from an AI change)
+        if (Math.random() > this.aiLevel()) {
+            i++;
+            continue;
+        }
 
-            // Changes AI if found the line, then continue back to iterate at first line
-            if (line.match(/[ ]*(.*):[ ](?:AI) (.*)/i)) {
-                let condition = String(RegExp.$1);
-                let aiTag = String(RegExp.$2).toUpperCase();
-                // Placeholder Values to avoid breaking, 
-                // passAllAIConditions requires it but you shouldn't be throwing targets in anyways
-                AIManager._aiSkillId = 1;
-                AIManager._aiTarget = 'RANDOM';
-                AIManager.action().setSkill(AIManager._aiSkillId);
+        // Check for AI change command
+        if (line.match(/[ ]*(.*):[ ](?:AI) (.*)/i)) {
+            let condition = String(RegExp.$1);
+            let aiTag = String(RegExp.$2).toUpperCase();
+            // Placeholder values
+            AIManager._aiSkillId = 1;
+            AIManager._aiTarget = 'RANDOM';
+            AIManager.action().setSkill(AIManager._aiSkillId);
 
-                if (AIManager.passAllAIConditions(condition)) {
-                    let newPattern = this.getSpecificAI(aiTag);
-                    if (newPattern) {
-                        console.log("> CHANGE AI TO:", aiTag)
-                        this.enemy().aiPattern = newPattern;
-                        i = 0; // Reset index to 0 to start again from first line
-                        continue;
-                    } else {
-                        console.log("> CHANGE AI INVALID; SKIPPING:", aiTag)
-                    }
+            if (AIManager.passAllAIConditions(condition)) {
+                let newPattern = this.getSpecificAI(aiTag);
+                if (newPattern) {
+                    console.log("> CHANGE AI TO:", aiTag);
+                    this.enemy().aiPattern = newPattern;
+                    i = 0; // Start from the beginning of the new pattern
+                    continue; // Restart the loop with the new pattern
+                } else {
+                    console.log("> CHANGE AI INVALID; SKIPPING:", aiTag);
                 }
             }
-            if (AIManager.isDecidedActionAI(line)) {
-				this.doCustomDecideAction();
-				return;
-            }
-	    }  
-        Yanfly.CoreAI.Game_Enemy_makeActions.call(this);
-    };
-	
-	Game_Enemy.prototype.doCustomDecidedActionAI = function() {
-		//Empty Function, Allows other mod to change this function after decision
-	};
+        }
+        
+        
+        if (AIManager.isDecidedActionAI(line)) {
+            this.doCustomDecidedActionAI();
+            return;
+        }
+        
+        i++; 
+    }
+    
+
+    Yanfly.CoreAI.Game_Enemy_makeActions.call(this);
+};
 
     console.log("Alternate AI logic applied successfully.");
     }, 2);
 
 })();
+
+/**
+ * Function placed outside to allow override.
+ * This can be overridden by other plugins without having to copy paste entire function again in alias.
+ * For example, re-evaluating the resulting AI to reroll at certain condition.
+ */
+Game_Enemy.prototype.doCustomDecidedActionAI = function() {
+    // Override This
+};
