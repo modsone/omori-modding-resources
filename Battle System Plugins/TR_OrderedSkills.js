@@ -62,8 +62,8 @@ Window_OmoMenuActorSkillList.prototype.makeItemList = function() {
 Game_Actor.prototype.orderedSkills = function() {
   var skills = this.skills()
   var returnArray = [];
-  if ($dataActors[this._actorId].orderedSkills && Array.isArray($dataActors[this._actorId].orderedSkills)) {
-      for (const skill of $dataActors[this._actorId].orderedSkills) {
+  if (TR.OS.OrderedSkills[this._actorId].orderedSkills && Array.isArray(TR.OS.OrderedSkills[this._actorId])) {
+      for (const skill of TR.OS.OrderedSkills[this._actorId]) {
         if (skills.includes(skill)) returnArray.push(skill);
       }
   }
@@ -73,4 +73,5 @@ Game_Actor.prototype.orderedSkills = function() {
     }
   }
   return returnArray;
+
 }
