@@ -8,12 +8,12 @@ Imported.TR_CustomMenuFaceSizes = true;
 
 var TR = TR || {};
 TR.CMFS = TR.CMFS || {};
-TR.CMFS.version = 1.0;
+TR.CMFS.version = 2.0;
 
 /*: 
  *
  * @plugindesc Allows custom menu face sizes
- * Version 1.0
+ * Version 2.0
  * @author TomatoRadio
  * 
  * @help
@@ -23,7 +23,32 @@ TR.CMFS.version = 1.0;
  * Both default to 124
  * You must use <MenuStatusFaceName> for this to work.
  * 
+ * These refer to the pixel dimensions of 1 frame.
+ * 
+ * @param width
+ * @text Default Width
+ * @type number
+ * @min 1
+ * @max 999
+ * @decimals 0
+ * @description The default width in pixels for a menu face.
+ * @default 125
+ * 
+ * @param height
+ * @text Default Height
+ * @type number
+ * @min 1
+ * @max 999
+ * @decimals 0
+ * @description The default height in pixels for a menu face.
+ * @default 125
+ * 
 */
+
+TR.CMFS.Param  = PluginManager.parameters('TR_CustomMenuFaceSizes');
+
+TR.CMFS.width  = parseInt(TR.CMFS.Param["width"]);
+TR.CMFS.height = parseInt(TR.CMFS.Param["height"]);
 
 Sprite_OmoMenuStatusFace.prototype.updateBitmap = function() {
   // Get Actor
@@ -35,16 +60,18 @@ Sprite_OmoMenuStatusFace.prototype.updateBitmap = function() {
     if (this._inMenu) {
       // Get Face Name
       faceName = actor.menuStatusFaceName();
+      // Change actor to the $dataActors actor
+      let actor = $dataActors[this.actor.actorId()];
       // Set Face Width & Height
       if (actor.meta.MenuStatusWidth) {
         this._faceWidth = actor.meta.MenuStatusWidth
       } else {
-        this._faceWidth = 124;
+        this._faceWidth = TR.CMFS.width || 125;
       }
       if (actor.meta.MenuStatusHeight) {
         this._faceHeight = actor.meta.MenuStatusHeight
       } else {
-        this._faceHeight = 124;
+        this._faceHeight = TR.CMFS.height || 125;
       }
     };
     // Set Default Face Name
