@@ -408,6 +408,7 @@ Imported.DoubleExtenedYAML = true;
 
 // Defining shit
 var WN = WN || {};
+var TR = TR || {};
 WN.DExtYAML = WN.DExtYAML || {};
 
 // Params
@@ -906,3 +907,4 @@ Game_Interpreter.prototype.pluginCommand = function(command, args) {
 
 
 })();
+
