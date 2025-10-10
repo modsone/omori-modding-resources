@@ -120,7 +120,7 @@ Scene_OmoriPhotoAlbum.prototype.prepare = function(item, interfaceMode = 0, requ
     album = this._albumData
 
     //loads the information from the yaml
-    EPA.itemData = album.EPA ? LanguageManager.getTextData(`${EPA.yaml}`, item.meta.Album) : {}
+    EPA.itemData = album.EPA ? LanguageManager.getTextData(`${EPA.yaml}`, item.meta.Album.trim()) : {}
 
     album.group = this._albumData.EPA ? item.meta.Album.trim() : item.meta.AlbumGroup.trim();
     groupID = (`${EPA.yaml}.${this._albumData.group}`)
@@ -834,7 +834,7 @@ Scene_OmoriPhotoAlbum.prototype.showNextViewingPicture = function(duration) {
     };
   };
 
-  console.log(picture)
+  //console.log(picture)
 
   if (this.nextViewingPictureExists()) {
     // Set Duration
@@ -930,7 +930,7 @@ Scene_OmoriPhotoAlbum.prototype.showPrevViewingPicture = function(duration) {
     };
   };
 
-  console.log(picture)
+  //console.log(picture)
 
   if (this.nextViewingPictureExists()) {
     // Set Duration
