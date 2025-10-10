@@ -411,7 +411,7 @@ var WN = WN || {};
 WN.DExtYAML = WN.DExtYAML || {};
 
 // Params
-WN.DExtYAML.Param = PluginManager.parameters('DoubleExtenedYAML');
+WN.DExtYAML.Param = PluginManager.parameters('DoubleExtendedYAML');
 
 // Macros
 WN.DExtYAML.marcoyaml = WN.DExtYAML.Param["macroyaml"]
@@ -903,5 +903,6 @@ Game_Interpreter.prototype.pluginCommand = function(command, args) {
     // Return Original Function
   return WN.DExtYAML.pluginCommand.call(this, command, args);
 };
+
 
 })();
