@@ -408,10 +408,11 @@ Imported.DoubleExtenedYAML = true;
 
 // Defining shit
 var WN = WN || {};
+var TR = TR || {};
 WN.DExtYAML = WN.DExtYAML || {};
 
 // Params
-WN.DExtYAML.Param = PluginManager.parameters('DoubleExtenedYAML');
+WN.DExtYAML.Param = PluginManager.parameters('DoubleExtendedYAML');
 
 // Macros
 WN.DExtYAML.marcoyaml = WN.DExtYAML.Param["macroyaml"]
@@ -538,9 +539,9 @@ Game_Message.prototype.showLanguageMessage = function(code) {
   
   // MESSAGE SE
   var SENAME = TR.NullCoal([data.sound,macro.sound],false);
-  var spitch = TR.NullCoal([data.pitch,macro.pitch,base.pitch],100);
-  var svolume = TR.NullCoal([data.volume,macro.volume,base.volume],90);  
-  var span = TR.NullCoal([data.pan,macro.pan,base.pan],100);
+  var spitch = TR.NullCoal([data.pitch,macro.pitch,base.spitch],100);
+  var svolume = TR.NullCoal([data.volume,macro.volume,base.svolume],90);  
+  var span = TR.NullCoal([data.pan,macro.pan,base.span],0);
   if (SENAME && SENAME !== 'STOP') {
     AudioManager.playSe({
       name: SENAME,
@@ -556,7 +557,7 @@ Game_Message.prototype.showLanguageMessage = function(code) {
   var MENAME = TR.NullCoal([data.msound,macro.msound],false);
   var mpitch = TR.NullCoal([data.mpitch,macro.mpitch,base.mpitch],100);
   var mvolume = TR.NullCoal([data.mvolume,macro.mvolume,base.mvolume],90);  
-  var mpan = TR.NullCoal([data.mpan,macro.mpan,base.mpan],100);
+  var mpan = TR.NullCoal([data.mpan,macro.mpan,base.mpan],0);
   if (MENAME && MENAME !== 'STOP') {
     AudioManager.playMe({
       name: MENAME,
@@ -904,4 +905,7 @@ Game_Interpreter.prototype.pluginCommand = function(command, args) {
   return WN.DExtYAML.pluginCommand.call(this, command, args);
 };
 
+
 })();
+
+
