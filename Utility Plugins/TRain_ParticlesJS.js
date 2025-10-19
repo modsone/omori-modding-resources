@@ -45,8 +45,8 @@ This project is based on particles.js (Vincent Garreau, MIT License). I extended
 
 
 /*:
- * @plugindesc particles.js particle effects
- * @author Vincent Garreau (particles.js), TrophicRain (this plugin)
+ * @plugindesc particles.js particle effects v1.1
+ * @author Vincent Garreau (particles.js), TrophicRain (this plugin), TomatoRadio (plugin command)
  * 
  * @help
  * This plugin provides Sprite_pJS class to display the particle effects of particles.js.
@@ -116,6 +116,48 @@ This project is based on particles.js (Vincent Garreau, MIT License). I extended
  * Both Vincent Garreau's particles.js, and my plugin TRain_ParticlesJS.js, use the MIT License.
  * See the beginning of the source code for details.
  * 
+ * ------------------------------------------------------------------------------
+ * 
+ * [v1.1 Note about persistence]
+ * 
+ * The plugin itself doesn't support storing the particles layer persistently.
+ * (if you save game and load, it disappears)
+ * This is on purpose because I can't assume where would you like to put the layer in
+ * (e.g. in SceneManager._scene_spriteset._tilemap, or _spriteset._baseSprite, or somewhere else)
+ * If you need that, you need to extend Spriteset_Map by yourself
+ * (which basically makes TR_pJS.map_layers.push({sprite, on_recover}) unnecessary.
+ * it's still useful if you don't have a save point in the map, can save you some effort)
+ * 
+ * Like this:
+ * var old_Spriteset_Map_createLowerLayer = Spriteset_Map.prototype.createLowerLayer;
+ * Spriteset_Map.prototype.createLowerLayer = function() {
+ *     old_Spriteset_Map_createLowerLayer.call(this);
+ *     
+ *     // create particle layer for map 1
+ *     if ($gameMap.mapId() === 1) this.createParticleLayer();
+ * };
+ * 
+ * Spriteset_Map.prototype.createParticleLayer = function() {
+ *     var json;    // get your json here
+ *     this._particle_layer = new Sprite_pJS(json, TR_pJS.map_layer_width(1), TR_pJS.map_layer_height(1));
+ *     this._particle_layer.set_follow_map(1, 1);
+ * };
+ * 
+ * And now the layer keeps if you save and load the game.
+ * In this case, there's no need to (i mean, don't) use the example event.
+ * 
+ * 
+ * ------------------------------------------------------------------------------
+ * 
+ * [Update history]
+ * v1.1
+ *   Added plugin commands (thanks to TomatoRadio!)
+ *   Updated documentation
+ * 
+ *   Plugin Command:
+ *   trainparticles <json> <index> <follow_ratio_X> <follow_ratio_Y>
+ *   insert a particle layer at SceneManager._scene._spriteset._baseSprite[index]
+ * 
  * 
  * 
  * 
@@ -132,6 +174,45 @@ var TR_pJS = {};
 TR_pJS._stored = {};
 TR_pJS._params = PluginManager.parameters('TRain_ParticlesJS');
 TR_pJS._params.Particle_Jsons = JSON.parse(TR_pJS._params.Particle_Jsons);
+
+
+
+// ===============================================================================
+// Plugin Commands (from TomatoRadio)
+// ===============================================================================
+
+let old_plugincommandparticles = Game_Interpreter.prototype.pluginCommand
+Game_Interpreter.prototype.pluginCommand = function(command, args) {
+  switch (command.toLowerCase()) {
+    case 'trainparticles':
+      this.handleTRainParticleArgs(args[0],Number(args[1]),Number(args[2]),Number(args[3]))
+      return;
+  }
+  //Do old plugin command
+  return old_plugincommandparticles.call(this,command,args);
+};
+
+Game_Interpreter.prototype.handleTRainParticleArgs = function(json,index = 3,follow_ratio_X = 0,follow_ratio_Y = follow_ratio_X) {
+  //Catch dummies
+  if (json === undefined) {
+    console.log(`PluginCommand: TRainParticles lacks any arguements. No scripts ran.`)
+  }
+  //Perform Script
+  json = TR_pJS.jsons[json];
+  var width = TR_pJS.map_layer_width(follow_ratio_X);
+  var height = TR_pJS.map_layer_height(follow_ratio_Y);
+  var sprite_pjs = new Sprite_pJS(json, width, height);
+  var add_to_map = function(scene_map, sprite){
+    var base_sprite = scene_map._spriteset._baseSprite;
+    var insert_index = index;
+    base_sprite.addChildAt(sprite_pjs, insert_index);
+  };
+  TR_pJS.map_layers.push({sprite: sprite_pjs, on_recover: add_to_map});
+  add_to_map(SceneManager._scene, sprite_pjs);
+};
+
+
+
 
 
 

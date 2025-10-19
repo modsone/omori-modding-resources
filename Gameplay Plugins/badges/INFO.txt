@@ -1,0 +1,17 @@
+TO USE:
+copy the js file and the yaml file
+rename the js file (it doesnt really matter what you rename it to, just as long as it doesnt match anything else)
+(you can also use the randomize file name option of bundletool/oneloader)
+
+rename the yaml file to 'badgedata_modid.yaml', where modid is the id of your mod
+edit the yaml to add your badges (more info is in the file for formatting)
+
+to grant badges you can either use
+Plugin Command: unlockbadge modid badgeid
+or
+Script: DGT.UnlockBadge(modId, badgeName)
+
+you can also relock badges with either
+Plugin Command: lockbadge modid badgeid
+or
+Script: DGT.LockBadge(modId, badgeName)
