@@ -10,10 +10,10 @@ Each resource lives in a directory denoting it's category, then a directory for 
 - **Battle System Plugins:** Plugins related to creation of enemies, battles, skills, gameplay mechanics, etc
 - **Event Plugins:** Plugins related to Events in RPG MAKER maps
 - **Gameplay Plugins:** Plugins that affect general gameplay
-- **Item & Equipment Plugins:** Plugins related to Items(Snacks & Toys), Weapons and Armor
+- **Data Organization:** Plugins related to un-hardcoding certain things to be stored in files, such using YAML. This may include some functionalities, but the main intention is that requires less tampering with base game.
 - **OneLoader Plugins:** Plugins that execute functions related to the modloader.
-- **Skill & Status Menu Plugins:** Plugins Related to the In-game status menu
 - **Utility Plugins:** General utility plugins with improvements or patches.
+- **Support Plugins:** Plugins that is a "Core" plugin to other plugins, usually due to common shared functions.
 
 ## Useful Links
 ### OMORI Modding Info
