@@ -1,86 +1,91 @@
-// DGT_Badges.js
-// Renaming this file is recommended, so that multiple modded badge scripts may be loaded at once
-
-// Plugin Commands:
-//
-// for all purposes, modid is the part of the name of your yaml file after 'badgedata_'
-// e.g. if you have a badge file called 'badgedata_coolmod', the mod id you would use in commands would be 'coolmod'
-//
-//// unlockbadge modid badgeid
-// unlocks the badge under the modid and badgeid specified
-//// unlockbadgesilent modid badgeid
-// unlocks the badge under the modid and badgeid specified (no notification)
-//// lockbadge modid badgeid
-// locks the badge under the modid and badgeid specified
-
-// JS Functions:
-//
-//// DGT.UnlockBadge(modId, badgeName)
-//// DGT.UnlockBadgeSilent(modId, badgeName)
-//// DGT.LockBadge(modId, badgeName)
-// same functionality as plugin commands above, but will return true if 'sucessful'; if the user already has the badge and you call unlockbadge, it will return false; likewise, if the user does not have a badge and you call lockbadge, it returns false
-//// DGT.isBadgeUnlocked(modId, badgeName)
-// returns true if the badge is unlocked
-//// DGT.totalUnlockedBadges(modId)
-// returns the total number of unlocked badges, if modId is specified, returns the number for that mod only
-//// DGT.totalUnlockedBadges(modId)
-// returns the total number of locked AND unlocked badges, if modId is specified, returns the number for that mod only
-//// DGT.badgeUnlockRatio(modId)
-// returns a number between 0 and 1 representing the portion of currently unlocked badges, if modId is specified, returns the number for that mod only
-// multiply by 100 for a percentage
-
-//// Extra JS Functions:
-//
-//// DGT.registerBadgeHandler(modId, badgeName, func)
-// will cause func to be called when the badge specified is interacted with in the badge menu
-// func will be given one argument, which indicates whether or not the badge is unlocked
-// warning: if your script uses this function, you must ensure that it loads after this script
-//// DGT.startBadgeNotification(modId, badgeName)
-// will show a badge notification WITHOUT granting a badge (you are evil)
-//// DGT.makeBadgeToast(corner, border, img, offsetx, offsety)
-// offers complete(ish) control over creating a notification
-// corner: 'top-left', 'top-right', 'bottom-left' or 'bottom-right'
-// border should be a 180 by 94 image in img/system
-// img should be a 54 by 54 image (or anything that can be cleanly downscaled to 54 x 54)
-// offsetx and offsety are used for positioning the image within the borders of the notification
-
-
-// Version 1.0.0: initial release
-// Version 1.1.0:
-//  - Added special handling for vanilla achievements
-//  - reworked image preloading to better support atlases
-//  - added separate mod/overall progress indicators
-// Version 1.1.7:
-//  - fix a major bug that was also affecting battle tests
-// Version 1.2.0:
-//  - add badge notifications
-//  - fix some major bugs related to the built in image decrypter
-// Version 1.3.0:
-//  - add registerBadgeHandler
-// Version 1.3.1:
-//  - fix badge image caching
-// Version 1.3.1b
-//  - add meta.full_progress_colorstop_1 and meta.full_progress_colorstop_2
-// Version 1.3.2:
-//  - improve language support (thanks aoisensei)
-// Version 1.3.2b
-//  - make custom color apply to top bar as well
-// Version 1.3.3:
-//  - remove debug thing (fog moment)
-// Version 1.4.0:
-//  - Unify splintered badge plugin version (oops)
-//  - splintered features that werent previously included in mods.one release are indicated above with a 'b' next to version number
-//  - add 'secret' badge functionality
-//  - fix image loading (thanks Geo)
-// Version 1.4.1:
-//  - fix image reservation for default images
-// Version 1.4.2:
-//  - tweak badge counting for secret badges
-// Version 1.4.3:
-//  - add unlockbadgesilent plugin command and DGT.UnlockBadgeSilent
-//  - added a notification queue so badge notifications dont overlap
-// Version 1.4.3b:
-//  - fix recursive function call error thing
+/**
+ * @plugindesc Omori Badges Screen
+ * @author Draught
+ * @help
+ * 
+ * Renaming this file is recommended, so that multiple modded badge scripts may be loaded at once
+ * 
+ * Plugin Commands:
+ * 
+ * for all purposes, modid is the part of the name of your yaml file after 'badgedata_'
+ * e.g. if you have a badge file called 'badgedata_coolmod', the mod id you would use in commands would be 'coolmod'
+ * 
+ * // unlockbadge modid badgeid
+ * unlocks the badge under the modid and badgeid specified
+ * // unlockbadgesilent modid badgeid
+ * unlocks the badge under the modid and badgeid specified (no notification)
+ * // lockbadge modid badgeid
+ * locks the badge under the modid and badgeid specified
+ * 
+ * JS Functions:
+ * 
+ * // DGT.UnlockBadge(modId, badgeName)
+ * // DGT.UnlockBadgeSilent(modId, badgeName)
+ * // DGT.LockBadge(modId, badgeName)
+ * same functionality as plugin commands above, but will return true if 'sucessful'; if the user already has the badge and you call unlockbadge, it will return false; likewise, if the user does not have a badge and you call lockbadge, it returns false
+ * // DGT.isBadgeUnlocked(modId, badgeName)
+ * returns true if the badge is unlocked
+ * // DGT.totalUnlockedBadges(modId)
+ * returns the total number of unlocked badges, if modId is specified, returns the number for that mod only
+ * // DGT.totalUnlockedBadges(modId)
+ * returns the total number of locked AND unlocked badges, if modId is specified, returns the number for that mod only
+ * // DGT.badgeUnlockRatio(modId)
+ * returns a number between 0 and 1 representing the portion of currently unlocked badges, if modId is specified, returns the number for that mod only
+ * multiply by 100 for a percentage
+ * 
+ * // Extra JS Functions:
+ * 
+ * // DGT.registerBadgeHandler(modId, badgeName, func)
+ * will cause func to be called when the badge specified is interacted with in the badge menu
+ * func will be given one argument, which indicates whether or not the badge is unlocked
+ * warning: if your script uses this function, you must ensure that it loads after this script
+ * // DGT.startBadgeNotification(modId, badgeName)
+ * will show a badge notification WITHOUT granting a badge (you are evil)
+ * // DGT.makeBadgeToast(corner, border, img, offsetx, offsety)
+ * offers complete(ish) control over creating a notification
+ * corner: 'top-left', 'top-right', 'bottom-left' or 'bottom-right'
+ * border should be a 180 by 94 image in img/system
+ * img should be a 54 by 54 image (or anything that can be cleanly downscaled to 54 x 54)
+ * offsetx and offsety are used for positioning the image within the borders of the notification
+ * 
+ * 
+ * Version 1.0.0: initial release
+ * Version 1.1.0:
+ *  - Added special handling for vanilla achievements
+ *  - reworked image preloading to better support atlases
+ *  - added separate mod/overall progress indicators
+ * Version 1.1.7:
+ *  - fix a major bug that was also affecting battle tests
+ * Version 1.2.0:
+ *  - add badge notifications
+ *  - fix some major bugs related to the built in image decrypter
+ * Version 1.3.0:
+ *  - add registerBadgeHandler
+ * Version 1.3.1:
+ *  - fix badge image caching
+ * Version 1.3.1b
+ *  - add meta.full_progress_colorstop_1 and meta.full_progress_colorstop_2
+ * Version 1.3.2:
+ *  - improve language support (thanks aoisensei)
+ * Version 1.3.2b
+ *  - make custom color apply to top bar as well
+ * Version 1.3.3:
+ *  - remove debug thing (fog moment)
+ * Version 1.4.0:
+ *  - Unify splintered badge plugin version (oops)
+ *  - splintered features that werent previously included in mods.one release are indicated above with a 'b' next to version number
+ *  - add 'secret' badge functionality
+ *  - fix image loading (thanks Geo)
+ * Version 1.4.1:
+ *  - fix image reservation for default images
+ * Version 1.4.2:
+ *  - tweak badge counting for secret badges
+ * Version 1.4.3:
+ *  - add unlockbadgesilent plugin command and DGT.UnlockBadgeSilent
+ *  - added a notification queue so badge notifications dont overlap
+ * Version 1.4.3b:
+ *  - fix recursive function call error thing
+ */
 {
     const BADGE_VERSION = '1.4.3b'
 
