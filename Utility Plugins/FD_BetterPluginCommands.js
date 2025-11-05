@@ -1,10 +1,10 @@
 //=============================================================================
-// ★ FD_BetterPluginCommands ★                                  v1.1.0      
+// ★ FD_BetterPluginCommands ★                                  v1.2.1      
 //=============================================================================
  /*:
  * @plugindesc A variety of plugin commands + better plugin functionality.
  * @author FruitDragon
- * @version 1.1.0
+ * @version 1.2.1
  * 
  * @help
  * Special Thanks: bajamaid, FoG, stahl, tomatoradio
@@ -32,11 +32,8 @@
  * 
  * Plugin: NameInput [message] [default] [max] [wait]*
  * 
- * Plugin: MapFog set [fogId] [file] [x] [y] [opacity] [blend] [scaleX]* [scaleY]* [panX]* [panY]*
- * Plugin: MapFog update [fogId] [file] [x] [y] [opacity] [blend] [scaleX]* [scaleY]* [panX]* [panY]*
+ * Plugin: MapFog set [fogId] [file] [x] [y] [opacity] [blend] [scaleX]* [scaleY]*
  * Plugin: MapFog fade [fogId] [opacity] [time]
- * Plugin: MapFog fadescrollx [fogId] [x] [time]
- * Plugin: MapFog fadescrolly [fogId] [y] [time]
  * Plugin: MapFog clear [fogId]
  * 
  * Plugin: CustomPicture setup [id] [width] [height] [hframes] [vframes]
@@ -142,8 +139,8 @@
  * =============================================================================
  * MapFog (TDS Map Fog.js) (edited to include fade transition)
  * =============================================================================
- * Plugin: MapFog set [fogId] [file] [x] [y] [opacity] [blend] [scaleX] [scaleY] [panX] [panY]
- * Plugin: MapFog update [fogId] [file] [x] [y] [opacity] [blend] [scaleX] [scaleY] [panX] [panY]
+ * Plugin: MapFog set [fogId] [file] [x] [y] [opacity] [blend] [scaleX] [scaleY]
+ * Plugin: MapFog update [fogId] [file] [x] [y] [opacity] [blend] [scaleX] [scaleY]
  * Plugin: MapFog fade [fogId] [opacity] [time]
  * Plugin: MapFog fadescrollx [fogId] [x] [time]
  * Plugin: MapFog fadescrolly [fogId] [y] [time]
@@ -157,10 +154,8 @@
  * [y] Speed at which the fog scrolls on vertical axis
  * [opacity] Opacity of the fog
  * [blend] Blendmode of fog (0 - Normal, 1 - Additive, 2 - Multiply, 3 - Screen) Both word and number are accepted.
- * [scaleX] (optional) Horizontal stretch of image
- * [scaleY] (optional) Vertical stretch of image
- * [panX] (optional) Horizontal scroll speed relative to map. Accepts any number. eg: 1 is the same speed as the map, 0.5 is half, 2 is twice.
- * [panX] (optional) Horizontal scroll speed relative to map.
+ * [scaleX*] (optional) Horizontal stretch of image
+ * [scaleY*] (optional) Vertical stretch of image
  * [time] Frames for the fog to fade from original to new opacity/scroll
  * 
  * MapFog set fog1 fog 1 0 75 0
@@ -235,6 +230,10 @@
  * 
  * v1.2.0 Added one new command
  * - BalloonImage
+ * 
+ * v1.2.1 TomatoRadio added more functionality to the fog command
+ * 
+ * v1.2.2 FruitDragon bugfixed a minor error that broke base game fog command
  * 
  * 
  * 
@@ -444,7 +443,7 @@ Game_Interpreter.prototype.createFogWithoutFade = function(id, name, x_scroll, y
 
 }
 
-Game_Interpreter.prototype.updateFog = function(id, name, x_scroll, y_scroll, opacity, blendmode, scaleX, scaleY, parallaxX, parallaxY) {
+Game_Interpreter.prototype.updateFog = function(id, name, x_scroll, y_scroll, opacity, blendmode, scaleX, scaleY, parallaxX = 1, parallaxY = 1) {
 		let fog = $gameMap.getMapFog(id)
 		if (x_scroll !== 'same') {fog.move.x = Number(x_scroll)}
 		if (y_scroll !== 'same') {fog.move.y = Number(y_scroll)}
@@ -650,7 +649,7 @@ Game_Interpreter.prototype.handleCustomPicture = function(args) {
 		return;
 	case 'animate':
 		frames = JSON.parse(args[1]).map(Number)
-		console.log(args[1], frames)
+		//console.log(args[1], frames)
 		//CustomPicture animate pictureId frames delay loops = Infinity wait = true
 		this.setPictureAnimation(Number(args[0]), frames, Number(args[2]), Number(args[3]) || Infinity, eval(args[4]) || true)
 		return;
@@ -701,17 +700,17 @@ Game_Interpreter.prototype.handleBalloonImage = function(args) {
 		case 'set':
 			$gameVariables.setValue(FD.BetterPluginCommands.BalloonImageVar, args[0])
 			//console.log("case set")
-			console.log(FD.BetterPluginCommands.BalloonImageVar)
+			//console.log(FD.BetterPluginCommands.BalloonImageVar)
 			return;
 		case 'clear':
 			$gameVariables.setValue(FD.BetterPluginCommands.BalloonImageVar, '')
 			//console.log("case clear")
-			console.log(FD.BetterPluginCommands.BalloonImageVar)
+			//console.log(FD.BetterPluginCommands.BalloonImageVar)
 			return;
 		case 'reset':
 			$gameVariables.setValue(FD.BetterPluginCommands.BalloonImageVar, FD.BetterPluginCommands.DefaultBalloonImage)
 			//console.log("case reset")
-			console.log(FD.BetterPluginCommands.BalloonImageVar)
+			//console.log(FD.BetterPluginCommands.BalloonImageVar)
 			return;
 	}
 }
