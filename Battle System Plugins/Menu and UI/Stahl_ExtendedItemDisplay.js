@@ -5,7 +5,7 @@ var Stahl = Stahl || {};
 Stahl.ExtendedItemDisplay = Stahl.ExtendedItemDisplay || {};
 
 /*:
- * @plugindesc [v1.1.2] Adds Color and Count to items, and fix max quantity.
+ * @plugindesc [v1.2.3] Adds Color, Count, Max quantities to Items and extends shops.
  * 
  * @author ReynStahl
  *
@@ -25,6 +25,28 @@ Stahl.ExtendedItemDisplay = Stahl.ExtendedItemDisplay || {};
  * 1.1.2
  * - More type of Item display + Show max limit
  * - Updates if item is enabled on purchase. Also doesn't limit selling.
+ * 1.2.0
+ * - ItemDisplayManager.setShopkeeperSpriteSimple(filename, x, y) to set shopkeeper image. Enter null to default mailbox.
+ *   This will also automatically add image to reserve.
+ * - Shop sprite can also be set directly if more options are needed. Using mailbox as example:
+ * 
+ * ItemDisplayManager._reserveShopImages = ['mailbox'];
+ * ItemDisplayManager._shopkeeperSprite = {
+ *   filename: 'mailbox',
+ *   position: {x: -50, y: 30},
+ *   frame: {x: 0, y: 0, width: 251, height: 344},
+ *   hasFace: true,
+ *   facePosition: {x: 50, y: 65},
+ *   faceFrame: {x: 251, y: 28, width: 79, height: 28},
+ * };
+ * 
+ * - Face frames will automatically go down by using it's height, stacking frames vertically
+ * 1.2.1
+ * - <ListIndex:x> note tag works on equipments now. Sets the intended item index to x. Lower number means higher up.
+ * 1.2.2
+ * - Changed getting Item, Weapon, Armor type name into a function. Allows to override easier (like getting YAML).
+ * 1.2.3
+ * - Changed getting Skill for skill equip list into function "getItemFromIndex". Allows for override (like skill replacement).
  * 
  * Dependencies:
  * - Put BELOW Omori Shops, Menus, and Windows related plugins
@@ -51,7 +73,9 @@ ItemDisplayManager.COLORLIST = {
   "PASSIVE": 'rgba(140, 255, 140, 1)',
   "PASSIVE_DISABLED": 'rgba(50, 140, 50, 1)',
   "SPECIAL": 'rgb(255, 200, 0)',
-  "SPECIAL_DISABLED": 'rgb(106, 58, 0)'
+  "SPECIAL_DISABLED": 'rgb(106, 58, 0)',
+  "ENERGY": 'rgba(0, 247, 255, 1)',
+  "ENERGY_DISABLED": 'rgba(0, 106, 101, 1)'
 }
 
 /**
@@ -75,6 +99,16 @@ ItemDisplayManager.isSpecial = function(item) {
 }
 
 /**
+ * Whether item is considered special.
+ * By default check fo <SpecialColor> meta tag.
+ * @param {*} item UsableItem
+ * @returns boolean
+ */
+ItemDisplayManager.isEnergy = function(item) {
+  return item && item.meta.EnergyCost;
+}
+
+/**
  * Gets the color String based off item.
  * @param {*} item UsableItem
  * @param {*} disabled boolean, when true gives disabled variant (Default: faded out color)
@@ -85,6 +119,8 @@ ItemDisplayManager.getColor = function(item, disabled = false) {
     return disabled ? this.COLORLIST["SPECIAL_DISABLED"] : this.COLORLIST["SPECIAL"]
   } else if (this.isPassive(item)) {
     return disabled ? this.COLORLIST["PASSIVE_DISABLED"] : this.COLORLIST["PASSIVE"]
+  } else if (this.isEnergy(item)) {
+    return disabled ? this.COLORLIST["ENERGY_DISABLED"] : this.COLORLIST["ENERGY"]
   }
   return disabled ? this.COLORLIST["NORMAL_DISABLED"] : this.COLORLIST["NORMAL"]
 }
@@ -106,23 +142,51 @@ ItemDisplayManager.getColorId = function(item) {
 }
 
 /**
- * Dictionary of Weapon Type ID to Display Name.
- * Override this for own names.
+ * Gets weapon type display name from type.
+ * Can be WEAPON, CHARM, TOY, SNACKS, IMPORTANT.
+ * Ideally, this can be replaced to hook to a YAML file.
+ * @param {*} type 
+ * @returns 
  */
-ItemDisplayManager.WTYPEID_DISPLAY = {
-  1: "OMORI",
-  2: "AUBREY",
-  3: "KEL",
-  4: "HERO",
+ItemDisplayManager.getItemTypeName = function(type) {
+  const data = {
+    "weapon": "WEAPON",
+    "armor": "CHARM",
+    "toy": "TOY",
+    "consumable": "SNACK",
+    "key": "IMPORTANT"
+  }
+  return data[type] || "";
 }
 
 /**
- * Dictionary of Armor Type ID to Display Name.
- * Override this for own names.
+ * Gets weapon type display name from id.
+ * Ideally, this can be replaced to hook to a YAML file.
+ * @param {*} id 
+ * @returns 
  */
-ItemDisplayManager.ATYPEID_DISPLAY = {
-  1: "ANY",
-  2: "KEL",
+ItemDisplayManager.getWeaponTypeName = function(id) {
+  const data = {
+    1: "OMORI",
+    2: "AUBREY",
+    3: "KEL",
+    4: "HERO"
+  }
+  return data[id] || "";
+}
+
+/**
+ * Gets armor type display name from id.
+ * Ideally, this can be replaced to hook to a YAML file.
+ * @param {*} id 
+ * @returns 
+ */
+ItemDisplayManager.getArmorTypeName = function(id) {
+  const data = {
+    1: "ANY",
+    2: "KEL"
+  }
+  return data[id] || "";
 }
 
 /**
@@ -137,15 +201,15 @@ ItemDisplayManager.getShopItemTypeText = function(item) {
   let extraInfo = "";
 
   if (DataManager.isWeapon(item)) {
-    extraInfo = `WEAPON: ${this.WTYPEID_DISPLAY[item.wtypeId]}`
+    extraInfo = this.getItemTypeName("weapon") + ": " + this.getWeaponTypeName(item.wtypeId);
   } else if (DataManager.isArmor(item)) {
-    extraInfo = `CHARM: ${this.ATYPEID_DISPLAY[item.atypeId]}`
+    extraInfo = this.getItemTypeName("armor") + ": " + this.getArmorTypeName(item.atypeId);
   } else if (DataManager.isToyItem(item)) {
-    extraInfo = `TOY`
+    extraInfo = this.getItemTypeName("toy");
   } else if (DataManager.isConsumableItem(item)) {
-    extraInfo = `SNACKS`
+    extraInfo = this.getItemTypeName("consumable");
   } else if (DataManager.isItem(item) && item.itypeId === 2) {
-    extraInfo = `IMPORTANT`
+    extraInfo = this.getItemTypeName("key");
   }
 
   if (extraInfo != "") {
@@ -154,12 +218,12 @@ ItemDisplayManager.getShopItemTypeText = function(item) {
   return `(${ownCount}/${maxCount})`;
 }
 
-ItemDisplayManager.getShopItemTypeTextFontSize = function(item) {
+ItemDisplayManager.getShopItemTypeTextFontSize = function() {
   return 20;
 }
 
 /**
- * Gets the shop width. Default  grabs from ItemDisplayManager._customShopWidth or 250.
+ * Gets the shop width. Default grabs from ItemDisplayManager._customShopWidth or 250.
  * @returns 
  */
 ItemDisplayManager.getShopWidth = function() {
@@ -178,6 +242,58 @@ ItemDisplayManager.setShopWidth = function(num) {
  * Shop width that will be used to override.
  */
 ItemDisplayManager._customShopWidth = null;
+
+/**
+ * Sets up a simple shopkeeper sprite without face or subframes.
+ * null filename will set to default mailbox.
+ * 
+ * The images still needed to be reserved in Scene_OmoriItemShop.prototype.initAtlastLists
+ * by calling ImageManager.reserveSystem() at some point
+ * @param {*} _filename Filename of image in system
+ * @param {*} _x Position x
+ * @param {*} _y Position y
+ * @returns 
+ */
+ItemDisplayManager.setShopkeeperSpriteSimple = function(_filename, _x, _y) {
+  if (!_filename) {
+    this._shopkeeperSprite = null;
+    return;
+  }
+  this._reserveShopImages = [_filename]; // Set file for reserve automatically.
+  this._shopkeeperSprite = {
+    filename: _filename,
+    position: {x: _x, y: _y},
+    frame: null,
+    hasFace: false,
+    facePosition: null,
+    faceFrame: null,
+  };
+}
+
+/**
+ * Gets shopkeeper sprite data. Defaults to mailbox.
+ * @returns 
+ */
+ItemDisplayManager.getShopkeeperSprite = function() {
+  return ItemDisplayManager._shopkeeperSprite || ItemDisplayManager._defaultShopkeeperSprite;
+}
+
+ItemDisplayManager._shopkeeperSprite = null;
+
+ItemDisplayManager._defaultShopkeeperSprite = {
+  filename: 'mailbox',
+  position: {x: -50, y: 30},
+  frame: {x: 0, y: 0, width: 251, height: 344},
+  hasFace: true,
+  facePosition: {x: 50, y: 65},
+  faceFrame: {x: 251, y: 28, width: 79, height: 28},
+};
+
+/**
+ * List of filename to reserve shopkeeper images.
+ * This variable can be overridden at start, if preferred to do it with plugin.
+ */
+ItemDisplayManager._reserveShopImages = [];
 
 //=============================================================================
 // * Shop List Color
@@ -345,9 +461,76 @@ WindowItemShopMessage.prototype.drawItem = function(item) {
     this._drawingItemText = false;
   };
 };
+
+//=============================================================================
+// * Shop Sprites
+//=============================================================================
+
+Stahl.ExtendedItemDisplay.Scene_OmoriItemShop_initAtlastLists = Scene_OmoriItemShop.prototype.initAtlastLists;
+Scene_OmoriItemShop.prototype.initAtlastLists = function() {
+  Stahl.ExtendedItemDisplay.Scene_OmoriItemShop_initAtlastLists.call(this);
+  for (const filename of ItemDisplayManager._reserveShopImages) {
+    ImageManager.reserveSystem(filename, 0, this._imageReservationId);
+  }
+};
+
+Scene_OmoriItemShop.prototype.createShopKeeperSprite = function() {
+  const spriteData = ItemDisplayManager.getShopkeeperSprite();
+  const filename = spriteData.filename;
+  const frame = spriteData.frame;
+  const facePosition = spriteData.facePosition;
+
+  this._shopKeeperSprite = new Sprite(ImageManager.loadSystem(filename));
+  if (frame) {
+    this._shopKeeperSprite.setFrame(frame.x, frame.y, frame.width, frame.height);
+  }
+
+  this._shopKeeperSprite.visible = $gameTemp._shopData.showMailboxShopkeeper;
+  this._shopKeeperSprite.opacity = 0;
+  this.addChild(this._shopKeeperSprite);
+
+  // Create shop Keepers Face Sprite
+  if (spriteData.hasFace) {
+    this._shopKeepersFaceSprite = new Sprite(ImageManager.loadSystem('mailbox'))
+    this._shopKeepersFaceSprite.x = facePosition ? facePosition.x : 50;
+    this._shopKeepersFaceSprite.y = facePosition ? facePosition.y : 65;
+    this._shopKeeperSprite.addChild(this._shopKeepersFaceSprite);
+
+    // Set Default shop keeper face
+    this.setShopKeeperFace(0)
+  }
+};
+
+Stahl.ExtendedItemDisplay.Scene_OmoriItemShop_create = Scene_OmoriItemShop.prototype.create;
+Scene_OmoriItemShop.prototype.create = function() {
+  Stahl.ExtendedItemDisplay.Scene_OmoriItemShop_create.call(this);
+
+  const spriteData = ItemDisplayManager.getShopkeeperSprite();
+  if (spriteData && spriteData.position) {
+    this._shopKeeperSprite.x = (this._messageWindow.x + this._messageWindow.width) - this._shopKeeperSprite.width;
+    this._shopKeeperSprite.y = this._messageWindow.y - this._shopKeeperSprite.height;
+
+    this._shopKeeperSprite.x += spriteData.position.x;
+    this._shopKeeperSprite.y += spriteData.position.y;
+  }
+};
+
+Scene_OmoriItemShop.prototype.setShopKeeperFace = function(index = 0) {
+  const spriteData = ItemDisplayManager.getShopkeeperSprite();
+  const frame = spriteData.faceFrame;
+  if (this._shopKeepersFaceSprite && frame) {
+    this._shopKeepersFaceSprite.setFrame(frame.x, index * frame.y, frame.width, frame.height);
+  }
+};
+
+//=============================================================================
+// * Item Colors
+//=============================================================================
+
 //=============================================================================
 // * Skill List Battle Color
 //=============================================================================
+
 Stahl.ExtendedItemDisplay.Window_BattleSkill_drawItem = Window_BattleSkill.prototype.drawItem;
 Window_BattleSkill.prototype.drawItem = function(index) {
   var item = this._data[index];
@@ -396,7 +579,7 @@ Window_OmoMenuActorSkillList.prototype.drawItem = function(index) {
   // Get Rect
   var rect = this.itemRectForText(index);
   // Get Item
-  var item = this._data[index];
+  var item = this.getItemFromIndex(index);
   // Determine if enabled
   var enabled = this.isCurrentItemEnabled(index);
   // Set Item Text
@@ -407,6 +590,12 @@ Window_OmoMenuActorSkillList.prototype.drawItem = function(index) {
   this.contents.textColor = ItemDisplayManager.getColor(item, false) // SET COLOR
   this.contents.drawText(text, rect.x, rect.y, rect.width, rect.height);
   this.contents.textColor = ItemDisplayManager.getColor(null, false); // RESET COLOR
+};
+
+// New function for getting item from index.
+// Allows other function to override like skill replacements.
+Window_OmoMenuActorSkillList.prototype.getItemFromIndex = function(index) {
+  return this._data[index];
 };
 
 //=============================================================================
@@ -517,3 +706,19 @@ Window_OmoMenuHelp.prototype.drawQuantity = function() {
     this.drawText(text, 252, 66, 200, 'right');
   }
 }
+
+//=============================================================================
+// * Item List Order
+//=============================================================================
+Window_OmoMenuActorEquipItem.prototype.makeItemList = function() {
+  // Run Original Function
+  Window_ItemList.prototype.makeItemList.call(this);
+  // Sort list
+  this._data.sort(function(a, b) {
+    if (!a) return 1; // move the "empty" item down last of the list
+    if (!b) return -1;
+    var indexA = a.meta.ListIndex === undefined ? a.id : Number(a.meta.ListIndex);
+    var indexB = b.meta.ListIndex === undefined ? b.id : Number(b.meta.ListIndex);
+    return indexA - indexB;
+  });
+};

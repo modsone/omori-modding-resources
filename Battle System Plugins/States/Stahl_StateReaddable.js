@@ -13,11 +13,22 @@
 var Stahl = Stahl || {};
 Stahl.StateReaddable = Stahl.StateReaddable || {};
 
+Stahl.StateReaddable.Game_Battler_isStateAddable = Game_Battler.prototype.isStateAddable;
 Game_Battler.prototype.isStateAddable = function(stateId) {
+	let result = Stahl.StateReaddable.Game_Battler_isStateAddable.call(this, stateId);
 	var state = $dataStates[stateId];
 	if (!state) return false;
-	if (this.isAlive() || (state.category && state.category.contains('BYPASS DEATH REMOVAL'))) {
-		return (!this.isStateResist(stateId) && !this.isStateRestrict(stateId));
+	if (this.isPassiveStateAffected(stateId)) return false;
+
+	// if result was false, and COULD be due to is State removed, check again without one.
+	if (!result && this._result.isStateRemoved(stateId)) {
+		return (
+			// Alive or Bypass Death removal
+			(this.isAlive() || (state.category && state.category.contains('BYPASS DEATH REMOVAL')))
+			&& !this.isStateResist(stateId) 
+			&& !this.isStateRestrict(stateId)
+		);
 	}
-	return false;
+
+	return Stahl.StateReaddable.Game_Battler_isStateAddable.call(this, stateId);
 };
