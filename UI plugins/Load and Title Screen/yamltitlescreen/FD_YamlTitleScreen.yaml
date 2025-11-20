@@ -1,0 +1,152 @@
+# Please read the plugin documentation for a more thorough explanation of everything!
+
+System:
+  TitleDataFileName: TITLEDATA # name of the file title is written to (use TITLEDATA for base game file). A file extension can be specified as well; e.g. mymod.title
+  DefaultScreenID: 0 # the default title (0 in base game)
+  AllIDS: 0, 444, 445, 446, 447, 448, 449 # list of all IDS defined in this plugin
+  VariableID: 444 # the variable that is automatically written to the title data file upon saving  
+  AlwaysContinue: false # makes it so the player can access the 'CONTINUE' menu without any saves
+
+# the values that undefined parameters default to
+DefaultValues: 
+  ColorBG:
+    rgb: # not defining this removes this layer
+    opacity: 100
+  ScrollingBG:
+    image: # not defining this removes this layer
+    xspeed: 0
+    yspeed: 0
+    opacity: 100
+  StillBG:
+    image: # not defining this removes this layer
+    opacity: 100
+  AnimatedBG:
+    image: # not defining this removes this layer
+    framerate: 1
+    framecount: 1
+    pattern: [0]
+    opacity: 100
+  Character: 
+    image: # not defining this removes this layer
+    height: 351
+    width: 918
+    framecount: 3
+    framerate: 20
+    pattern: [0,1,2]
+    xoffset: 0
+    opacity: 100
+  CharacterGlitch:
+    image: # not defining this removes this layer
+    frequency: 240 #4 seconds
+    width: # Character width
+    height: # Character height
+    framecount: # Character framecount
+    framerate: # Character framerate
+    pattern: # Character pattern
+    opacity: # Character opacity
+  Weather: # same as Aries Weather Extension
+    type: # not defining this removes this layer
+    power: 0
+    image: # Aries weather default/FD weather extension default if installed
+  Overlay:
+    image: # not defining this removes this layer
+    opacity: 100
+    blend: normal
+  Title:
+    image: # not defining this removes this layer
+    width: # not defining this leads to an error
+    height: # not defining this leads to an error
+    framecount: 1
+    framerate: 20
+    pattern: [0]
+    xoffset: 0
+    yoffset: 0
+  BGM:
+    name: # not defining this removes this layer
+    volume: 100
+    pitch: 100
+    pan: 0
+  BGS:
+    name: # not defining this removes this layer
+    volume: 100
+    pitch: 100
+    pan: 0
+  Particles: 
+    json: # not defining this removes this layer
+    index: 8
+
+Template: 
+  ColorBG:
+    rgb: # [red,green,blue]
+    opacity: # 0 - 100 scale
+  ScrollingBG:
+    image: # in PARALLAXES folder
+    xspeed: 
+    yspeed: 
+    opacity: # 0 - 100 scale
+  StillBG:
+    image: # in PARALLAXES folder
+    opacity: # 0 - 100 scale
+  AnimatedBG:
+    image: # in PARALLAXES folder
+    framerate: 
+    framecount: 
+    pattern: [] # [0, 1, 2, 1, etc...]
+    opacity: # 0 - 100 scale
+  Character: 
+    image: # in PICTURES folder, all frames arranged in a row
+    height: 
+    width: # width of the ENTIRE IMAGE (NOT JUST ONE FRAME)
+    framecount: 
+    framerate: 
+    pattern: [] # [0, 1, 2, 1, etc...]
+    xoffset: 
+    opacity: # 0 - 100 scale
+  CharacterGlitch:
+    image: # image that Character glitches to, in PICTURES folder
+    frequency: 
+    width: 
+    height: 
+    framecount: 
+    framerate: 
+    pattern: [] # [0, 1, 2, 1, etc...]
+    opacity: # 0 - 100 scale
+  Weather: # same as Aries Weather Extension
+    type: 
+    power: 
+    image: # in PICTURES folder, comma separated if FD.WeatherExtension is installed ABOVE THIS PLUGIN, otherwise a singular image (first image given)
+  Overlay:
+    image: 
+    opacity: # 0 - 100 scale
+    blend: # normal, add, multiply, screen, overlay, hard light, normal npm, add npm, screen npm
+  Title:
+    image: # in PICTURES folder, all frames arranged in a row
+    width: # width of the ENTIRE IMAGE (NOT JUST ONE FRAME)
+    height: 
+    framecount: 
+    framerate: 
+    pattern: [] # [0, 1, 2, 1, etc...]
+    xoffset: 
+    yoffset: 
+  BGM:
+    name: # in BGM folder
+    volume: 
+    pitch: 
+    pan: 
+  BGS:
+    name: # in BGS folder
+    volume: 
+    pitch: 
+    pan: 
+  Particles: # only works if TRain_Particles.js is installed and active ABOVE this plugin
+    json: # data/TR_particles, view documentation of TRain_Particles.js for usage 
+    index: # range from 0 to 8 
+    # 0 for behind the color bg
+    # 1 for in front of color bg
+    # 2 in front of scrolling bg
+    # 3 in front of still bg
+    # 4 in front of animated bg
+    # 5 in front of character
+    # 6 in front of weather particles
+    # 7 in front of overlay layer 
+    # 8 in front of title
