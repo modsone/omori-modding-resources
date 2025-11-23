@@ -578,8 +578,8 @@ Scene_OmoriTitleScreen.prototype.createOverlayLayer = function() {
     return;
 };
 
-Scene_OmoriTitleScreen.prototype.createParticlesLayer = function(jsonFile) {
-  if (TR_pJS) {
+Scene_OmoriTitleScreen.prototype.createParticlesLayer = function() {
+  if (typeof TR_pJS !== "undefined") {
     var World = this.getWorldTypeObject()
 
     if (!World.Particles || !World.Particles.json) {
