@@ -233,7 +233,7 @@ TR.VBI.version = 1.5;
  */
 
 TR.VBI.Param = PluginManager.parameters('TR_VariableBasedImages');
-TR.VBI.GIR = Imported.TR.GIRLMORI_IS_REAL;
+TR.VBI.GIR = Imported.TR_GIRLMORI_IS_REAL;
 
 TR.VBI.CaseSensitive = eval(TR.VBI.Param["CaseSensitive"]);
 
