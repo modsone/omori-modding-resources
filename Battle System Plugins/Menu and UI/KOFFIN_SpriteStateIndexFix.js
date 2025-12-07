@@ -107,11 +107,11 @@ Sprite_OmoMenuStatusFace.prototype.defaultDelay = function() {
   // Start with the default value
   var delay = 12;
   
-  // Check if an actor is associated with this face.
-  // Note: 'actor' should be a property, not a function.
+  // Check if an actor is associated with this face
   if (this.actor && typeof this.actor.states === 'function') {
     var states = this.actor.states();
-    // Loop through states and return the first custom delay found
+    
+    // Check if any active state has <StateAnimationDelay: X>
     for (var i = 0; i < states.length; i++) {
       if (states[i].meta.StateAnimationDelay) {
         return Number(states[i].meta.StateAnimationDelay);
@@ -119,7 +119,7 @@ Sprite_OmoMenuStatusFace.prototype.defaultDelay = function() {
     }
   }
   
-  return delay;
+  return delay; // Default speed if no custom speed is found
 };
 
 Sprite_Enemy.prototype.motionSpeed = function() {
