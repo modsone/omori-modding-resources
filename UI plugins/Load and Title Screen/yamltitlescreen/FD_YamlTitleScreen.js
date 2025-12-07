@@ -146,6 +146,15 @@
  *    error message so I can pinpoint what went wrong.
  * 
  * 
+ * 
+ * Q: I'm trying to do a glitch between two characters of different sizes, but
+ *    it's acting weird. How do I fix it?
+ * A: Your best bet is to add empty space to the smaller one until the frame 
+ *    dimensions of the two are the same. YTS does support it, but due to the
+ *    way that updating the image is handled, it will often act kinda funky.
+ *    You can circumvent that by resizing the image.
+ * 
+ * 
  * --------------------------------------------------------------------------
  * Changelog
  * --------------------------------------------------------------------------
@@ -185,7 +194,6 @@ YTS.variable = Number(YTS.System.VariableID) || 444
 // * Initialize Objects
 // Initial setup
 //=============================================================================
-
 //every other mod ever specific
 Scene_OmoriTitleScreen.prototype.initialize = function () {
 
@@ -445,6 +453,8 @@ Scene_OmoriTitleScreen.prototype.createOmoriSprite = function() {
     this._omoriSprite._pattern = World.Character.pattern || [0]
     this._omoriSprite._framecount = World.Character.framecount || 3
     this._omoriSprite._framerate = World.Character.framerate || 20
+    this._omoriSprite.width = this._omoriSprite._width/this._omoriSprite._framecount
+    this._omoriSprite.height = this._omoriSprite._height
 
     this._omoriSprite.opacity = 255 * (World.Character.opacity/100) || 255;
     this._omoriSprite.setFrame(0, 0, 0, 0);
@@ -506,14 +516,18 @@ Scene_OmoriTitleScreen.prototype.createWeatherLayer = function() {
   this.addChild(this._weather)
 
   if (!World.Weather || !World.Weather.type || !["leaves","rain","shine","storm","embers","snow"].contains(World.Weather.type)) {
+    
+    console.log("fail")
     return;
   }
   if (FD.WeatherExtension) {
     args = [`${World.Weather.type}`]
+    console.log(Aries.P003_WCT.LeafImageList)
     image = World.Weather.image
     if (image) {
       list = image.split(",").map((x) => x.trim())
       args = args.concat(list)
+      console.log(args)
     this._weather.handleSetList(args);
     } 
   }
@@ -579,7 +593,7 @@ Scene_OmoriTitleScreen.prototype.createOverlayLayer = function() {
 };
 
 Scene_OmoriTitleScreen.prototype.createParticlesLayer = function(jsonFile) {
-  if (TR_pJS) {
+  if (typeof TR_pJS !== "undefined") {
     var World = this.getWorldTypeObject()
 
     if (!World.Particles || !World.Particles.json) {
@@ -675,6 +689,10 @@ Scene_OmoriTitleScreen.prototype.update = function() {
   // Update Effects
   this.updateEffects();
   // Move Bkacground Sprite
+  if (this._omoriSprite) {
+    this._omoriSprite.width = this._omoriSprite._width/this._omoriSprite._framecount
+  }
+  console.log(this._omoriSprite.width)
   if (this._scrollinglayer) {
     this._scrollinglayer.origin.x += this._scrollx;
     this._scrollinglayer.origin.y += this._scrolly;
@@ -693,30 +711,34 @@ Scene_OmoriTitleScreen.prototype.updateWorldBitmaps = function(world = this._wor
     var case2 = this.encrypt(this._worldType)
 
   // Set Title Bitmap
-  var omoriBitmap = FD.EasyTitleScreen.Default.Character.image;
+  var omoriBitmap = World.Character.image;
   // Set World
   switch (world) {
 	case case1: // White space
 		omoriBitmap = World.Character.image
-        if (this._omoriSprite.hasGlitched) {this._omoriSprite._width = (World.Character.width || 918)/(World.Character.framecount || 3)};
+        if (this._omoriSprite.hasGlitched) {this._omoriSprite._width = (World.Character.width || 918)};
         this._omoriSprite._height = World.Character.height || 351;
         this._omoriSprite._pattern = World.Character.pattern || [0]
         this._omoriSprite._framerate = World.Character.framerate || 20
+        this._omoriSprite._framecount = World.Character.framecount || 3
         this._omoriSprite.opacity = 255 * (World.Character.opacity/100) || 255;
 		break;
     case case2:// white spade
         omoriBitmap = World.CharacterGlitch.image;
-        this._omoriSprite._width = (World.CharacterGlitch.width || World.Character.width || 918)/(World.CharacterGlitch.framecount || World.Character.framecount || 3);
+        this._omoriSprite._width = (World.CharacterGlitch.width || World.Character.width || 918);
         this._omoriSprite._height = World.CharacterGlitch.height || World.Character.height || 351;
         this._omoriSprite._pattern = World.CharacterGlitch.pattern || World.Character.pattern || [0]
         this._omoriSprite._framerate = World.CharacterGlitch.framerate || World.Character.framerate || 20
+        this._omoriSprite._framecount = World.CharacterGlitch.framecount || World.Character.framecount || 3
         this._omoriSprite.opacity = 255 * (World.CharacterGlitch.opacity/100) || 255;
         break;
 	};
 
     if (this._omoriSprite) this._omoriSprite.bitmap = ImageManager.loadPicture(omoriBitmap)
+    this._omoriSprite.width = this._omoriSprite._width/this._omoriSprite._framecount
+    this._omoriSprite.height = this._omoriSprite._height
     if (this._omoriSprite.hasGlitched) {
-        this._frameAnimations[this._omoriSprite._index].rect.width = this._omoriSprite._width
+        this._frameAnimations[this._omoriSprite._index].rect.width = this._omoriSprite._width/this._omoriSprite._framecount
         this._frameAnimations[this._omoriSprite._index].rect.height = this._omoriSprite._height
         this._frameAnimations[this._omoriSprite._index].frames = this._omoriSprite._pattern
         this._frameAnimations[this._omoriSprite._index].delay = this._omoriSprite._framerate
@@ -810,7 +832,7 @@ Scene_OmoriTitleScreen.prototype.updateFrameAnimations = function() {
 };
 
 Scene_OmoriTitleScreen.prototype.encrypt = function(string) {
-  return `${string}reversed`
+  return `${string}forfour` // thank you tomato
 };
 
 //every other mod ever specific
@@ -831,7 +853,7 @@ Scene_OmoriFile.prototype.saveGame = function() {
     var world;
     world = $gameVariables.value(YTS.variable) || YTS.default
 
-    DataManager.writeToFileAsync(world, YTS.System.TitleDataFileName, () => {
+    DataManager.writeToFileAsync(world, `${YTS.System.TitleDataFileName}`, () => {
         this.backupSaveFile(() => {
             fileWindow.refresh();
             // Deactivate Prompt Window
