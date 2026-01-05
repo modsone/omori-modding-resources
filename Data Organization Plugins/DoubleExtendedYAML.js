@@ -190,6 +190,11 @@
  * windowquickname: boolean ~ true
  * If true, the Namebox will open at its final position rather than moving in from the left side of the screen.
  * 
+ * =========== EXTRA FACES : REQUIRES Geo_RestoredGroupFaceboxes OR TRain_ExtraFaces ===========
+ * 
+ * extraFaces: object
+ * Read the documentation of these plugins.
+ * 
  * =========== GALVCAPTIONS : REQUIRES GALV_TimedMessagePopups ===========
  * AS A REMINDER THESE MUST ALL HAVE THE TYPE BE 'caption' OR 'popup'
  * 
@@ -222,7 +227,6 @@
  * - The game uses drawText() rather than drawTextEx() for those who know which textcodes are attached to which.
  * 
  * Other Notes:
- * - Theoretically Geo's Restored Group Facesets should work
  * - The console will spit an error at you on boot about Window_GalvCaption not being defined. It doesn't actually cause any problems and can be ignored.
  * - All of the lines in haiku were made by TomatoRadio, so if you get pissy about something in there yell at her.
  * - Yes I know the plugin parameters look like shit but I don't care enough to change them and if you can't understand them you wouldn't get anything from changing them.
@@ -594,6 +598,19 @@ Game_Message.prototype.showLanguageMessage = function(code) {
   var facebackgroundcolor = TR.NullCoal([data.facebackgroundcolor,macro.facebackgroundcolor,base.facebackgroundcolor],"rgba(0,0,0,0)");
   this._faceBackgroundColor = this.makeFaceBackgroundColor(facebackgroundcolor, faceset, faceindex);
 
+  // EXTRA FACES
+  var extraFaces = TR.NullCoal([data.extraFaces,macro.extraFaces],false);
+  // If Data has Extra Faces
+  if (extraFaces) {
+    // Go Through Extra Fraces
+    for (var i = 0; i < extraFaces.length; i++) {
+      // Get Face Data
+      var face = extraFaces[i];
+      // Set Extra Face
+      this.setExtraFace(i, face.faceset, face.faceindex, this.makeFaceBackgroundColor(face.faceBackgroundColor,face.faceset, face.faceindex));
+    };
+  };
+
   // TROPHIC RAIN EXEC FUNCTIONS
   if (TRainEval) {
   var openexec = `\\EXEC<<${TR.NullCoal([data.openexec,macro.openexec],";")}>>`;
@@ -718,7 +735,7 @@ ImageManager.reserveSystem("Window", 0, this._imageReservationId); //Even tho th
    if (systemFileExists(WN.DExtYAML.reservedwindowskins[i])) { // I also don't trust that the file they listed actually exists
       ImageManager.reserveSystem(WN.DExtYAML.reservedwindowskins[i],0,this._imageReservationId);
    } else {
-    console.warn(`Idiot Alert: ${WN.DExtYAML.reservedwindowskins[i]} doesn't exist, yet SOMEONE tried putting it in the reservation list in DoubleExtenedYAML`)
+    console.warn(`Idiot Alert: ${WN.DExtYAML.reservedwindowskins[i]} doesn't exist, yet SOMEONE tried putting it in the reservation list in DoubleExtendedYAML`)
    }
   }
 };
@@ -787,7 +804,6 @@ Game_Message.prototype.haiku = function() {
     `it's all sunshine and rainbows`,
     `otomerson wasn't here`,
     `when the light is running low`,
-    `whitenoise can i release this?`,
     `get me my estrogen pills`,
     `never gonna give you up`,
     `luigi's mansion: dark moon`,
@@ -804,10 +820,11 @@ Game_Message.prototype.haiku = function() {
     `fruitdragon sure didn't know`,
     `i created the mimic`,
     `is the worst possible plan`,
-    `why can't we just talk it out?`,
     `${$gameSystem.getSteamName()}`,
     `Come on folks! It's TV time!!!`,
-    `yaml is the death of me`
+    `yaml is the death of me`,
+    `thermodynamic chicken`,
+    `the strawberry orange jam`
                     ];
     const five = [
     `i have to call chuck`,
@@ -907,5 +924,3 @@ Game_Interpreter.prototype.pluginCommand = function(command, args) {
 
 
 })();
-
-
