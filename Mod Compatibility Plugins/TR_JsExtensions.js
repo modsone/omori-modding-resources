@@ -226,6 +226,20 @@ Array.prototype.findItemIndex = function(wanted,strict = false) {
 };
 
 /**
+ * Returns true if value is equal to target with a margin
+ * of error.
+ *
+ * @method Math.withinRange
+ * @param {Number} value The value to check.
+ * @param {Number} target The target value.
+ * @param {Number} elipson The margin of error for the check.
+ * @return {Boolean}
+ */
+Math.withinRange = function(value,target,elipson) {
+    return (value >= target-elipson && value <= target+elipson);
+};
+
+/**
  * Transforms a list of key-value pairs into an object.
  *
  * @method Object.fromEntries
@@ -239,4 +253,3 @@ Object.fromEntries = function(map) {
 	})
 	return obj;
 }
-
