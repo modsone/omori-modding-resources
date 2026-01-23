@@ -1,4 +1,3 @@
-
 /*:
  * @plugindesc v03.31.09 Adds increased functionality to YAML messages.
  * cppensi p ix. c p : pee pee...
@@ -109,6 +108,18 @@
  * battle - `\>NAME: \<`
  * caption - `NAME: `
  * 
+ * =========== PREFIX ===========
+ * 
+ * prefix: string ~ \oc[0]
+ * This will add the listed text at the front of the main message.
+ * It does not add a space automatically.
+ * Best used with Macros.
+ * 
+ * =========== FONT ===========
+ * 
+ * name: string ~ NotoSans-Regular
+ * This will set the rest of the message to that font. Identical to \fn<fontName>
+ * 
  * =========== SHOW MONEY ===========
  * 
  * showmoney: boolean ~ true
@@ -142,11 +153,6 @@
  * If a parameter is defined in both the message and macro,
  * the message will take priority.
  * 
- * =========== HAIKU ===========
- * 
- * haiku: boolean ~ false
- * Replaces the text will a randomly made haiku. Complete ass.
- * 
  * =========== CURSED WOODY ===========
  * 
  * cursedwoody: boolean ~ false
@@ -157,6 +163,11 @@
  * windowskin: string ~ Window_FemboyKenway
  * Sets the windowskin to the listed image. Must be in img/system. Reccomended that all Windowskins be placed in the reservedwindowskins Parameter
  *
+ * =========== EXTRA FACES : REQUIRES Geo_RestoredGroupFaceboxes OR TRain_ExtraFaces ===========
+ * 
+ * extraFaces: object
+ * Read the documentation of these plugins.
+ * 
  * =========== MIRRORED TEXT : REQUIRES DGT_MirrorTextOrder ===========
  * 
  * mirror: boolean ~ true
@@ -190,11 +201,6 @@
  * windowquickname: boolean ~ true
  * If true, the Namebox will open at its final position rather than moving in from the left side of the screen.
  * 
- * =========== EXTRA FACES : REQUIRES Geo_RestoredGroupFaceboxes OR TRain_ExtraFaces ===========
- * 
- * extraFaces: object
- * Read the documentation of these plugins.
- * 
  * =========== GALVCAPTIONS : REQUIRES GALV_TimedMessagePopups ===========
  * AS A REMINDER THESE MUST ALL HAVE THE TYPE BE 'caption' OR 'popup'
  * 
@@ -227,6 +233,7 @@
  * - The game uses drawText() rather than drawTextEx() for those who know which textcodes are attached to which.
  * 
  * Other Notes:
+ * - Theoretically Geo's Restored Group Facesets should work
  * - The console will spit an error at you on boot about Window_GalvCaption not being defined. It doesn't actually cause any problems and can be ignored.
  * - All of the lines in haiku were made by TomatoRadio, so if you get pissy about something in there yell at her.
  * - Yes I know the plugin parameters look like shit but I don't care enough to change them and if you can't understand them you wouldn't get anything from changing them.
@@ -406,7 +413,7 @@
 
 //Import info
 var Imported = Imported || {};
-Imported.DoubleExtenedYAML = true;
+Imported.DoubleExtendedYAML = true;
 
 (function() {
 
@@ -493,15 +500,11 @@ TR.NullCoal = function(operators, fallback = null) {
 
 Game_Message.prototype.showLanguageMessage = function(code) {
   // CHECK FOR ALL PLUGINS SUPPORTED
-  var Plugins = []
-  for (i=0;i<$plugins.length;i++) {
-    Plugins.push($plugins[i].name)
-  }
-  var HimeWindowSkin = Plugins.includes('HIME_WindowskinChange')
-  var TRainEval = Plugins.includes('TRain_TextEval')
-  var TRainMsgShape = Plugins.includes('TRain_WinMsgShape')
-  var DGTMirror = Plugins.includes('DGT_MirrorTextOrder')
-  var GalvCaptions = Plugins.includes('GALV_TimedMessagePopups')
+  var HimeWindowSkin = !!TH && !!TH.WindowskinChange;
+  var TRainEval = !!TR_TEval;
+  var TRainMsgShape = !!TR_WMS;
+  var DGTMirror = Imported.DGTMirrorText;
+  var GalvCaptions = Imported.Galv_MessageCaptions;
 
   // ALL THE DATA FILES
   var data = LanguageManager.getMessageData(code);
@@ -518,6 +521,9 @@ Game_Message.prototype.showLanguageMessage = function(code) {
     ImageManager.loadSystem(windowskin);
     $gameSystem.setWindowskin(windowskin);
   };
+
+  // PREFIX
+  var prefix = TR.NullCoal([data.prefix,macro.prefix],"");
 
   // TEXT SOUNDS
   var textsound = TR.NullCoal([data.textsound,macro.textsound,base.textsound],"[SE]-TEXT");  
@@ -611,6 +617,9 @@ Game_Message.prototype.showLanguageMessage = function(code) {
     };
   };
 
+  // FONT
+  var font = TR.NullCoal([data.font,macro.font],false) ? `\\fn<${TR.NullCoal([data.font,macro.font],false)}>` : "";
+
   // TROPHIC RAIN EXEC FUNCTIONS
   if (TRainEval) {
   var openexec = `\\EXEC<<${TR.NullCoal([data.openexec,macro.openexec],";")}>>`;
@@ -645,12 +654,6 @@ Game_Message.prototype.showLanguageMessage = function(code) {
   
   // SHOW MONEY
   var showmoney = TR.NullCoal([data.showmoney,macro.showmoney],false) ? "\\$" : ''
-
-  // HAIKU
-  var haiku = TR.NullCoal([data.haiku,macro.haiku],false);
-  if (haiku == true) {
-        text = this.haiku();
-  }
 
   // POPUPS
   var target = TR.NullCoal([data.target,macro.target,base.target],"0|0");
@@ -717,7 +720,7 @@ Game_Message.prototype.showLanguageMessage = function(code) {
     $gameSwitches.setValue(6,arrows);
   } 
   // COMPLETED MESSAGE
-  var message = `${mirror[0]}${openexec}${showmoney}${name}${text}${endexec}${mirror[1]}`
+  var message = `${mirror[0]}${openexec}${showmoney}${font}${prefix}${name}${text}${endexec}${mirror[1]}`
   if (Imported && Imported.YEP_MessageCore) {
     this.addText(message);
   } else {
@@ -735,7 +738,7 @@ ImageManager.reserveSystem("Window", 0, this._imageReservationId); //Even tho th
    if (systemFileExists(WN.DExtYAML.reservedwindowskins[i])) { // I also don't trust that the file they listed actually exists
       ImageManager.reserveSystem(WN.DExtYAML.reservedwindowskins[i],0,this._imageReservationId);
    } else {
-    console.warn(`Idiot Alert: ${WN.DExtYAML.reservedwindowskins[i]} doesn't exist, yet SOMEONE tried putting it in the reservation list in DoubleExtendedYAML`)
+    console.warn(`Idiot Alert: ${WN.DExtYAML.reservedwindowskins[i]} doesn't exist, yet SOMEONE tried putting it in the reservation list in DoubleExtenedYAML`)
    }
   }
 };
@@ -752,165 +755,6 @@ systemFileExists = function(faceImage) {
     return false;
   };
 };
-
-Game_Message.prototype.haiku = function() {
-    //Literally just makes a haiku and spits it back
-    const seven = [
-    `the half-life of lime jello`,
-    `nuclear bedtime story`,
-    `crazy customizable`,
-    `programmer's head on a stick`,
-    `frictionless, massless mormon`,
-    `put it in your report, bill `,
-    `i don't need the influence`,
-    `i'm coming out of the booth`,
-    `in the middle of a storm`,
-    `it tantalizes me so`,
-    `you are my favorite thing`,
-    `i leave the windows open`,
-    `and fed you to the chickens`,
-    `candy corn chicken fetus`,
-    `the silhouette of a dog`,
-    `guns exploding all around`,
-    `a rising column of smoke`,
-    `you don't jump like a monkey`,
-    `seven is two syllables`,
-    `as the light of god is struck`,
-    `something something deep meanings`,
-    `i'd love to kiss you again`,
-    `unpa pi mama sina`,
-    `haikus pueden ser malos`,
-    `trans women are real women`,
-    `when love takes hold on chickens`,
-    `i say "please play Absent Mind"`,
-    `biggie biggie biggie cheese`,
-    `please patient im autistic`,
-    `fruitdragon makes so much peak`,
-    `please tell someone they matter`,
-    `nothing is sacred to goop`,
-    `the silliest of them all`,
-    `my address is [[redacted]]`,
-    `baptise in fire and ice`,
-    `remember to be patient`,
-    `she came from great outer space`,
-    `he was the big basegame boy`,
-    `she was the little mod girl`,
-    `the custard forever grows`,
-    `what is your problem big dog?`,
-    `check out jamie's youtube music`,
-    `send them all to their own hell`,
-    `tester tester what the fuck`,
-    `why can't we just talk it out?`,
-    `it's all sunshine and rainbows`,
-    `otomerson wasn't here`,
-    `when the light is running low`,
-    `get me my estrogen pills`,
-    `never gonna give you up`,
-    `luigi's mansion: dark moon`,
-    `i'm finally going home`,
-    `etymology of \\RAINBOW[1]gay\\RAINBOW[0]`,
-    `undyne is harder than sans`,
-    `it doesn't even matter`,
-    `just remember the one truth`,
-    `boiling point of a cloud`,
-    `the idea of mario`,
-    `uncle dane the engie main`,
-    `sanctuary guardians`,
-    `now put on the big girl pants`,
-    `fruitdragon sure didn't know`,
-    `i created the mimic`,
-    `is the worst possible plan`,
-    `${$gameSystem.getSteamName()}`,
-    `Come on folks! It's TV time!!!`,
-    `yaml is the death of me`,
-    `thermodynamic chicken`,
-    `the strawberry orange jam`
-                    ];
-    const five = [
-    `i have to call chuck`,
-    `rebel boat rocker`,
-    `colostomy bag`,
-    `walking in memphis`,
-    `exploding midget`,
-    `nub technology`,
-    `anonymous nub`,
-    `more bunny justice`,
-    `evil evil boy`,
-    `you have been a fool`,
-    `i must escape it`,
-    `keeping us all cool`,
-    `air conditioning`,
-    `fresh air is so sweet`,
-    `live mice sit on us`,
-    `digital squirrel`,
-    `liquid banana`,
-    `peas and hominy`,
-    `miscellaneous`,
-    `gravity assist`,
-    `random tuna head`,
-    `some quick goat thinking`,
-    `a velvet codpiece`,
-    `let's tease the weasels`,
-    `nice vomiting spell`,
-    `a specific yolk`,
-    `the growing yodas`,
-    `onemaker is peak`,
-    `this.killEmAll()`,
-    `LGBTQ`,
-    `what is all of this`,
-    `who are you people`,
-    `is anyone here`,
-    `will wood and the tape`,
-    `wow its john tileset`,
-    `i hate you javascript`,
-    `rphsoftware`,
-    `where's my {insert_ship}`,
-    `shopkeep is so cute`,
-    `the love of my life`,
-    `the rules can be broken`,
-    `a e i o u`,
-    `hi mr. vessel`,
-    `but fruitdragon knows`,
-    `when is chapter 2?`,
-    `one two three four five`,
-    `let them die alone`,
-    `beavis and butthead`,
-    `the birds are singing`,
-    `flowers are blooming`,
-    `girlmori is real`,
-    `the cake is a lie`,
-    `meet the engineer`,
-    `my true king gerson`,
-    `determination`,
-    `hero's fever dream`,
-    `soul traits aren't canon`,
-    `not until it's good`,
-    `i am a goron`,
-    `aperture science`,
-    `play katamari`,
-    `that thug agg pigeon`,
-    `i'd be a bad mom`,
-    `home as in true space`,
-    `hammer of justice`,
-    `lucille everywhere`,
-    `it starts with one thing`,
-    `jesus christ our lord`,
-    `mario the man`,
-    `when will it all end?`,
-    `my [[cungadero]]`,
-    `shake that bottom line`,
-    `fighting fire with fire`,
-    `#^#@&#$@&!!!#!@`,
-    `buff nerd or jazz jock?`,
-    `it was fifficult`,
-    `Goatttail is gay`,
-                    ];
-    let haiku = (`
-${five[Math.floor(Math.random() * five.length)]} <br>
-${seven[Math.floor(Math.random() * seven.length)]} <br>
-${five[Math.floor(Math.random() * five.length)]}`).toUpperCase();
-    return haiku
-}
 
 //This is so that This Event in GalvCaptions works correctly.
 WN.DExtYAML.pluginCommand = Game_Interpreter.prototype.pluginCommand;
