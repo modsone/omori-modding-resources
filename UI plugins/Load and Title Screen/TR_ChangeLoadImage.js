@@ -8,21 +8,21 @@ Imported.TR_ChangeLoadImage = true;
 
 var TR = TR || {};
 TR.CLI = TR.CLI || {};
-TR.CLI.version = 1.0;
+TR.CLI.version = 1.1;
 
 /*: 
  *
- * @plugindesc Version 1.0 Changes the loading image used.
+ * @plugindesc Version 1.1 Changes the loading image used.
  * @author TomatoRadio
  * 
  * @help
  * Changes the lightbulb loading image to a different image
  * in img/system/
  * 
+ * THE IMAGE MUST BE A JPG
+ * 
  * @param image
  * @text Image
- * @type file
- * @dir img/system/
  * @desc The loading image
  * 
 */
@@ -36,7 +36,7 @@ SceneManager.initGraphics = function() {
     Graphics.initialize(this._screenWidth, this._screenHeight, type);
     Graphics.boxWidth = this._boxWidth;
     Graphics.boxHeight = this._boxHeight;
-    Graphics.setLoadingImage(`img/system/${TR.CLI.LoadImage}.png`);
+    Graphics.setLoadingImage(`img/system/${TR.CLI.LoadImage}.jpg`);
     if (Utils.isOptionValid('showfps')) {
         Graphics.showFps();
     }
