@@ -500,9 +500,9 @@ TR.NullCoal = function(operators, fallback = null) {
 
 Game_Message.prototype.showLanguageMessage = function(code) {
   // CHECK FOR ALL PLUGINS SUPPORTED
-  var HimeWindowSkin = !!TH && !!TH.WindowskinChange;
-  var TRainEval = !!TR_TEval;
-  var TRainMsgShape = !!TR_WMS;
+  var HimeWindowSkin = typeof TH.WindowskinChange !== "undefined";
+  var TRainEval = typeof TR_TEval !== "undefined";
+  var TRainMsgShape = typeof TR_WMS !== "undefined";
   var DGTMirror = Imported.DGTMirrorText;
   var GalvCaptions = Imported.Galv_MessageCaptions;
 
