@@ -19,26 +19,7 @@ TR.JSEXT.version = 1;
  * that newer JS functions don't work with it.
  * 
  * This plugin adds some of those functions.
- * 
- * Currently added functions:
- * (Plugins with the TR object are not from
- * the JS baseline but from myself, though
- * they may be based from the JS baseline.)
- * 
- * TR.NullCoal()
- * TR.XOR()
- * 
- * Array.at()
- * Array.findLast()
- * Array.findLastIndex()
- * Array.flat()
- * Array.flatMap()
- * Array.toReversed()
- * Array.toSorted()
- * Array.toSpliced()
- * Array.with()
- * 
- * Object.fromEntries
+ * It also adds some general stuff that I like using.
  * 
 */
 
@@ -206,6 +187,42 @@ Array.prototype.with = function(index,value) {
 	var copy = Array.from(this);
 	copy[index] = value;
 	return copy;
+};
+
+/**
+ * Returns a random entry from the array.
+ * If the Array is falsy, returns undefined.
+ * 
+ * @method Array.prototype.random
+ * @return {*} A random item.
+ */
+Array.prototype.random = function() {
+	if (!this) {return undefined;};
+	return this[Math.floor(Math.random()*this.length)];
+};
+
+/**
+ * Returns the index of first item in the array to be
+ * equal to the first arg.
+ * 
+ * The second arg is a bool to determine if strict (===)
+ * or loose (==) equality is used. True/False -> Strict/Loose
+ * 
+ * @method Array.prototype.findItemIndex
+ * @param {*} wanted The wanted item.
+ * @param {Boolean} strict True if using strict equality. Default false.
+ * @return {Number} Index of item.
+ */
+Array.prototype.findItemIndex = function(wanted,strict = false) {
+	if (strict) {
+		for (let i = 0; i < this.length; i++) {
+			if (this[i] === wanted) return i;
+		};
+	} else {
+		for (let i = 0; i < this.length; i++) {
+			if (this[i] == wanted) return i;
+		};
+	};
 };
 
 /**
