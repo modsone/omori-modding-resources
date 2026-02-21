@@ -17,15 +17,16 @@ TR.PS.version = 1.0;
  * @author TomatoRadio
  * 
  * @help
- * All shopkeepers should be in img/system and each frame is 640x480
- * Check the template yaml to see how to set up shop text and pictures
+ * All shopkeepers should be in img/system and each frame is the screen size. (Normally 640x480)
+ * Check the template yaml to see how to set up shop text and pictures.
  * 
  * @param ShopkeepersYaml
  * @desc The yaml that stores all shopkeepers
  * 
  * @param ShopImages
  * @desc An array of every new shop file that should be reserved.
- * @type []
+ * @type file[]
+ * @dir img/system/
  * 
 */
 
@@ -142,7 +143,7 @@ Scene_OmoriItemShop.prototype.createShopKeeperSprite = function() {
   var data = $gameTemp._shopData
   if (data.pictureName) {
     this._shopKeeperSprite = new Sprite(ImageManager.loadSystem(data.pictureName));
-    this._shopKeeperSprite.setFrame(0, 0, 640, 480);
+    this._shopKeeperSprite.setFrame(0, 0, Graphics.wdith, Graphics.height);
     this._shopKeeperSprite.visible = data.pictureName ? true : false
     this._shopKeeperSprite.opacity = 0;
     this.addChild(this._shopKeeperSprite);
@@ -296,5 +297,5 @@ Scene_OmoriItemShop.prototype.onPurchaseChoice = function(n) {
 
 Scene_OmoriItemShop.prototype.setShopKeeperFace = function(index = [0,0]) {
   // Set Shop Keepers Face Sprite
-  this._shopKeeperSprite.setFrame(index[0] * 640, index[1] * 480, 640, 480);
+  this._shopKeeperSprite.setFrame(index[0] * Graphics.width, index[1] * Graphics.height, Graphics.width, Graphics.height);
 };

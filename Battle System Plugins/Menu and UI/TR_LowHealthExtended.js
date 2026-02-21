@@ -66,7 +66,7 @@ Game_Interpreter.prototype.pluginCommand = function(command, args) {
 	if (command.toLowerCase() == "setlowhpoverlayimage") { 
 		$gameSystem._lowHpOverlayImage = args[0];
 		if ($gameParty.inBattle()) {
-			SceneManager._scene._lowHpOverlay.bitmap = ImageManager($gameSystem._lowHpOverlayImage);
+			SceneManager._scene._lowHpOverlay.bitmap = ImageManager.loadPicture($gameSystem._lowHpOverlayImage);
 		};
 		return;
 	} else if (command.toLowerCase() == "setlowhpoverlaymaxopacity") {

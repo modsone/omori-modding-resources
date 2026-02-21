@@ -1,10 +1,10 @@
 //=============================================================================
-// ★ FD_BetterPluginCommands ★                                  v1.2.1      
+// ★ FD_BetterPluginCommands ★                                  v1.2.2      
 //=============================================================================
  /*:
  * @plugindesc A variety of plugin commands + better plugin functionality.
  * @author FruitDragon
- * @version 1.2.1
+ * @version 1.2.2
  * 
  * @help
  * Special Thanks: bajamaid, FoG, stahl, tomatoradio
