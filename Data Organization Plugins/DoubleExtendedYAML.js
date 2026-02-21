@@ -1,3 +1,4 @@
+
 /*:
  * @plugindesc v03.31.09 Adds increased functionality to YAML messages.
  * cppensi p ix. c p : pee pee...
@@ -5,6 +6,8 @@
  *
  * 
  * @help
+ * Actual Version: 4.1
+ * -----------------------------------------------------------------------------------
  * This plugin adds additional parameters for YAML messages that can be used for bonus
  * flair and such. Simply add the parameter to the same place where you would put the
  * "faceindex" and "faceset" parameters to use them. Example:
@@ -768,3 +771,5 @@ Game_Interpreter.prototype.pluginCommand = function(command, args) {
 
 
 })();
+
+
