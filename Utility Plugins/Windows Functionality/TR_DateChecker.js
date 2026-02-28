@@ -8,12 +8,12 @@ Imported.TR_DateChecker = true;
 
 var TR = TR || {};
 TR.DC = TR.DC || {};
-TR.DC.version = 1.0;
+TR.DC.version = 2.0;
 
 /*: 
  *
  * @plugindesc Adds a bunch of Date checking functions.
- * Version 1.0
+ * Version 2.0
  * @author TomatoRadio
  * 
  * @help

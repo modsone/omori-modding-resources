@@ -8,12 +8,12 @@ Imported.TR_YamlDatabase = true;
 
 var TR = TR || {};
 TR.YD = TR.YD || {};
-TR.YD.version = 1.0;
+TR.YD.version = 1.1;
 
 /*: 
  *
  * @plugindesc Allows storing Database text as a YAML file.
- * Version 1.0
+ * Version 1.1
  * @author TomatoRadio (With help from Bajamaid)
  * 
  * @help
@@ -27,7 +27,7 @@ TR.YD.version = 1.0;
 
 TR.YD.Param = PluginManager.parameters('TR_YamlDatabase');
 
-TR.YD.DatabaseYaml = String(TR.YD.Param["Skill Select Switch"]).trim();
+TR.YD.DatabaseYaml = String(TR.YD.Param["DatabaseYaml"]).trim();
 
 TR.YD.isDatabaseLoaded = DataManager.isDatabaseLoaded
 DataManager.isDatabaseLoaded = function() {
