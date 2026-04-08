@@ -1,12 +1,12 @@
 //=============================================================================
-// ★ FD_EasyPhotoAlbum ★                                        1.0.0
+// ★ FD_EasyPhotoAlbum ★                                        1.0.1
 //=============================================================================
 /*:
- * @plugindesc v1.0.0 A plugin for easier and more customizable Photo Album.
+ * @plugindesc v1.0.1 A plugin for easier and more customizable Photo Album.
  * @author FruitDragon
  * 
  * @help
- * ★ FD_EasyPhotoAlbum ★                                        1.0.0
+ * ★ FD_EasyPhotoAlbum ★                                        1.0.1
  * --------------------------------------------------------------------------
  * 
  * Overwites the Omori Photo Album.js plugin. This plugin must be placed 
@@ -24,12 +24,14 @@
  * Ex: album_template
  * 
  * If you encounter any bugs or have a request for more features, please let 
- * FruitDragon on the modding hub know. Thanks for using the plugin!
+ * FruitDragon know. Thanks for using the plugin!
  * 
  * --------------------------------------------------------------------------
  * Changelog:
  * 
  * v1.0.0 Finished plugin!
+ * 
+ * v1.0.1 Fixes a missing .trim() a notetag parser.
  * 
  * --------------------------------------------------------------------------
  * 

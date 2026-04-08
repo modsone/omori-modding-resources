@@ -8,10 +8,10 @@ Imported.TR_JsExtensions = true;
 
 var TR = TR || {};
 TR.JSEXT = TR.JSEXT || {};
-TR.JSEXT.version = 1;
+TR.JSEXT.version = 5;
 
 /*: 
- * @plugindesc v1.0 Adds more JS functions to RPG Maker MV
+ * @plugindesc v5.0 Adds more JS functions to RPG Maker MV
  * @author TomatoRadio
  * 
  * @help
@@ -226,6 +226,53 @@ Array.prototype.findItemIndex = function(wanted,strict = false) {
 };
 
 /**
+ * 
+ * Returns true if both Arrays share at least 1 element.
+ * 
+ * @method Array.prototype.shares
+ * @param {Array} arr The other array to check.
+ * @return {Boolean} True if the other Array includes on of this array's elements.
+ */
+Array.prototype.shares = function(arr) {
+	return this.some(e=>arr.includes(e))
+};
+
+/**
+ * 
+ * Returns the factorial of a number.
+ * 
+ * @param {Number} num
+ * @returns {Number} The factorial
+ * 
+ */
+Math.factorial = function(num) {
+	if (num === 0) {
+		return 1;
+	} else if (num < 0) {
+		return NaN;
+	};
+	var count = 1;
+	for (let i = num; i > 0; i--) {
+		count *= i;
+	};
+	return count;
+};
+
+/**
+ * Returns true if value is equal to target with a margin
+ * of error.
+ *
+ * @method Math.withinRange
+ * @param {Number} value The value to check.
+ * @param {Number} target The target value.
+ * @param {Number} elipson The margin of error for the check.
+ * @return {Boolean}
+ */
+Math.withinRange = function(value,target,elipson) {
+    return (value >= target-elipson && value <= target+elipson);
+};
+
+/**
  * Transforms a list of key-value pairs into an object.
  *
  * @method Object.fromEntries
@@ -240,3 +287,23 @@ Object.fromEntries = function(map) {
 	return obj;
 }
 
+/**
+ * Creates a new object with the keys of the given array,
+ * each assigned a value from a callback function.
+ * 
+ * @method Object.map
+ * @param {Array} array The array to use
+ * @param {Function} callbackFn The callback function
+ * @param {*} thisArg The object to use as 'this' in the callback
+ * @return {Object} Returns an object with key value pairs of the original array and the mapped array.
+ */
+Object.map = function(array,callbackFn,thisArg) {
+	var mappedArray = array.map(callbackFn,thisArg);
+	var obj = {};
+	for (let i = 0; i < array.length; i++) {
+		let key = array[i];
+		let value = mappedArray[i];
+		obj[key] = value;
+	};
+	return obj;
+};

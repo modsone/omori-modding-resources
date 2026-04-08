@@ -1,10 +1,10 @@
 //=============================================================================
-// ★ FD_BetterPluginCommands ★                                  v1.2.1      
+// ★ FD_BetterPluginCommands ★                                  v1.2.2      
 //=============================================================================
  /*:
  * @plugindesc A variety of plugin commands + better plugin functionality.
  * @author FruitDragon
- * @version 1.2.1
+ * @version 1.2.2
  * 
  * @help
  * Special Thanks: bajamaid, FoG, stahl, tomatoradio
@@ -520,7 +520,7 @@ Game_Interpreter.prototype.returnGivenEvent = function(arg) {
 		case "player":
 			return $gamePlayer;
 		case "this":
-			return this._eventId;
+			return $gameMap.event(this._eventId);
 		default:
 			return $gameMap.event(Number(arg));
 	}

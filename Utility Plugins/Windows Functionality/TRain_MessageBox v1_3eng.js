@@ -1,5 +1,5 @@
 /*:
- * @plugindesc Windows-like Message Box v1.1
+ * @plugindesc Windows-like Message Box v1.3
  * @author TrophicRain
  * 
  * @help
@@ -7,6 +7,13 @@
  * Updates:
  * v1.1 No longer need extra folder, to make it work with OneLoader
  *      Fixed bugs with multiple message boxes and laggy computers
+ * v1.2-1.3 Fixed nwjs 0.77+ cross origin issues
+ * 
+ * ------------------------------------------------------------------------------
+ * [Add the following to package.json]
+ * "node-remote": "*://*
+ *                      /*"
+ * (JavaScript comment format don't allow me to put the above two lines together T_T)
  * 
  * ------------------------------------------------------------------------------
  * [Please prepare the following Common Event]
@@ -93,23 +100,32 @@ nw.Window.get().on('close', function(){
 nw.global.TR_MsgBox = {
     return: null,
 
-    _path: (require('fs').existsSync('www') ? 'www/' : '') + 'save/TR_MB.html',
+    _path: (require('fs').existsSync('www') ? 'www/' : '') + 'save/DO_NOT_TOUCH/TR_MsgBox.html',
+    _nw2: (function(){
+        const ver = nw.process.versions.nw.split('.');
+        const ver1 = parseInt(ver[1], 10), ver2 = parseInt(ver[2], 10);
+        const nw2 = ver1 >= 43 || (ver1 === 42 && ver2 >= 4);
+        return nw2 || require('os').platform() === 'linux';
+    })(),
+    
     _mainWin: nw.Window.get(),
+    _wins: {},
     _lastId: 0,
+    _lastClaimId: 0,
     _params: {},
-    _html: null,
-    _writeHtml: null,
+
 
     defaultCallback: function(button){
         TR_MsgBox.return = button;
 
-        var id = parseInt(this.window.location.search.substring(1), 10);
+        var id = this.window.MsgBox_id;   // 在msgbox.html中this被bind为子窗口对象
         var mainWindow = TR_MsgBox._mainWin.window;
         if (TR_MsgBox._params[id].blockMain && mainWindow.SceneManager._stopped){
             mainWindow.TouchInput.clear();
             mainWindow.SceneManager.resume();
         }
         delete TR_MsgBox._params[id];
+        delete TR_MsgBox._wins[id];
 
         TR_MsgBox._mainWin.focus();
         this.close(true);
@@ -119,8 +135,14 @@ var TR_MsgBox = nw.global.TR_MsgBox;
 
 
 
+
 TR_MsgBox.show = function(options) {
     TR_MsgBox._writeHtml();
+
+    // [NOTE] MacOS polyfill with alert() and confirm()
+    // [removed] because it's caused by cross origin problem, which also influences TRain_HelperProcess.js
+    // solved by adding "node-remote": "<all_urls>" to package.json
+
 
     // ================================================================================
     var params = {
@@ -162,12 +184,18 @@ TR_MsgBox.show = function(options) {
         SceneManager.stop();
     }
 
-    nw.Window.open(TR_MsgBox._path + '?' + id, {
+    // [NOTE] 不再通过`?${id}`传递id，而是子窗口自增_lastClaimId获取，类似于队列
+    // 因为location.search在高版本chromium中有cross origin opener policy问题
+    nw.Window.open(TR_MsgBox._path, {
         show: false,
         fullscreen: false,
         resizable: false,
         always_on_top: params.onTop
     }, function(subWin){
+
+        setTimeout(function(){ try {
+            if (!subWin.window.shown) subWin.show();
+        } catch(e) { console.log("This shouldn't happen"); } }, 1000);
     });
 
 };
@@ -177,6 +205,10 @@ TR_MsgBox.show = function(options) {
 
 
 // ================================================================================
+// 将html文件写入save
+// 不直接读文件是因为OneLoader里很难读取到
+// 不使用data:text/html是因为有跨域问题, 子窗口读不了nw.global
+// (通过nw.Window.open()的回调函数传参则有并发问题)
 
 TR_MsgBox._html = `
 <!DOCTYPE html>
@@ -256,6 +288,14 @@ TR_MsgBox._html = `
       background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAAAjCAYAAAB1nT9JAAAAAXNSR0IArs4c6QAAANRJREFUaIHt27ENwyAURdHnyAMwEEMwBAMyBAOxgVNYsSJBJMcNPOmehoYC6etSwZZzPgQ7uyTFGGefA3+otZ6Dk6SU0syz4KZSiiTpNfkceGg4uBAC64Lrty3nfMQYr6syhKDWWrcRayilqNbaF8fQ1jMqrhvcaBPmGsVEcQYozhTFmaI4UxRniuJMUZwpijNFcaYozhTFmaI4UxRniuJMUZwpijNFcaYozhTFmaI4UxRniuJM3S5u9otd1gcvmbG2ny+Z4eH6ZvX5vgMPu3R+lIOXN8WEfhl5mSKQAAAAAElFTkSuQmCC');
     }
   </style>
+</head>
+
+
+<body>
+  <div id="content">
+    <div id="text"></div>
+  </div>
+  <div id="buttons"></div>
 
 
   <script>
@@ -276,7 +316,7 @@ TR_MsgBox._html = `
                 break;
         }
         if (base64) return 'data:image/png;base64,' + base64;
-        else return name;
+        else return name;  // 视为base64编码的图片
     }
 
 
@@ -295,14 +335,16 @@ TR_MsgBox._html = `
     }
 
 
-    window.onload = function () {
+    //window.onload = function () {
       const win = nw.Window.get();
       const TR_MsgBox = nw.global.TR_MsgBox;
-      const id = parseInt(location.search.substring(1), 10);
+      const id = ++TR_MsgBox._lastClaimId;
+      const params = TR_MsgBox._params[id];
+      window.MsgBox_id = id;
+      TR_MsgBox._wins[id] = win;
 
       try {
 
-        const params = TR_MsgBox._params[id];
         const title = params.title;
         const lines = params.lines;
         const buttons = params.buttons;
@@ -314,9 +356,10 @@ TR_MsgBox._html = `
 
 
         // ================================================================================
+        // 图标和消息文本
         if (winIcon !== ""){
           const winIconEle = document.getElementById('favicon');
-          winIconEle.href = getBase64Img(winIcon);
+          winIconEle.href = getBase64Img(winIcon);  // Somehow doesn't work with nw 0.49
         }
 
         const contentBar = document.getElementById('content');
@@ -339,6 +382,7 @@ TR_MsgBox._html = `
 
 
         // ================================================================================
+        // 标题和按钮
         document.title = title;
         win.title = title;
         const buttonBar = document.getElementById('buttons');
@@ -353,6 +397,7 @@ TR_MsgBox._html = `
 
 
         // ================================================================================
+        // 窗口大小和位置
         const buttonsMinWidth = 40 + 110*buttons.length + 12*Math.max(0, buttons.length-1) + 24;
         const linesMinWidth = (msgIcon ? 30+48+12 : 15) + measureTextWidth(lines) + 46;
         var width = Math.max(buttonsMinWidth, linesMinWidth);
@@ -364,11 +409,7 @@ TR_MsgBox._html = `
           height *= 0.8;
         }
 
-        const ver = nw.process.versions.nw.split('.');
-        const ver1 = parseInt(ver[1], 10), ver2 = parseInt(ver[2], 10);
-        const nw2 = ver1 >= 43 || (ver1 === 42 && ver2 >= 4);
-
-        if (nw2) win.setResizable(true);
+        if (TR_MsgBox._nw2) win.setResizable(true);
         const outlineWidth = outerWidth - innerWidth;
         const outlineHeight = outerHeight - innerHeight;
         win.moveTo(
@@ -379,7 +420,7 @@ TR_MsgBox._html = `
           Math.round(width - window.innerWidth),
           Math.round(height - window.innerHeight)
         );
-        if (nw2) win.setResizable(false);
+        if (TR_MsgBox._nw2) win.setResizable(false);
         // ================================================================================
         
 
@@ -387,24 +428,17 @@ TR_MsgBox._html = `
         if (onTop) win.on('minimize', function(){ win.focus(); });
         win.show();
         win.focus();
+        window.shown = true;  // 代表一切正常的标记位
 
       } catch (e) {
         const mainWindow = TR_MsgBox._mainWin.window;
         mainWindow.console.log('[TRain_MessageBox] Error in msgbox.html:');
-        mainWindow.console.log(e);  // Use console.log because NWjs console.error has bug
+        mainWindow.console.log(e);
         TR_MsgBox.defaultCallback.bind(win)('close');
       }
 
-    };
+    //};
   </script>
-</head>
-
-
-<body>
-  <div id="content">
-    <div id="text"></div>
-  </div>
-  <div id="buttons"></div>
 </body>
 
 </html>
@@ -415,6 +449,19 @@ TR_MsgBox._html = `
 TR_MsgBox._writeHtml = function(force) {
     const fs = require('fs');
     if (!force && fs.existsSync(TR_MsgBox._path)) return;
+
+    // 创建多级目录
+    var dirs = TR_MsgBox._path.split('/');
+    dirs = dirs.slice(0, dirs.length-1);
+    (function(dirs){
+        var path = require('path');
+        var curPath = '';
+        for (var i = 0; i < dirs.length; i++) {
+            curPath = path.join(curPath, dirs[i]);
+            if (!fs.existsSync(curPath)) fs.mkdirSync(curPath);
+        }
+    })(dirs);
+
     fs.writeFileSync(TR_MsgBox._path, TR_MsgBox._html, { flush: true });
 };
 
