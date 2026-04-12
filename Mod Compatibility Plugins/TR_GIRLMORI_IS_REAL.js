@@ -8,10 +8,10 @@ Imported.TR_GIRLMORI_IS_REAL = true;
 
 var TR = TR || {};
 TR.GIR = TR.GIR || {};
-TR.GIR.version = 5.0;
+TR.GIR.version = 5.1;
 
 /*: 
- * @plugindesc v5.0 Plugin to detect if Girlmori is present and adjust images with sunny's name to account for this.
+ * @plugindesc v5.1 Plugin to detect if Girlmori is present and adjust images with sunny's name to account for this.
  * @author TomatoRadio
  * 
  * @help
@@ -40,7 +40,7 @@ TR.GIR.version = 5.0;
  * This is a default OMORI plugin though so you should be fine.
  * 
  * Examples of both in the same message:
- * \caseEval{ImageManager.isGirlmoriActive()?She:He} is really the just quietest \girlmori{girl:boy} I've ever met...
+ * \caseEval{ImageManager.isGirlmoriActive()?She:He} is really the just quietest \transrights{girl:boy} I've ever met...
  * 
  * You can force enable/disable Girlmori with this plugin command.
  * ForceGirlmori [boolean]
@@ -134,10 +134,10 @@ ImageManager.isGirlmoriActive = function() {
 		return true;
 	} else if ($gameSystem && $gameSystem._girlmoriActive === false) {
 		return false;
-	} else if (TR.GIR.PlaytestActive && $gameTemp.isPlaytest()) {
+	} else if (TR.GIR.PlaytestActive && Utils.isOptionValid('test')) {
 		return true;
-	} else if (!$gameTemp.isPlaytest()) {
-		if (!!$modLoader.knownMods) {
+	} else if (Utils.isOptionValid('test')) {
+		if (!!$modLoader && !!$modLoader.knownMods) {
 			if ($modLoader.knownMods.has('girlmori') || $modLoader.knownMods.has('girlmori_delta')) {
 				return true;
 			} else if (TR.GIR.DeniedActive && $modLoader.deniedMods) {
@@ -151,9 +151,9 @@ ImageManager.isGirlmoriActive = function() {
 TR.GIR.convertCaseText = Window_Base.prototype.convertCaseText;
 Window_Base.prototype.convertCaseText = function(text) {
   text = text.replace(/\x1bTRANSRIGHTS\{(.*?):(.*?)\}/gi, function() {
-    var x = arguments[1];
-    var y = arguments[2];
-    var text = ImageManager.isGirlmoriActive() ? x : y;
+    var f = arguments[1];
+    var m = arguments[2];
+    var text = ImageManager.isGirlmoriActive() ? f : m;
     return text;
   }.bind(this));
 
