@@ -1,5 +1,5 @@
 /*:
- * @plugindesc Fixes sprite changes from states so that they properly inherit 
+ * @plugindesc v1.1 Fixes sprite changes from states so that they properly inherit 
  * notetag values based on priority. Also adds a new notetag to adjust animation speed.
  * @author KoffinKrypt
  *
@@ -139,4 +139,26 @@ Sprite_Enemy.prototype.motionSpeed = function() {
     }
 
     return 12; // Default speed if no custom speed is found
+};
+
+
+//=============================================================================
+// * Fix - Properly reset animation delay counter
+//=============================================================================
+
+// Store original updateFrame
+var _OmoMenuStatusFace_updateFrame = Sprite_OmoMenuStatusFace.prototype.updateFrame;
+
+Sprite_OmoMenuStatusFace.prototype.updateFrame = function() {
+    // Get the correct delay based on current states
+    var correctDelay = this.defaultDelay();
+    
+    // If current delay doesn't match correct delay (state changed)
+    if (this._animDelay > correctDelay) {
+        // Force reset to correct delay immediately
+        this._animDelay = correctDelay;
+    }
+    
+    // Call original updateFrame
+    _OmoMenuStatusFace_updateFrame.call(this);
 };
