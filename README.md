@@ -47,10 +47,12 @@ Plugins that allows support for other mods, or is a "Core" plugin to other plugi
 - [OneMaker MV](https://github.com/FoGsesipod/OneMaker-MV) \- Modifies the RPGMaker MV Editor with useful tweaks for modding Omori.
 - [FruitDragon & TomatoRadio OMORI Modding Guide](https://docs.google.com/document/d/1t59hzeERvwok2ZsQVs6AgFj5WVZdeAPwiWYFgkDGLiE)
 - [Beginner Guide to make OMORI Mods](https://youtu.be/ASFFJUf8t0w?si=oPs2yH3SU_qpN2Zy)
+- [MrSkroob's Obsidian Repository Guide](https://github.com/MrSkroob/mod-knowledge-base)
 
 ### OMORI Modding Tools
 - [Omori Save Files](https://docs.google.com/document/d/1qYsW_uXsBD0wMtmQG06UxIMfbGYuTgeu-AHzzdjCw-s)
 - [Omori Yaml Portrait Viewer](https://github.com/StahlReyn/omoriyamlportraitviewer) \- VSCode extension to view face portrait files in yaml messages.
+- [Custom Error Message](https://docs.google.com/document/d/1Ea1707pndoaqqj5Q8l_Xkm6SKPWLzFs5jF_QnWeBc64)
 
 ### Other General Knowledge
 - [RMMV Plugin Making](https://youtube.com/playlist?list=PL3Fv4Z54bWaGjcORlYg6TKsnoQDf2no3d&si=MvZqxdLBM4Nbqw8O) \- Beginner plugin making guide
