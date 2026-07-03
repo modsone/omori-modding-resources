@@ -1,13 +1,13 @@
 - id: koffin_statedropratemodifier
   name: KOFFIN_StateDropRateModifier
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/KOFFIN_StateDropRateModifier.js
 - id: koffin_autobattleportraitorder
   name: KOFFIN_AutoBattlePortraitOrder
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -15,7 +15,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/KOFFIN_AutoBattlePortraitOrder.js
 - id: koffin_betterenemysystem
   name: KOFFIN_BetterEnemySystem
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -23,7 +23,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/KOFFIN_BetterEnemySystem.js
 - id: koffin_statedropratemodifier
   name: KOFFIN_StateDropRateModifier
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -31,7 +31,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/KOFFIN_StateDropRateModifier.js
 - id: rph_more_than_4_skills
   name: RPH_More_Than_4_Skills
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -39,7 +39,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/RPH_More_Than_4_Skills.js
 - id: stahl_battlestats
   name: Stahl_BattleStats
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -47,7 +47,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/Stahl_BattleStats.js
 - id: stahl_deathce
   name: Stahl_DeathCE
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -55,7 +55,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/Stahl_DeathCE.js
 - id: stahl_enemycategory
   name: Stahl_EnemyCategory
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -63,7 +63,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/Stahl_EnemyCategory.js
 - id: stahl_enemyspawn
   name: Stahl_EnemySpawn
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -71,7 +71,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/Stahl_EnemySpawn.js
 - id: tr_hitevamerge
   name: TR_HitEvaMerge
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -79,7 +79,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/TR_HitEvaMerge.js
 - id: tr_restrictbattlecommands
   name: TR_RestrictBattleCommands
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -87,7 +87,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/TR_RestrictBattleCommands.js
 - id: vl_savelastitemusedproperly
   name: VL_SaveLastItemUsedProperly
-  author:
+  authors:
   - Contributor
   tags:
   - battle system
@@ -95,7 +95,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Battle System/VL_SaveLastItemUsedProperly.js
 - id: dgt_targeteval
   name: DGT_targetEval
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -103,7 +103,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/DGT_targetEval.js
 - id: dgt_weaknesstargeting
   name: DGT_WeaknessTargeting
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -111,7 +111,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/DGT_WeaknessTargeting.js
 - id: koffin_actionsequenceaddon
   name: KOFFIN_ActionSequenceAddon
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -119,7 +119,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/KOFFIN_ActionSequenceAddon.js
 - id: koffin_actionsequenceextension
   name: KOFFIN_ActionSequenceExtension
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -127,7 +127,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/KOFFIN_ActionSequenceExtension.js
 - id: koffin_battleaicore_combinedpatches
   name: KOFFIN_BattleAICore_CombinedPatches
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -135,7 +135,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/KOFFIN_BattleAICore_CombinedPatches.js
 - id: koffin_battleaicore_emotionaddon
   name: KOFFIN_BattleAICore_EmotionAddon
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -143,7 +143,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/KOFFIN_BattleAICore_EmotionAddon.js
 - id: koffin_extrabattleaiconditons
   name: KOFFIN_ExtraBattleAIConditons
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -151,7 +151,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/KOFFIN_ExtraBattleAIConditons.js
 - id: koffin_targetratefix
   name: KOFFIN_TargetRateFIx
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -159,7 +159,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/KOFFIN_TargetRateFIx.js
 - id: stahl_statecategoryactionsequence
   name: Stahl_StateCategoryActionSequence
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -167,7 +167,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/Stahl_StateCategoryActionSequence.js
 - id: tr_tauntaffectmultitargets
   name: TR_TauntAffectMultiTargets
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -175,7 +175,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Enemy AIs/TR_TauntAffectMultiTargets.js
 - id: koffin_limiteditems
   name: KOFFIN_LimitedItems
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -183,7 +183,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Items/KOFFIN_LimitedItems.js
 - id: vl_twocharmslots
   name: VL_TwoCharmSlots
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -191,7 +191,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Items/VL_TwoCharmSlots.js
 - id: cooldry_picture_layers
   name: COOLDRY_Picture_Layers
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -199,7 +199,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/COOLDRY_Picture_Layers.js
 - id: dgt_charmprefix
   name: DGT_charmprefix
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -207,7 +207,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/DGT_charmprefix.js
 - id: dgt_followupbubblechange
   name: DGT_followupbubblechange
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -215,7 +215,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/DGT_followupbubblechange.js
 - id: dgt_itemshopweaponstat
   name: DGT_ItemShopWeaponStat
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -223,7 +223,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/DGT_ItemShopWeaponStat.js
 - id: dgt_levelanimation
   name: DGT_levelanimation
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -231,7 +231,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/DGT_levelanimation.js
 - id: dgt_statespriteeffects
   name: DGT_statespriteeffects
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -239,7 +239,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/DGT_statespriteeffects.js
 - id: fd_itemiconrescale
   name: FD_ItemIconRescale
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -247,7 +247,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/FD_ItemIconRescale.js
 - id: geo_removebattlefadeout
   name: Geo_RemoveBattleFadeOut
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -255,7 +255,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Geo_RemoveBattleFadeOut.js
 - id: koffin_custompolaroidboxes
   name: KOFFIN_CustomPolaroidBoxes
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -263,7 +263,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/KOFFIN_CustomPolaroidBoxes.js
 - id: koffin_custompolaroidboxesandmenus
   name: KOFFIN_CustomPolaroidBoxesAndMenus
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -271,7 +271,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/KOFFIN_CustomPolaroidBoxesAndMenus.js
 - id: koffin_expandedstatchanges
   name: KOFFIN_ExpandedStatChanges
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -279,7 +279,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/KOFFIN_ExpandedStatChanges.js
 - id: koffin_inbattlestatus
   name: KOFFIN_InBattleStatus
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -287,7 +287,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/KOFFIN_InBattleStatus.js
 - id: koffin_refreshbattlesprites
   name: KOFFIN_RefreshBattleSprites
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -295,7 +295,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/KOFFIN_RefreshBattleSprites.js
 - id: koffin_refreshbattleui
   name: KOFFIN_RefreshBattleUI
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -303,7 +303,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/KOFFIN_RefreshBattleUI.js
 - id: koffin_spritestateindexfix
   name: KOFFIN_SpriteStateIndexFix
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -311,7 +311,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/KOFFIN_SpriteStateIndexFix.js
 - id: lpg_attacknumberplus
   name: LPG_attacknumberplus
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -319,7 +319,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/LPG_attacknumberplus.js
 - id: rph_state_icons
   name: rph_state_icons
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -327,7 +327,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/rph_state_icons.js
 - id: stahl_altitemicon
   name: Stahl_AltItemIcon
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -335,7 +335,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Stahl_AltItemIcon.js
 - id: stahl_damagepopups
   name: Stahl_DamagePopups
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -343,7 +343,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Stahl_DamagePopups.js
 - id: stahl_enemymovement
   name: Stahl_EnemyMovement
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -351,7 +351,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Stahl_EnemyMovement.js
 - id: stahl_enemyparticles
   name: Stahl_EnemyParticles
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -359,7 +359,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Stahl_EnemyParticles.js
 - id: stahl_extendeditemdisplay
   name: Stahl_ExtendedItemDisplay
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -367,7 +367,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Stahl_ExtendedItemDisplay.js
 - id: stahl_moreskilldisplay
   name: Stahl_MoreSkillDisplay
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -375,7 +375,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Stahl_MoreSkillDisplay.js
 - id: state_damage_face
   name: State_Damage_Face
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -383,7 +383,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/State_Damage_Face.js
 - id: tr_custommenufacesizes
   name: TR_CustomMenuFaceSizes
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -391,7 +391,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/TR_CustomMenuFaceSizes.js
 - id: tr_improvedbattlebacks_fadeinremoval
   name: TR_ImprovedBattlebacks_FadeInRemoval
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -399,7 +399,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/TR_ImprovedBattlebacks_FadeInRemoval.js
 - id: tr_lowhealthextended
   name: TR_LowHealthExtended
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -407,7 +407,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/TR_LowHealthExtended.js
 - id: tr_orderedskills
   name: TR_OrderedSkills
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -415,7 +415,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/TR_OrderedSkills.js
 - id: unique-battle-ui
   name: Unique Battle UI
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -423,7 +423,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Unique Battle UI.js
 - id: vl_savelastitemusedproperly
   name: VL_SaveLastItemUsedProperly
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -431,7 +431,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/VL_SaveLastItemUsedProperly.js
 - id: stahl_elementdisplay
   name: Stahl_ElementDisplay
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -440,7 +440,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/Element Display/Stahl_ElementDisplay.js
 - id: more_info
   name: More_Info
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -449,7 +449,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/More Info/More_Info.js
 - id: stahl_evenmoreinfo
   name: Stahl_EvenMoreInfo
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -458,7 +458,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Menu and UI/More Info/Stahl_EvenMoreInfo.js
 - id: fog_passiveskills
   name: FoG_PassiveSkills
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -466,7 +466,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/FoG_PassiveSkills.js
 - id: koffin_easyunequipskill
   name: KOFFIN_EasyUnequipSkill
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -474,7 +474,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/KOFFIN_EasyUnequipSkill.js
 - id: lpg_attacklayers
   name: LPG_attacklayers
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -482,7 +482,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/LPG_attacklayers.js
 - id: rwb_customcosts
   name: rwb_customcosts
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -490,7 +490,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/rwb_customcosts.js
 - id: stahl_changeablebasicattack
   name: Stahl_ChangeableBasicAttack
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -498,7 +498,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/Stahl_ChangeableBasicAttack.js
 - id: stahl_hpcosticon
   name: Stahl_HpCostIcon
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -506,7 +506,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/Stahl_HpCostIcon.js
 - id: stahl_skillreplacement
   name: Stahl_SkillReplacement
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -514,7 +514,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/Stahl_SkillReplacement.js
 - id: tr_allowskillattempts
   name: TR_AllowSkillAttempts
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -522,7 +522,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/TR_AllowSkillAttempts.js
 - id: tr_fixbasicattack
   name: TR_FixBasicAttack
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -530,7 +530,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/Skills/TR_FixBasicAttack.js
 - id: drz_stateresistchance_stateedition
   name: DRZ_StateResistChance_StateEdition
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -538,7 +538,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/States/DRZ_StateResistChance_StateEdition.js
 - id: koffin_statedropratemodifier
   name: KOFFIN_StateDropRateModifier
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -546,7 +546,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/States/KOFFIN_StateDropRateModifier.js
 - id: koffin_statedurationmultiplier
   name: KOFFIN_StateDurationMultiplier
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -554,7 +554,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/States/KOFFIN_StateDurationMultiplier.js
 - id: koffin_stateresistchance
   name: KOFFIN_StateResistChance
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -562,7 +562,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/States/KOFFIN_StateResistChance.js
 - id: stahl_statedependency
   name: Stahl_StateDependency
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -570,7 +570,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/States/Stahl_StateDependency.js
 - id: stahl_statereaddable
   name: Stahl_StateReaddable
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -578,7 +578,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/States/Stahl_StateReaddable.js
 - id: stahl_statesync
   name: Stahl_StateSync
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -586,7 +586,7 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/States/Stahl_StateSync.js
 - id: stahl_statetiering
   name: Stahl_StateTiering
-  author:
+  authors:
   - Contributor
   tags:
   - battle system plugins
@@ -594,140 +594,140 @@
   url: https://github.com/modsone/omori-modding-resources/Battle System Plugins/States/Stahl_StateTiering.js
 - id: bestiaryextended
   name: BestiaryExtended
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/BestiaryExtended.js
 - id: dgt_yamlerrordisambiguator
   name: DGT_YamlErrorDisambiguator
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/DGT_YamlErrorDisambiguator.js
 - id: doubleextendedyaml
   name: DoubleExtendedYAML
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/DoubleExtendedYAML.js
 - id: stahl_actionsequenceyamlmsg
   name: Stahl_ActionSequenceYamlMsg
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/Stahl_ActionSequenceYamlMsg.js
 - id: stahl_atlasextended
   name: Stahl_AtlasExtended
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/Stahl_AtlasExtended.js
 - id: stahl_customoptions
   name: Stahl_CustomOptions
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/Stahl_CustomOptions.js
 - id: tr_battleflavor
   name: TR_BattleFlavor
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/TR_BattleFlavor.js
 - id: tr_bettermovementgraphics
   name: TR_BetterMovementGraphics
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/TR_BetterMovementGraphics.js
 - id: tr_globaldata
   name: TR_GlobalData
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/TR_GlobalData.js
 - id: tr_pictureshops
   name: TR_PictureShops
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/TR_PictureShops.js
 - id: tr_sesubfolders
   name: TR_SeSubfolders
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/TR_SeSubfolders.js
 - id: tr_yamldatabase
   name: TR_YamlDatabase
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/TR_YamlDatabase.js
 - id: tr_yamlmessagemacros
   name: TR_YamlMessageMacros
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/TR_YamlMessageMacros.js
 - id: wn_extendedyaml
   name: WN_ExtendedYAML
-  author:
+  authors:
   - Contributor
   tags:
   - data organization plugins
   url: https://github.com/modsone/omori-modding-resources/Data Organization Plugins/WN_ExtendedYAML.js
 - id: f9-battle-crash-safeguard
   name: F9 battle crash safeguard
-  author:
+  authors:
   - Contributor
   tags:
   - essential plugins
   url: https://github.com/modsone/omori-modding-resources/ESSENTIAL plugins/F9 battle crash safeguard.js
 - id: fix_horroreffect_memoryleak
   name: Fix_HorrorEffect_MemoryLeak
-  author:
+  authors:
   - Contributor
   tags:
   - essential plugins
   url: https://github.com/modsone/omori-modding-resources/ESSENTIAL plugins/Fix_HorrorEffect_MemoryLeak.js
 - id: geo_autoturnorder
   name: Geo_AutoTurnOrder
-  author:
+  authors:
   - Contributor
   tags:
   - essential plugins
   url: https://github.com/modsone/omori-modding-resources/ESSENTIAL plugins/Geo_AutoTurnOrder.js
 - id: kyr_tiledrotationfix
   name: kyr_TiledRotationFix
-  author:
+  authors:
   - Contributor
   tags:
   - essential plugins
   url: https://github.com/modsone/omori-modding-resources/ESSENTIAL plugins/kyr_TiledRotationFix.js
 - id: rph.no-omori-crash.patch
   name: rph.no omori crash.patch
-  author:
+  authors:
   - Contributor
   tags:
   - essential plugins
   url: https://github.com/modsone/omori-modding-resources/ESSENTIAL plugins/rph.no omori crash.patch.js
 - id: pixi_tilemap_patches
   name: pixi_tilemap_patches
-  author:
+  authors:
   - Contributor
   tags:
   - essential plugins
@@ -735,7 +735,7 @@
   url: https://github.com/modsone/omori-modding-resources/ESSENTIAL plugins/rotatedtilefix/pixi_tilemap_patches.js
 - id: yed_tiled
   name: YED_Tiled
-  author:
+  authors:
   - Contributor
   tags:
   - essential plugins
@@ -743,7 +743,7 @@
   url: https://github.com/modsone/omori-modding-resources/ESSENTIAL plugins/rotatedtilefix/YED_Tiled.js
 - id: tiledfixer
   name: tiledfixer
-  author:
+  authors:
   - Contributor
   tags:
   - essential plugins
@@ -751,7 +751,7 @@
   url: https://github.com/modsone/omori-modding-resources/ESSENTIAL plugins/tiledfixer/tiledfixer.js
 - id: amaratime
   name: AmaraTime
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -759,7 +759,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Informational/AmaraTime.js
 - id: dgt_dynamic_item_data
   name: DGT_dynamic_item_data
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -767,7 +767,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Informational/DGT_dynamic_item_data.js
 - id: dgt_condition_unlock
   name: DGT_condition_unlock
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -775,7 +775,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/DGT_condition_unlock.js
 - id: e97_eventhijack
   name: E97_EventHijack
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -783,7 +783,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/E97_EventHijack.js
 - id: fog_fixmessagecommonevent
   name: FoG_FixMessageCommonEvent
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -791,7 +791,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/FoG_FixMessageCommonEvent.js
 - id: fwd_eventpoints
   name: FWD_Eventpoints
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -799,7 +799,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/FWD_Eventpoints.js
 - id: geo_extrautconfigs
   name: Geo_ExtraUTConfigs
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -807,7 +807,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/Geo_ExtraUTConfigs.js
 - id: kebab_utbsystemfacesfix
   name: kebab_UTBSystemFacesFix
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -815,7 +815,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/kebab_UTBSystemFacesFix.js
 - id: pyro_forcerun
   name: PYRO_ForceRun
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -823,7 +823,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/PYRO_ForceRun.js
 - id: pyro_movemessage
   name: PYRO_MoveMessage
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -831,7 +831,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/PYRO_MoveMessage.js
 - id: rwb_extfollower
   name: rwb_extfollower
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -839,7 +839,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/rwb_extfollower.js
 - id: stahl_eventdistance
   name: Stahl_EventDistance
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -847,7 +847,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/Stahl_EventDistance.js
 - id: stahl_eventpreloadmeta
   name: Stahl_EventPreloadMeta
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -855,7 +855,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/Stahl_EventPreloadMeta.js
 - id: tr_dynamicimages
   name: TR_DynamicImages
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -863,7 +863,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/TR_DynamicImages.js
 - id: tr_persistentbattlesound
   name: TR_PersistentBattleSound
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -871,7 +871,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/TR_PersistentBattleSound.js
 - id: tr_variablebasedimages
   name: TR_VariableBasedImages
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -879,7 +879,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Technical/TR_VariableBasedImages.js
 - id: dgt_beziercam
   name: DGT_BezierCam
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -887,7 +887,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/DGT_BezierCam.js
 - id: fd_weatherextension
   name: FD_WeatherExtension
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -895,7 +895,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/FD_WeatherExtension.js
 - id: koffin_morefoglayers
   name: KOFFIN_MoreFogLayers
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -903,7 +903,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/KOFFIN_MoreFogLayers.js
 - id: koffin_picturebelowcharsbutgood
   name: KOFFIN_PictureBelowCharsButGood
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -911,7 +911,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/KOFFIN_PictureBelowCharsButGood.js
 - id: train_fd_ripple
   name: TRain_FD_Ripple
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -919,7 +919,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/TRain_FD_Ripple.js
 - id: train_particlesjs
   name: TRain_ParticlesJS
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -927,7 +927,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/TRain_ParticlesJS.js
 - id: tr_betterinputicons
   name: TR_BetterInputIcons
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -935,7 +935,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/TR_BetterInputIcons.js
 - id: tr_multiparallax
   name: TR_MultiParallax
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -943,7 +943,7 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/TR_MultiParallax.js
 - id: wn_changecursorimage
   name: WN_ChangeCursorImage
-  author:
+  authors:
   - Contributor
   tags:
   - event plugins
@@ -951,28 +951,28 @@
   url: https://github.com/modsone/omori-modding-resources/Event Plugins/Visual/WN_ChangeCursorImage.js
 - id: improved-save-&-load
   name: Improved Save & Load
-  author:
+  authors:
   - Contributor
   tags:
   - gameplay plugins
   url: https://github.com/modsone/omori-modding-resources/Gameplay Plugins/Improved Save & Load.js
 - id: koffin_betterquest
   name: KOFFIN_BetterQuest
-  author:
+  authors:
   - Contributor
   tags:
   - gameplay plugins
   url: https://github.com/modsone/omori-modding-resources/Gameplay Plugins/KOFFIN_BetterQuest.js
 - id: koffin_omorimusicplayer
   name: KOFFIN_OmoriMusicPlayer
-  author:
+  authors:
   - Contributor
   tags:
   - gameplay plugins
   url: https://github.com/modsone/omori-modding-resources/Gameplay Plugins/KOFFIN_OmoriMusicPlayer.js
 - id: badgesinmainmenu
   name: badgesInMainMenu
-  author:
+  authors:
   - Contributor
   tags:
   - badges
@@ -980,7 +980,7 @@
   url: https://github.com/modsone/omori-modding-resources/Gameplay Plugins/badges/badgesInMainMenu.js
 - id: dgt_badges
   name: DGT_Badges
-  author:
+  authors:
   - Contributor
   tags:
   - badges
@@ -988,126 +988,126 @@
   url: https://github.com/modsone/omori-modding-resources/Gameplay Plugins/badges/DGT_Badges.js
 - id: geo_ultramode7patch
   name: Geo_UltraMode7Patch
-  author:
+  authors:
   - Contributor
   tags:
   - mod compatibility plugins
   url: https://github.com/modsone/omori-modding-resources/Mod Compatibility Plugins/Geo_UltraMode7Patch.js
 - id: rwb_datainjector
   name: rwb_datainjector
-  author:
+  authors:
   - Contributor
   tags:
   - mod compatibility plugins
   url: https://github.com/modsone/omori-modding-resources/Mod Compatibility Plugins/rwb_datainjector.js
 - id: rwb_stringidmaps
   name: rwb_stringidmaps
-  author:
+  authors:
   - Contributor
   tags:
   - mod compatibility plugins
   url: https://github.com/modsone/omori-modding-resources/Mod Compatibility Plugins/rwb_stringidmaps.js
 - id: tr_checkmoddata
   name: TR_CheckModData
-  author:
+  authors:
   - Contributor
   tags:
   - mod compatibility plugins
   url: https://github.com/modsone/omori-modding-resources/Mod Compatibility Plugins/TR_CheckModData.js
 - id: tr_girlmori_is_real
   name: TR_GIRLMORI_IS_REAL
-  author:
+  authors:
   - Contributor
   tags:
   - mod compatibility plugins
   url: https://github.com/modsone/omori-modding-resources/Mod Compatibility Plugins/TR_GIRLMORI_IS_REAL.js
 - id: tr_jsextensions
   name: TR_JsExtensions
-  author:
+  authors:
   - Contributor
   tags:
   - mod compatibility plugins
   url: https://github.com/modsone/omori-modding-resources/Mod Compatibility Plugins/TR_JsExtensions.js
 - id: val
   name: VAL
-  author:
+  authors:
   - Contributor
   tags:
   - mod compatibility plugins
   url: https://github.com/modsone/omori-modding-resources/Mod Compatibility Plugins/VAL.js
 - id: denyinjection
   name: DenyInjection
-  author:
+  authors:
   - Contributor
   tags:
   - oneloader plugins
   url: https://github.com/modsone/omori-modding-resources/OneLoader plugins/DenyInjection.js
 - id: denyothermods-execute
   name: DenyOtherMods-Execute
-  author:
+  authors:
   - Contributor
   tags:
   - oneloader plugins
   url: https://github.com/modsone/omori-modding-resources/OneLoader plugins/DenyOtherMods-Execute.js
 - id: denyothermods-main
   name: DenyOtherMods-Main
-  author:
+  authors:
   - Contributor
   tags:
   - oneloader plugins
   url: https://github.com/modsone/omori-modding-resources/OneLoader plugins/DenyOtherMods-Main.js
 - id: force_load_first
   name: Force_Load_First
-  author:
+  authors:
   - Contributor
   tags:
   - oneloader plugins
   url: https://github.com/modsone/omori-modding-resources/OneLoader plugins/Force_Load_First.js
 - id: force_load_last
   name: Force_Load_Last
-  author:
+  authors:
   - Contributor
   tags:
   - oneloader plugins
   url: https://github.com/modsone/omori-modding-resources/OneLoader plugins/Force_Load_Last.js
 - id: rph_oneloader_version_check
   name: RPH_oneloader_version_check
-  author:
+  authors:
   - Contributor
   tags:
   - oneloader plugins
   url: https://github.com/modsone/omori-modding-resources/OneLoader plugins/RPH_oneloader_version_check.js
 - id: geo_removebattlefadeout
   name: Geo_RemoveBattleFadeOut
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Geo_RemoveBattleFadeOut.js
 - id: goldcounterdisabler
   name: GoldCounterDisabler
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
   url: https://github.com/modsone/omori-modding-resources/UI plugins/GoldCounterDisabler.js
 - id: pyro_lyrics
   name: PYRO_Lyrics
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
   url: https://github.com/modsone/omori-modding-resources/UI plugins/PYRO_Lyrics.js
 - id: tr_verticalcursors
   name: TR_VerticalCursors
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
   url: https://github.com/modsone/omori-modding-resources/UI plugins/TR_VerticalCursors.js
 - id: fd_easyphotoalbum
   name: FD_EasyPhotoAlbum
-  author:
+  authors:
   - Contributor
   tags:
   - easyphotoalbum
@@ -1115,7 +1115,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/easyphotoalbum/FD_EasyPhotoAlbum.js
 - id: pyro_verttitle
   name: PYRO_VertTitle
-  author:
+  authors:
   - Contributor
   tags:
   - load and title screen
@@ -1123,7 +1123,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Load and Title Screen/PYRO_VertTitle.js
 - id: rph.splashexpander
   name: rph.splashExpander
-  author:
+  authors:
   - Contributor
   tags:
   - load and title screen
@@ -1131,7 +1131,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Load and Title Screen/rph.splashExpander.js
 - id: tr_changeloadimage
   name: TR_ChangeLoadImage
-  author:
+  authors:
   - Contributor
   tags:
   - load and title screen
@@ -1139,7 +1139,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Load and Title Screen/TR_ChangeLoadImage.js
 - id: fd_easytitlescreen
   name: FD_EasyTitleScreen
-  author:
+  authors:
   - Contributor
   tags:
   - easytitlescreen (no longer supported)
@@ -1148,7 +1148,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Load and Title Screen/easytitlescreen (no longer supported)/FD_EasyTitleScreen.js
 - id: fd_yamltitlescreen
   name: FD_YamlTitleScreen
-  author:
+  authors:
   - Contributor
   tags:
   - load and title screen
@@ -1157,7 +1157,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Load and Title Screen/yamltitlescreen/FD_YamlTitleScreen.js
 - id: dgt_liveupdatemessage
   name: DGT_LiveUpdateMessage
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1165,7 +1165,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/DGT_LiveUpdateMessage.js
 - id: dgt_mirrortextorder
   name: DGT_MirrorTextOrder
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1173,7 +1173,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/DGT_MirrorTextOrder.js
 - id: geo_messagefacechange
   name: Geo_MessageFaceChange
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1181,7 +1181,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/Geo_MessageFaceChange.js
 - id: geo_restoredgroupfaceboxes
   name: Geo_RestoredGroupFaceboxes
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1189,7 +1189,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/Geo_RestoredGroupFaceboxes.js
 - id: kebab_moretextcodes
   name: kebab_moreTextCodes
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1197,7 +1197,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/kebab_moreTextCodes.js
 - id: rph.instashow
   name: rph.instashow
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1205,7 +1205,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/rph.instashow.js
 - id: rph.macrorebind
   name: rph.macrorebind
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1213,7 +1213,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/rph.macrorebind.js
 - id: train_extrafaces
   name: TRain_ExtraFaces
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1221,7 +1221,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/TRain_ExtraFaces.js
 - id: train_texteval
   name: TRain_TextEval
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1229,7 +1229,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/TRain_TextEval.js
 - id: train_textnote
   name: TRain_TextNote
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1237,7 +1237,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/TRain_TextNote.js
 - id: tr_fixdefaulttextcolor
   name: TR_FixDefaultTextColor
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1245,7 +1245,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/TR_FixDefaultTextColor.js
 - id: tr_textsoundarrays
   name: TR_TextSoundArrays
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1253,7 +1253,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/TR_TextSoundArrays.js
 - id: tr_variablebasedfacesets
   name: TR_VariableBasedFacesets
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1261,7 +1261,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/TR_VariableBasedFacesets.js
 - id: wn_megaphone
   name: WN_Megaphone
-  author:
+  authors:
   - Contributor
   tags:
   - message system
@@ -1269,7 +1269,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Message System/WN_Megaphone.js
 - id: angryautistichousewives
   name: AngryAutisticHouseWives
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
@@ -1277,7 +1277,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Window Skins or Layout/AngryAutisticHouseWives.js
 - id: baby_externalcolorimage
   name: BABY_ExternalColorImage
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
@@ -1285,7 +1285,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Window Skins or Layout/BABY_ExternalColorImage.js
 - id: train_vnchoice
   name: TRain_VNChoice
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
@@ -1293,7 +1293,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Window Skins or Layout/TRain_VNChoice.js
 - id: train_winmsgshape
   name: TRain_WinMsgShape
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
@@ -1301,7 +1301,7 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Window Skins or Layout/TRain_WinMsgShape.js
 - id: tr_restrictivewindowskins
   name: TR_RestrictiveWindowskins
-  author:
+  authors:
   - Contributor
   tags:
   - ui plugins
@@ -1309,14 +1309,14 @@
   url: https://github.com/modsone/omori-modding-resources/UI plugins/Window Skins or Layout/TR_RestrictiveWindowskins.js
 - id: tr_template
   name: TR_Template
-  author:
+  authors:
   - Contributor
   tags:
   - utility plugins
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/TR_Template.js
 - id: console
   name: console
-  author:
+  authors:
   - Contributor
   tags:
   - dev tools
@@ -1324,7 +1324,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Dev Tools/console.js
 - id: geo_improvedeventtest
   name: Geo_ImprovedEventTest
-  author:
+  authors:
   - Contributor
   tags:
   - dev tools
@@ -1332,7 +1332,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Dev Tools/Geo_ImprovedEventTest.js
 - id: kebab_customomorierrormessage
   name: kebab_customOmoriErrorMessage
-  author:
+  authors:
   - Contributor
   tags:
   - dev tools
@@ -1340,7 +1340,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Dev Tools/kebab_customOmoriErrorMessage.js
 - id: pixi-panel
   name: pixi-panel
-  author:
+  authors:
   - Contributor
   tags:
   - dev tools
@@ -1348,7 +1348,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Dev Tools/pixi-panel.js
 - id: tr_devtestvisibility
   name: TR_DevTestVisibility
-  author:
+  authors:
   - Contributor
   tags:
   - dev tools
@@ -1356,7 +1356,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Dev Tools/TR_DevTestVisibility.js
 - id: fog_base64tofile
   name: FoG_Base64ToFile
-  author:
+  authors:
   - Contributor
   tags:
   - file management
@@ -1364,7 +1364,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/File Management/FoG_Base64ToFile.js
 - id: fog_copyimagetofolder
   name: FoG_CopyImageToFolder
-  author:
+  authors:
   - Contributor
   tags:
   - file management
@@ -1372,7 +1372,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/File Management/FoG_CopyImageToFolder.js
 - id: fog_outputtofolder
   name: FoG_OutputToFolder
-  author:
+  authors:
   - Contributor
   tags:
   - file management
@@ -1380,7 +1380,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/File Management/FoG_OutputToFolder.js
 - id: train_screenshot
   name: TRain_ScreenShot
-  author:
+  authors:
   - Contributor
   tags:
   - file management
@@ -1388,7 +1388,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/File Management/TRain_ScreenShot.js
 - id: fd_betterplugincommands
   name: FD_BetterPluginCommands
-  author:
+  authors:
   - Contributor
   tags:
   - plugin commands
@@ -1396,7 +1396,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Plugin Commands/FD_BetterPluginCommands.js
 - id: play_movie_to_ysp_video
   name: Play_Movie_to_YSP_Video
-  author:
+  authors:
   - Contributor
   tags:
   - plugin commands
@@ -1404,7 +1404,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Plugin Commands/Play_Movie_to_YSP_Video.js
 - id: mousetoggle
   name: MouseToggle
-  author:
+  authors:
   - Contributor
   tags:
   - utility plugins
@@ -1412,7 +1412,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Windows Functionality/MouseToggle.js
 - id: train_messagebox-v1_3eng
   name: TRain_MessageBox v1_3eng
-  author:
+  authors:
   - Contributor
   tags:
   - utility plugins
@@ -1420,7 +1420,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Windows Functionality/TRain_MessageBox v1_3eng.js
 - id: tr_customcrashpopups
   name: TR_CustomCrashPopups
-  author:
+  authors:
   - Contributor
   tags:
   - utility plugins
@@ -1428,7 +1428,7 @@
   url: https://github.com/modsone/omori-modding-resources/Utility Plugins/Windows Functionality/TR_CustomCrashPopups.js
 - id: tr_datechecker
   name: TR_DateChecker
-  author:
+  authors:
   - Contributor
   tags:
   - utility plugins

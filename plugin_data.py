@@ -33,7 +33,7 @@ def generate_plugin_list():
                 plugin_entry = {
                     "id": plugin_name.lower().replace(" ", "-"),
                     "name": plugin_name,
-                    "author": ["Contributor"], # As a list, there may be multiple
+                    "authors": ["Contributor"], # As a list, there may be multiple
                     "tags": sorted(list(set(tags))), # Alphabetical, clean list
                     "url": github_url
                 }
