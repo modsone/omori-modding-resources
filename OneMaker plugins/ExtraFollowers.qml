@@ -217,13 +217,15 @@ EventCommandBase {
         } else {
             var positionText;
             if (checkBox2.checked) positionText = ", "+position.value+""; else positionText = "";
-            var followerRef;
-            if (checkBox2.checked) followerRef = "$gamePlayer.followers().follower("+position.value+")"; else followerRef = "$gamePlayer.followers().follower($gamePlayer.followers().nextExtraFollowerSlot()-1)";
+            var slot;
+            if (checkBox2.checked) slot = position.value;
+            else slot = "$gamePlayer.followers().nextExtraFollowerSlot()-($gameParty.maxBattleMembers()-$gameParty.size())";
             var scriptCommandText = "const Walking = {name: '"+characterImageBox1.imageName+"', index: "+characterImageBox1.imageIndex+"}\n" +
                                     "const Climbing = {name: '"+characterImageBox2.imageName+"', index: "+characterImageBox2.imageIndex+"}\n" + 
                                     "const Running = {name: '"+characterImageBox3.imageName+"', index: "+characterImageBox3.imageIndex+"}\n\n" + 
                                     "this.addExtraFollower('"+charaId.text+"',Walking.name,Walking.index"+positionText+")\n" +
-                                    "const follower = "+followerRef+";\n" +
+                                    "const slot = "+slot+";\n" +
+                                    "const follower = $gamePlayer.followers().follower(slot);\n" +
                                     "follower.setMovementGraphics(Walking,Walking,Running);\n" +
                                     "follower.setMovementGraphicData('climbing', Climbing);\n"
 
