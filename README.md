@@ -41,15 +41,21 @@ General plugins that are helpful with development features, such as simplifying 
 - Windows Functionality: Plugin that interacts with the windows functionality itself, such as error popups. Useful for "meta" mods.
 ### Mod Compatability Plugins
 Plugins that allows support for other mods, or is a "Core" plugin to other plugins, usually due to common shared functions.
+### OneMaker Plugins
+Distinct from RPG Maker MV Plugins. These files are for modifying ([OneMaker MV](https://mods.one/mod/onemakermv)).
+Please read the comment at the top of each respective file to see what to rename the file to, where to place it in _hijack_root/qml/, and what the mod generally does.
+QML files can be read by most text editors, so simply open it in vsCode or Notepad++ to view the comment.
+OneMaker needs to be restarted for these changes to take effect.
+*NOTE: Due to being direct file replacement, most of these mods are DESTRUCTIVE and removing them requires a backup of the original files.*
 
 ## Useful Links
 ### OMORI Modding Info
-- [OneMaker MV](https://github.com/FoGsesipod/OneMaker-MV) \- Modifies the RPGMaker MV Editor with useful tweaks for modding Omori.
-- [FruitDragon & TomatoRadio OMORI Modding Guide](https://docs.google.com/document/d/1t59hzeERvwok2ZsQVs6AgFj5WVZdeAPwiWYFgkDGLiE)
+- [FruitDragon & TomatoRadio's OMORI Modding Guide](https://docs.google.com/document/d/1t59hzeERvwok2ZsQVs6AgFj5WVZdeAPwiWYFgkDGLiE)
 - [Beginner Guide to make OMORI Mods](https://youtu.be/ASFFJUf8t0w?si=oPs2yH3SU_qpN2Zy)
 - [MrSkroob's Obsidian Repository Guide](https://github.com/MrSkroob/mod-knowledge-base)
 
 ### OMORI Modding Tools
+- [OneMaker MV](https://github.com/FoGsesipod/OneMaker-MV) \- Modifies the RPGMaker MV Editor with useful tweaks for modding Omori.
 - [Omori Save Files](https://docs.google.com/document/d/1qYsW_uXsBD0wMtmQG06UxIMfbGYuTgeu-AHzzdjCw-s)
 - [Omori Yaml Portrait Viewer](https://github.com/StahlReyn/omoriyamlportraitviewer) \- VSCode extension to view face portrait files in yaml messages.
 - [Custom Error Message](https://docs.google.com/document/d/1Ea1707pndoaqqj5Q8l_Xkm6SKPWLzFs5jF_QnWeBc64)

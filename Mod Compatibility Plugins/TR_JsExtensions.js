@@ -8,10 +8,10 @@ Imported.TR_JsExtensions = true;
 
 var TR = TR || {};
 TR.JSEXT = TR.JSEXT || {};
-TR.JSEXT.version = 6;
+TR.JSEXT.version = 7;
 
 /*: 
- * @plugindesc v6.0 Adds more JS functions to RPG Maker MV
+ * @plugindesc v7.0 Adds more JS functions to RPG Maker MV
  * @author TomatoRadio
  * 
  * @help
@@ -22,40 +22,6 @@ TR.JSEXT.version = 6;
  * It also adds some general stuff that I like using.
  * 
 */
-
-/**
- * Returns the first item of the Array to not be
- * nullish (null or undefined).
- * @param {Array} operators An array of the operators.
- * @param {*} fallback The item to be returned if the entire Array is nullish. Defaults to null.
- * @return {*} The first item in the array to not be null or undefined.
- */
-TR.NullCoal = function(operators, fallback = null) {
-	for (const thing of operators) {
-		if (thing !== undefined && thing !== null) {
-			return thing;
-		}
-	}
-	return fallback;
-};
-TR.nullCoal = TR.NullCoal;
-
-/**
- * Returns true if exactly one of the two arguments
- * are truthy.
- * 
- * @param {*} first 
- * @param {*} second 
- * @return {Boolean} Boolean
- */
-TR.XOR = function(first,second) {
-	let truth = 0;
-	if (first) truth++
-	if (second) truth++
-	if (truth === 1) return true;
-	return false;
-}
-TR.xor = TR.XOR;
 
 /**
  * Returns the item at the given index.
@@ -69,6 +35,30 @@ TR.xor = TR.XOR;
 Array.prototype.at = function(index) {
     if (index >= 0) return this[index];
 	else return this[(this.length+index)];
+};
+
+/**
+ * 
+ * Returns an Array of Numbers starting at 'start' and
+ * ending at start+distance, going by intervals of 1.
+ * Looping is also supported.
+ * 
+ * @param {Number} start The number to start at
+ * @param {Number} distance The distance from start
+ * @param {Number} min The lowest number allowed. Default MinSafeInt
+ * @param {Number} max The highest number allowed. Default MaxSafeInt
+ * @param {Boolean} loop Whether to loop when reaching min/max. If false the array is immediately returned when the min/max is reached. Default true
+ * @returns {Array}
+ */
+Array.distanceLoop = function(start,distance,min=Number.MIN_SAFE_INTEGER,max=Number.MAX_SAFE_INTEGER,loop=true) {
+    let arr = [];
+    let mult = distance > 0 ? 1 : -1;
+    for (let i = start; arr.length <= Math.abs(distance); i+=mult) {
+        if (i < min) {if (loop) {i = max} else {break;}};
+        if (i > max) {if (loop) {i = min} else {break;}};
+        arr.push(i);
+    };
+    return arr;
 };
 
 /**
@@ -142,6 +132,25 @@ Array.prototype.flat = function(depth=1) {
 Array.prototype.flatMap = function() {
 	return this.map(...args).flat();
 };
+
+/**
+ * Returns the first item of the Array to not be
+ * nullish (null or undefined).
+ * @param {Array} operators An array of the operators.
+ * @param {*} fallback The item to be returned if the entire Array is nullish. Defaults to null.
+ * @return {*} The first item in the array to not be null or undefined.
+ */
+Array.nullCoal = function(operators, fallback = null) {
+	for (const thing of operators) {
+		if (thing !== undefined && thing !== null) {
+			return thing;
+		}
+	}
+	return fallback;
+};
+Array.NullCoal = Array.nullCoal;
+TR.NullCoal = Array.nullCoal;
+TR.nullCoal = Array.nullCoal;
 
 /**
  * Returns a new array formed by reversing the Array.
@@ -260,6 +269,86 @@ Array.prototype.shuffle = function() {
 };
 
 /**
+ * Returns true if exactly one of the two arguments
+ * are truthy.
+ * 
+ * @param {*} first 
+ * @param {*} second 
+ * @return {Boolean} Boolean
+ */
+Boolean.XOR = function(first,second) {
+	let truth = 0;
+	if (first) truth++
+	if (second) truth++
+	if (truth === 1) return true;
+	return false;
+}
+Boolean.xor = Boolean.XOR;
+TR.XOR = Boolean.XOR;
+TR.xor = Boolean.XOR;
+
+/**
+ * Converts in-game frames into an array of
+ * [Minutes,Seconds,Milliseconds], all rounded.
+ * The method assumes 60fps with no slowdown.
+ * 
+ * @param {Number} frames Number of Frames
+ * @returns {Array} An array of integers.
+ */
+Date.frameToTime = function(frames=0) {
+  let min = Math.floor(frames/3600);
+  frames %= 3600;
+  let sec = Math.floor(frames/60);
+  frames %= 60;
+  let mil = Math.round(frames/0.06);
+  return [min,sec,mil];
+};
+TR.frameToTime = Date.frameToTime;
+
+/**
+ * Converts Minutes:Seconds:Milliseconds into in-game frames.
+ * The method assumes 60fps with no slowdown.
+ * 
+ * @param {Number} min Number of Minutes, defaults to 0
+ * @param {Number} sec Number of Seconds, defaults to 0
+ * @param {Number} mil Number of Milliseconds, defaults to 0
+ * @returns {Number} The time in frames.
+ */
+Date.timeToFrame = function(min=0,sec=0,mil=0) {
+  let frame = min*3600;
+  frame += sec*60;
+  frame += mil*0.06;
+  return frame;
+};
+TR.timeToFrame = Date.timeToFrame;
+
+/**
+ * 
+ * Returns value1 or value2 based on which is closer to target.
+ * min & max can be used to support looping.
+ * If both values are the same distance, value1 is returned.
+ * 
+ * @param {Number} target The reference value
+ * @param {Number} value1 The first value being compared
+ * @param {Number} value2 The second value being compared
+ * @param {Boolean} loop Whether to allow looping distances. Default true
+ * @param {Number} min The minimum value when looping. Default Number.MIN_SAFE_INTEGER
+ * @param {Number} max The maximum value when looping. Default Number.MAX_SAFE_INTEGER
+ * @returns {Number} Returns value1 or value2
+ */
+Math.closest = function(target,value1,value2,loop=true,min=Number.MIN_SAFE_INTEGER,max=Number.MAX_SAFE_INTEGER) {
+    let distance1 = Math.abs(target-value1);
+    if (distance1 > max/2 && loop) {
+        distance1 = max-value1+target;
+    };
+    let distance2 = Math.abs(target-value2);
+    if (distance2 > max/2 && loop) {
+        distance2 = max-value2+target;
+    };
+    return Math.min(distance1,distance2) === distance1 ? value1 : value2;
+};
+
+/**
  * 
  * Returns the factorial of a number.
  * 
@@ -278,6 +367,32 @@ Math.factorial = function(num) {
 		count *= i;
 	};
 	return count;
+};
+
+/**
+ * 
+ * Returns value1 or value2 based on which is farther from target.
+ * min & max can be used to support looping.
+ * If both values are the same distance, value1 is returned.
+ * 
+ * @param {Number} target The reference value
+ * @param {Number} value1 The first value being compared
+ * @param {Number} value2 The second value being compared
+ * @param {Boolean} loop Whether to allow looping distances. Default true
+ * @param {Number} min The minimum value when looping. Default Number.MIN_SAFE_INTEGER
+ * @param {Number} max The maximum value when looping. Default Number.MAX_SAFE_INTEGER
+ * @returns {Number} Returns value1 or value2
+ */
+Math.farthest = function(target,value1,value2,loop=true,min=Number.MIN_SAFE_INTEGER,max=Number.MAX_SAFE_INTEGER) {
+    let distance1 = Math.abs(target-value1);
+    if (distance1 > max/2 && loop) {
+        distance1 = max-value1+target;
+    };
+    let distance2 = Math.abs(target-value2);
+    if (distance2 > max/2 && loop) {
+        distance2 = max-value2+target;
+    };
+    return Math.max(distance1,distance2) === distance1 ? value1 : value2;
 };
 
 /**
@@ -367,13 +482,10 @@ Object.map = function(array,callbackFn,thisArg) {
 
 // ==========================================================================================================================================
 /*
+
 METHODS PAST HERE REQUIRE RPGMAKER
 This obviously shouldn't matter much since this is an RPGMaker plugin,
 but it's worth noting for people who may want to use these elsewhere.
-
-In addition, some functions are placed inside of an IF block with the condition (1<0), which is obviously false.
-If you would like to enable these functions, please simply edit the < to a >
-They are commented out in order to prevent potential errors with them running when they aren't meant to.
 
 */
 // ==========================================================================================================================================
@@ -388,12 +500,11 @@ They are commented out in order to prevent potential errors with them running wh
  * 
  * Note: due to referring to $dataActors, equipments and ingame buffs
  * will not be factored into the ordering.
- * @method TR.returnStatList
  * @param {Integer} param The index of the parameter being checked.
  * @param {Integer} level The level of all actors when getting their param.
  * @returns {String} A numbered list of every actor ordered by param.
  */
-TR.returnStatList = function(param,level=50) {
+DataManager.returnStatList = function(param,level=50) {
   var actors = $dataActors.filter(function(a) {return a && a.name && a.meta && a.meta.BattleStatusFaceName});
   actors.sort(function(a,b) {
     let aStat = $dataClasses[a.classId].params[param][level];
@@ -414,6 +525,7 @@ TR.returnStatList = function(param,level=50) {
   };
   return string;
 };
+TR.returnStatList = DataManager.returnStatList;
 
 /**
  * 
@@ -426,13 +538,14 @@ TR.returnStatList = function(param,level=50) {
  * @param {Object} obj Either the Game_Actor object, or the $dataActors entry for the actor
  * @returns {String} The alternate name.
  */
-TR.actorAltName = function(obj) {
+DataManager.actorAltName = function(obj) {
   if (obj instanceof Game_Actor) {
     return obj.nickname() ? obj.nickname() : obj.name();
   } else {
     return obj.nickname ? obj.nickname : obj.name;
   };
 };
+TR.actorAltName = DataManager.actorAltName;
 
 /**
  * 
@@ -444,7 +557,7 @@ TR.actorAltName = function(obj) {
  * 
  * @param {Integer} mapId The ID of the map to clear.
  */
-TR.clearMapData = function(mapId) {
+Game_Map.prototype.clearMapData = function(mapId) {
   let isolateMapKeys = function(object){return Object.keys(object).filter(k=>k.startsWith(String(mapId)))};
   let deletedSwitches = isolateMapKeys($gameSelfSwitches._data);
   let deletedVariables = isolateMapKeys($gameSelfVariables._data);
@@ -453,6 +566,7 @@ TR.clearMapData = function(mapId) {
   for (let key of deletedVariables) {delete $gameSelfVariables._data[key];};
   for (let key of deletedLocations) {delete $gameSystem._savedEventLocations[key];};
 };
+TR.clearMapData = Game_Map.prototype.clearMapData;
 
 /**
  * Returns the x coordinate of the right side of the window,
@@ -498,11 +612,10 @@ Game_Interpreter.prototype.waitForGalvCam = function() {
   this.wait(5);
 };
 
-// These function need the DGT_Badges plugin loaded ABOVE this plugin.
-if (1<0) {
+// These require Badges obviously.
+if (DGT.Badges) {
   /**
    * Debug function that unlocks every badge in the given modId
-   * @method DGT.unlockAllBadges
    * @param {String} modId The modId defined by the badgedata_modId.yaml of the mod.
    */
   DGT.unlockAllBadges = function(modId) {
@@ -513,7 +626,6 @@ if (1<0) {
 
   /**
    * Debug function that locks every badge in the given modId
-   * @method DGT.lockAllBadges
    * @param {String} modId The modId defined by the badgedata_modId.yaml of the mod.
    */
   DGT.lockAllBadges = function(modId) {
@@ -522,74 +634,10 @@ if (1<0) {
     };
   };
 
-  // These declarations allow prevent capitalization errors.
+  // These declarations prevent capitalization errors.
   DGT.unlockBadge = DGT.UnlockBadge;
   DGT.unlockBadgeSilent = DGT.UnlockBadgeSilent;
   DGT.lockBadge = DGT.LockBadge;
-};
-
-// This edit automatically handles the adding of new actors to the save menu.
-// This menu will not save face edits caused by GIRLMORI IS REAL, DynamicImages, or VariableBasedFacesets.
-if (1<0) {
-  Game_Actor.prototype.faceSaveLoad = function() {
-    var actor = this.actor();
-    if (actor && this.battleStatusFaceName()) {
-      return this.battleStatusFaceName();
-    } else {
-      console.error("SAVE FACE ERROR: Actor is falsy OR there's not BattleStatusFaceName",this.actor(),this.battleStatusFaceName());
-      return "01_OMORI_BATTLE";
-    };
-  };
-};
-
-// Requires HIME_WindowskinChange to be loaded ABOVE this plugin.
-// Fixes crashes that are caused by changing the windowskin in a scene without a WindowLayer (eg PhotoAlbum)
-if (1<0) {
-  SceneManager.refreshWindowskins = function() {
-    if (this._scene._windowLayer) {this._scene._windowLayer.refreshWindowskins();};
-  };
-};
-
-// Makes the /overlays folder (and /layers if you use Galv_LayerGraphics) direct to /parallaxes instead
-if (1<0) {
-  ImageManager.loadLayerGraphic = function(filename, hue) {
-    return this.loadBitmap('img/parallaxes/', filename, hue, true);
-  };
-
-  ImageManager.loadOverlay = function(filename, hue) {
-      return this.loadBitmap('img/parallaxes/', filename, hue, true);
-  };
-};
-
-/**
- * Converts Minutes:Seconds:Milliseconds into in-game frames.
- * The method assumes 60fps with no slowdown.
- * 
- * @param {Number} min Number of Minutes, defaults to 0
- * @param {Number} sec Number of Seconds, defaults to 0
- * @param {Number} mil Number of Milliseconds, defaults to 0
- * @returns {Number} The time in frames.
- */
-TR.timeToFrame = function(min=0,sec=0,mil=0) {
-  let frame = min*3600;
-  frame += sec*60;
-  frame += mil*0.06;
-  return frame;
-};
-
-/**
- * Converts in-game frames into an array of
- * [Minutes,Seconds,Milliseconds], all rounded.
- * The method assumes 60fps with no slowdown.
- * 
- * @param {Number} frames Number of Frames
- * @returns {Array} An array of integers.
- */
-TR.frameToTime = function(frames=0) {
-  let min = Math.floor(frames/3600);
-  frames %= 3600;
-  let sec = Math.floor(frames/60);
-  frames %= 60;
-  let mil = Math.round(frames/0.06);
-  return [min,sec,mil];
+  DGT.UnlockAllBadges = DGT.unlockAllBadges;
+  DGT.LockAllBadges = DGT.lockAllBadges;
 };

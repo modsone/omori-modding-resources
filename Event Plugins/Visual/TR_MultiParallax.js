@@ -11,7 +11,7 @@ TR.MP = TR.MP || {};
 
 /*: 
  *
- * @plugindesc v1.0 Allows multiple parallaxes.
+ * @plugindesc v1.1 Allows multiple parallaxes.
  * @author TomatoRadio
  * 
  * @help
@@ -20,7 +20,7 @@ TR.MP = TR.MP || {};
  * There are two ways to do this, being Map Notetags & Plugin Commands.
  * 
  * To add an ExtraParallax using a Map Notetag, add this tag to the notetags.
- * <ExtraParallax: name, opacity, xScroll, yScroll, xShift, yShift>
+ * <ExtraParallax: name, opacity, xScroll, yScroll, xShift, yShift, blend>
  * name - The name of the image from img/parallaxes.
  * opacity - The opacity of the image from 0-255. Defaults to 255.
  * xScroll - The scrolling speed on the X axis. Defaults to 0.
@@ -29,6 +29,7 @@ TR.MP = TR.MP || {};
  * (This value is a multiplier. So if you want it to move at half speed, use 0.5, 2 for double, etc.)
  * (This is actually what parallaxing is. Ironically, RPG Maker parallaxes don't parallax.)
  * yShift - The offset that the parallax will vertically move with the rest of the world. Defaults to 1.
+ * blend - The blend mode of the parallax. 0-Normal(Default),1-Addition,2-Multiply,3-Screen.
  * 
  * If you would like to use the default value without actually setting it for whatever reason,
  * simply don't include anything in that slot.
@@ -39,7 +40,7 @@ TR.MP = TR.MP || {};
  * with the top being displayed furthest back.
  * 
  * To add an ExtraParallax using a Plugin Command, use this command.
- * AddExtraParallax name opacity xScroll yScroll xShift yShift index
+ * AddExtraParallax name opacity xScroll yScroll xShift yShift blend index
  * 
  * All parameters are the same as the notetag, with the exception of index.
  * 
@@ -59,8 +60,11 @@ TR.MP = TR.MP || {};
  * 
  * A reminder that adding and removing parallaxes will shift the index of the other parallaxes.
  * 
- * Lastly, a note that ZeroParallaxes (parallaxes that begin with a ! which stay aligned with the map rather
+ * Note that ZeroParallaxes (parallaxes that begin with a ! which stay aligned with the map rather
  * than the camera) are supported by this plugin.
+ * 
+ * For people who used the 1.0 release of this plugin, make sure that any uses of AddExtraParallax
+ * are updated to account for the extra parameter added. (blend)
  * 
 */
 
@@ -86,6 +90,7 @@ Spriteset_Map.prototype.createExtraParallax = function(array,index) {
   parallax._scrollY = typeof array[3] !== "undefined" ? Number(array[3]) : 0;
   parallax._shiftX  = typeof array[4] !== "undefined" ? Number(array[4]) : 1;
   parallax._shiftY  = typeof array[5] !== "undefined" ? Number(array[5]) : 1;
+  parallax._blend   = typeof array[6] !== "undefined" ? Number(array[6]) : 0;
   parallax._scroll = {x:0,y:0};
   parallax.move(0, 0, Graphics.width, Graphics.height);
   if (isFinite(index)) {
@@ -116,7 +121,8 @@ Spriteset_Map.prototype.updateParallax = function() {
 
 Spriteset_Map.prototype.updateExtraParallaxes = function() {
   for (const parallax of this._extraParallaxes.children) {
-    console.log(parallax.origin);
+    //console.log(parallax.origin);
+    parallax.blendMode = parallax._blend;
     parallax._scroll.x = (parallax._scroll.x + parallax._scrollX) % parallax.bitmap.width;
     parallax._scroll.y = (parallax._scroll.y + parallax._scrollY) % parallax.bitmap.height;
     if (!ImageManager.isZeroParallax(parallax._name)) {
@@ -132,7 +138,7 @@ Spriteset_Map.prototype.updateExtraParallaxes = function() {
 TR.MP.pluginCommand = Game_Interpreter.prototype.pluginCommand;
 Game_Interpreter.prototype.pluginCommand = function(cmd,args) {
   if (cmd && cmd.toLowerCase() === "addextraparallax" && SceneManager._scene instanceof Scene_Map) {
-    SceneManager._scene._spriteset.createExtraParallax(args.map(a=>{a.trim();a.replace("x",undefined)}),args[6]);
+    SceneManager._scene._spriteset.createExtraParallax(args.map(a=>{a.trim();a.replace("x",undefined)}),args[7]);
   } else if (cmd && cmd.toLowerCase() === "removeextraparallax" && SceneManager._scene instanceof Scene_Map) {
     SceneManager._scene._spriteset._extraParallaxes.removeChildAt(args[0])
   } else {
