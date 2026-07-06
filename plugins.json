@@ -1,0 +1,2303 @@
+[
+  {
+    "id": "koffin_statedropratemodifier",
+    "name": "KOFFIN_StateDropRateModifier",
+    "description": "(v1.0) Allows states to modify enemy drop rates from default rates or YEP_ExtraEnemyDrops.",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/KOFFIN_StateDropRateModifier.js"
+  },
+  {
+    "id": "koffin_autobattleportraitorder",
+    "name": "KOFFIN_AutoBattlePortraitOrder",
+    "description": "Auto Battle Portrait Order",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_AutoBattlePortraitOrder.js"
+  },
+  {
+    "id": "koffin_betterenemysystem",
+    "name": "KOFFIN_BetterEnemySystem",
+    "description": "(v1.5) Simplifies OMORI enemy setup by automating emotion-based systems.",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_BetterEnemySystem.js"
+  },
+  {
+    "id": "koffin_statedropratemodifier",
+    "name": "KOFFIN_StateDropRateModifier",
+    "description": "(v1.0) Allows states to modify enemy drop rates from default rates or YEP_ExtraEnemyDrops.",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_StateDropRateModifier.js"
+  },
+  {
+    "id": "rph_more_than_4_skills",
+    "name": "RPH_More_Than_4_Skills",
+    "description": "More Equipabble Skills",
+    "authors": [
+      "RPH"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/RPH_More_Than_4_Skills.js"
+  },
+  {
+    "id": "stahl_battlestats",
+    "name": "Stahl_BattleStats",
+    "description": "v1.0.0 Gives handy functions related to tracking damage",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_BattleStats.js"
+  },
+  {
+    "id": "stahl_deathce",
+    "name": "Stahl_DeathCE",
+    "description": "Adds note tag for calling common events on death",
+    "authors": [
+      "StahlReyn"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_DeathCE.js"
+  },
+  {
+    "id": "stahl_enemycategory",
+    "name": "Stahl_EnemyCategory",
+    "description": "[v1.0.1] Adds category for enemies with bestiary extended support.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_EnemyCategory.js"
+  },
+  {
+    "id": "stahl_enemyspawn",
+    "name": "Stahl_EnemySpawn",
+    "description": "Enemy spawning, alters HIME_EnemyReinforcements",
+    "authors": [
+      "ReynStahl",
+      "Draught"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_EnemySpawn.js"
+  },
+  {
+    "id": "tr_hitevamerge",
+    "name": "TR_HitEvaMerge",
+    "description": "Version 1.0 Changes Hit Rate and Evasion calculations.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/TR_HitEvaMerge.js"
+  },
+  {
+    "id": "tr_restrictbattlecommands",
+    "name": "TR_RestrictBattleCommands",
+    "description": "v1.0 Restricts commands in battle with states.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/TR_RestrictBattleCommands.js"
+  },
+  {
+    "id": "vl_savelastitemusedproperly",
+    "name": "VL_SaveLastItemUsedProperly",
+    "description": "This plugin makes the cursor's position be saved properly for both snacks and toys instead of only one being saved at a time.",
+    "authors": [
+      "vl"
+    ],
+    "tags": [
+      "battle system"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/VL_SaveLastItemUsedProperly.js"
+  },
+  {
+    "id": "dgt_targeteval",
+    "name": "DGT_targetEval",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/DGT_targetEval.js"
+  },
+  {
+    "id": "dgt_weaknesstargeting",
+    "name": "DGT_WeaknessTargeting",
+    "description": "SKill Weakness Targetting",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/DGT_WeaknessTargeting.js"
+  },
+  {
+    "id": "koffin_actionsequenceaddon",
+    "name": "KOFFIN_ActionSequenceAddon",
+    "description": "Custom Action Sequences Extension v1.1",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ActionSequenceAddon.js"
+  },
+  {
+    "id": "koffin_actionsequenceextension",
+    "name": "KOFFIN_ActionSequenceExtension",
+    "description": "Custom Action Sequences Extension v1.0",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ActionSequenceExtension.js"
+  },
+  {
+    "id": "koffin_battleaicore_combinedpatches",
+    "name": "KOFFIN_BattleAICore_CombinedPatches",
+    "description": "v1.0 Combines multiple Battle AI Core patches into one.",
+    "authors": [
+      "KoffinKrypt",
+      "Draughtnyan (TARGEVAL)"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_BattleAICore_CombinedPatches.js"
+  },
+  {
+    "id": "koffin_battleaicore_emotionaddon",
+    "name": "KOFFIN_BattleAICore_EmotionAddon",
+    "description": "v1.0 This plugin adds extra functionality to Yanfly's",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_BattleAICore_EmotionAddon.js"
+  },
+  {
+    "id": "koffin_extrabattleaiconditons",
+    "name": "KOFFIN_ExtraBattleAIConditons",
+    "description": "v1.1 Adds extended state/category condition checks for enemy AI.",
+    "authors": [
+      "WHITENOISE (Initial Draft + Idea)",
+      "Koffin"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ExtraBattleAIConditons.js"
+  },
+  {
+    "id": "koffin_targetratefix",
+    "name": "KOFFIN_TargetRateFIx",
+    "description": "Fixes target rate not working using stupid ass YEP_BattleAICore",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_TargetRateFIx.js"
+  },
+  {
+    "id": "stahl_statecategoryactionsequence",
+    "name": "Stahl_StateCategoryActionSequence",
+    "description": "v1.0.0 Adds Remove State Category to YEP Action sequence",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/Stahl_StateCategoryActionSequence.js"
+  },
+  {
+    "id": "tr_tauntaffectmultitargets",
+    "name": "TR_TauntAffectMultiTargets",
+    "description": "v1.0 Taunts now affect skills that target multiple actors.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system",
+      "enemy ais"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/TR_TauntAffectMultiTargets.js"
+  },
+  {
+    "id": "koffin_limiteditems",
+    "name": "KOFFIN_LimitedItems",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "battle system",
+      "items"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Items/KOFFIN_LimitedItems.js"
+  },
+  {
+    "id": "vl_twocharmslots",
+    "name": "VL_TwoCharmSlots",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "battle system",
+      "items"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Items/VL_TwoCharmSlots.js"
+  },
+  {
+    "id": "cooldry_picture_layers",
+    "name": "COOLDRY_Picture_Layers",
+    "description": "Allows Pictures to be put on separate layers in battle.",
+    "authors": [
+      "Cooldry"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/COOLDRY_Picture_Layers.js"
+  },
+  {
+    "id": "dgt_charmprefix",
+    "name": "DGT_charmprefix",
+    "description": "Adds dynamic battle status face name prefixes based on equipped armor notetag. (v1.0)",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_charmprefix.js"
+  },
+  {
+    "id": "dgt_followupbubblechange",
+    "name": "DGT_followupbubblechange",
+    "description": "Changes the battle follow-up speech bubble for a specific actor. (v1.0)",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_followupbubblechange.js"
+  },
+  {
+    "id": "dgt_itemshopweaponstat",
+    "name": "DGT_ItemShopWeaponStat",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_ItemShopWeaponStat.js"
+  },
+  {
+    "id": "dgt_levelanimation",
+    "name": "DGT_levelanimation",
+    "description": "Level Up Actor Animation",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_levelanimation.js"
+  },
+  {
+    "id": "dgt_statespriteeffects",
+    "name": "DGT_statespriteeffects",
+    "description": "DGT State Sprite Effects Plugin",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_statespriteeffects.js"
+  },
+  {
+    "id": "fd_itemiconrescale",
+    "name": "FD_ItemIconRescale",
+    "description": "v1.0 Item Icon Rescale",
+    "authors": [
+      "FruitDragon"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/FD_ItemIconRescale.js"
+  },
+  {
+    "id": "geo_removebattlefadeout",
+    "name": "Geo_RemoveBattleFadeOut",
+    "description": "This removes the fadein RPG MAKER MV Does when starting a battle.",
+    "authors": [],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Geo_RemoveBattleFadeOut.js"
+  },
+  {
+    "id": "koffin_custompolaroidboxes",
+    "name": "KOFFIN_CustomPolaroidBoxes",
+    "description": "Lets you set custom polaroid boxes",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_CustomPolaroidBoxes.js"
+  },
+  {
+    "id": "koffin_custompolaroidboxesandmenus",
+    "name": "KOFFIN_CustomPolaroidBoxesAndMenus",
+    "description": "Customize your actor’s battle box and menu sprite using notetags.",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_CustomPolaroidBoxesAndMenus.js"
+  },
+  {
+    "id": "koffin_expandedstatchanges",
+    "name": "KOFFIN_ExpandedStatChanges",
+    "description": "Enhances the equipment status window with dynamic stat comparisons,",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_ExpandedStatChanges.js"
+  },
+  {
+    "id": "koffin_inbattlestatus",
+    "name": "KOFFIN_InBattleStatus",
+    "description": "Adds a CTRL-hold actor info window during actor command selection",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_InBattleStatus.js"
+  },
+  {
+    "id": "koffin_refreshbattlesprites",
+    "name": "KOFFIN_RefreshBattleSprites",
+    "description": "Refresh Party Members In-battle",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_RefreshBattleSprites.js"
+  },
+  {
+    "id": "koffin_refreshbattleui",
+    "name": "KOFFIN_RefreshBattleUI",
+    "description": "Refresh Battle UI",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_RefreshBattleUI.js"
+  },
+  {
+    "id": "koffin_spritestateindexfix",
+    "name": "KOFFIN_SpriteStateIndexFix",
+    "description": "v1.1 Fixes sprite changes from states so that they properly inherit",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_SpriteStateIndexFix.js"
+  },
+  {
+    "id": "lpg_attacknumberplus",
+    "name": "LPG_attacknumberplus",
+    "description": "Lets you customize them damage number' (0.1, probably not done!)",
+    "authors": [
+      "LAUPIG"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/LPG_attacknumberplus.js"
+  },
+  {
+    "id": "rph_state_icons",
+    "name": "rph_state_icons",
+    "description": "v1.4.0 Adds dynamic rows for state icons with customizable spacing and layout settings.",
+    "authors": [
+      "RPH (Original)",
+      "KoffinKrypt(Bug fixes",
+      "extra functionality as of v1.3.1)"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/rph_state_icons.js"
+  },
+  {
+    "id": "stahl_altitemicon",
+    "name": "Stahl_AltItemIcon",
+    "description": "v1.0.1 Allow specifying which image sheet to use for item icons",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_AltItemIcon.js"
+  },
+  {
+    "id": "stahl_damagepopups",
+    "name": "Stahl_DamagePopups",
+    "description": "v1.0.1 Adds more Damage pop up types",
+    "authors": [
+      "StahlReyn",
+      "vl (Reflection system)"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_DamagePopups.js"
+  },
+  {
+    "id": "stahl_enemymovement",
+    "name": "Stahl_EnemyMovement",
+    "description": "[v1.0.0] Allows moving enemy sprites in troop, spawning and collapse.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_EnemyMovement.js"
+  },
+  {
+    "id": "stahl_enemyparticles",
+    "name": "Stahl_EnemyParticles",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_EnemyParticles.js"
+  },
+  {
+    "id": "stahl_extendeditemdisplay",
+    "name": "Stahl_ExtendedItemDisplay",
+    "description": "[v1.2.3] Adds Color, Count, Max quantities to Items and extends shops.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_ExtendedItemDisplay.js"
+  },
+  {
+    "id": "stahl_moreskilldisplay",
+    "name": "Stahl_MoreSkillDisplay",
+    "description": "v1.0.0 Refactor to allow easier editing of command UI and stress bar.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_MoreSkillDisplay.js"
+  },
+  {
+    "id": "state_damage_face",
+    "name": "State_Damage_Face",
+    "description": "[Custom State Damage Face – Set a custom damage face for states using notetags.",
+    "authors": [
+      "Riomo"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/State_Damage_Face.js"
+  },
+  {
+    "id": "tr_custommenufacesizes",
+    "name": "TR_CustomMenuFaceSizes",
+    "description": "Allows custom menu face sizes",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_CustomMenuFaceSizes.js"
+  },
+  {
+    "id": "tr_improvedbattlebacks_fadeinremoval",
+    "name": "TR_ImprovedBattlebacks_FadeInRemoval",
+    "description": "Removes fade in from Improved Battlebacks",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_ImprovedBattlebacks_FadeInRemoval.js"
+  },
+  {
+    "id": "tr_lowhealthextended",
+    "name": "TR_LowHealthExtended",
+    "description": "v1.0 Massive Overhaul of the Low Hp Overlay",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_LowHealthExtended.js"
+  },
+  {
+    "id": "tr_orderedskills",
+    "name": "TR_OrderedSkills",
+    "description": "Allows hardcoded ordering of the skills in an actor's skill select menu.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_OrderedSkills.js"
+  },
+  {
+    "id": "unique-battle-ui",
+    "name": "Unique Battle UI",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Unique Battle UI.js"
+  },
+  {
+    "id": "vl_savelastitemusedproperly",
+    "name": "VL_SaveLastItemUsedProperly",
+    "description": "This plugin makes the cursor's position be saved properly for both snacks and toys instead of only one being saved at a time.",
+    "authors": [
+      "vl"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/VL_SaveLastItemUsedProperly.js"
+  },
+  {
+    "id": "stahl_elementdisplay",
+    "name": "Stahl_ElementDisplay",
+    "description": "[v1.0.0] Displays element info.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "element display",
+      "menu and ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Element Display/Stahl_ElementDisplay.js"
+  },
+  {
+    "id": "more_info",
+    "name": "More_Info",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "battle system",
+      "menu and ui",
+      "more info"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/More Info/More_Info.js"
+  },
+  {
+    "id": "stahl_evenmoreinfo",
+    "name": "Stahl_EvenMoreInfo",
+    "description": "[v1.0.0] Extended More Info with modifiable content using JS override.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "menu and ui",
+      "more info"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/More Info/Stahl_EvenMoreInfo.js"
+  },
+  {
+    "id": "fog_passiveskills",
+    "name": "FoG_PassiveSkills",
+    "description": "Allows Skills to add states to actors.",
+    "authors": [
+      "FoGsesipod - Draught"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/FoG_PassiveSkills.js"
+  },
+  {
+    "id": "koffin_easyunequipskill",
+    "name": "KOFFIN_EasyUnequipSkill",
+    "description": "Enhances the equipment status window with dynamic stat comparisons,",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/KOFFIN_EasyUnequipSkill.js"
+  },
+  {
+    "id": "lpg_attacklayers",
+    "name": "LPG_attacklayers",
+    "description": "Lets you set layers for attack animations (1.0)",
+    "authors": [
+      "LAUPIG",
+      "some dude in rpgmaker forums called GLAPHEN"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/LPG_attacklayers.js"
+  },
+  {
+    "id": "rwb_customcosts",
+    "name": "rwb_customcosts",
+    "description": "This plugin will show JUICE, HEART, and ENERGY costs outside of skill descriptions.",
+    "authors": [
+      "Rawberry"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/rwb_customcosts.js"
+  },
+  {
+    "id": "stahl_changeablebasicattack",
+    "name": "Stahl_ChangeableBasicAttack",
+    "description": "[v1.0.0] Makes Basic Attack Skill Id changeable with equips",
+    "authors": [
+      "StahlReyn"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_ChangeableBasicAttack.js"
+  },
+  {
+    "id": "stahl_hpcosticon",
+    "name": "Stahl_HpCostIcon",
+    "description": "v1.0.1 Allow for skill to display hp cost of skill in Omori",
+    "authors": [
+      "StahlReyn"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_HpCostIcon.js"
+  },
+  {
+    "id": "stahl_skillreplacement",
+    "name": "Stahl_SkillReplacement",
+    "description": "[v1.1.0] Makes Skills be replacable when having certain equips",
+    "authors": [
+      "StahlReyn"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_SkillReplacement.js"
+  },
+  {
+    "id": "tr_allowskillattempts",
+    "name": "TR_AllowSkillAttempts",
+    "description": "Allows all Unicode characters.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/TR_AllowSkillAttempts.js"
+  },
+  {
+    "id": "tr_fixbasicattack",
+    "name": "TR_FixBasicAttack",
+    "description": "Fixes Basic Attacks being saved to file.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "battle system",
+      "skills"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/TR_FixBasicAttack.js"
+  },
+  {
+    "id": "drz_stateresistchance_stateedition",
+    "name": "DRZ_StateResistChance_StateEdition",
+    "description": "Allows states to provide resistance to specific other states.",
+    "authors": [
+      "DraconicZ"
+    ],
+    "tags": [
+      "battle system",
+      "states"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/DRZ_StateResistChance_StateEdition.js"
+  },
+  {
+    "id": "koffin_statedropratemodifier",
+    "name": "KOFFIN_StateDropRateModifier",
+    "description": "(v1.0) Allows states to modify enemy drop rates from default rates or YEP_ExtraEnemyDrops.",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "states"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateDropRateModifier.js"
+  },
+  {
+    "id": "koffin_statedurationmultiplier",
+    "name": "KOFFIN_StateDurationMultiplier",
+    "description": "v1.2 Adjusts state durations and rates based on enemy notetags <StateDuration: X%> and <StateRates: X%>.",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "states"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateDurationMultiplier.js"
+  },
+  {
+    "id": "koffin_stateresistchance",
+    "name": "KOFFIN_StateResistChance",
+    "description": "Allows enemies to have resistances to specific states using notetags.",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "battle system",
+      "states"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateResistChance.js"
+  },
+  {
+    "id": "stahl_statedependency",
+    "name": "Stahl_StateDependency",
+    "description": "v1.0.1 Makes state requires other state to exist before being addable.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "states"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateDependency.js"
+  },
+  {
+    "id": "stahl_statereaddable",
+    "name": "Stahl_StateReaddable",
+    "description": "[v1.0.0] Allows state to be readded on same turn",
+    "authors": [
+      "StahlReyn"
+    ],
+    "tags": [
+      "battle system",
+      "states"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateReaddable.js"
+  },
+  {
+    "id": "stahl_statesync",
+    "name": "Stahl_StateSync",
+    "description": "[v1.0.0] Syncs the States",
+    "authors": [
+      "StahlReyn",
+      "Draught"
+    ],
+    "tags": [
+      "battle system",
+      "states"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateSync.js"
+  },
+  {
+    "id": "stahl_statetiering",
+    "name": "Stahl_StateTiering",
+    "description": "v1.1.2 Gives handy functions related to emotions and buffs",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "battle system",
+      "states"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateTiering.js"
+  },
+  {
+    "id": "bestiaryextended",
+    "name": "BestiaryExtended",
+    "description": "[v1.0.2] Gives the Bestiary more features.",
+    "authors": [
+      "Stahl",
+      "Pyro",
+      "vl"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/BestiaryExtended.js"
+  },
+  {
+    "id": "dgt_yamlerrordisambiguator",
+    "name": "DGT_YamlErrorDisambiguator",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/DGT_YamlErrorDisambiguator.js"
+  },
+  {
+    "id": "doubleextendedyaml",
+    "name": "DoubleExtendedYAML",
+    "description": "v03.31.09 Adds increased functionality to YAML messages.",
+    "authors": [
+      "WHITENOISE",
+      "Bajamaid",
+      "TomatoRadio"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/DoubleExtendedYAML.js"
+  },
+  {
+    "id": "stahl_actionsequenceyamlmsg",
+    "name": "Stahl_ActionSequenceYamlMsg",
+    "description": "v1.1.0 Makes Battle Text addable with YAML",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_ActionSequenceYamlMsg.js"
+  },
+  {
+    "id": "stahl_atlasextended",
+    "name": "Stahl_AtlasExtended",
+    "description": "v1.0.0 Extends Atlas by allowing separate file.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_AtlasExtended.js"
+  },
+  {
+    "id": "stahl_customoptions",
+    "name": "Stahl_CustomOptions",
+    "description": "v1.1.0 Adds Extensible Custom Options",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_CustomOptions.js"
+  },
+  {
+    "id": "tr_battleflavor",
+    "name": "TR_BattleFlavor",
+    "description": "Allows all Unicode characters.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_BattleFlavor.js"
+  },
+  {
+    "id": "tr_bettermovementgraphics",
+    "name": "TR_BetterMovementGraphics",
+    "description": "v1.0 Adds Swimming as a proper anim type + notetag features.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_BetterMovementGraphics.js"
+  },
+  {
+    "id": "tr_globaldata",
+    "name": "TR_GlobalData",
+    "description": "v1.0 Allows storing data in a global file that can be accessed across saves.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_GlobalData.js"
+  },
+  {
+    "id": "tr_pictureshops",
+    "name": "TR_PictureShops",
+    "description": "Allows pictures to be tied to shopkeepers and have frames for each message",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_PictureShops.js"
+  },
+  {
+    "id": "tr_sesubfolders",
+    "name": "TR_SeSubfolders",
+    "description": "Version 1.0 Allows SE from subfolders to be played.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_SeSubfolders.js"
+  },
+  {
+    "id": "tr_yamldatabase",
+    "name": "TR_YamlDatabase",
+    "description": "Allows storing Database text as a YAML file.",
+    "authors": [
+      "TomatoRadio (With help from Bajamaid)"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_YamlDatabase.js"
+  },
+  {
+    "id": "tr_yamlmessagemacros",
+    "name": "TR_YamlMessageMacros",
+    "description": "v1.0 Allows storing YEP_MessageMacros text as a YAML file.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_YamlMessageMacros.js"
+  },
+  {
+    "id": "wn_extendedyaml",
+    "name": "WN_ExtendedYAML",
+    "description": "v53.59 Adds increased functionality to YAML messages.",
+    "authors": [
+      "WHITENOISE",
+      "Bajamaid"
+    ],
+    "tags": [
+      "data organization"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/WN_ExtendedYAML.js"
+  },
+  {
+    "id": "f9-battle-crash-safeguard",
+    "name": "F9 battle crash safeguard",
+    "description": "[v1.0.0] Fixes the crash when entering/exiting the F9 debug menu",
+    "authors": [
+      "A Australian"
+    ],
+    "tags": [
+      "essential"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/F9 battle crash safeguard.js"
+  },
+  {
+    "id": "fix_horroreffect_memoryleak",
+    "name": "Fix_HorrorEffect_MemoryLeak",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "essential"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/Fix_HorrorEffect_MemoryLeak.js"
+  },
+  {
+    "id": "geo_autoturnorder",
+    "name": "Geo_AutoTurnOrder",
+    "description": "Auto/Fix Turn Order",
+    "authors": [
+      "Geo"
+    ],
+    "tags": [
+      "essential"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/Geo_AutoTurnOrder.js"
+  },
+  {
+    "id": "kyr_tiledrotationfix",
+    "name": "kyr_TiledRotationFix",
+    "description": "Fix rotation and flipping of tiles for YED_Tiled",
+    "authors": [
+      "kyreilight"
+    ],
+    "tags": [
+      "essential"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/kyr_TiledRotationFix.js"
+  },
+  {
+    "id": "rph.no-omori-crash.patch",
+    "name": "rph.no omori crash.patch",
+    "description": "No omori/sunny in battle patch",
+    "authors": [
+      "RPH"
+    ],
+    "tags": [
+      "essential"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rph.no omori crash.patch.js"
+  },
+  {
+    "id": "pixi_tilemap_patches",
+    "name": "pixi_tilemap_patches",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "essential",
+      "rotatedtilefix"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rotatedtilefix/pixi_tilemap_patches.js"
+  },
+  {
+    "id": "yed_tiled",
+    "name": "YED_Tiled",
+    "description": "v1.20 Plugin supports Tiled Map Editor maps with some additional",
+    "authors": [
+      "Dr.Yami"
+    ],
+    "tags": [
+      "essential",
+      "rotatedtilefix"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rotatedtilefix/YED_Tiled.js"
+  },
+  {
+    "id": "tiledfixer",
+    "name": "tiledfixer",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "essential",
+      "tiledfixer"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/tiledfixer/tiledfixer.js"
+  },
+  {
+    "id": "amaratime",
+    "name": "AmaraTime",
+    "description": "AmaraTime displays a 12-hour AM/PM clock on the screen. Provides commands to show/hide the clock and window independently. Adds a glitch effect to the clock and allows defining events at specific times. Includes a debug menu to set the clock time manually.",
+    "authors": [
+      "Failsaafe"
+    ],
+    "tags": [
+      "event",
+      "informational"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Informational/AmaraTime.js"
+  },
+  {
+    "id": "dgt_dynamic_item_data",
+    "name": "DGT_dynamic_item_data",
+    "description": "Dynamic Item Data",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "event",
+      "informational"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Informational/DGT_dynamic_item_data.js"
+  },
+  {
+    "id": "dgt_condition_unlock",
+    "name": "DGT_condition_unlock",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/DGT_condition_unlock.js"
+  },
+  {
+    "id": "e97_eventhijack",
+    "name": "E97_EventHijack",
+    "description": "Lets the player control events instead of the player object.",
+    "authors": [
+      "Eggshell97"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/E97_EventHijack.js"
+  },
+  {
+    "id": "fog_fixmessagecommonevent",
+    "name": "FoG_FixMessageCommonEvent",
+    "description": "Fixes the \\com[] message command from erasing the rest of the commmands in common events",
+    "authors": [
+      "FoGsesipod"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/FoG_FixMessageCommonEvent.js"
+  },
+  {
+    "id": "fwd_eventpoints",
+    "name": "FWD_Eventpoints",
+    "description": "v1.0.4 Add event points to audio files for event triggering.",
+    "authors": [
+      "FoGsesipod",
+      "WHITENOISE",
+      "Draughtyan"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/FWD_Eventpoints.js"
+  },
+  {
+    "id": "geo_extrautconfigs",
+    "name": "Geo_ExtraUTConfigs",
+    "description": "Extra Undertale Battle Plugin Configs V2.0.0",
+    "authors": [
+      "Geo"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Geo_ExtraUTConfigs.js"
+  },
+  {
+    "id": "kebab_utbsystemfacesfix",
+    "name": "kebab_UTBSystemFacesFix",
+    "description": "fixes for SRD_UndertaleBattleSystem in OMORI mods",
+    "authors": [
+      "KEBAB"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/kebab_UTBSystemFacesFix.js"
+  },
+  {
+    "id": "pyro_forcerun",
+    "name": "PYRO_ForceRun",
+    "description": "Allows you to force running.",
+    "authors": [
+      "Pyro"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/PYRO_ForceRun.js"
+  },
+  {
+    "id": "pyro_movemessage",
+    "name": "PYRO_MoveMessage",
+    "description": "Allows you to move during a message if a particular script is called.",
+    "authors": [
+      "Pyro"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/PYRO_MoveMessage.js"
+  },
+  {
+    "id": "rwb_extfollower",
+    "name": "rwb_extfollower",
+    "description": "This plugin adds additional functions to make follower movement in cutscenes easier.",
+    "authors": [
+      "Rawberry"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/rwb_extfollower.js"
+  },
+  {
+    "id": "stahl_eventdistance",
+    "name": "Stahl_EventDistance",
+    "description": "[v1.0.0] Adds Functions to event related to checking distance and direction",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Stahl_EventDistance.js"
+  },
+  {
+    "id": "stahl_eventpreloadmeta",
+    "name": "Stahl_EventPreloadMeta",
+    "description": "[v1.0.0] Makes preload event used by Yanfly also have meta carried over.",
+    "authors": [
+      "ReynStahl"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Stahl_EventPreloadMeta.js"
+  },
+  {
+    "id": "tr_dynamicimages",
+    "name": "TR_DynamicImages",
+    "description": "v1.0 Allows changing images by varying game data",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_DynamicImages.js"
+  },
+  {
+    "id": "tr_persistentbattlesound",
+    "name": "TR_PersistentBattleSound",
+    "description": "Allows for map sounds to persist into a battle instead of being stopped.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_PersistentBattleSound.js"
+  },
+  {
+    "id": "tr_variablebasedimages",
+    "name": "TR_VariableBasedImages",
+    "description": "v1.5 Plugin to allow changing images with Variables.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "event",
+      "technical"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_VariableBasedImages.js"
+  },
+  {
+    "id": "dgt_beziercam",
+    "name": "DGT_BezierCam",
+    "description": "Allows smooth camera movement using Bezier curves with",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/DGT_BezierCam.js"
+  },
+  {
+    "id": "fd_weatherextension",
+    "name": "FD_WeatherExtension",
+    "description": "v1.1.2 An extension to the Aries Weather Control plugin.",
+    "authors": [
+      "FruitDragon"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/FD_WeatherExtension.js"
+  },
+  {
+    "id": "koffin_morefoglayers",
+    "name": "KOFFIN_MoreFogLayers",
+    "description": "Patch for TDS Map Fog - Enables multiple fog layers",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/KOFFIN_MoreFogLayers.js"
+  },
+  {
+    "id": "koffin_picturebelowcharsbutgood",
+    "name": "KOFFIN_PictureBelowCharsButGood",
+    "description": "v1.10 Plugin to display multiple pictures with specific z-indexes below characters",
+    "authors": [
+      "not Kenway (modified by KoffinKrypt)"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/KOFFIN_PictureBelowCharsButGood.js"
+  },
+  {
+    "id": "train_fd_ripple",
+    "name": "TRain_FD_Ripple",
+    "description": "Produces a water ripple/splash effect when walking",
+    "authors": [
+      "TrophicRain",
+      "FruitDragon"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TRain_FD_Ripple.js"
+  },
+  {
+    "id": "train_particlesjs",
+    "name": "TRain_ParticlesJS",
+    "description": "particles.js particle effects v1.1",
+    "authors": [
+      "Vincent Garreau (particles.js)",
+      "TrophicRain (this plugin)",
+      "TomatoRadio (plugin command)"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TRain_ParticlesJS.js"
+  },
+  {
+    "id": "tr_betterinputicons",
+    "name": "TR_BetterInputIcons",
+    "description": "v1.0 Allows for loading Input Icons as pictures and other images.",
+    "authors": [
+      "LaupigRadio"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TR_BetterInputIcons.js"
+  },
+  {
+    "id": "tr_multiparallax",
+    "name": "TR_MultiParallax",
+    "description": "v1.0 Allows multiple parallaxes.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TR_MultiParallax.js"
+  },
+  {
+    "id": "wn_changecursorimage",
+    "name": "WN_ChangeCursorImage",
+    "description": "v1.00 Change the image used for the cursor.",
+    "authors": [
+      "WHITENOISE"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/WN_ChangeCursorImage.js"
+  },
+  {
+    "id": "improved-save-&-load",
+    "name": "Improved Save & Load",
+    "description": "Combo Skills port from ACE.",
+    "authors": [
+      "TDS"
+    ],
+    "tags": [
+      "gameplay"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/Improved Save & Load.js"
+  },
+  {
+    "id": "koffin_betterquest",
+    "name": "KOFFIN_BetterQuest",
+    "description": "Auto Quest Extension for OMORI Quest Menu - Adds switch-based quest management.",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "gameplay"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/KOFFIN_BetterQuest.js"
+  },
+  {
+    "id": "koffin_omorimusicplayer",
+    "name": "KOFFIN_OmoriMusicPlayer",
+    "description": "This plugin shows a music player menu where selecting a track plays its BGM,",
+    "authors": [
+      "KoffinKrypt"
+    ],
+    "tags": [
+      "gameplay"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/KOFFIN_OmoriMusicPlayer.js"
+  },
+  {
+    "id": "badgesinmainmenu",
+    "name": "badgesInMainMenu",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "badges",
+      "gameplay"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/badges/badgesInMainMenu.js"
+  },
+  {
+    "id": "dgt_badges",
+    "name": "DGT_Badges",
+    "description": "Omori Badges Screen",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "badges",
+      "gameplay"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/badges/DGT_Badges.js"
+  },
+  {
+    "id": "geo_ultramode7patch",
+    "name": "Geo_UltraMode7Patch",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "mod compatibility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/Geo_UltraMode7Patch.js"
+  },
+  {
+    "id": "rwb_datainjector",
+    "name": "rwb_datainjector",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "mod compatibility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/rwb_datainjector.js"
+  },
+  {
+    "id": "rwb_stringidmaps",
+    "name": "rwb_stringidmaps",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "mod compatibility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/rwb_stringidmaps.js"
+  },
+  {
+    "id": "tr_checkmoddata",
+    "name": "TR_CheckModData",
+    "description": "v1.0 Allows for easy checking of mods.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "mod compatibility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_CheckModData.js"
+  },
+  {
+    "id": "tr_girlmori_is_real",
+    "name": "TR_GIRLMORI_IS_REAL",
+    "description": "v5.1 Plugin to detect if Girlmori is present and adjust images with sunny's name to account for this.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "mod compatibility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_GIRLMORI_IS_REAL.js"
+  },
+  {
+    "id": "tr_jsextensions",
+    "name": "TR_JsExtensions",
+    "description": "v6.0 Adds more JS functions to RPG Maker MV",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "mod compatibility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_JsExtensions.js"
+  },
+  {
+    "id": "val",
+    "name": "VAL",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "mod compatibility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/VAL.js"
+  },
+  {
+    "id": "denyinjection",
+    "name": "DenyInjection",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "oneloader"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyInjection.js"
+  },
+  {
+    "id": "denyothermods-execute",
+    "name": "DenyOtherMods-Execute",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "oneloader"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyOtherMods-Execute.js"
+  },
+  {
+    "id": "denyothermods-main",
+    "name": "DenyOtherMods-Main",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "oneloader"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyOtherMods-Main.js"
+  },
+  {
+    "id": "force_load_first",
+    "name": "Force_Load_First",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "oneloader"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/Force_Load_First.js"
+  },
+  {
+    "id": "force_load_last",
+    "name": "Force_Load_Last",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "oneloader"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/Force_Load_Last.js"
+  },
+  {
+    "id": "rph_oneloader_version_check",
+    "name": "RPH_oneloader_version_check",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "oneloader"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/RPH_oneloader_version_check.js"
+  },
+  {
+    "id": "geo_removebattlefadeout",
+    "name": "Geo_RemoveBattleFadeOut",
+    "description": "This removes the fadein RPG MAKER MV Does when starting a battle.",
+    "authors": [],
+    "tags": [
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Geo_RemoveBattleFadeOut.js"
+  },
+  {
+    "id": "goldcounterdisabler",
+    "name": "GoldCounterDisabler",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/GoldCounterDisabler.js"
+  },
+  {
+    "id": "pyro_lyrics",
+    "name": "PYRO_Lyrics",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/PYRO_Lyrics.js"
+  },
+  {
+    "id": "tr_verticalcursors",
+    "name": "TR_VerticalCursors",
+    "description": "v1.0",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/TR_VerticalCursors.js"
+  },
+  {
+    "id": "fd_easyphotoalbum",
+    "name": "FD_EasyPhotoAlbum",
+    "description": "v1.0.2 A plugin for easier and more customizable Photo Album.",
+    "authors": [
+      "FruitDragon"
+    ],
+    "tags": [
+      "easyphotoalbum",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/easyphotoalbum/FD_EasyPhotoAlbum.js"
+  },
+  {
+    "id": "pyro_verttitle",
+    "name": "PYRO_VertTitle",
+    "description": "Makes the options in the Title Screen vertical. Please adjust the parameters.",
+    "authors": [
+      "Pyro"
+    ],
+    "tags": [
+      "load and title screen",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/PYRO_VertTitle.js"
+  },
+  {
+    "id": "rph.splashexpander",
+    "name": "rph.splashExpander",
+    "description": "Splash Expander",
+    "authors": [
+      "RPH"
+    ],
+    "tags": [
+      "load and title screen",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/rph.splashExpander.js"
+  },
+  {
+    "id": "tr_changeloadimage",
+    "name": "TR_ChangeLoadImage",
+    "description": "Version 1.1 Changes the loading image used.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "load and title screen",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/TR_ChangeLoadImage.js"
+  },
+  {
+    "id": "fd_easytitlescreen",
+    "name": "FD_EasyTitleScreen",
+    "description": "v1.2.1 An easy title screen for modders who dont wanna deal with JS.",
+    "authors": [
+      "FruitDragon"
+    ],
+    "tags": [
+      "easytitlescreen (no longer supported)",
+      "load and title screen",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/easytitlescreen (no longer supported)/FD_EasyTitleScreen.js"
+  },
+  {
+    "id": "fd_yamltitlescreen",
+    "name": "FD_YamlTitleScreen",
+    "description": "v1.0.1 An easy title screen with a lot of variability.",
+    "authors": [
+      "FruitDragon"
+    ],
+    "tags": [
+      "load and title screen",
+      "ui",
+      "yamltitlescreen"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/yamltitlescreen/FD_YamlTitleScreen.js"
+  },
+  {
+    "id": "dgt_liveupdatemessage",
+    "name": "DGT_LiveUpdateMessage",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/DGT_LiveUpdateMessage.js"
+  },
+  {
+    "id": "dgt_mirrortextorder",
+    "name": "DGT_MirrorTextOrder",
+    "description": "Mirror-ish dialogue text effect.",
+    "authors": [
+      "Draught"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/DGT_MirrorTextOrder.js"
+  },
+  {
+    "id": "geo_messagefacechange",
+    "name": "Geo_MessageFaceChange",
+    "description": "Adds a message command that allows to switch the facebox image midway through a message.",
+    "authors": [
+      "Geo"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/Geo_MessageFaceChange.js"
+  },
+  {
+    "id": "geo_restoredgroupfaceboxes",
+    "name": "Geo_RestoredGroupFaceboxes",
+    "description": "Basically restores the old open/close message faceboxes AND re-implements the cut functionality of having more than one facebox on the screen.",
+    "authors": [
+      "Geo"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/Geo_RestoredGroupFaceboxes.js"
+  },
+  {
+    "id": "kebab_moretextcodes",
+    "name": "kebab_moreTextCodes",
+    "description": "v0.1.0 a plugin that adds a few text codes.",
+    "authors": [
+      "kebab5769/KEBAB/pitus33/whatever"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/kebab_moreTextCodes.js"
+  },
+  {
+    "id": "rph.instashow",
+    "name": "rph.instashow",
+    "description": "Instashow Text",
+    "authors": [
+      "RPH"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/rph.instashow.js"
+  },
+  {
+    "id": "rph.macrorebind",
+    "name": "rph.macrorebind",
+    "description": "Macro Rebind",
+    "authors": [
+      "RPH"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/rph.macrorebind.js"
+  },
+  {
+    "id": "train_extrafaces",
+    "name": "TRain_ExtraFaces",
+    "description": "Enable multiple faces during message in OMORI",
+    "authors": [
+      "TrophicRain"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_ExtraFaces.js"
+  },
+  {
+    "id": "train_texteval",
+    "name": "TRain_TextEval",
+    "description": "Execute between text & Centering",
+    "authors": [
+      "TrophicRain"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_TextEval.js"
+  },
+  {
+    "id": "train_textnote",
+    "name": "TRain_TextNote",
+    "description": "Small text annotation above message",
+    "authors": [
+      "TrophicRain"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_TextNote.js"
+  },
+  {
+    "id": "tr_fixdefaulttextcolor",
+    "name": "TR_FixDefaultTextColor",
+    "description": "v1.0 Allows changing the default text color by windowskin",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_FixDefaultTextColor.js"
+  },
+  {
+    "id": "tr_textsoundarrays",
+    "name": "TR_TextSoundArrays",
+    "description": "v2.0 Allows for multiple Letter Sounds to be used together.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_TextSoundArrays.js"
+  },
+  {
+    "id": "tr_variablebasedfacesets",
+    "name": "TR_VariableBasedFacesets",
+    "description": "Allows Facesets to be swapped out with variables.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_VariableBasedFacesets.js"
+  },
+  {
+    "id": "wn_megaphone",
+    "name": "WN_Megaphone",
+    "description": "v1.00 Text loudness changes with size.",
+    "authors": [
+      "WHITENOISE"
+    ],
+    "tags": [
+      "message system",
+      "ui"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/WN_Megaphone.js"
+  },
+  {
+    "id": "angryautistichousewives",
+    "name": "AngryAutisticHouseWives",
+    "description": "v1.00 Allows you to change window title, and saves it properly",
+    "authors": [
+      "Jimmy Fallon"
+    ],
+    "tags": [
+      "ui",
+      "window skins or layout"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/AngryAutisticHouseWives.js"
+  },
+  {
+    "id": "baby_externalcolorimage",
+    "name": "BABY_ExternalColorImage",
+    "description": "v1.00 Changes colors to be drawn from a seperate \"Colors.png\"",
+    "authors": [
+      "Babyjak"
+    ],
+    "tags": [
+      "ui",
+      "window skins or layout"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/BABY_ExternalColorImage.js"
+  },
+  {
+    "id": "train_vnchoice",
+    "name": "TRain_VNChoice",
+    "description": "Visual Novel style choice for OMORI",
+    "authors": [
+      "TrophicRain"
+    ],
+    "tags": [
+      "ui",
+      "window skins or layout"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TRain_VNChoice.js"
+  },
+  {
+    "id": "train_winmsgshape",
+    "name": "TRain_WinMsgShape",
+    "description": "change Window_Message shape and position for OMORI",
+    "authors": [
+      "TrophicRain"
+    ],
+    "tags": [
+      "ui",
+      "window skins or layout"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TRain_WinMsgShape.js"
+  },
+  {
+    "id": "tr_restrictivewindowskins",
+    "name": "TR_RestrictiveWindowskins",
+    "description": "Restricts Windowskin changes to only a specific group of Windows.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "ui",
+      "window skins or layout"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TR_RestrictiveWindowskins.js"
+  },
+  {
+    "id": "tr_template",
+    "name": "TR_Template",
+    "description": "v1.0 Header Text",
+    "authors": [
+      "[AUTHOR]"
+    ],
+    "tags": [
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/TR_Template.js"
+  },
+  {
+    "id": "console",
+    "name": "console",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "dev tools",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/console.js"
+  },
+  {
+    "id": "geo_improvedeventtest",
+    "name": "Geo_ImprovedEventTest",
+    "description": "Hopefully improvises the event test feature.",
+    "authors": [
+      "Geo"
+    ],
+    "tags": [
+      "dev tools",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/Geo_ImprovedEventTest.js"
+  },
+  {
+    "id": "kebab_customomorierrormessage",
+    "name": "kebab_customOmoriErrorMessage",
+    "description": "for omori mods, to create your own error message",
+    "authors": [
+      "kebab"
+    ],
+    "tags": [
+      "dev tools",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/kebab_customOmoriErrorMessage.js"
+  },
+  {
+    "id": "pixi-panel",
+    "name": "pixi-panel",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "dev tools",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/pixi-panel.js"
+  },
+  {
+    "id": "tr_devtestvisibility",
+    "name": "TR_DevTestVisibility",
+    "description": "v1 Allows you to see DEV_TEST events in game and add more.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "dev tools",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/TR_DevTestVisibility.js"
+  },
+  {
+    "id": "fog_base64tofile",
+    "name": "FoG_Base64ToFile",
+    "description": "Output Base64 Srtings to specific folders.",
+    "authors": [
+      "FoGsesipod"
+    ],
+    "tags": [
+      "file management",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_Base64ToFile.js"
+  },
+  {
+    "id": "fog_copyimagetofolder",
+    "name": "FoG_CopyImageToFolder",
+    "description": "Copy images from the img/system directory to other directories",
+    "authors": [
+      "FoGsesipod"
+    ],
+    "tags": [
+      "file management",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_CopyImageToFolder.js"
+  },
+  {
+    "id": "fog_outputtofolder",
+    "name": "FoG_OutputToFolder",
+    "description": "Output text files to specific folders",
+    "authors": [
+      "FoGsesipod"
+    ],
+    "tags": [
+      "file management",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_OutputToFolder.js"
+  },
+  {
+    "id": "train_screenshot",
+    "name": "TRain_ScreenShot",
+    "description": "ScreenShot",
+    "authors": [
+      "TrophicRain"
+    ],
+    "tags": [
+      "file management",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/TRain_ScreenShot.js"
+  },
+  {
+    "id": "fd_betterplugincommands",
+    "name": "FD_BetterPluginCommands",
+    "description": "A variety of plugin commands + better plugin functionality.",
+    "authors": [
+      "FruitDragon"
+    ],
+    "tags": [
+      "plugin commands",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Plugin Commands/FD_BetterPluginCommands.js"
+  },
+  {
+    "id": "play_movie_to_ysp_video",
+    "name": "Play_Movie_to_YSP_Video",
+    "description": "",
+    "authors": [],
+    "tags": [
+      "plugin commands",
+      "utility"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Plugin Commands/Play_Movie_to_YSP_Video.js"
+  },
+  {
+    "id": "mousetoggle",
+    "name": "MouseToggle",
+    "description": "v1.00000000000000000000000000000000000001 Allows you to toggle the mouse ON/OFF.",
+    "authors": [
+      "Dying Pregnant Hyena"
+    ],
+    "tags": [
+      "utility",
+      "windows functionality"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/MouseToggle.js"
+  },
+  {
+    "id": "train_messagebox-v1_3eng",
+    "name": "TRain_MessageBox v1_3eng",
+    "description": "Windows-like Message Box v1.3",
+    "authors": [
+      "TrophicRain"
+    ],
+    "tags": [
+      "utility",
+      "windows functionality"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TRain_MessageBox v1_3eng.js"
+  },
+  {
+    "id": "tr_customcrashpopups",
+    "name": "TR_CustomCrashPopups",
+    "description": "Version 1.0 Allows custom messages when the game crashes.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "utility",
+      "windows functionality"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TR_CustomCrashPopups.js"
+  },
+  {
+    "id": "tr_datechecker",
+    "name": "TR_DateChecker",
+    "description": "Adds a bunch of Date checking functions.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "utility",
+      "windows functionality"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TR_DateChecker.js"
+  }
+]
