@@ -9,7 +9,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/KOFFIN_StateDropRateModifier.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/KOFFIN_StateDropRateModifier.js",
+    "auto-update": true
   },
   {
     "id": "koffin_autobattleportraitorder",
@@ -21,7 +22,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_AutoBattlePortraitOrder.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_AutoBattlePortraitOrder.js",
+    "auto-update": true
   },
   {
     "id": "koffin_betterenemysystem",
@@ -33,7 +35,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_BetterEnemySystem.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_BetterEnemySystem.js",
+    "auto-update": true
   },
   {
     "id": "koffin_statedropratemodifier",
@@ -45,7 +48,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_StateDropRateModifier.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/KOFFIN_StateDropRateModifier.js",
+    "auto-update": true
   },
   {
     "id": "rph_more_than_4_skills",
@@ -57,7 +61,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/RPH_More_Than_4_Skills.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/RPH_More_Than_4_Skills.js",
+    "auto-update": true
   },
   {
     "id": "stahl_battlestats",
@@ -69,7 +74,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_BattleStats.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_BattleStats.js",
+    "auto-update": true
   },
   {
     "id": "stahl_deathce",
@@ -81,7 +87,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_DeathCE.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_DeathCE.js",
+    "auto-update": true
   },
   {
     "id": "stahl_enemycategory",
@@ -93,7 +100,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_EnemyCategory.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_EnemyCategory.js",
+    "auto-update": true
   },
   {
     "id": "stahl_enemyspawn",
@@ -106,7 +114,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_EnemySpawn.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/Stahl_EnemySpawn.js",
+    "auto-update": true
   },
   {
     "id": "tr_hitevamerge",
@@ -118,7 +127,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/TR_HitEvaMerge.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/TR_HitEvaMerge.js",
+    "auto-update": true
   },
   {
     "id": "tr_restrictbattlecommands",
@@ -130,7 +140,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/TR_RestrictBattleCommands.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/TR_RestrictBattleCommands.js",
+    "auto-update": true
   },
   {
     "id": "vl_savelastitemusedproperly",
@@ -142,7 +153,8 @@
     "tags": [
       "battle system"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/VL_SaveLastItemUsedProperly.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Battle System/VL_SaveLastItemUsedProperly.js",
+    "auto-update": true
   },
   {
     "id": "dgt_targeteval",
@@ -153,7 +165,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/DGT_targetEval.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/DGT_targetEval.js",
+    "auto-update": true
   },
   {
     "id": "dgt_weaknesstargeting",
@@ -166,7 +179,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/DGT_WeaknessTargeting.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/DGT_WeaknessTargeting.js",
+    "auto-update": true
   },
   {
     "id": "koffin_actionsequenceaddon",
@@ -179,7 +193,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ActionSequenceAddon.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ActionSequenceAddon.js",
+    "auto-update": true
   },
   {
     "id": "koffin_actionsequenceextension",
@@ -192,7 +207,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ActionSequenceExtension.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ActionSequenceExtension.js",
+    "auto-update": true
   },
   {
     "id": "koffin_battleaicore_combinedpatches",
@@ -206,7 +222,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_BattleAICore_CombinedPatches.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_BattleAICore_CombinedPatches.js",
+    "auto-update": true
   },
   {
     "id": "koffin_battleaicore_emotionaddon",
@@ -219,7 +236,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_BattleAICore_EmotionAddon.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_BattleAICore_EmotionAddon.js",
+    "auto-update": true
   },
   {
     "id": "koffin_extrabattleaiconditons",
@@ -233,7 +251,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ExtraBattleAIConditons.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_ExtraBattleAIConditons.js",
+    "auto-update": true
   },
   {
     "id": "koffin_targetratefix",
@@ -246,7 +265,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_TargetRateFIx.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/KOFFIN_TargetRateFIx.js",
+    "auto-update": true
   },
   {
     "id": "stahl_statecategoryactionsequence",
@@ -259,7 +279,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/Stahl_StateCategoryActionSequence.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/Stahl_StateCategoryActionSequence.js",
+    "auto-update": true
   },
   {
     "id": "tr_tauntaffectmultitargets",
@@ -272,7 +293,8 @@
       "battle system",
       "enemy ais"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/TR_TauntAffectMultiTargets.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Enemy AIs/TR_TauntAffectMultiTargets.js",
+    "auto-update": true
   },
   {
     "id": "koffin_limiteditems",
@@ -283,7 +305,8 @@
       "battle system",
       "items"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Items/KOFFIN_LimitedItems.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Items/KOFFIN_LimitedItems.js",
+    "auto-update": true
   },
   {
     "id": "vl_twocharmslots",
@@ -294,7 +317,8 @@
       "battle system",
       "items"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Items/VL_TwoCharmSlots.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Items/VL_TwoCharmSlots.js",
+    "auto-update": true
   },
   {
     "id": "cooldry_picture_layers",
@@ -307,7 +331,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/COOLDRY_Picture_Layers.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/COOLDRY_Picture_Layers.js",
+    "auto-update": true
   },
   {
     "id": "dgt_charmprefix",
@@ -320,7 +345,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_charmprefix.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_charmprefix.js",
+    "auto-update": true
   },
   {
     "id": "dgt_followupbubblechange",
@@ -333,7 +359,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_followupbubblechange.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_followupbubblechange.js",
+    "auto-update": true
   },
   {
     "id": "dgt_itemshopweaponstat",
@@ -344,7 +371,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_ItemShopWeaponStat.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_ItemShopWeaponStat.js",
+    "auto-update": true
   },
   {
     "id": "dgt_levelanimation",
@@ -357,7 +385,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_levelanimation.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_levelanimation.js",
+    "auto-update": true
   },
   {
     "id": "dgt_statespriteeffects",
@@ -370,7 +399,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_statespriteeffects.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/DGT_statespriteeffects.js",
+    "auto-update": true
   },
   {
     "id": "fd_itemiconrescale",
@@ -383,7 +413,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/FD_ItemIconRescale.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/FD_ItemIconRescale.js",
+    "auto-update": true
   },
   {
     "id": "geo_removebattlefadeout",
@@ -394,7 +425,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Geo_RemoveBattleFadeOut.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Geo_RemoveBattleFadeOut.js",
+    "auto-update": true
   },
   {
     "id": "koffin_custompolaroidboxes",
@@ -407,7 +439,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_CustomPolaroidBoxes.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_CustomPolaroidBoxes.js",
+    "auto-update": true
   },
   {
     "id": "koffin_custompolaroidboxesandmenus",
@@ -420,7 +453,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_CustomPolaroidBoxesAndMenus.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_CustomPolaroidBoxesAndMenus.js",
+    "auto-update": true
   },
   {
     "id": "koffin_expandedstatchanges",
@@ -433,7 +467,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_ExpandedStatChanges.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_ExpandedStatChanges.js",
+    "auto-update": true
   },
   {
     "id": "koffin_inbattlestatus",
@@ -446,7 +481,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_InBattleStatus.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_InBattleStatus.js",
+    "auto-update": true
   },
   {
     "id": "koffin_refreshbattlesprites",
@@ -459,7 +495,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_RefreshBattleSprites.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_RefreshBattleSprites.js",
+    "auto-update": true
   },
   {
     "id": "koffin_refreshbattleui",
@@ -472,7 +509,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_RefreshBattleUI.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_RefreshBattleUI.js",
+    "auto-update": true
   },
   {
     "id": "koffin_spritestateindexfix",
@@ -485,7 +523,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_SpriteStateIndexFix.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/KOFFIN_SpriteStateIndexFix.js",
+    "auto-update": true
   },
   {
     "id": "lpg_attacknumberplus",
@@ -498,7 +537,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/LPG_attacknumberplus.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/LPG_attacknumberplus.js",
+    "auto-update": true
   },
   {
     "id": "rph_state_icons",
@@ -513,7 +553,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/rph_state_icons.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/rph_state_icons.js",
+    "auto-update": true
   },
   {
     "id": "stahl_altitemicon",
@@ -526,7 +567,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_AltItemIcon.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_AltItemIcon.js",
+    "auto-update": true
   },
   {
     "id": "stahl_damagepopups",
@@ -540,7 +582,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_DamagePopups.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_DamagePopups.js",
+    "auto-update": true
   },
   {
     "id": "stahl_enemymovement",
@@ -553,7 +596,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_EnemyMovement.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_EnemyMovement.js",
+    "auto-update": true
   },
   {
     "id": "stahl_enemyparticles",
@@ -564,7 +608,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_EnemyParticles.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_EnemyParticles.js",
+    "auto-update": true
   },
   {
     "id": "stahl_extendeditemdisplay",
@@ -577,7 +622,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_ExtendedItemDisplay.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_ExtendedItemDisplay.js",
+    "auto-update": true
   },
   {
     "id": "stahl_moreskilldisplay",
@@ -590,7 +636,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_MoreSkillDisplay.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Stahl_MoreSkillDisplay.js",
+    "auto-update": true
   },
   {
     "id": "state_damage_face",
@@ -603,7 +650,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/State_Damage_Face.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/State_Damage_Face.js",
+    "auto-update": true
   },
   {
     "id": "tr_custommenufacesizes",
@@ -616,7 +664,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_CustomMenuFaceSizes.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_CustomMenuFaceSizes.js",
+    "auto-update": true
   },
   {
     "id": "tr_improvedbattlebacks_fadeinremoval",
@@ -629,7 +678,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_ImprovedBattlebacks_FadeInRemoval.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_ImprovedBattlebacks_FadeInRemoval.js",
+    "auto-update": true
   },
   {
     "id": "tr_lowhealthextended",
@@ -642,7 +692,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_LowHealthExtended.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_LowHealthExtended.js",
+    "auto-update": true
   },
   {
     "id": "tr_orderedskills",
@@ -655,7 +706,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_OrderedSkills.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/TR_OrderedSkills.js",
+    "auto-update": true
   },
   {
     "id": "unique-battle-ui",
@@ -666,7 +718,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Unique Battle UI.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Unique Battle UI.js",
+    "auto-update": true
   },
   {
     "id": "vl_savelastitemusedproperly",
@@ -679,7 +732,8 @@
       "battle system",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/VL_SaveLastItemUsedProperly.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/VL_SaveLastItemUsedProperly.js",
+    "auto-update": true
   },
   {
     "id": "stahl_elementdisplay",
@@ -693,7 +747,8 @@
       "element display",
       "menu and ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Element Display/Stahl_ElementDisplay.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/Element Display/Stahl_ElementDisplay.js",
+    "auto-update": true
   },
   {
     "id": "more_info",
@@ -705,7 +760,8 @@
       "menu and ui",
       "more info"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/More Info/More_Info.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/More Info/More_Info.js",
+    "auto-update": true
   },
   {
     "id": "stahl_evenmoreinfo",
@@ -719,7 +775,8 @@
       "menu and ui",
       "more info"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/More Info/Stahl_EvenMoreInfo.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Menu and UI/More Info/Stahl_EvenMoreInfo.js",
+    "auto-update": true
   },
   {
     "id": "fog_passiveskills",
@@ -732,7 +789,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/FoG_PassiveSkills.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/FoG_PassiveSkills.js",
+    "auto-update": true
   },
   {
     "id": "koffin_easyunequipskill",
@@ -745,7 +803,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/KOFFIN_EasyUnequipSkill.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/KOFFIN_EasyUnequipSkill.js",
+    "auto-update": true
   },
   {
     "id": "lpg_attacklayers",
@@ -759,7 +818,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/LPG_attacklayers.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/LPG_attacklayers.js",
+    "auto-update": true
   },
   {
     "id": "rwb_customcosts",
@@ -772,7 +832,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/rwb_customcosts.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/rwb_customcosts.js",
+    "auto-update": true
   },
   {
     "id": "stahl_changeablebasicattack",
@@ -785,7 +846,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_ChangeableBasicAttack.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_ChangeableBasicAttack.js",
+    "auto-update": true
   },
   {
     "id": "stahl_hpcosticon",
@@ -798,7 +860,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_HpCostIcon.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_HpCostIcon.js",
+    "auto-update": true
   },
   {
     "id": "stahl_skillreplacement",
@@ -811,7 +874,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_SkillReplacement.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/Stahl_SkillReplacement.js",
+    "auto-update": true
   },
   {
     "id": "tr_allowskillattempts",
@@ -824,7 +888,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/TR_AllowSkillAttempts.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/TR_AllowSkillAttempts.js",
+    "auto-update": true
   },
   {
     "id": "tr_fixbasicattack",
@@ -837,7 +902,8 @@
       "battle system",
       "skills"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/TR_FixBasicAttack.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/Skills/TR_FixBasicAttack.js",
+    "auto-update": true
   },
   {
     "id": "drz_stateresistchance_stateedition",
@@ -850,7 +916,8 @@
       "battle system",
       "states"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/DRZ_StateResistChance_StateEdition.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/DRZ_StateResistChance_StateEdition.js",
+    "auto-update": true
   },
   {
     "id": "koffin_statedropratemodifier",
@@ -863,7 +930,8 @@
       "battle system",
       "states"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateDropRateModifier.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateDropRateModifier.js",
+    "auto-update": true
   },
   {
     "id": "koffin_statedurationmultiplier",
@@ -876,7 +944,8 @@
       "battle system",
       "states"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateDurationMultiplier.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateDurationMultiplier.js",
+    "auto-update": true
   },
   {
     "id": "koffin_stateresistchance",
@@ -889,7 +958,8 @@
       "battle system",
       "states"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateResistChance.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/KOFFIN_StateResistChance.js",
+    "auto-update": true
   },
   {
     "id": "stahl_statedependency",
@@ -902,7 +972,8 @@
       "battle system",
       "states"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateDependency.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateDependency.js",
+    "auto-update": true
   },
   {
     "id": "stahl_statereaddable",
@@ -915,7 +986,8 @@
       "battle system",
       "states"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateReaddable.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateReaddable.js",
+    "auto-update": true
   },
   {
     "id": "stahl_statesync",
@@ -929,7 +1001,8 @@
       "battle system",
       "states"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateSync.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateSync.js",
+    "auto-update": true
   },
   {
     "id": "stahl_statetiering",
@@ -942,7 +1015,8 @@
       "battle system",
       "states"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateTiering.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Battle System Plugins/States/Stahl_StateTiering.js",
+    "auto-update": true
   },
   {
     "id": "bestiaryextended",
@@ -956,7 +1030,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/BestiaryExtended.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/BestiaryExtended.js",
+    "auto-update": true
   },
   {
     "id": "dgt_yamlerrordisambiguator",
@@ -966,7 +1041,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/DGT_YamlErrorDisambiguator.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/DGT_YamlErrorDisambiguator.js",
+    "auto-update": true
   },
   {
     "id": "doubleextendedyaml",
@@ -980,7 +1056,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/DoubleExtendedYAML.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/DoubleExtendedYAML.js",
+    "auto-update": true
   },
   {
     "id": "stahl_actionsequenceyamlmsg",
@@ -992,7 +1069,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_ActionSequenceYamlMsg.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_ActionSequenceYamlMsg.js",
+    "auto-update": true
   },
   {
     "id": "stahl_atlasextended",
@@ -1004,7 +1082,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_AtlasExtended.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_AtlasExtended.js",
+    "auto-update": true
   },
   {
     "id": "stahl_customoptions",
@@ -1016,7 +1095,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_CustomOptions.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/Stahl_CustomOptions.js",
+    "auto-update": true
   },
   {
     "id": "tr_battleflavor",
@@ -1028,7 +1108,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_BattleFlavor.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_BattleFlavor.js",
+    "auto-update": true
   },
   {
     "id": "tr_bettermovementgraphics",
@@ -1040,7 +1121,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_BetterMovementGraphics.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_BetterMovementGraphics.js",
+    "auto-update": true
   },
   {
     "id": "tr_globaldata",
@@ -1052,7 +1134,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_GlobalData.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_GlobalData.js",
+    "auto-update": true
   },
   {
     "id": "tr_pictureshops",
@@ -1064,7 +1147,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_PictureShops.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_PictureShops.js",
+    "auto-update": true
   },
   {
     "id": "tr_sesubfolders",
@@ -1076,7 +1160,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_SeSubfolders.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_SeSubfolders.js",
+    "auto-update": true
   },
   {
     "id": "tr_yamldatabase",
@@ -1088,7 +1173,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_YamlDatabase.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_YamlDatabase.js",
+    "auto-update": true
   },
   {
     "id": "tr_yamlmessagemacros",
@@ -1100,7 +1186,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_YamlMessageMacros.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/TR_YamlMessageMacros.js",
+    "auto-update": true
   },
   {
     "id": "wn_extendedyaml",
@@ -1113,7 +1200,8 @@
     "tags": [
       "data organization"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/WN_ExtendedYAML.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Data Organization Plugins/WN_ExtendedYAML.js",
+    "auto-update": true
   },
   {
     "id": "f9-battle-crash-safeguard",
@@ -1125,7 +1213,8 @@
     "tags": [
       "essential"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/F9 battle crash safeguard.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/F9 battle crash safeguard.js",
+    "auto-update": true
   },
   {
     "id": "fix_horroreffect_memoryleak",
@@ -1135,7 +1224,8 @@
     "tags": [
       "essential"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/Fix_HorrorEffect_MemoryLeak.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/Fix_HorrorEffect_MemoryLeak.js",
+    "auto-update": true
   },
   {
     "id": "geo_autoturnorder",
@@ -1147,7 +1237,8 @@
     "tags": [
       "essential"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/Geo_AutoTurnOrder.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/Geo_AutoTurnOrder.js",
+    "auto-update": true
   },
   {
     "id": "kyr_tiledrotationfix",
@@ -1159,7 +1250,8 @@
     "tags": [
       "essential"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/kyr_TiledRotationFix.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/kyr_TiledRotationFix.js",
+    "auto-update": true
   },
   {
     "id": "rph.no-omori-crash.patch",
@@ -1171,7 +1263,21 @@
     "tags": [
       "essential"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rph.no omori crash.patch.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rph.no omori crash.patch.js",
+    "auto-update": true
+  },
+  {
+    "id": "tr_autosavefaces",
+    "name": "TR_AutoSaveFaces",
+    "description": "v1.0 Automatically handles save faces.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "essential"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/TR_AutoSaveFaces.js",
+    "auto-update": true
   },
   {
     "id": "pixi_tilemap_patches",
@@ -1182,7 +1288,8 @@
       "essential",
       "rotatedtilefix"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rotatedtilefix/pixi_tilemap_patches.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rotatedtilefix/pixi_tilemap_patches.js",
+    "auto-update": true
   },
   {
     "id": "yed_tiled",
@@ -1195,7 +1302,8 @@
       "essential",
       "rotatedtilefix"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rotatedtilefix/YED_Tiled.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/rotatedtilefix/YED_Tiled.js",
+    "auto-update": true
   },
   {
     "id": "tiledfixer",
@@ -1206,7 +1314,8 @@
       "essential",
       "tiledfixer"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/tiledfixer/tiledfixer.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/ESSENTIAL plugins/tiledfixer/tiledfixer.js",
+    "auto-update": true
   },
   {
     "id": "amaratime",
@@ -1219,7 +1328,8 @@
       "event",
       "informational"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Informational/AmaraTime.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Informational/AmaraTime.js",
+    "auto-update": true
   },
   {
     "id": "dgt_dynamic_item_data",
@@ -1232,7 +1342,8 @@
       "event",
       "informational"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Informational/DGT_dynamic_item_data.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Informational/DGT_dynamic_item_data.js",
+    "auto-update": true
   },
   {
     "id": "dgt_condition_unlock",
@@ -1243,7 +1354,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/DGT_condition_unlock.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/DGT_condition_unlock.js",
+    "auto-update": true
   },
   {
     "id": "e97_eventhijack",
@@ -1256,7 +1368,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/E97_EventHijack.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/E97_EventHijack.js",
+    "auto-update": true
   },
   {
     "id": "fog_fixmessagecommonevent",
@@ -1269,7 +1382,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/FoG_FixMessageCommonEvent.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/FoG_FixMessageCommonEvent.js",
+    "auto-update": true
   },
   {
     "id": "fwd_eventpoints",
@@ -1284,7 +1398,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/FWD_Eventpoints.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/FWD_Eventpoints.js",
+    "auto-update": true
   },
   {
     "id": "geo_extrautconfigs",
@@ -1297,7 +1412,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Geo_ExtraUTConfigs.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Geo_ExtraUTConfigs.js",
+    "auto-update": true
   },
   {
     "id": "kebab_utbsystemfacesfix",
@@ -1310,7 +1426,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/kebab_UTBSystemFacesFix.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/kebab_UTBSystemFacesFix.js",
+    "auto-update": true
   },
   {
     "id": "pyro_forcerun",
@@ -1323,7 +1440,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/PYRO_ForceRun.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/PYRO_ForceRun.js",
+    "auto-update": true
   },
   {
     "id": "pyro_movemessage",
@@ -1336,7 +1454,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/PYRO_MoveMessage.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/PYRO_MoveMessage.js",
+    "auto-update": true
   },
   {
     "id": "rwb_extfollower",
@@ -1349,7 +1468,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/rwb_extfollower.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/rwb_extfollower.js",
+    "auto-update": true
   },
   {
     "id": "stahl_eventdistance",
@@ -1362,7 +1482,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Stahl_EventDistance.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Stahl_EventDistance.js",
+    "auto-update": true
   },
   {
     "id": "stahl_eventpreloadmeta",
@@ -1375,7 +1496,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Stahl_EventPreloadMeta.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/Stahl_EventPreloadMeta.js",
+    "auto-update": true
   },
   {
     "id": "tr_dynamicimages",
@@ -1388,7 +1510,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_DynamicImages.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_DynamicImages.js",
+    "auto-update": true
   },
   {
     "id": "tr_persistentbattlesound",
@@ -1401,7 +1524,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_PersistentBattleSound.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_PersistentBattleSound.js",
+    "auto-update": true
   },
   {
     "id": "tr_variablebasedimages",
@@ -1414,7 +1538,8 @@
       "event",
       "technical"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_VariableBasedImages.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Technical/TR_VariableBasedImages.js",
+    "auto-update": true
   },
   {
     "id": "dgt_beziercam",
@@ -1427,7 +1552,8 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/DGT_BezierCam.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/DGT_BezierCam.js",
+    "auto-update": true
   },
   {
     "id": "fd_weatherextension",
@@ -1440,7 +1566,8 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/FD_WeatherExtension.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/FD_WeatherExtension.js",
+    "auto-update": true
   },
   {
     "id": "koffin_morefoglayers",
@@ -1453,7 +1580,8 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/KOFFIN_MoreFogLayers.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/KOFFIN_MoreFogLayers.js",
+    "auto-update": true
   },
   {
     "id": "koffin_picturebelowcharsbutgood",
@@ -1466,7 +1594,8 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/KOFFIN_PictureBelowCharsButGood.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/KOFFIN_PictureBelowCharsButGood.js",
+    "auto-update": true
   },
   {
     "id": "train_fd_ripple",
@@ -1480,7 +1609,8 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TRain_FD_Ripple.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TRain_FD_Ripple.js",
+    "auto-update": true
   },
   {
     "id": "train_particlesjs",
@@ -1495,7 +1625,8 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TRain_ParticlesJS.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TRain_ParticlesJS.js",
+    "auto-update": true
   },
   {
     "id": "tr_betterinputicons",
@@ -1508,12 +1639,13 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TR_BetterInputIcons.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TR_BetterInputIcons.js",
+    "auto-update": true
   },
   {
-    "id": "tr_multiparallax",
-    "name": "TR_MultiParallax",
-    "description": "v1.0 Allows multiple parallaxes.",
+    "id": "tr_camerablockers",
+    "name": "TR_CameraBlockers",
+    "description": "v0.1 Allows Regions to Block Cam Movement",
     "authors": [
       "TomatoRadio"
     ],
@@ -1521,7 +1653,22 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TR_MultiParallax.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TR_CameraBlockers.js",
+    "auto-update": true
+  },
+  {
+    "id": "tr_multiparallax",
+    "name": "TR_MultiParallax",
+    "description": "v1.1 Allows multiple parallaxes.",
+    "authors": [
+      "TomatoRadio"
+    ],
+    "tags": [
+      "event",
+      "visual"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/TR_MultiParallax.js",
+    "auto-update": true
   },
   {
     "id": "wn_changecursorimage",
@@ -1534,7 +1681,8 @@
       "event",
       "visual"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/WN_ChangeCursorImage.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Event Plugins/Visual/WN_ChangeCursorImage.js",
+    "auto-update": true
   },
   {
     "id": "improved-save-&-load",
@@ -1546,7 +1694,8 @@
     "tags": [
       "gameplay"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/Improved Save & Load.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/Improved Save & Load.js",
+    "auto-update": true
   },
   {
     "id": "koffin_betterquest",
@@ -1558,7 +1707,8 @@
     "tags": [
       "gameplay"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/KOFFIN_BetterQuest.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/KOFFIN_BetterQuest.js",
+    "auto-update": true
   },
   {
     "id": "koffin_omorimusicplayer",
@@ -1570,7 +1720,22 @@
     "tags": [
       "gameplay"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/KOFFIN_OmoriMusicPlayer.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/KOFFIN_OmoriMusicPlayer.js",
+    "auto-update": true
+  },
+  {
+    "id": "tr_seededrng",
+    "name": "TR_SeededRng",
+    "description": "v1.0 Adds JS functions for seeded RNG.",
+    "authors": [
+      "TomatoRadio + Chris Doty-Humphrey",
+      "bryc"
+    ],
+    "tags": [
+      "gameplay"
+    ],
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/TR_SeededRng.js",
+    "auto-update": true
   },
   {
     "id": "badgesinmainmenu",
@@ -1581,7 +1746,8 @@
       "badges",
       "gameplay"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/badges/badgesInMainMenu.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/badges/badgesInMainMenu.js",
+    "auto-update": true
   },
   {
     "id": "dgt_badges",
@@ -1594,7 +1760,8 @@
       "badges",
       "gameplay"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/badges/DGT_Badges.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Gameplay Plugins/badges/DGT_Badges.js",
+    "auto-update": true
   },
   {
     "id": "geo_ultramode7patch",
@@ -1604,7 +1771,8 @@
     "tags": [
       "mod compatibility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/Geo_UltraMode7Patch.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/Geo_UltraMode7Patch.js",
+    "auto-update": true
   },
   {
     "id": "rwb_datainjector",
@@ -1614,7 +1782,8 @@
     "tags": [
       "mod compatibility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/rwb_datainjector.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/rwb_datainjector.js",
+    "auto-update": true
   },
   {
     "id": "rwb_stringidmaps",
@@ -1624,7 +1793,8 @@
     "tags": [
       "mod compatibility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/rwb_stringidmaps.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/rwb_stringidmaps.js",
+    "auto-update": true
   },
   {
     "id": "tr_checkmoddata",
@@ -1636,7 +1806,8 @@
     "tags": [
       "mod compatibility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_CheckModData.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_CheckModData.js",
+    "auto-update": true
   },
   {
     "id": "tr_girlmori_is_real",
@@ -1648,19 +1819,21 @@
     "tags": [
       "mod compatibility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_GIRLMORI_IS_REAL.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_GIRLMORI_IS_REAL.js",
+    "auto-update": true
   },
   {
     "id": "tr_jsextensions",
     "name": "TR_JsExtensions",
-    "description": "v6.0 Adds more JS functions to RPG Maker MV",
+    "description": "v7.0 Adds more JS functions to RPG Maker MV",
     "authors": [
       "TomatoRadio"
     ],
     "tags": [
       "mod compatibility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_JsExtensions.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/TR_JsExtensions.js",
+    "auto-update": true
   },
   {
     "id": "val",
@@ -1670,7 +1843,8 @@
     "tags": [
       "mod compatibility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/VAL.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Mod Compatibility Plugins/VAL.js",
+    "auto-update": true
   },
   {
     "id": "denyinjection",
@@ -1680,7 +1854,8 @@
     "tags": [
       "oneloader"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyInjection.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyInjection.js",
+    "auto-update": true
   },
   {
     "id": "denyothermods-execute",
@@ -1690,7 +1865,8 @@
     "tags": [
       "oneloader"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyOtherMods-Execute.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyOtherMods-Execute.js",
+    "auto-update": true
   },
   {
     "id": "denyothermods-main",
@@ -1700,7 +1876,8 @@
     "tags": [
       "oneloader"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyOtherMods-Main.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/DenyOtherMods-Main.js",
+    "auto-update": true
   },
   {
     "id": "force_load_first",
@@ -1710,7 +1887,8 @@
     "tags": [
       "oneloader"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/Force_Load_First.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/Force_Load_First.js",
+    "auto-update": true
   },
   {
     "id": "force_load_last",
@@ -1720,7 +1898,8 @@
     "tags": [
       "oneloader"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/Force_Load_Last.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/Force_Load_Last.js",
+    "auto-update": true
   },
   {
     "id": "rph_oneloader_version_check",
@@ -1730,7 +1909,8 @@
     "tags": [
       "oneloader"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/RPH_oneloader_version_check.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/OneLoader plugins/RPH_oneloader_version_check.js",
+    "auto-update": true
   },
   {
     "id": "geo_removebattlefadeout",
@@ -1740,7 +1920,8 @@
     "tags": [
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Geo_RemoveBattleFadeOut.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Geo_RemoveBattleFadeOut.js",
+    "auto-update": true
   },
   {
     "id": "goldcounterdisabler",
@@ -1750,7 +1931,8 @@
     "tags": [
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/GoldCounterDisabler.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/GoldCounterDisabler.js",
+    "auto-update": true
   },
   {
     "id": "pyro_lyrics",
@@ -1760,7 +1942,8 @@
     "tags": [
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/PYRO_Lyrics.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/PYRO_Lyrics.js",
+    "auto-update": true
   },
   {
     "id": "tr_verticalcursors",
@@ -1772,7 +1955,8 @@
     "tags": [
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/TR_VerticalCursors.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/TR_VerticalCursors.js",
+    "auto-update": true
   },
   {
     "id": "fd_easyphotoalbum",
@@ -1785,7 +1969,8 @@
       "easyphotoalbum",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/easyphotoalbum/FD_EasyPhotoAlbum.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/easyphotoalbum/FD_EasyPhotoAlbum.js",
+    "auto-update": true
   },
   {
     "id": "pyro_verttitle",
@@ -1798,7 +1983,8 @@
       "load and title screen",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/PYRO_VertTitle.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/PYRO_VertTitle.js",
+    "auto-update": true
   },
   {
     "id": "rph.splashexpander",
@@ -1811,7 +1997,8 @@
       "load and title screen",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/rph.splashExpander.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/rph.splashExpander.js",
+    "auto-update": true
   },
   {
     "id": "tr_changeloadimage",
@@ -1824,7 +2011,8 @@
       "load and title screen",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/TR_ChangeLoadImage.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/TR_ChangeLoadImage.js",
+    "auto-update": true
   },
   {
     "id": "fd_easytitlescreen",
@@ -1838,7 +2026,8 @@
       "load and title screen",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/easytitlescreen (no longer supported)/FD_EasyTitleScreen.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/easytitlescreen (no longer supported)/FD_EasyTitleScreen.js",
+    "auto-update": true
   },
   {
     "id": "fd_yamltitlescreen",
@@ -1852,7 +2041,8 @@
       "ui",
       "yamltitlescreen"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/yamltitlescreen/FD_YamlTitleScreen.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Load and Title Screen/yamltitlescreen/FD_YamlTitleScreen.js",
+    "auto-update": true
   },
   {
     "id": "dgt_liveupdatemessage",
@@ -1863,7 +2053,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/DGT_LiveUpdateMessage.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/DGT_LiveUpdateMessage.js",
+    "auto-update": true
   },
   {
     "id": "dgt_mirrortextorder",
@@ -1876,7 +2067,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/DGT_MirrorTextOrder.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/DGT_MirrorTextOrder.js",
+    "auto-update": true
   },
   {
     "id": "geo_messagefacechange",
@@ -1889,7 +2081,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/Geo_MessageFaceChange.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/Geo_MessageFaceChange.js",
+    "auto-update": true
   },
   {
     "id": "geo_restoredgroupfaceboxes",
@@ -1902,7 +2095,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/Geo_RestoredGroupFaceboxes.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/Geo_RestoredGroupFaceboxes.js",
+    "auto-update": true
   },
   {
     "id": "kebab_moretextcodes",
@@ -1915,7 +2109,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/kebab_moreTextCodes.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/kebab_moreTextCodes.js",
+    "auto-update": true
   },
   {
     "id": "rph.instashow",
@@ -1928,7 +2123,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/rph.instashow.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/rph.instashow.js",
+    "auto-update": true
   },
   {
     "id": "rph.macrorebind",
@@ -1941,7 +2137,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/rph.macrorebind.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/rph.macrorebind.js",
+    "auto-update": true
   },
   {
     "id": "train_extrafaces",
@@ -1954,7 +2151,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_ExtraFaces.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_ExtraFaces.js",
+    "auto-update": true
   },
   {
     "id": "train_texteval",
@@ -1967,7 +2165,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_TextEval.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_TextEval.js",
+    "auto-update": true
   },
   {
     "id": "train_textnote",
@@ -1980,7 +2179,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_TextNote.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TRain_TextNote.js",
+    "auto-update": true
   },
   {
     "id": "tr_fixdefaulttextcolor",
@@ -1993,7 +2193,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_FixDefaultTextColor.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_FixDefaultTextColor.js",
+    "auto-update": true
   },
   {
     "id": "tr_textsoundarrays",
@@ -2006,7 +2207,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_TextSoundArrays.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_TextSoundArrays.js",
+    "auto-update": true
   },
   {
     "id": "tr_variablebasedfacesets",
@@ -2019,7 +2221,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_VariableBasedFacesets.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/TR_VariableBasedFacesets.js",
+    "auto-update": true
   },
   {
     "id": "wn_megaphone",
@@ -2032,7 +2235,8 @@
       "message system",
       "ui"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/WN_Megaphone.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Message System/WN_Megaphone.js",
+    "auto-update": true
   },
   {
     "id": "angryautistichousewives",
@@ -2045,7 +2249,8 @@
       "ui",
       "window skins or layout"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/AngryAutisticHouseWives.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/AngryAutisticHouseWives.js",
+    "auto-update": true
   },
   {
     "id": "baby_externalcolorimage",
@@ -2058,7 +2263,8 @@
       "ui",
       "window skins or layout"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/BABY_ExternalColorImage.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/BABY_ExternalColorImage.js",
+    "auto-update": true
   },
   {
     "id": "train_vnchoice",
@@ -2071,7 +2277,8 @@
       "ui",
       "window skins or layout"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TRain_VNChoice.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TRain_VNChoice.js",
+    "auto-update": true
   },
   {
     "id": "train_winmsgshape",
@@ -2084,12 +2291,13 @@
       "ui",
       "window skins or layout"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TRain_WinMsgShape.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TRain_WinMsgShape.js",
+    "auto-update": true
   },
   {
     "id": "tr_restrictivewindowskins",
     "name": "TR_RestrictiveWindowskins",
-    "description": "Restricts Windowskin changes to only a specific group of Windows. Version 1.0",
+    "description": "Restricts Windowskin changes to only a specific group of Windows. Version 1.1",
     "authors": [
       "TomatoRadio"
     ],
@@ -2097,7 +2305,8 @@
       "ui",
       "window skins or layout"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TR_RestrictiveWindowskins.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/UI plugins/Window Skins or Layout/TR_RestrictiveWindowskins.js",
+    "auto-update": true
   },
   {
     "id": "tr_template",
@@ -2109,7 +2318,8 @@
     "tags": [
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/TR_Template.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/TR_Template.js",
+    "auto-update": true
   },
   {
     "id": "console",
@@ -2120,7 +2330,8 @@
       "dev tools",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/console.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/console.js",
+    "auto-update": true
   },
   {
     "id": "geo_improvedeventtest",
@@ -2133,7 +2344,8 @@
       "dev tools",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/Geo_ImprovedEventTest.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/Geo_ImprovedEventTest.js",
+    "auto-update": true
   },
   {
     "id": "kebab_customomorierrormessage",
@@ -2146,7 +2358,8 @@
       "dev tools",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/kebab_customOmoriErrorMessage.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/kebab_customOmoriErrorMessage.js",
+    "auto-update": true
   },
   {
     "id": "pixi-panel",
@@ -2157,7 +2370,8 @@
       "dev tools",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/pixi-panel.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/pixi-panel.js",
+    "auto-update": true
   },
   {
     "id": "tr_devtestvisibility",
@@ -2170,7 +2384,8 @@
       "dev tools",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/TR_DevTestVisibility.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Dev Tools/TR_DevTestVisibility.js",
+    "auto-update": true
   },
   {
     "id": "fog_base64tofile",
@@ -2183,7 +2398,8 @@
       "file management",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_Base64ToFile.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_Base64ToFile.js",
+    "auto-update": true
   },
   {
     "id": "fog_copyimagetofolder",
@@ -2196,7 +2412,8 @@
       "file management",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_CopyImageToFolder.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_CopyImageToFolder.js",
+    "auto-update": true
   },
   {
     "id": "fog_outputtofolder",
@@ -2209,7 +2426,8 @@
       "file management",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_OutputToFolder.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/FoG_OutputToFolder.js",
+    "auto-update": true
   },
   {
     "id": "train_screenshot",
@@ -2222,7 +2440,8 @@
       "file management",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/TRain_ScreenShot.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/File Management/TRain_ScreenShot.js",
+    "auto-update": true
   },
   {
     "id": "fd_betterplugincommands",
@@ -2235,7 +2454,8 @@
       "plugin commands",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Plugin Commands/FD_BetterPluginCommands.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Plugin Commands/FD_BetterPluginCommands.js",
+    "auto-update": true
   },
   {
     "id": "play_movie_to_ysp_video",
@@ -2246,7 +2466,8 @@
       "plugin commands",
       "utility"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Plugin Commands/Play_Movie_to_YSP_Video.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Plugin Commands/Play_Movie_to_YSP_Video.js",
+    "auto-update": true
   },
   {
     "id": "mousetoggle",
@@ -2259,7 +2480,8 @@
       "utility",
       "windows functionality"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/MouseToggle.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/MouseToggle.js",
+    "auto-update": true
   },
   {
     "id": "train_messagebox-v1_3eng",
@@ -2272,7 +2494,8 @@
       "utility",
       "windows functionality"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TRain_MessageBox v1_3eng.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TRain_MessageBox v1_3eng.js",
+    "auto-update": true
   },
   {
     "id": "tr_customcrashpopups",
@@ -2285,7 +2508,8 @@
       "utility",
       "windows functionality"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TR_CustomCrashPopups.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TR_CustomCrashPopups.js",
+    "auto-update": true
   },
   {
     "id": "tr_datechecker",
@@ -2298,6 +2522,7 @@
       "utility",
       "windows functionality"
     ],
-    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TR_DateChecker.js"
+    "url": "https://github.com/modsone/omori-modding-resources/blob/main/Utility Plugins/Windows Functionality/TR_DateChecker.js",
+    "auto-update": true
   }
 ]
