@@ -39,9 +39,16 @@ def generate_plugin_list():
                 try:
                     with open(full_path, 'r', encoding='utf-8', errors='ignore') as jf:
                         content = jf.read()
-                    m_desc = re.search(r'@plugindesc\s+(.+)', content)
+                    # Use re.DOTALL to let '.' match newlines
+                    # Use a lookahead '(?=\s*@|\s*\*\/)' to stop at the next tag or end of comment block
+                    m_desc = re.search(r'@plugindesc\s+(.*?)(?=\s*@|\s*\*\/)', content, re.DOTALL)
+
                     if m_desc:
-                        description = m_desc.group(1).strip().strip('*/ ').strip()
+                        raw_desc = m_desc.group(1)
+                        
+                        # Clean up multi-line formatting (removes leading asterisks on new lines)
+                        cleaned_lines = [line.strip().lstrip('*').strip() for line in raw_desc.split('\n')]
+                        description = " ".join(filter(None, cleaned_lines))
                     m_author = re.search(r'@author\s+(.+)', content)
                     if m_author:
                         raw_auth = m_author.group(1).strip().strip('*/ ').strip()

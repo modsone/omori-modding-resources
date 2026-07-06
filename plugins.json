@@ -197,7 +197,7 @@
   {
     "id": "koffin_battleaicore_combinedpatches",
     "name": "KOFFIN_BattleAICore_CombinedPatches",
-    "description": "v1.0 Combines multiple Battle AI Core patches into one.",
+    "description": "v1.0 Combines multiple Battle AI Core patches into one. Includes: Target Eval, Extended Conditions, Target Rate Fix, Emotion Addon",
     "authors": [
       "KoffinKrypt",
       "Draughtnyan (TARGEVAL)"
@@ -211,7 +211,7 @@
   {
     "id": "koffin_battleaicore_emotionaddon",
     "name": "KOFFIN_BattleAICore_EmotionAddon",
-    "description": "v1.0 This plugin adds extra functionality to Yanfly's",
+    "description": "v1.0 This plugin adds extra functionality to Yanfly's battle A.I. plugin regarding OMORI's EMOTION mechanic.",
     "authors": [
       "KoffinKrypt"
     ],
@@ -362,7 +362,7 @@
   {
     "id": "dgt_statespriteeffects",
     "name": "DGT_statespriteeffects",
-    "description": "DGT State Sprite Effects Plugin",
+    "description": "DGT State Sprite Effects Plugin Adds dynamic overlay effects to enemy and actor sprites using state notetags.",
     "authors": [
       "Draught"
     ],
@@ -425,7 +425,7 @@
   {
     "id": "koffin_expandedstatchanges",
     "name": "KOFFIN_ExpandedStatChanges",
-    "description": "Enhances the equipment status window with dynamic stat comparisons,",
+    "description": "Enhances the equipment status window with dynamic stat comparisons, fake stat bonuses, and customizable indicators.",
     "authors": [
       "KoffinKrypt"
     ],
@@ -477,7 +477,7 @@
   {
     "id": "koffin_spritestateindexfix",
     "name": "KOFFIN_SpriteStateIndexFix",
-    "description": "v1.1 Fixes sprite changes from states so that they properly inherit",
+    "description": "v1.1 Fixes sprite changes from states so that they properly inherit notetag values based on priority. Also adds a new notetag to adjust animation speed.",
     "authors": [
       "KoffinKrypt"
     ],
@@ -608,7 +608,7 @@
   {
     "id": "tr_custommenufacesizes",
     "name": "TR_CustomMenuFaceSizes",
-    "description": "Allows custom menu face sizes",
+    "description": "Allows custom menu face sizes Version 2.0",
     "authors": [
       "TomatoRadio"
     ],
@@ -621,7 +621,7 @@
   {
     "id": "tr_improvedbattlebacks_fadeinremoval",
     "name": "TR_ImprovedBattlebacks_FadeInRemoval",
-    "description": "Removes fade in from Improved Battlebacks",
+    "description": "Removes fade in from Improved Battlebacks Version 2.0",
     "authors": [
       "TomatoRadio"
     ],
@@ -647,7 +647,7 @@
   {
     "id": "tr_orderedskills",
     "name": "TR_OrderedSkills",
-    "description": "Allows hardcoded ordering of the skills in an actor's skill select menu.",
+    "description": "Allows hardcoded ordering of the skills in an actor's skill select menu. Version 1.2",
     "authors": [
       "TomatoRadio"
     ],
@@ -737,7 +737,7 @@
   {
     "id": "koffin_easyunequipskill",
     "name": "KOFFIN_EasyUnequipSkill",
-    "description": "Enhances the equipment status window with dynamic stat comparisons,",
+    "description": "Enhances the equipment status window with dynamic stat comparisons, fake stat bonuses, and customizable indicators.",
     "authors": [
       "KoffinKrypt"
     ],
@@ -816,7 +816,7 @@
   {
     "id": "tr_allowskillattempts",
     "name": "TR_AllowSkillAttempts",
-    "description": "Allows all Unicode characters.",
+    "description": "Allows all Unicode characters. Version 1.0",
     "authors": [
       "TomatoRadio"
     ],
@@ -971,7 +971,7 @@
   {
     "id": "doubleextendedyaml",
     "name": "DoubleExtendedYAML",
-    "description": "v03.31.09 Adds increased functionality to YAML messages.",
+    "description": "v03.31.09 Adds increased functionality to YAML messages. cppensi p ix. c p : pee pee...",
     "authors": [
       "WHITENOISE",
       "Bajamaid",
@@ -1021,7 +1021,7 @@
   {
     "id": "tr_battleflavor",
     "name": "TR_BattleFlavor",
-    "description": "Allows all Unicode characters.",
+    "description": "Allows all Unicode characters. Version 1.0",
     "authors": [
       "TomatoRadio"
     ],
@@ -1057,7 +1057,7 @@
   {
     "id": "tr_pictureshops",
     "name": "TR_PictureShops",
-    "description": "Allows pictures to be tied to shopkeepers and have frames for each message",
+    "description": "Allows pictures to be tied to shopkeepers and have frames for each message Version 1.0",
     "authors": [
       "TomatoRadio"
     ],
@@ -1081,7 +1081,7 @@
   {
     "id": "tr_yamldatabase",
     "name": "TR_YamlDatabase",
-    "description": "Allows storing Database text as a YAML file.",
+    "description": "Allows storing Database text as a YAML file. Version 1.1",
     "authors": [
       "TomatoRadio (With help from Bajamaid)"
     ],
@@ -1105,7 +1105,7 @@
   {
     "id": "wn_extendedyaml",
     "name": "WN_ExtendedYAML",
-    "description": "v53.59 Adds increased functionality to YAML messages.",
+    "description": "v53.59 Adds increased functionality to YAML messages. cppensi p ix. c p : pee pee...",
     "authors": [
       "WHITENOISE",
       "Bajamaid"
@@ -1187,7 +1187,7 @@
   {
     "id": "yed_tiled",
     "name": "YED_Tiled",
-    "description": "v1.20 Plugin supports Tiled Map Editor maps with some additional",
+    "description": "v1.20 Plugin supports Tiled Map Editor maps with some additional features.",
     "authors": [
       "Dr.Yami"
     ],
@@ -1328,7 +1328,7 @@
   {
     "id": "pyro_movemessage",
     "name": "PYRO_MoveMessage",
-    "description": "Allows you to move during a message if a particular script is called.",
+    "description": "Allows you to move during a message if a particular script is called. The effects of this plugin are per session. If a player restarts the game, the effect is lost. I believe loading another save will carry it over, so maybe change $gameTemp to anything else if you don't want that to happen",
     "authors": [
       "Pyro"
     ],
@@ -1393,7 +1393,7 @@
   {
     "id": "tr_persistentbattlesound",
     "name": "TR_PersistentBattleSound",
-    "description": "Allows for map sounds to persist into a battle instead of being stopped.",
+    "description": "Allows for map sounds to persist into a battle instead of being stopped. Version 1.0",
     "authors": [
       "TomatoRadio"
     ],
@@ -1419,7 +1419,7 @@
   {
     "id": "dgt_beziercam",
     "name": "DGT_BezierCam",
-    "description": "Allows smooth camera movement using Bezier curves with",
+    "description": "Allows smooth camera movement using Bezier curves with customizable easing animations. (v1.1.0)",
     "authors": [
       "Draught"
     ],
@@ -1458,7 +1458,7 @@
   {
     "id": "koffin_picturebelowcharsbutgood",
     "name": "KOFFIN_PictureBelowCharsButGood",
-    "description": "v1.10 Plugin to display multiple pictures with specific z-indexes below characters",
+    "description": "v1.10 Plugin to display multiple pictures with specific z-indexes below characters but above tilemap.",
     "authors": [
       "not Kenway (modified by KoffinKrypt)"
     ],
@@ -1563,7 +1563,7 @@
   {
     "id": "koffin_omorimusicplayer",
     "name": "KOFFIN_OmoriMusicPlayer",
-    "description": "This plugin shows a music player menu where selecting a track plays its BGM,",
+    "description": "This plugin shows a music player menu where selecting a track plays its BGM, can update the menu background, and offers transparent window and border options.",
     "authors": [
       "KoffinKrypt"
     ],
@@ -2011,7 +2011,7 @@
   {
     "id": "tr_variablebasedfacesets",
     "name": "TR_VariableBasedFacesets",
-    "description": "Allows Facesets to be swapped out with variables.",
+    "description": "Allows Facesets to be swapped out with variables. Version 1.0",
     "authors": [
       "TomatoRadio"
     ],
@@ -2089,7 +2089,7 @@
   {
     "id": "tr_restrictivewindowskins",
     "name": "TR_RestrictiveWindowskins",
-    "description": "Restricts Windowskin changes to only a specific group of Windows.",
+    "description": "Restricts Windowskin changes to only a specific group of Windows. Version 1.0",
     "authors": [
       "TomatoRadio"
     ],
@@ -2290,7 +2290,7 @@
   {
     "id": "tr_datechecker",
     "name": "TR_DateChecker",
-    "description": "Adds a bunch of Date checking functions.",
+    "description": "Adds a bunch of Date checking functions. Version 2.0",
     "authors": [
       "TomatoRadio"
     ],
