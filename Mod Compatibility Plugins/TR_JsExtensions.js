@@ -8,10 +8,10 @@ Imported.TR_JsExtensions = true;
 
 var TR = TR || {};
 TR.JSEXT = TR.JSEXT || {};
-TR.JSEXT.version = 7;
+TR.JSEXT.version = 8;
 
 /*: 
- * @plugindesc v7.0 Adds more JS functions to RPG Maker MV
+ * @plugindesc v8.0 Adds more JS functions to RPG Maker MV
  * @author TomatoRadio
  * 
  * @help
@@ -547,6 +547,26 @@ DataManager.actorAltName = function(obj) {
 };
 TR.actorAltName = DataManager.actorAltName;
 
+
+/**
+ * 
+ * This method sets the custom frame of a character, but the indexes
+ * are localized to the character set being used.
+ * Eg, you're using the sixth character set of a sheet and you run
+ * this.setRelativeCustomFrameXY(0,0);
+ * this will be converted into
+ * this.setCustomFrameXY(3,4);
+ * 
+ * @param {Integer} x The X index
+ * @param {Integer} y The Y index
+ */
+Game_CharacterBase.prototype.setRelativeCustomFrameXY = function(x,y) {
+  let index = this.characterIndex();
+  let x2 = x+3*(index%4);
+  let y2 = y+4*Math.floor(index/4);
+  this.setCustomFrameXY(x2,y2);
+};
+
 /**
  * 
  * This method clears a bunch of map-exclusive data for a specific map.
@@ -567,6 +587,44 @@ Game_Map.prototype.clearMapData = function(mapId) {
   for (let key of deletedLocations) {delete $gameSystem._savedEventLocations[key];};
 };
 TR.clearMapData = Game_Map.prototype.clearMapData;
+
+
+/**
+ * 
+ * These methods allow quick operations on a variable.
+ * add -> Addition
+ * sub -> Subtraction
+ * mul -> Multiplication
+ * div -> Division
+ * mod -> Modulo
+ * 
+ * @param {Integer} id The VariableID being modified.
+ * @param {Number} value The operating value.
+ */
+Game_Variables.prototype.addValue = function(id,value) {
+	let val = this.value(id)+value;
+	this.setValue(id,val);
+};
+
+Game_Variables.prototype.subValue = function(id,value) {
+	let val = this.value(id)-value;
+	this.setValue(id,val);
+};
+
+Game_Variables.prototype.mulValue = function(id,value) {
+	let val = this.value(id)*value;
+	this.setValue(id,val);
+};
+
+Game_Variables.prototype.divValue = function(id,value) {
+	let val = this.value(id)/value;
+	this.setValue(id,val);
+};
+
+Game_Variables.prototype.modValue = function(id,value) {
+	let val = this.value(id)%value;
+	this.setValue(id,val);
+};
 
 /**
  * Returns the x coordinate of the right side of the window,
