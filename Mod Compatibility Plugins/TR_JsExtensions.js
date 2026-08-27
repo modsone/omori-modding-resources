@@ -8,10 +8,10 @@ Imported.TR_JsExtensions = true;
 
 var TR = TR || {};
 TR.JSEXT = TR.JSEXT || {};
-TR.JSEXT.version = 8;
+TR.JSEXT.version = 9;
 
 /*: 
- * @plugindesc v8.0 Adds more JS functions to RPG Maker MV
+ * @plugindesc v9.0 Adds more JS functions to RPG Maker MV
  * @author TomatoRadio
  * 
  * @help
@@ -238,6 +238,19 @@ Array.prototype.findItemIndex = function(wanted,strict = false) {
 
 /**
  * 
+ * Pushes a value multiple times to an array.
+ * 
+ * @param {*} val The value to push.
+ * @param {Integer} num The number of times to push.
+ * @returns {Integer} The length of the array after pushing.
+ */
+Array.prototype.pushMultiple = function(val,num) {
+  for (let i = 0; i < num; i++) {this.push(val)};
+  return this.length;
+}
+
+/**
+ * 
  * Returns true if both Arrays share at least 1 element.
  * 
  * @method Array.prototype.shares
@@ -424,6 +437,27 @@ Number.prototype.format = function(seperator=',') {
 };
 
 /**
+ * 
+ * Behaves the same as Object.assign, but modifies and returns
+ * a copy of target instead of target itself.
+ * 
+ * @method Object.assignToCopy
+ * @param {Object} target The object to be assigned.
+ * @param {Object} source The object to assign from.
+ * @returns {Object} A copy of target with properties assigned from source.
+ */
+Object.assignToCopy = function(target,source) {
+  let ret = {};
+  for (let key in target) {
+    ret[key] = target[key];
+  };
+  for (let key in source) {
+    ret[key] = source[key];
+  };
+  return ret;
+};
+
+/**
  * Transforms a list of key-value pairs into an object.
  *
  * @method Object.fromEntries
@@ -547,6 +581,60 @@ DataManager.actorAltName = function(obj) {
 };
 TR.actorAltName = DataManager.actorAltName;
 
+/**
+ * 
+ * Returns the Sprite_Character for a Game_Character.
+ * 
+ * @returns {Sprite_Character} The corresponding sprite
+ */
+Game_CharacterBase.prototype.getSprite = function() {
+  let arr = SceneManager._scene._spriteset._characterSprites;
+  return arr.find((c) => {return c._character === this});
+};
+
+/**
+ * 
+ * Returns the value of a character's SelfSwitch
+ * 
+ * @param {String} key The SelfSwitch name
+ * @returns {Boolean}
+ */
+Game_CharacterBase.prototype.selfSwitch = function(key) {
+  return $gameSelfSwitches.value([$gameMap._mapId,this.eventId(),key]);
+};
+
+/**
+ * 
+ * Sets the value of a character's SelfSwitch
+ * 
+ * @param {String} key The SelfSwitch name
+ * @param {Boolean} value The value to assign
+ */
+Game_CharacterBase.prototype.setSelfSwitch = function(key,value) {
+  $gameSelfSwitches.setValue([$gameMap._mapId,this.eventId(),key],value);
+};
+
+/**
+ * 
+ * Returns the value of a character's SelfVariable
+ * 
+ * @param {Integer} key The SelfVariable name
+ * @returns {Boolean} 
+ */
+Game_CharacterBase.prototype.selfVariable = function(key) {
+  return $gameSelfVariables.value([$gameMap._mapId,this.eventId(),key]);
+};
+
+/**
+ * 
+ * Sets the value of a character's SelfVariable
+ * 
+ * @param {Integer} key The SelfVariable name
+ * @param {Boolean} value The value to assign
+ */
+Game_CharacterBase.prototype.setSelfVariable = function(key,value) {
+  $gameSelfVariables.setValue([$gameMap._mapId,this.eventId(),key],value);
+};
 
 /**
  * 
@@ -627,6 +715,17 @@ Game_Variables.prototype.modValue = function(id,value) {
 };
 
 /**
+ * 
+ * Returns the name of an audio file based on its URL.
+ * 
+ * @returns {String} The name
+ */
+WebAudio.prototype.nameFromUrl = function() {
+    var result = (/audio\/\w+\/(?<name>\w+)\./ig).exec(this._url);
+    if (result && result.groups) {return result.groups.name};
+};
+
+/**
  * Returns the x coordinate of the right side of the window,
  * or the y coordinate of the bottom side of the window.
  * 
@@ -671,7 +770,7 @@ Game_Interpreter.prototype.waitForGalvCam = function() {
 };
 
 // These require Badges obviously.
-if (DGT.Badges) {
+if (DGT && DGT.Badges) {
   /**
    * Debug function that unlocks every badge in the given modId
    * @param {String} modId The modId defined by the badgedata_modId.yaml of the mod.
@@ -699,3 +798,16 @@ if (DGT.Badges) {
   DGT.UnlockAllBadges = DGT.unlockAllBadges;
   DGT.LockAllBadges = DGT.lockAllBadges;
 };
+
+// These are simply windows with their padding set to 4, 
+// which means that you can draw to everything withing the white borders.
+function Window_Padless() { this.initialize.apply(this, arguments); }
+Window_Padless.prototype = Object.create(Window_Base.prototype);
+Window_Padless.prototype.constructor = Window_Padless;
+Window_Padless.prototype.standardPadding = function() {return 4;}
+Window_Padless.prototype.textPadding = function() {return 4;}
+function Window_PadlessSelectable() { this.initialize.apply(this, arguments); }
+Window_PadlessSelectable.prototype = Object.create(Window_Selectable.prototype);
+Window_PadlessSelectable.prototype.constructor = Window_PadlessSelectable;
+Window_PadlessSelectable.prototype.standardPadding = function() {return 4;}
+Window_PadlessSelectable.prototype.textPadding = function() {return 4;}
