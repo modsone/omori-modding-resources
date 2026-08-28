@@ -1,12 +1,12 @@
 
 /*:
- * @plugindesc v1.0 Extends the YAML Message functions
+ * @plugindesc v1.1 Extends the YAML Message functions
  * @author TomatoRadio
  *
  * 
  * @help
  * 
- * TripleExtendedYAML - v1.0.0
+ * TripleExtendedYAML - v1.1
  * -----------------------------------------------------------------------------------
  * 
  * This plugin greatly extends the YAML Message function,
@@ -237,7 +237,14 @@
  * 
  * Changelog:
  * v1.0 - Release, see DExtYAML addressments for changes from DExtYAML.
- * 
+ * v1.1 - 
+ *   - Fixed Macro defaults using a hardcoded file
+ *   - Added temporary all-lowercase versions of the textsound parameters
+ *       - v1.2 will feature case-insensitive checks to properly remove this problem
+ *   - Renamed the default macro YAML from "macros" to "macro" to match DExtYAML
+ *   - Added a version number variable to the TExtYAML object
+ *       - Will prob not be used for awhile but good to have jic
+ *
  * -----------------------------------------------------------------------------------
  * 
  *  _____                     _       ______          _ _       
@@ -255,10 +262,11 @@ var Imported = Imported || {};
 Imported.TripleExtendedYAML = true;
 
 var TExtYAML = TExtYAML || {};
+TExtYAML.version = 1.1;
 
 
 // If no YAML is given (no "." is found to be specific), then the game assumes this yaml
-TExtYAML.macroYaml = "macros";
+TExtYAML.macroYaml = "macro";
 
 // These windowskins will be reserved on bootup.
 TExtYAML.reservedWindowskins = ["Window"];
@@ -341,6 +349,13 @@ DataManager.loadTExtYAML = function() {
   this.addTextKey("textPitchVar","extYamlTextPitchVar");
   this.addTextKey("textPanVar","extYamlTextPanVar");
   this.addTextKey("textInterval","extYamlTextInterval");
+  this.addTextKey("textsound","extYamlTextSound");
+  this.addTextKey("textvolume","extYamlTextVolume");
+  this.addTextKey("textpitch","extYamlTextPitch");
+  this.addTextKey("textpan","extYamlTextPan");
+  this.addTextKey("textpitchvar","extYamlTextPitchVar");
+  this.addTextKey("textpanvar","extYamlTextPanVar");
+  this.addTextKey("textinterval","extYamlTextInterval");
   this.addTextKey("se","extYamlSe");
   this.addTextKey("me","extYamlMe");
   this.addTextKey("windowShape","extYamlWindowShape");
@@ -385,7 +400,7 @@ Game_Message.prototype.showLanguageMessage = function(code) {
 };
 
 Game_Message.prototype.extYamlMacro = function(value,data) {
-  if (!value.includes(".")) value = "cap_sys_macros."+value;
+  if (!value.includes(".")) value = TExtYAML.macroYaml + "." + value;
   var macro = LanguageManager.getMessageData(value);
   while (macro.macro !== undefined) {
     let macro2 = LanguageManager.getMessageData(macro.macro);
