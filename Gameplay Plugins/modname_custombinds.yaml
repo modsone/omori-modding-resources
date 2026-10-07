@@ -1,0 +1,75 @@
+# Include custom keys here you'd like to implement.
+# Keys/Gamepad Keys that happens to already have been bound in either mapper will be defaulted to "UNBOUND", and the
+# player must set up a key for themselves in the config menu.
+#
+# Feel free to rename this file to anything else, AS LONG as it ends with the "_custombinds", like "modnamehere_custombinds".
+#
+# EXAMPLE
+# nameofinput:
+#     menuName: example
+#     key: 0
+#     gamepadKey: 0
+#
+# EXPLANATION
+# "nameofinput" - The name of the input the game will be checking if it's pressed/held/etc.
+# For example, to check if the custom key you've made is being pressed, you'd do "Input.isPressed('nameofinput')" in a script.
+#
+# "menuName" - The name of the input that will be shown in OMORI's key configuration menu.
+#
+# "key" - The default key code the input will be assigned to when loading up the mod for the first time,
+# and whenever the "RESET ALL" command is selected.
+#
+# "gamepadKey" - The default gamepad key code the input will be assigned to when loading up the mod for the first time,
+# and whenever the "RESET ALL" command is selected.
+#
+# KEY CODE LIST
+#
+# 0: 'NO KEYCODE', # 3: 'break',
+# 8: 'backspace', # 9: 'tab',
+# 12: 'clear', # 13: 'enter',
+# 16: 'shift', # 17: 'ctrl',
+# 18: 'alt', # 19: 'pause/break',
+# 20: 'caps lock', # 21: 'hangul',
+# 25: 'hanja', # 27: 'escape',
+# 28: 'conversion', # 29: 'non-conversion',
+# 32: 'spacebar', # 33: 'page up',
+# 34: 'page down', # 35: 'end',
+# 36: 'home', # 37: 'left arrow',
+# 38: 'up arrow', # 39: 'right arrow',
+# 40: 'down arrow', # 41: 'select',
+# 42: 'print', # 43: 'execute',
+# 44: 'Print Screen', # 45: 'insert',
+# 46: 'delete', # 47: 'help',
+# 48: '0', # 49: '1',
+# 50: '2', # 51: '3',
+# 52: '4', # 53: '5',
+# 54: '6', # 55: '7',
+# 56: '8', # 57: '9',
+# 58: ':', # 59: 'semicolon (firefox), equals',
+# 60: '<', # 61: 'equals (firefox)',
+# 63: 'ß', # 64: '@ (firefox)',
+# 65: 'a', # 66: 'b',
+# 67: 'c', # 68: 'd',
+# 69: 'e', # 70: 'f',
+# 71: 'g', # 72: 'h',
+# 73: 'i', # 74: 'j',
+# 75: 'k', # 76: 'l',
+# 77: 'm', # 78: 'n',
+# 79: 'o', # 80: 'p',
+# 81: 'q', # 82: 'r',
+# 83: 's', # 84: 't',
+# 85: 'u', # 86: 'v',
+# 87: 'w', # 88: 'x',
+# 89: 'y', # 90: 'z',
+#
+# GAMEPAD KEY CODE LIST
+#      
+# 6: 'SIX6', # 7: 'SEVEN7',
+# 9: 'NINE9', # 10: 'TEN10',
+# 11: 'ELEVEN11',  # 16: 'SIXTEEN16',
+#
+
+nameofinput:
+    menuName: example
+    key: 0
+    gamepadKey: 0

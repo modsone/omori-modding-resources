@@ -43,10 +43,9 @@ General plugins that are helpful with development features, such as simplifying 
 Plugins that allows support for other mods, or is a "Core" plugin to other plugins, usually due to common shared functions.
 ### OneMaker Plugins
 Distinct from RPG Maker MV Plugins. These files are for modifying ([OneMaker MV](https://mods.one/mod/onemakermv)).
-Please read the comment at the top of each respective file to see what to rename the file to, where to place it in _hijack_root/qml/, and what the mod generally does.
-QML files can be read by most text editors, so simply open it in vsCode or Notepad++ to view the comment.
-OneMaker needs to be restarted for these changes to take effect.
-*NOTE: Due to being direct file replacement, most of these mods are DESTRUCTIVE and removing them requires a backup of the original files.*
+In this repository we store them as folders, which contain a `qml/` folder and sometimes a `js` file. The qml folder is to be copied over the folder of the same name in `RPG Maker MV/_hijack_root/qml`, while the `js` file - if present - should be added a normal RPGMV plugin.
+
+*NOTE: Due to being direct file replacement, some of these mods are DESTRUCTIVE and removing them requires a backup of the original files.*
 
 ## Useful Links
 ### OMORI Modding Info
