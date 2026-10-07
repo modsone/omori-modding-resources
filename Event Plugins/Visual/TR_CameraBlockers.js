@@ -11,7 +11,7 @@ TR.CB = TR.CB || {};
 
 /*: 
  *
- * @plugindesc v0.1 Allows Regions to Block Cam Movement
+ * @plugindesc v0.2 Allows Regions to Block Cam Movement
  * @author TomatoRadio
  * 
  * @help
@@ -43,6 +43,12 @@ TR.CB = TR.CB || {};
  * with the name @tomatoradio. I am relatively active in the
  * MODSPACE server and also have open DMs, so either method
  * of contact works.
+ * 
+ * ----------------------------------------------------------
+ * 
+ * v0.1 - Release
+ * v0.2 - Fixed bug where opening the menu misaligns the camera.
+ * (Thank you Another Fran)
  * 
  * @param regions
  * @text Region IDs
@@ -200,8 +206,8 @@ Game_Map.prototype.setDisplayPos = function(x, y) {
         };
         if (bottom === null) bottom = 0;
         if (right === null) right = 0;
-        x = Math.ceil(x+left+right);
-        y = Math.ceil(y+top+bottom);
+        x = left || right ? Math.ceil(x+left+right) : x;
+        y = top || bottom ? Math.ceil(y+top+bottom) : y;
     };
     TR.CB.setDisplayPos.call(this,x,y);
 };
@@ -209,7 +215,8 @@ Game_Map.prototype.setDisplayPos = function(x, y) {
 TR.CB.onMapLoaded = Scene_Map.prototype.onMapLoaded;
 Scene_Map.prototype.onMapLoaded = function() {
     TR.CB.onMapLoaded.call(this);
-    $gamePlayer.locate($gamePlayer.x,$gamePlayer.y);
+	Game_CharacterBase.prototype.locate.call($gamePlayer, $gamePlayer.x, $gamePlayer.y);
+	$gamePlayer.center($gamePlayer.x, $gamePlayer.y);
 };  
 
 Game_Map.prototype.displayRightX = function() {return this._displayX+this.screenTileX()};

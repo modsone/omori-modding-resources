@@ -12,7 +12,7 @@ TR.BL = TR.BL || {};
 // "Yeah it's too easy"
 
 /*:
- * @plugindesc v1.0 Allows lines to be drawn on bitmaps and between characters.
+ * @plugindesc v1.1 Allows lines to be drawn on bitmaps and between characters.
  *
  * @author TomatoRadio
  *
@@ -173,6 +173,21 @@ Game_Map.prototype.deleteLines = function(mapId) {
             tilemap.removeChild(s);
         };
     });
+};
+
+Game_Map.prototype.updateLinePos = function(offset1,offset2) {
+    if (offset1) this._lines[this._mapId][0][1].offset1 = offset1;
+    if (offset2) this._lines[this._mapId][0][1].offset2 = offset2;
+    let line = SceneManager._scene._spriteset._tilemap.children.find((s) => s instanceof Sprite_Line);
+    if (offset1) line._data.offset1 = offset1;
+    if (offset2) line._data.offset2 = offset2;
+};
+
+Game_Map.prototype.hideLine = function() {
+    SceneManager._scene._spriteset._tilemap.children.find((s) => s instanceof Sprite_Line).alpha = 0;
+};
+Game_Map.prototype.showLine = function() {
+    SceneManager._scene._spriteset._tilemap.children.find((s) => s instanceof Sprite_Line).alpha = 1;
 };
 
 const __SPRITESETMAP_OLD_CREATETILEMAP__ = Spriteset_Map.prototype.createTilemap;
