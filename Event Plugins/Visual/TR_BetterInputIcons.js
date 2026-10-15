@@ -65,7 +65,7 @@ Bitmap.loadInputIcon = function(key,alt=false) {
     "down": {x:24,y:0,width:24,height:24}
   }}
   // Get Rect
-  var rect = alt ? rects.up : rects.down;
+  var rect = !alt ? rects.up : rects.down;
   var bitmap = new Bitmap(rect.width,rect.height);
   // Determine key type;
   let rectX = rect.x;

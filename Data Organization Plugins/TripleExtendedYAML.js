@@ -1,12 +1,22 @@
+//=============================================================================
+// Triple Extended YAML - By TomatoRadio
+// TripleExtendedYAML.js
+//=============================================================================
+
+//Import info
+var Imported = Imported || {};
+Imported.TripleExtendedYAML = true;
+
+var TExtYAML = TExtYAML || {};
+TExtYAML.version = 1.2;
 
 /*:
- * @plugindesc v1.1 Extends the YAML Message functions
+ * @plugindesc v1.2 Extends the YAML Message functions
  * @author TomatoRadio
- *
  * 
  * @help
  * 
- * TripleExtendedYAML - v1.1
+ * TripleExtendedYAML - v1.2
  * -----------------------------------------------------------------------------------
  * 
  * This plugin greatly extends the YAML Message function,
@@ -166,16 +176,18 @@
  * 
  * Plugin Editing Info:
  * 
- * New YAML codes can be assigned through DataManager.addTextKey(code,func,rVar,before);
+ * New YAML codes can be assigned through DataManager.addTextKey(key,func,rVar,before);
  * If you would like to add yours at the same time as the base, then you can 
  * monkeypatch DataManager.loadTExtYAML(); and append the keys at the end.
  * 
  * Now to breakdown the addTextKey function:
  * * - Optional
  * 
- * --- code ---
+ * --- key ---
  * This is the name of key that will be used in yamls,
- * like faceset and positionType. These are case-sensitive.
+ * like faceset and positionType.
+ * These are case-sensitive in the TExtYAML.textKeys array,
+ * but the checks are insensitive using DataManager.getTextKey(data,key)
  * 
  * --- func ---
  * This is a STRING name of the function that will be called
@@ -195,6 +207,7 @@
  * than displaying a message on the message window, like popups.
  * 
  * If left undefined the return value will be ignored.
+ * 
  * --- before ---
  * This allows for key ordering.
  * 
@@ -203,6 +216,9 @@
  * 
  * If it doesn't exist it will simply be appended to the end of the
  * list like default.
+ * 
+ * Unlike the above parameters, this is NOT stored in the TExtYAML.textKeys
+ * array as a property of the textcode.
  * 
  * ---
  * 
@@ -244,6 +260,18 @@
  *   - Renamed the default macro YAML from "macros" to "macro" to match DExtYAML
  *   - Added a version number variable to the TExtYAML object
  *       - Will prob not be used for awhile but good to have jic
+ * v1.2 -
+ *   - Fixed Object.assignToCopy() inproperly editing the original object.
+ *       - This caused the default parameters to be overwritten by macros.
+ *   - Cleaned up recursive macros.
+ *   - Added case-insenstive checking.
+ *       - By proxy, the temporary textsound variants have been removed.
+ *       - Codes are still stored with sensitive casing.
+ *   - After all text codes are loaded,
+ *     they will be logged to a table when the game starts.
+ *       - This is ran by DataManager.reportTExtYAML() and occurs after
+ *         DataManager.loadTExtYAML() is ran, so modded codes should also be logged.
+ *   - Corrected errors in the documentation.
  *
  * -----------------------------------------------------------------------------------
  * 
@@ -256,14 +284,6 @@
  * 
  * 
  */
-
-//Import info
-var Imported = Imported || {};
-Imported.TripleExtendedYAML = true;
-
-var TExtYAML = TExtYAML || {};
-TExtYAML.version = 1.1;
-
 
 // If no YAML is given (no "." is found to be specific), then the game assumes this yaml
 TExtYAML.macroYaml = "macro";
@@ -300,14 +320,7 @@ Object.deepAssign = function(target,source,depth=0) {
 };
 
 Object.assignToCopy = function(target,source) {
-  let ret = {};
-  for (let key in target) {
-    ret[key] = target[key];
-  };
-  for (let key in source) {
-    ret[key] = source[key];
-  };
-  return ret;
+  return Object.assign(JsonEx.makeDeepCopy(target),source);
 };
 
 TExtYAML.isDatabaseLoaded = DataManager.isDatabaseLoaded;
@@ -315,6 +328,7 @@ DataManager.isDatabaseLoaded = function() {
   if (!TExtYAML.isDatabaseLoaded.call(this)) return false;
   if (!TExtYAML._loadedDatabase) {
     this.loadTExtYAML();
+    this.reportTExtYAML();
     TExtYAML._loadedDatabase = true;
   };
   return true;
@@ -349,13 +363,6 @@ DataManager.loadTExtYAML = function() {
   this.addTextKey("textPitchVar","extYamlTextPitchVar");
   this.addTextKey("textPanVar","extYamlTextPanVar");
   this.addTextKey("textInterval","extYamlTextInterval");
-  this.addTextKey("textsound","extYamlTextSound");
-  this.addTextKey("textvolume","extYamlTextVolume");
-  this.addTextKey("textpitch","extYamlTextPitch");
-  this.addTextKey("textpan","extYamlTextPan");
-  this.addTextKey("textpitchvar","extYamlTextPitchVar");
-  this.addTextKey("textpanvar","extYamlTextPanVar");
-  this.addTextKey("textinterval","extYamlTextInterval");
   this.addTextKey("se","extYamlSe");
   this.addTextKey("me","extYamlMe");
   this.addTextKey("windowShape","extYamlWindowShape");
@@ -376,14 +383,22 @@ DataManager.addTextKey = function(key,func,rVar,before) {
   TExtYAML.textKeys.push(obj);
 };
 
+DataManager.reportTExtYAML = function() {
+  console.table(TExtYAML.textKeys,['key','func','rVar']);
+};
+
+DataManager.getTextKey = function(data,key) {
+  return data[Object.keys(data).find((objKey) => key.toLowerCase() === objKey.toLowerCase())];
+};
+
 Game_Message.prototype.showLanguageMessage = function(code) {
   // Base data
-  var data = LanguageManager.getMessageData(code);
+  var data = Object.assignToCopy(TExtYAML.default,LanguageManager.getMessageData(code));
   var text = data.text;
   // For-Looping
   for (let obj of TExtYAML.textKeys) {
-    if (data[obj.key] === undefined) continue;
-    let value = data[obj.key];
+    let value = DataManager.getTextKey(data,obj.key);
+    if (value === undefined) continue;
     let result = this[obj.func](value,data,text);
     switch(obj.rVar) {
       case "data":data=result;break;
@@ -400,20 +415,24 @@ Game_Message.prototype.showLanguageMessage = function(code) {
 };
 
 Game_Message.prototype.extYamlMacro = function(value,data) {
-  if (!value.includes(".")) value = TExtYAML.macroYaml + "." + value;
+  if (!value.includes(".")) value = TExtYAML.macroYaml+"."+value;
   var macro = LanguageManager.getMessageData(value);
   while (macro.macro !== undefined) {
-    let macro2 = LanguageManager.getMessageData(macro.macro);
+    let value2 = macro.macro;
+    if (!value2.includes(".")) value2 = TExtYAML.macroYaml+"."+value2;
+    let macro2 = LanguageManager.getMessageData(value2);
     for (let key in macro2) {
-      console.log(key);
-      if (macro[key] === undefined || key === "macro") {macro[key] = macro2[key];};
+      if (macro[key] === undefined || key === "macro") {
+        macro[key] = macro2[key];
+      };
     };
-    if (macro2.macro === undefined) {macro.macro = undefined};
+    if (macro2.macro === undefined) {
+        macro.macro = undefined;
+      };
   };
   for (let key in macro) {
     if (data[key] === undefined) {data[key] = macro[key]};
   };
-  data = Object.assignToCopy(TExtYAML.default,data);
   return data;
 };
 
