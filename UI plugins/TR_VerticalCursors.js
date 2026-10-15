@@ -117,7 +117,7 @@ Window_Selectable.prototype.initCustomCursorRect = function() {
 
 };
 /*========================================================================================================
-COMMENTED OUT EXAMPLE
+//COMMENTED OUT EXAMPLE : This makes the title screen commands use a vert cursor. Good for when you are using Badges.
 Window_OmoTitleScreenBox.prototype.isUsingCustomCursorVertRectSprite = function() { return true; }
 Window_OmoTitleScreenBox.prototype.customCursorRectBitmapName = function() { return 'cursor_menu_vert'; }
 Window_OmoTitleScreenBox.prototype.customCursorRectXOffset = function() { return (this.width/2)+5; }

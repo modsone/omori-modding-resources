@@ -82,7 +82,7 @@ NAME.TEMP = NAME.TEMP || {};
  * @desc Description
  * @default 1
  * 
- * Reminder that Arrays can be set to any of the above types like a Java array. (eg. number[])
+ * Reminder that Arrays can be set as a typed array of any other param type. (eg. number[])
  * @param array
  * @text Array Param
  * @type []
@@ -139,7 +139,7 @@ NAME.TEMP.Param = PluginManager.parameters('TR_Template');
 NAME.TEMP.string = NAME.TEMP.Param["string"];
 NAME.TEMP.note = NAME.TEMP.Param["note"];
 NAME.TEMP.boolean = eval(NAME.TEMP.Param["boolean"]);
-NAME.TEMP.number = Number(NAME.TEMP.Param["number"]);
+NAME.TEMP.number = Number(NAME.TEMP.Param["number"]); // Can be made into a parseInt() if you need an integer
 NAME.TEMP.file = NAME.TEMP.Param["file"];
 NAME.TEMP.select = NAME.TEMP.Param["select"]; // This can be made into a parseInt() or Number() if you store them as numbers
 NAME.TEMP.combo = NAME.TEMP.Param["combo"];
