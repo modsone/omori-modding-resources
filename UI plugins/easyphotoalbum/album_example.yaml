@@ -14,9 +14,18 @@ Dreamworld:
     textPageImage: Dreamworld_dreamworld_pg
     albumBackground: Dreamworld_polaroidBG_FA
     lockEmptyPages: false
+    weather:
+        type: rain
+        image: rain # if you have WeatherExtension you can use multiple images here, separated by commas
+        power: 1
+        index: 2 # directly above the background
     albumParallax: 
         image: Dreamworld_polaroidBG_FA_day
         speedX: 0.1
+        speedY: 0
+    albumParallax2:
+        image: Dreamworld_polaroidBG_FA
+        speedX: 0.5
         speedY: 0
     pages:
         1: 877, 878, 879, 880, 881, 882
