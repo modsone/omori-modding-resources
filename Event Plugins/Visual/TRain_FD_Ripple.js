@@ -139,6 +139,32 @@
 
 
 
+/*
+==== Comment Added in-post from Forum, appended by Stahl ====
+
+In parallels we ended up in a situation where we needed to change the ripple mask, so here's a function to do that in case its helpful for others
+Spriteset_Map.prototype.changeRippleMask = function(filename) {
+  $gameMap._rippleMask = filename;
+  var maskBitmap = ImageManager.loadBitmap(TR_Rpl.filepath, filename, 0, false);
+
+  var loopX = $gameMap.isLoopHorizontal() ? 2 : 1;
+  var loopY = $gameMap.isLoopVertical() ? 2 : 1;
+  if (loopX === 1 && loopY === 1){
+  } else {    // Looping map
+      var maskLooped = new Bitmap(loopX*$gameMap.width()*$gameMap.tileWidth(), loopY*$gameMap.height()*$gameMap.tileHeight());
+      maskBitmap.addLoadListener(function(){
+          for (var i = 0; i < loopX; i++)
+              for (var j = 0; j < loopY; j++)
+                  maskLooped.blt(maskBitmap, 0, 0, maskBitmap.width, maskBitmap.height, i*maskBitmap.width, j*maskBitmap.height);
+      });
+    maskBitmap = maskLooped;
+  };
+  this._rippleContainer.mask.bitmap = maskBitmap;
+};
+
+Script call would be:
+SceneManager._scene._spriteset.changeRippleMask("ripplemask_alt");
+*/
 
 
 

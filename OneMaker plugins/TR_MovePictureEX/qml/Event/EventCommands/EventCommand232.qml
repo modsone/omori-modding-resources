@@ -1,5 +1,5 @@
 // ===========================================================
-// Move Picture EX - By TomatoRadio (Version 1.0)
+// Move Picture EX - By TomatoRadio (Version 1.0.1)
 // Import Filename: EventCommand232.qml
 // Import Directory: Event/EventCommands/
 // Adds UI for the MovePictureEX Plugin Command.
@@ -586,7 +586,7 @@ EventCommandBase {
             };
             //Set Curve
             if (easingCheck.checked) {
-                c = " c:"+easingMode.currentText.toLowerCase();
+                c = " c:"+easingMode.currentText;
             } else {
                 c = "";
             };

@@ -41,16 +41,23 @@ General plugins that are helpful with development features, such as simplifying 
 - Windows Functionality: Plugin that interacts with the windows functionality itself, such as error popups. Useful for "meta" mods.
 ### Mod Compatability Plugins
 Plugins that allows support for other mods, or is a "Core" plugin to other plugins, usually due to common shared functions.
+### OneMaker Plugins
+Distinct from RPG Maker MV Plugins. These files are for modifying ([OneMaker MV](https://mods.one/mod/onemakermv)).
+In this repository we store them as folders, which contain a `qml/` folder and sometimes a `js` file. The qml folder is to be copied over the folder of the same name in `RPG Maker MV/_hijack_root/qml`, while the `js` file - if present - should be added a normal RPGMV plugin.
+
+*NOTE: Due to being direct file replacement, some of these mods are DESTRUCTIVE and removing them requires a backup of the original files.*
 
 ## Useful Links
 ### OMORI Modding Info
-- [OneMaker MV](https://github.com/FoGsesipod/OneMaker-MV) \- Modifies the RPGMaker MV Editor with useful tweaks for modding Omori.
-- [FruitDragon & TomatoRadio OMORI Modding Guide](https://docs.google.com/document/d/1t59hzeERvwok2ZsQVs6AgFj5WVZdeAPwiWYFgkDGLiE)
+- [FruitDragon & TomatoRadio's OMORI Modding Guide](https://docs.google.com/document/d/1t59hzeERvwok2ZsQVs6AgFj5WVZdeAPwiWYFgkDGLiE)
 - [Beginner Guide to make OMORI Mods](https://youtu.be/ASFFJUf8t0w?si=oPs2yH3SU_qpN2Zy)
+- [MrSkroob's Obsidian Repository Guide](https://github.com/MrSkroob/mod-knowledge-base)
 
 ### OMORI Modding Tools
+- [OneMaker MV](https://github.com/FoGsesipod/OneMaker-MV) \- Modifies the RPGMaker MV Editor with useful tweaks for modding Omori.
 - [Omori Save Files](https://docs.google.com/document/d/1qYsW_uXsBD0wMtmQG06UxIMfbGYuTgeu-AHzzdjCw-s)
 - [Omori Yaml Portrait Viewer](https://github.com/StahlReyn/omoriyamlportraitviewer) \- VSCode extension to view face portrait files in yaml messages.
+- [Custom Error Message](https://docs.google.com/document/d/1Ea1707pndoaqqj5Q8l_Xkm6SKPWLzFs5jF_QnWeBc64)
 
 ### Other General Knowledge
 - [RMMV Plugin Making](https://youtube.com/playlist?list=PL3Fv4Z54bWaGjcORlYg6TKsnoQDf2no3d&si=MvZqxdLBM4Nbqw8O) \- Beginner plugin making guide

@@ -8,54 +8,23 @@ Imported.TR_JsExtensions = true;
 
 var TR = TR || {};
 TR.JSEXT = TR.JSEXT || {};
-TR.JSEXT.version = 6;
+TR.JSEXT.version = 10;
 
 /*: 
- * @plugindesc v6.0 Adds more JS functions to RPG Maker MV
+ * @plugindesc v10.0 Adds more JS functions to RPG Maker MV
  * @author TomatoRadio
  * 
  * @help
- * OMORI runs using a pre-2020 version of nwjs, meaning
- * that newer JS functions don't work with it.
+ * This plugin was initially to add modern JS functions to OMORI's version of nwjs,
+ * but now it simply serves to host various JS functions I've made for personal use.
  * 
- * This plugin adds some of those functions.
- * It also adds some general stuff that I like using.
+ * Please read the plugin code for the available functions.
  * 
 */
 
-/**
- * Returns the first item of the Array to not be
- * nullish (null or undefined).
- * @param {Array} operators An array of the operators.
- * @param {*} fallback The item to be returned if the entire Array is nullish. Defaults to null.
- * @return {*} The first item in the array to not be null or undefined.
- */
-TR.NullCoal = function(operators, fallback = null) {
-	for (const thing of operators) {
-		if (thing !== undefined && thing !== null) {
-			return thing;
-		}
-	}
-	return fallback;
-};
-TR.nullCoal = TR.NullCoal;
+// ============================================== BASE JAVASCRIPT ==============================================
 
-/**
- * Returns true if exactly one of the two arguments
- * are truthy.
- * 
- * @param {*} first 
- * @param {*} second 
- * @return {Boolean} Boolean
- */
-TR.XOR = function(first,second) {
-	let truth = 0;
-	if (first) truth++
-	if (second) truth++
-	if (truth === 1) return true;
-	return false;
-}
-TR.xor = TR.XOR;
+// These functions extend the base JavaScript classes, and will work even outside of RPG Maker MV.
 
 /**
  * Returns the item at the given index.
@@ -67,9 +36,41 @@ TR.xor = TR.XOR;
  * @return {*} The item at given index.
  */
 Array.prototype.at = function(index) {
-    if (index >= 0) return this[index];
+  if (index >= 0) return this[index];
 	else return this[(this.length+index)];
 };
+
+/**
+ * 
+ * Returns an Array of Numbers starting at 'start' and
+ * ending at start+distance, going by intervals of 1.
+ * Looping is also supported.
+ * 
+ * @param {Number} start The number to start at
+ * @param {Number} distance The distance from start
+ * @param {Number} min The lowest number allowed. Default MinSafeInt
+ * @param {Number} max The highest number allowed. Default MaxSafeInt
+ * @param {Boolean} loop Whether to loop when reaching min/max. If false the array is immediately returned when the min/max is reached. Default true
+ * @returns {Array}
+ */
+Array.distanceLoop = function(start,distance,min=Number.MIN_SAFE_INTEGER,max=Number.MAX_SAFE_INTEGER,loop=true) {
+    let arr = [];
+    let mult = distance > 0 ? 1 : -1;
+    for (let i = start; arr.length <= Math.abs(distance); i+=mult) {
+        if (i < min) {if (loop) {i = max} else {break;}};
+        if (i > max) {if (loop) {i = min} else {break;}};
+        arr.push(i);
+    };
+    return arr;
+};
+
+/**
+ * 
+ * Returns a copy of the array with all duplicate entries removed.
+ * 
+ * @returns {Array}
+ */
+Array.prototype.dupeless = function() {var ret = [];for (let e of this) {if (!ret.includes(e)) ret.push(e)};return ret;};
 
 /**
  * Returns the last item to satisfy a
@@ -81,7 +82,7 @@ Array.prototype.at = function(index) {
  * @return {*} The last item that passes the function.
  */
 Array.prototype.findLast = function(func, thisArg = this) {
-    for (let i = this.length; i >= 0; i--) {
+  for (let i = this.length; i >= 0; i--) {
 		if (func.call(thisArg,this[i],i,this)) return this[i];
 	}
 	return undefined;
@@ -97,7 +98,7 @@ Array.prototype.findLast = function(func, thisArg = this) {
  * @return {Number} The index of the last item that passes the function.
  */
 Array.prototype.findLastIndex = function(func, thisArg = this) {
-    for (let i = this.length; i >= 0; i--) {
+  for (let i = this.length; i >= 0; i--) {
 		if (func.call(thisArg,this[i],i,this)) return i;
 	}
 	return -1;
@@ -139,9 +140,22 @@ Array.prototype.flat = function(depth=1) {
  * @param {thisArg} thisArg The value to be used as 'this' for the callback function.
  * @return {Array} The flattened Array.
  */
-Array.prototype.flatMap = function() {
-	return this.map(...args).flat();
+Array.prototype.flatMap = function() {return this.map(...args).flat()};
+
+/**
+ * Returns the first item of the Array to not be
+ * nullish (null or undefined).
+ * @param {Array} operators An array of the operators.
+ * @param {*} fallback The item to be returned if the entire Array is nullish. Defaults to null.
+ * @return {*} The first item in the array to not be null or undefined.
+ */
+Array.nullCoal = function(operators, fallback = null) {
+	for (const thing of operators) {if (thing !== undefined && thing !== null) {return thing}}
+	return fallback;
 };
+Array.NullCoal = Array.nullCoal;
+TR.NullCoal = Array.nullCoal;
+TR.nullCoal = Array.nullCoal;
 
 /**
  * Returns a new array formed by reversing the Array.
@@ -149,10 +163,7 @@ Array.prototype.flatMap = function() {
  * @method Array.prototype.toReversed
  * @return {Array} The reversed Array.
  */
-Array.prototype.toReversed = function() {
-	var copy = Array.from(this);
-	return copy.reverse();
-};
+Array.prototype.toReversed = function() {return Array.from(this).reverse()};
 
 /**
  * Returns a new array formed by sorting the Array.
@@ -160,10 +171,7 @@ Array.prototype.toReversed = function() {
  * @method Array.prototype.toSorted
  * @return {Array} The sorted Array.
  */
-Array.prototype.toSorted = function() {
-	var copy = Array.from(this);
-	return copy.sort();
-};
+Array.prototype.toSorted = function() {return Array.from(this).sort()};
 
 /**
  * Returns a new array formed by splicing the Array.
@@ -171,10 +179,7 @@ Array.prototype.toSorted = function() {
  * @method Array.prototype.toSpliced
  * @return {Array} The spliced Array.
  */
-Array.prototype.toSpliced = function() {
-	var copy = Array.from(this);
-	return copy.splice(...args);
-};
+Array.prototype.toSpliced = function() {return Array.from(this).splice(...args)};
 
 /**
  * Returns a new array formed by replacing
@@ -199,7 +204,7 @@ Array.prototype.with = function(index,value) {
  * @return {*} A random item.
  */
 Array.prototype.random = function() {
-	if (!this) {return undefined;};
+	if (!this) {return undefined};
 	return this[Math.floor(Math.random()*this.length)];
 };
 
@@ -229,15 +234,26 @@ Array.prototype.findItemIndex = function(wanted,strict = false) {
 
 /**
  * 
+ * Pushes a value multiple times to an array.
+ * 
+ * @param {*} val The value to push.
+ * @param {Integer} num The number of times to push.
+ * @returns {Integer} The length of the array after pushing.
+ */
+Array.prototype.pushMultiple = function(val,num) {
+  for (let i = 0; i < num; i++) {this.push(val)};
+  return this.length;
+}
+
+/**
+ * 
  * Returns true if both Arrays share at least 1 element.
  * 
  * @method Array.prototype.shares
  * @param {Array} arr The other array to check.
  * @return {Boolean} True if the other Array includes on of this array's elements.
  */
-Array.prototype.shares = function(arr) {
-	return this.some(e=>arr.includes(e))
-};
+Array.prototype.shares = function(arr) {return this.some(e=>arr.includes(e))};
 
 /**
  * 
@@ -257,6 +273,76 @@ Array.prototype.shuffle = function() {
     newArr[index] = item;
   };
   return newArr;
+};
+
+/**
+ * Returns true if exactly one of the two arguments
+ * are truthy.
+ * 
+ * @param {*} first 
+ * @param {*} second 
+ * @return {Boolean} Boolean
+ */
+Boolean.XOR = function(first,second) {return ((first || second) && !(first && second))};
+Boolean.xor = Boolean.XOR;
+TR.XOR = Boolean.XOR;
+TR.xor = Boolean.XOR;
+
+/**
+ * Converts in-game frames into an array of
+ * [Minutes,Seconds,Milliseconds], all rounded.
+ * The method assumes 60fps with no slowdown.
+ * 
+ * @param {Number} frames Number of Frames
+ * @returns {Array} An array of integers.
+ */
+Date.frameToTime = function(frames=0) {
+  let min = Math.floor(frames/3600);
+  frames %= 3600;
+  let sec = Math.floor(frames/60);
+  frames %= 60;
+  let mil = Math.round(frames/0.06);
+  return [min,sec,mil];
+};
+TR.frameToTime = Date.frameToTime;
+
+/**
+ * Converts Minutes:Seconds:Milliseconds into in-game frames.
+ * The method assumes 60fps with no slowdown.
+ * 
+ * @param {Number} min Number of Minutes, defaults to 0
+ * @param {Number} sec Number of Seconds, defaults to 0
+ * @param {Number} mil Number of Milliseconds, defaults to 0
+ * @returns {Number} The time in frames.
+ */
+Date.timeToFrame = function(min=0,sec=0,mil=0) {
+  let frame = min*3600;
+  frame += sec*60;
+  frame += mil*0.06;
+  return frame;
+};
+TR.timeToFrame = Date.timeToFrame;
+
+/**
+ * 
+ * Returns value1 or value2 based on which is closer to target.
+ * min & max can be used to support looping.
+ * If both values are the same distance, value1 is returned.
+ * 
+ * @param {Number} target The reference value
+ * @param {Number} value1 The first value being compared
+ * @param {Number} value2 The second value being compared
+ * @param {Boolean} loop Whether to allow looping distances. Default true
+ * @param {Number} min The minimum value when looping. Default Number.MIN_SAFE_INTEGER
+ * @param {Number} max The maximum value when looping. Default Number.MAX_SAFE_INTEGER
+ * @returns {Number} Returns value1 or value2
+ */
+Math.closest = function(target,value1,value2,loop=true,min=Number.MIN_SAFE_INTEGER,max=Number.MAX_SAFE_INTEGER) {
+  let distance1 = Math.abs(target-value1);
+  if (distance1 > max/2 && loop) distance1 = max-value1+target;
+  let distance2 = Math.abs(target-value2);
+  if (distance2 > max/2 && loop) distance2 = max-value2+target;
+  return Math.min(distance1,distance2) === distance1 ? value1 : value2;
 };
 
 /**
@@ -281,6 +367,44 @@ Math.factorial = function(num) {
 };
 
 /**
+ * 
+ * Returns value1 or value2 based on which is farther from target.
+ * min & max can be used to support looping.
+ * If both values are the same distance, value1 is returned.
+ * 
+ * @param {Number} target The reference value
+ * @param {Number} value1 The first value being compared
+ * @param {Number} value2 The second value being compared
+ * @param {Boolean} loop Whether to allow looping distances. Default true
+ * @param {Number} min The minimum value when looping. Default Number.MIN_SAFE_INTEGER
+ * @param {Number} max The maximum value when looping. Default Number.MAX_SAFE_INTEGER
+ * @returns {Number} Returns value1 or value2
+ */
+Math.farthest = function(target,value1,value2,loop=true,min=Number.MIN_SAFE_INTEGER,max=Number.MAX_SAFE_INTEGER) {
+  let distance1 = Math.abs(target-value1);
+  if (distance1 > max/2 && loop) distance1 = max-value1+target;
+  let distance2 = Math.abs(target-value2);
+  if (distance2 > max/2 && loop) distance2 = max-value2+target;
+  return Math.max(distance1,distance2) === distance1 ? value1 : value2;
+};
+
+/**
+ * Adds or subtracts to a value based on if
+ * it is greater or less than a target value.
+ * 
+ * @method Math.towards
+ * @param {Number} value The value being altered.
+ * @param {Number} target The target value.
+ * @param {Number} step The amount to modify the value by. Default 1.
+ * @param {Boolean} overshoot If true, the value can overshoot the target with higher steps. Default false.
+ * @return {Number} The modified value.
+ * 
+ */
+Math.towards = function(value,target,step=1,overshoot=false) {
+  return (value > target ? this.max((overshoot ? value-step : target),value-step) : this.min((overshoot ? value+step : target),value+step))
+};
+
+/**
  * Returns true if value is equal to target with a margin
  * of error.
  *
@@ -291,7 +415,7 @@ Math.factorial = function(num) {
  * @return {Boolean}
  */
 Math.withinRange = function(value,target,elipson) {
-    return (value >= target-elipson && value <= target+elipson);
+  return (value >= target-elipson && value <= target+elipson);
 };
 
 /**
@@ -365,18 +489,10 @@ Object.map = function(array,callbackFn,thisArg) {
 };
 
 
-// ==========================================================================================================================================
-/*
-METHODS PAST HERE REQUIRE RPGMAKER
-This obviously shouldn't matter much since this is an RPGMaker plugin,
-but it's worth noting for people who may want to use these elsewhere.
+// ============================================== REQUIRES RPG MAKER MV ==============================================
 
-In addition, some functions are placed inside of an IF block with the condition (1<0), which is obviously false.
-If you would like to enable these functions, please simply edit the < to a >
-They are commented out in order to prevent potential errors with them running when they aren't meant to.
-
-*/
-// ==========================================================================================================================================
+// These functions extend off of the base RPG Maker MV classes, and therefore will not work in generic environments.
+// They will work in other RPG Maker MV projects, however.
 
 /**
  * 
@@ -388,19 +504,18 @@ They are commented out in order to prevent potential errors with them running wh
  * 
  * Note: due to referring to $dataActors, equipments and ingame buffs
  * will not be factored into the ordering.
- * @method TR.returnStatList
  * @param {Integer} param The index of the parameter being checked.
  * @param {Integer} level The level of all actors when getting their param.
  * @returns {String} A numbered list of every actor ordered by param.
  */
-TR.returnStatList = function(param,level=50) {
-  var actors = $dataActors.filter(function(a) {return a && a.name && a.meta && a.meta.BattleStatusFaceName});
+DataManager.returnStatList = function(param,level=50) {
+  var actors = $dataActors.filter(function(a) {return a && a.name});
   actors.sort(function(a,b) {
     let aStat = $dataClasses[a.classId].params[param][level];
     let bStat = $dataClasses[b.classId].params[param][level];
     return bStat-aStat;
   });
-  var lowestStat = 999999999999999999;
+  var lowestStat = Number.NEGATIVE_INFINITY;
   var count = 0;
   var string = "";
   var tempCount = 1;
@@ -414,6 +529,7 @@ TR.returnStatList = function(param,level=50) {
   };
   return string;
 };
+TR.returnStatList = DataManager.returnStatList;
 
 /**
  * 
@@ -421,37 +537,89 @@ TR.returnStatList = function(param,level=50) {
  * but will default back to the Name if no Nickname exists.
  * 
  * Useful for actors that share names, but have a Nickname to distinguish them.
- * (eg. Faraway and Headspace variants of the main cast)
  * 
  * @param {Object} obj Either the Game_Actor object, or the $dataActors entry for the actor
  * @returns {String} The alternate name.
  */
-TR.actorAltName = function(obj) {
+DataManager.actorAltName = function(obj) {
   if (obj instanceof Game_Actor) {
     return obj.nickname() ? obj.nickname() : obj.name();
   } else {
     return obj.nickname ? obj.nickname : obj.name;
   };
 };
+TR.actorAltName = DataManager.actorAltName;
 
 /**
  * 
- * This method clears a bunch of map-exclusive data for a specific map.
- * To be specific, it does the following:
- * - Resets all Self-Switches to False (Including scripted and OneMaker Switches)
- * - Resets all Self-Variables to 0 (Including scripted and OneMaker Switches)
- * - Deletes all Saved Event Locations
+ * Returns the Sprite_Character for a Game_Character.
  * 
- * @param {Integer} mapId The ID of the map to clear.
+ * @returns {Sprite_Character} The corresponding sprite
  */
-TR.clearMapData = function(mapId) {
-  let isolateMapKeys = function(object){return Object.keys(object).filter(k=>k.startsWith(String(mapId)))};
-  let deletedSwitches = isolateMapKeys($gameSelfSwitches._data);
-  let deletedVariables = isolateMapKeys($gameSelfVariables._data);
-  let deletedLocations = isolateMapKeys($gameSystem._savedEventLocations);
-  for (let key of deletedSwitches) {delete $gameSelfSwitches._data[key];};
-  for (let key of deletedVariables) {delete $gameSelfVariables._data[key];};
-  for (let key of deletedLocations) {delete $gameSystem._savedEventLocations[key];};
+Game_CharacterBase.prototype.getSprite = function() {
+  let arr = SceneManager._scene._spriteset._characterSprites;
+  return arr.find((c) => {return c._character === this});
+};
+
+/**
+ * 
+ * Returns the value of a character's SelfSwitch
+ * 
+ * @param {String} key The SelfSwitch name
+ * @returns {Boolean}
+ */
+Game_CharacterBase.prototype.selfSwitch = function(key) {return $gameSelfSwitches.value([$gameMap._mapId,this.eventId(),key])};
+
+/**
+ * 
+ * Sets the value of a character's SelfSwitch
+ * 
+ * @param {String} key The SelfSwitch name
+ * @param {Boolean} value The value to assign
+ */
+Game_CharacterBase.prototype.setSelfSwitch = function(key,value) {$gameSelfSwitches.setValue([$gameMap._mapId,this.eventId(),key],value)};
+
+/**
+ * 
+ * These methods allow quick operations on a variable.
+ * add -> Addition
+ * sub -> Subtraction
+ * mul -> Multiplication
+ * div -> Division
+ * mod -> Modulo
+ * exp -> Exponentation
+ * 
+ * @param {Integer} id The VariableID being modified.
+ * @param {Number} value The operating value.
+ */
+Game_Variables.prototype.addValue = function(id,value) {this.setValue(id,this.value(id)+value)};
+Game_Variables.prototype.subValue = function(id,value) {this.setValue(id,this.value(id)-value)};
+Game_Variables.prototype.mulValue = function(id,value) {this.setValue(id,this.value(id)*value)};
+Game_Variables.prototype.divValue = function(id,value) {this.setValue(id,this.value(id)/value)};
+Game_Variables.prototype.modValue = function(id,value) {this.setValue(id,this.value(id)%value)};
+Game_Variables.prototype.expValue = function(id,value) {this.setValue(id,this.value(id)**value)};
+
+/**
+ * 
+ * Behaves the same as Object.assign,
+ * but will return a copy of the target object
+ * instead of modifying the original.
+ * 
+ * @param {Object} target The affected object
+ * @param {Object} source The object being pulled from
+ * @returns {Object} A copy of target with source's parameters applied.
+ */
+Object.assignToCopy = function(target,source) {return Object.assign(JsonEx.makeDeepCopy(target),source);};
+
+/**
+ * 
+ * Returns the name of an audio file based on its URL.
+ * 
+ * @returns {String} The name
+ */
+WebAudio.prototype.nameFromUrl = function() {
+    var result = (/audio\/\w+\/(?<name>\w+)\./ig).exec(this._url);
+    if (result && result.groups) {return result.groups.name};
 };
 
 /**
@@ -463,7 +631,72 @@ TR.clearMapData = function(mapId) {
 Window.prototype.rightX = function() {return this.x+this.width};
 Window.prototype.bottomY = function() {return this.y+this.height};
 
+
+// ============================================== REQUIRES OMORI ==============================================
+
+// These functions extend off of the plugins in OMORI and common OMORI plugins.
+// Each set of functions will denote what dependencies they have.
+
 /**
+ * DEPENDENCY: OMORI's Self-Variables (edited rpg_* series)
+ * Returns the value of a character's SelfVariable
+ * 
+ * @param {Integer} key The SelfVariable name
+ * @returns {Boolean} 
+ */
+Game_CharacterBase.prototype.selfVariable = function(key) {return $gameSelfVariables.value([$gameMap._mapId,this.eventId(),key])};
+
+/**
+ * DEPENDENCY: OMORI's Self-Variables (edited rpg_* series)
+ * Sets the value of a character's SelfVariable
+ * 
+ * @param {Integer} key The SelfVariable name
+ * @param {Boolean} value The value to assign
+ */
+Game_CharacterBase.prototype.setSelfVariable = function(key,value) {$gameSelfVariables.setValue([$gameMap._mapId,this.eventId(),key],value)};
+
+
+/**
+ * DEPENDENCY: OMORI's Self-Variables (edited rpg_* series), Game_CharacterBase.prototype.setSelfVariable (this plugin)
+ * These methods allow quick operations on a self variable.
+ * add -> Addition
+ * sub -> Subtraction
+ * mul -> Multiplication
+ * div -> Division
+ * mod -> Modulo
+ * exp -> Exponentation
+ * 
+ * @param {Integer} id The SelfVariableID being modified.
+ * @param {Number} value The operating value.
+ */
+Game_CharacterBase.prototype.addSelfVariable = function(id,value) {this.setSelfVariable(id,this.selfVariable(id)+value)};
+Game_CharacterBase.prototype.subSelfVariable = function(id,value) {this.setSelfVariable(id,this.selfVariable(id)-value)};
+Game_CharacterBase.prototype.mulSelfVariable = function(id,value) {this.setSelfVariable(id,this.selfVariable(id)*value)};
+Game_CharacterBase.prototype.divSelfVariable = function(id,value) {this.setSelfVariable(id,this.selfVariable(id)/value)};
+Game_CharacterBase.prototype.modSelfVariable = function(id,value) {this.setSelfVariable(id,this.selfVariable(id)%value)};
+Game_CharacterBase.prototype.expSelfVariable = function(id,value) {this.setSelfVariable(id,this.selfVariable(id)**value)};
+
+/**
+ * DEPENDENCY: Custom_Character_Rectangles
+ * This method sets the custom frame of a character, but the indexes
+ * are localized to the character set being used.
+ * Eg, you're using the sixth character set of a sheet and you run
+ * this.setRelativeCustomFrameXY(0,0);
+ * this will be converted into
+ * this.setCustomFrameXY(3,4);
+ * 
+ * @param {Integer} x The X index
+ * @param {Integer} y The Y index
+ */
+Game_CharacterBase.prototype.setRelativeCustomFrameXY = function(x,y) {
+  let index = this.characterIndex();
+  let x2 = x+3*(index%4);
+  let y2 = y+4*Math.floor(index/4);
+  this.setCustomFrameXY(x2,y2);
+};
+
+/**
+ * DEPENDENCY: GALV_CamControl
  * Runs code to determine whether the camera from GALV_CamControl (the one we use in OMORI)
  * has reached it's target. If it has, it breaks the current loop of the event.
  * 
@@ -472,9 +705,11 @@ Window.prototype.bottomY = function() {return this.y+this.height};
  * ◆Script：this.waitForGalvCam();
  * ◆
  * ：Repeat Above
- * The code also automatically adds a 5 frame wait for every check, so lag shouldn't occur.
+ * 
+ * @param {Number} wait The number of frames to wait between each check. Default 5. If falsy, don't wait.
+ * 
  */
-Game_Interpreter.prototype.waitForGalvCam = function() {
+Game_Interpreter.prototype.waitForGalvCam = function(wait=5) {
   const t  = $gameMap.camTarget;
   var tx = t.screenX();var ty = t.screenY();
   var sx = Graphics.width/2;var sy = Graphics.height/2;
@@ -495,101 +730,155 @@ Game_Interpreter.prototype.waitForGalvCam = function() {
   if (Math.withinRange(tx,sx,$gameMap.tileWidth()/2)&&Math.withinRange(ty,sy,$gameMap.tileWidth()/2)) {
     this.command113();
   };
-  this.wait(5);
+  if (wait) this.wait(wait);
 };
 
-// These function need the DGT_Badges plugin loaded ABOVE this plugin.
-if (1<0) {
+/**
+ * DEPENDENCIES: OMORI's Self-Variables (edited rpg_* series), YEP_SaveEventLocations
+ * This method clears a bunch of map-exclusive data for a specific map.
+ * To be specific, it does the following:
+ * - Resets all Self-Switches to False (Including scripted and OneMaker Switches)
+ * - Resets all Self-Variables to 0 (Including scripted and OneMaker Switches)
+ * - Deletes all Saved Event Locations
+ * 
+ * @param {Integer} mapId The ID of the map to clear.
+ */
+Game_Map.prototype.clearMapData = function(mapId) {
+  let isolateMapKeys = function(object){return Object.keys(object).filter(k=>k.startsWith(String(mapId)))};
+  let deletedSwitches = isolateMapKeys($gameSelfSwitches._data);
+  let deletedVariables = isolateMapKeys($gameSelfVariables._data);
+  let deletedLocations = isolateMapKeys($gameSystem._savedEventLocations);
+  for (let key of deletedSwitches) {delete $gameSelfSwitches._data[key];};
+  for (let key of deletedVariables) {delete $gameSelfVariables._data[key];};
+  for (let key of deletedLocations) {delete $gameSystem._savedEventLocations[key];};
+};
+TR.clearMapData = Game_Map.prototype.clearMapData;
+
+
+// DEPENDENCY: DGT_Badges
+if (DGT && DGT.Badges) {
   /**
    * Debug function that unlocks every badge in the given modId
-   * @method DGT.unlockAllBadges
    * @param {String} modId The modId defined by the badgedata_modId.yaml of the mod.
    */
-  DGT.unlockAllBadges = function(modId) {
-    for (const badge in DGT.Badges._data[modId]) {
-      DGT.UnlockBadgeSilent(modId,badge);
-    };
-  };
+  DGT.unlockAllBadges = function(modId) {for (const badge in DGT.Badges._data[modId]) {DGT.UnlockBadgeSilent(modId,badge)}};
 
   /**
    * Debug function that locks every badge in the given modId
-   * @method DGT.lockAllBadges
    * @param {String} modId The modId defined by the badgedata_modId.yaml of the mod.
    */
-  DGT.lockAllBadges = function(modId) {
-    for (const badge in DGT.Badges._data[modId]) {
-      DGT.LockBadge(modId,badge);
-    };
-  };
+  DGT.lockAllBadges = function(modId) {for (const badge in DGT.Badges._data[modId]) {DGT.LockBadge(modId,badge)}};
 
-  // These declarations allow prevent capitalization errors.
+  // These declarations prevent capitalization errors.
   DGT.unlockBadge = DGT.UnlockBadge;
   DGT.unlockBadgeSilent = DGT.UnlockBadgeSilent;
   DGT.lockBadge = DGT.LockBadge;
+  DGT.UnlockAllBadges = DGT.unlockAllBadges;
+  DGT.LockAllBadges = DGT.lockAllBadges;
 };
 
-// This edit automatically handles the adding of new actors to the save menu.
-// This menu will not save face edits caused by GIRLMORI IS REAL, DynamicImages, or VariableBasedFacesets.
-if (1<0) {
-  Game_Actor.prototype.faceSaveLoad = function() {
-    var actor = this.actor();
-    if (actor && this.battleStatusFaceName()) {
-      return this.battleStatusFaceName();
-    } else {
-      console.error("SAVE FACE ERROR: Actor is falsy OR there's not BattleStatusFaceName",this.actor(),this.battleStatusFaceName());
-      return "01_OMORI_BATTLE";
-    };
-  };
-};
+// DEPENDENCY: None, but the padding is set to the border of OMORI's windowskin.
+// These are simply windows with their padding set to 4, 
+// which means that you can draw to everything withing the white borders.
+function Window_Padless() { this.initialize.apply(this, arguments); }
+Window_Padless.prototype = Object.create(Window_Base.prototype);
+Window_Padless.prototype.constructor = Window_Padless;
+Window_Padless.prototype.standardPadding = function() {return 4;}
+Window_Padless.prototype.textPadding = function() {return 4;}
+function Window_PadlessSelectable() { this.initialize.apply(this, arguments); }
+Window_PadlessSelectable.prototype = Object.create(Window_Selectable.prototype);
+Window_PadlessSelectable.prototype.constructor = Window_PadlessSelectable;
+Window_PadlessSelectable.prototype.standardPadding = function() {return 4;}
+Window_PadlessSelectable.prototype.textPadding = function() {return 4;}
 
-// Requires HIME_WindowskinChange to be loaded ABOVE this plugin.
-// Fixes crashes that are caused by changing the windowskin in a scene without a WindowLayer (eg PhotoAlbum)
-if (1<0) {
-  SceneManager.refreshWindowskins = function() {
-    if (this._scene._windowLayer) {this._scene._windowLayer.refreshWindowskins();};
-  };
-};
-
-// Makes the /overlays folder (and /layers if you use Galv_LayerGraphics) direct to /parallaxes instead
-if (1<0) {
-  ImageManager.loadLayerGraphic = function(filename, hue) {
-    return this.loadBitmap('img/parallaxes/', filename, hue, true);
-  };
-
-  ImageManager.loadOverlay = function(filename, hue) {
-      return this.loadBitmap('img/parallaxes/', filename, hue, true);
-  };
+// DEPENDENCY: TiledMZ_Patch
+/**
+ * 
+ * Returns true if the given tile contains any of
+ * the given regionIds.
+ * 
+ * @param {Integer} x The X coordinate of the tile to check.
+ * @param {Integer} y The Y coordinate of the tile to check.
+ * @param {Array} idArr An Array of RegionIDs to check. Can also be a single number, will be converted to array.
+ * @returns {Boolean}
+ */
+Game_Map.prototype.hasAnyRegionId = function(x,y,idArr) {
+  if (!(idArr instanceof Array)) idArr = [idArr];
+  return idArr.some(id => this.hasRegionId(x,y,id));
 };
 
 /**
- * Converts Minutes:Seconds:Milliseconds into in-game frames.
- * The method assumes 60fps with no slowdown.
  * 
- * @param {Number} min Number of Minutes, defaults to 0
- * @param {Number} sec Number of Seconds, defaults to 0
- * @param {Number} mil Number of Milliseconds, defaults to 0
- * @returns {Number} The time in frames.
+ * Returns true if the given tile contains all of
+ * the given regionIds.
+ * 
+ * @param {Integer} x The X coordinate of the tile to check.
+ * @param {Integer} y The Y coordinate of the tile to check.
+ * @param {Array} idArr An Array of RegionIDs to check. Can also be a single number, will be converted to array.
+ * @returns {Boolean}
  */
-TR.timeToFrame = function(min=0,sec=0,mil=0) {
-  let frame = min*3600;
-  frame += sec*60;
-  frame += mil*0.06;
-  return frame;
+Game_Map.prototype.hasAllRegionId = function(x,y,idArr) {
+  if (!(idArr instanceof Array)) idArr = [idArr];
+  return idArr.every(id => this.hasRegionId(x,y,id));
 };
 
 /**
- * Converts in-game frames into an array of
- * [Minutes,Seconds,Milliseconds], all rounded.
- * The method assumes 60fps with no slowdown.
  * 
- * @param {Number} frames Number of Frames
- * @returns {Array} An array of integers.
+ * Returns an array of every regionID on a tile.
+ * 
+ * @param {Integer} x The X coordinate of the tile to check.
+ * @param {Integer} y The Y coordinate of the tile to check.
+ * @returns {Array}
  */
-TR.frameToTime = function(frames=0) {
-  let min = Math.floor(frames/3600);
-  frames %= 3600;
-  let sec = Math.floor(frames/60);
-  frames %= 60;
-  let mil = Math.round(frames/0.06);
-  return [min,sec,mil];
+Game_Map.prototype.listRegionIds = function(x,y) {
+  const collisionMap = this._collisionMap[this.currentMapLevel];
+  const index = x + this.width() * y;
+	if (this.isValid(x, y)) {
+		if (!collisionMap[index].regionArray) return [];
+		return collisionMap[index].regionArray.dupeless();
+	};
 };
+
+/**
+ * 
+ * Returns an array of every tile that contains one of the
+ * given regionIds.
+ * 
+ * @param {Array} idArr An Array of RegionIDs to check. Can also be a single number, will be converted to array.
+ * @returns {Array}
+ */
+Game_Map.prototype.listRegionIdsAll = function(idArr) {
+  var arr = [];
+  for (let x = 0; x < this.width(); x++) {for (let y = 0; y < this.height(); y++) {
+    if (this.hasAnyRegionId(x,y,idArr)) arr.push([x,y]);
+  }};
+  return arr;
+};
+
+/**
+ * 
+ * Returns true if the character's tile contains any of
+ * the given regionIds.
+ * 
+ * @param {Array} idArr An Array of RegionIDs to check. Can also be a single number, will be converted to array.
+ * @returns {Boolean}
+ */
+Game_CharacterBase.prototype.hasAnyRegionId = function(idArr) {return $gameMap.hasAnyRegionId(this.x,this.y,idArr)};
+
+/**
+ * 
+ * Returns true if the character's tile contains all of
+ * the given regionIds.
+ * 
+ * @param {Array} idArr An Array of RegionIDs to check. Can also be a single number, will be converted to array.
+ * @returns {Boolean}
+ */
+Game_CharacterBase.prototype.hasAllRegionId = function(idArr) {return $gameMap.hasAllRegionId(this.x,this.y,idArr)};
+
+/**
+ * 
+ * Returns an array of every regionID on the character's tile.
+ * 
+ * @returns {Array}
+ */
+Game_CharacterBase.prototype.listRegionIds = function() {return $gameMap.listRegionIds(this.x,this.y)};

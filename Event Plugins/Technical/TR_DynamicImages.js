@@ -11,7 +11,7 @@ TR.DI = TR.DI || {};
 TR.DI.version = 1;
 
 /*: 
- * @plugindesc v1.0 Allows changing images by varying game data
+ * @plugindesc v1.1 Allows changing images by varying game data
  * @author TomatoRadio
  * 
  * @help
@@ -61,6 +61,10 @@ TR.DI.version = 1;
  * Q: What happens if an image has multiple keywords?
  * A: It checks each Image Group from top to bottom. Modifications
  * made by previous IGs are kept through the following checks.
+ * 
+ * Q: When I add multiple of a type, it breaks!
+ * A: Make sure the keys (the part before the brackets) are unique.
+ * Objects cannot have more than one of the same key.
  * 
  * Q: Is this compatible with Girlmori Is Real?
  * A: Yes.

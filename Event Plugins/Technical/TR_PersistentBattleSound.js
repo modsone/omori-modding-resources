@@ -8,12 +8,12 @@ Imported.TR_PersistentBattleSound = true;
 
 var TR = TR || {};
 TR.PBS = TR.PBS || {};
-TR.PBS.version = 1.0;
+TR.PBS.version = 1.1;
 
 /*: 
  *
  * @plugindesc Allows for map sounds to persist into a battle instead of being stopped.
- * Version 1.0
+ * Version 1.1
  * @author TomatoRadio
  * 
  * @help
@@ -48,31 +48,31 @@ TR.PBS.version = 1.0;
 */
 TR.PBS.Param = PluginManager.parameters('TR_PersistentBattleSound');
 
-TR.BGMswitch = parseInt(TR.PBS.Param["BGMswitch"])
-TR.BGSswitch = parseInt(TR.PBS.Param["BGSswitch"])
-TR.MEswitch = parseInt(TR.PBS.Param["MEswitch"])
-TR.SEswitch = parseInt(TR.PBS.Param["SEswitch"])
+TR.PBS.BGMswitch = parseInt(TR.PBS.Param["BGMswitch"])
+TR.PBS.BGSswitch = parseInt(TR.PBS.Param["BGSswitch"])
+TR.PBS.MEswitch = parseInt(TR.PBS.Param["MEswitch"])
+TR.PBS.SEswitch = parseInt(TR.PBS.Param["SEswitch"])
 
 Scene_Map.prototype.stopAudioOnBattleStart = function() {
-    if (!AudioManager.isCurrentBgm($gameSystem.battleBgm()) && !$gameSwitches.value(TR.BGMswitch)) {
+    if (!AudioManager.isCurrentBgm($gameSystem.battleBgm()) && !$gameSwitches.value(TR.PBS.BGMswitch)) {
         AudioManager.stopBgm();
     }
-    if (!$gameSwitches.value(TR.BGSswitch)) {
+    if (!$gameSwitches.value(TR.PBS.BGSswitch)) {
         AudioManager.stopBgs();
     }
-    if (!$gameSwitches.value(TR.MEswitch)) {
+    if (!$gameSwitches.value(TR.PBS.MEswitch)) {
         AudioManager.stopMe();
     }
-    if (!$gameSwitches.value(TR.SEswitch)) {
+    if (!$gameSwitches.value(TR.PBS.SEswitch)) {
         AudioManager.stopSe();
     }
 };
 
 BattleManager.playBattleBgm = function() {
-    if (!$gameSwitches.value(TR.BGMswitch)) {
+    if (!$gameSwitches.value(TR.PBS.BGMswitch)) {
         AudioManager.playBgm($gameSystem.battleBgm());
     }
-    if (!$gameSwitches.value(TR.BGSswitch)) {
+    if (!$gameSwitches.value(TR.PBS.BGSswitch)) {
         AudioManager.stopBgs();
     }
 };
