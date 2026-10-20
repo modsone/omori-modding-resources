@@ -48,6 +48,7 @@ DefaultValues:
     type: # not defining this removes this layer
     power: 0
     image: # Aries weather default/FD weather extension default if installed
+    index: 7
   Overlay:
     image: # not defining this removes this layer
     opacity: 100
@@ -115,6 +116,7 @@ Template:
     type: 
     power: 
     image: # in PICTURES folder, comma separated if FD.WeatherExtension is installed ABOVE THIS PLUGIN, otherwise a singular image (first image given)
+    index: # you can just try whatever works best for your purposes, it goes from 0 to 8 (See below)
   Overlay:
     image: 
     opacity: # 0 - 100 scale

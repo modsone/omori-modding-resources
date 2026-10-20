@@ -74,6 +74,17 @@ Word ID: # The Word ID of your album.
         image: # The picture used for the parallax. Must go in img/pictures folder. Example: Dreamworld_polaroidBG_FA_day in img/pictures.
         speedX: # Horizontal scrolling speed. Can be a decimal. Base game defaults to 0.1
         speedY: # Vertical scrolling speed. Can be a decimal. Base game defaults to 0
+    
+    albumParallax2: # The settings used for the second parallax
+        image: # The picture used for the parallax. Must go in img/pictures folder. Example: Dreamworld_polaroidBG_FA_day in img/pictures.
+        speedX: # Horizontal scrolling speed. Can be a decimal. Base game defaults to 0.1
+        speedY: # Vertical scrolling speed. Can be a decimal. Base game defaults to 0
+
+    weather: # The settings for the OPTIONAL weather array; if you don't want it, don't define it.
+        type: # The type of weather, if this isn't defined then no weather will show
+        power: # The strength of the weather
+        image: # The image used for the weather; if you have FD_WeatherExtension you can have a list of particles
+        index: # The index that you want it to be at; if you want it to be above the album or below it, you can.
 
     pages: # The predetermined array of what photo (by Item ID) goes in what slot on each page. Only useful when placing pictures in the album. Otherwise, can leave undefined.
         1: 0, 0, 0, 0, 0, 0

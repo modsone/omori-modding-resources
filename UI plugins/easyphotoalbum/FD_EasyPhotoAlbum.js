@@ -1,12 +1,12 @@
 //=============================================================================
-// ★ FD_EasyPhotoAlbum ★                                        1.0.2
+// ★ FD_EasyPhotoAlbum ★                                        1.1.0
 //=============================================================================
 /*:
- * @plugindesc v1.0.2 A plugin for easier and more customizable Photo Album.
+ * @plugindesc v1.1.0 A plugin for easier and more customizable Photo Album.
  * @author FruitDragon
  * 
  * @help
- * ★ FD_EasyPhotoAlbum ★                                        1.0.2
+ * ★ FD_EasyPhotoAlbum ★                                        1.1.0
  * --------------------------------------------------------------------------
  * 
  * Overwites the Omori Photo Album.js plugin. This plugin must be placed 
@@ -32,9 +32,11 @@
  * 
  * v1.0.0 Finished plugin!
  * 
- * v1.0.1 Fixes a missing .trim() a notetag parser.
+ * v1.0.1 Fixes a missing .trim() notetag parser.
  * 
  * v1.0.2 Fixed issue with preloading image thumbnails.
+ * 
+ * v1.1.0 Added the Background Parallax 2 layer and the Weather layer
  * 
  * --------------------------------------------------------------------------
  * 
@@ -138,8 +140,20 @@ Scene_OmoriPhotoAlbum.prototype.prepare = function(item, interfaceMode = 0, requ
     album.backgroundName = album.EPA ? EPA.itemData.albumBackground : item.meta.AlbumBackground.trim();
     album.backgroundParallax = album.EPA ? EPA.itemData.albumParallax.image : item.meta.AlbumParallax.trim();
     album.backgroundParallaxSpeed = album.EPA ? new Point(Number(EPA.itemData.albumParallax.speedX), Number(EPA.itemData.albumParallax.speedY)) : new Point(Number(item.meta.ParallaxSpeedX), Number(item.meta.ParallaxSpeedY));
+    if (EPA.itemData.albumParallax2) {
+      album.backgroundParallax2 = album.EPA ? EPA.itemData.albumParallax2.image : item.meta.AlbumParallax2.trim();
+      album.backgroundParallaxSpeed2 = album.EPA ? new Point(Number(EPA.itemData.albumParallax2.speedX), Number(EPA.itemData.albumParallax2.speedY)) : new Point(Number(item.meta.Parallax2SpeedX), Number(item.meta.Parallax2SpeedY));
+    }
     album.defaultBackImageName = album.EPA ? EPA.itemData.defaultBackImage || "Dreamworld_AlbumPictureBack": item.meta.AlbumDefaultBackImage.trim();
     album.lockEmptyPages = album.EPA ? EPA.itemData.lockEmptyPages || false : false
+
+    if (EPA.itemData.weather) {
+      album.weather = {};
+      album.weather.type = EPA.itemData.weather.type || "";
+      album.weather.image = EPA.itemData.weather.image || "";
+      album.weather.power = EPA.itemData.weather.power || 1;
+      album.weather.index = EPA.itemData.weather.index || 0;
+    }
 
     this.preloadImages()
     // Initialize Picture Array
@@ -243,6 +257,11 @@ Scene_OmoriPhotoAlbum.prototype.prepare = function(item, interfaceMode = 0, requ
     if (this._albumData.backgroundParallax) { 
         album.EPA ? ImageManager.loadPicture(album.backgroundParallax) : ImageManager.loadPicture('%1_%2'.format(this._albumData.group, this._albumData.backgroundParallax)) 
     };
+
+    if (this._albumData.backgroundParallax2) {
+        album.EPA ? ImageManager.loadPicture(album.backgroundParallax2) : ImageManager.loadPicture('%1_%2'.format(this._albumData.group, this._albumData.backgroundParallax2)) 
+    }
+
     if (this._albumData.backgroundName) { 
         album.EPA ? ImageManager.loadPicture(album.backgroundName) : ImageManager.loadPicture('%1_%2'.format(this._albumData.group, this._albumData.backgroundName)); 
     };
@@ -543,6 +562,19 @@ Scene_OmoriPhotoAlbum.prototype.createBackground = function() {
     
     bitmap.addLoadListener(() => this._backgroundParallax.bitmap = bitmap) 
   };
+  console.log(this)
+
+  // create background parallax 2
+  if (this._albumData.backgroundParallax2) {
+    this._backgroundParallax2 = new TilingSprite();
+    this._backgroundParallax2.move(0, 0, Graphics.width, Graphics.height);
+    this.addChild(this._backgroundParallax2)
+    if (this._albumData.backgroundParallax2) { 
+      let bitmap2 = this._albumData.EPA ? ImageManager.loadPicture(this._albumData.backgroundParallax2) : ImageManager.loadPicture('%1_%2'.format(this._albumData.group, this._albumData.backgroundParallax2));
+      
+      bitmap2.addLoadListener(() => this._backgroundParallax2.bitmap = bitmap2) 
+    };
+  }
   // Create Background Sprite
   this._backgroundSprite = new Sprite();
   this.addChild(this._backgroundSprite);
@@ -550,7 +582,57 @@ Scene_OmoriPhotoAlbum.prototype.createBackground = function() {
     let bitmap = this._albumData.EPA ? ImageManager.loadPicture(this._albumData.backgroundName) : ImageManager.loadPicture('%1_%2'.format(this._albumData.group, this._albumData.backgroundName));
     bitmap.addLoadListener(() => this._backgroundSprite.bitmap =  bitmap);
   };
-  
+
+  // creates weather effect
+  if (this._albumData.weather) {
+    weather = this._albumData.weather;
+    
+    this._weather = new Weather();
+    this.addChildAt(this._weather, weather.index);
+
+    if (!weather || !weather.type || !["leaves","rain","shine","storm","embers","snow"].contains(weather.type)) {
+    
+    console.log("fail")
+      return;
+    }
+    if (FD.WeatherExtension) {
+      args = [`${weather.type}`]
+      console.log(Aries.P003_WCT.LeafImageList)
+      image = weather.image
+      if (image) {
+        list = image.split(",").map((x) => x.trim())
+        args = args.concat(list)
+        console.log(args)
+        this._weather.handleSetList(args);
+      } 
+    }
+    else {
+      image = weather.image
+      if (image) {
+        list = image.split(",").map((x) => x.trim())
+        Aries.P003_WCT.setWeatherImage(weather.type,list[0])
+      }
+      this._weather._createBitmaps()
+    }
+    this._weather.type = weather.type;
+    this._weather.power = weather.power || 0
+
+  }
+  console.log(this);
+};
+
+Scene_OmoriPhotoAlbum.prototype.updateParallaxMovement = function() {
+  // Get Speed
+  var speed = this._albumData.backgroundParallaxSpeed;
+  // Move Parallax Origin X & Y
+  this._backgroundParallax.origin.x += speed.x;
+  this._backgroundParallax.origin.y += speed.y;
+  if (this._albumData.backgroundParallaxSpeed2) { 
+    var speed2 = this._albumData.backgroundParallaxSpeed2;
+    this._backgroundParallax2.origin.x += speed2.x;
+    this._backgroundParallax2.origin.y += speed2.y;
+
+  }
 };
 
 //=============================================================================

@@ -1,13 +1,13 @@
 //=============================================================================
-// ★ FD_YamlTitleScreen ★                                        1.0.1
+// ★ FD_YamlTitleScreen ★                                        1.1.0
 //=============================================================================
 /*:
- * @plugindesc v1.0.1 An easy title screen with a lot of variability.
+ * @plugindesc v1.1.0 An easy title screen with a lot of variability.
  * @author FruitDragon
- * @version 1.0.1
+ * @version 1.1.0
  * 
  * @help
- * ★ FD_YamlTitleScreen ★                                        1.0.1
+ * ★ FD_YamlTitleScreen ★                                        1.1.0
  * --------------------------------------------------------------------------
  * This plugin completely overwrites the base Omori Title Screen plugin.
  * It is compatible with Badges and other plugins that edit the button 
@@ -21,7 +21,21 @@
  * All other images must go in img/pictures. Frames must always be arranged
  * in a row.
  * 
+ * 
+ * --------------------------------------------------------------------------
+ * Steps to Set Up
+ * --------------------------------------------------------------------------
+ * 1. Copy the template YAML and put it in languages/en folder. 
+ * 2. Add the new name of the YAML to the plugin parameters of this plugin.
+ * 3. Read the documentation in the YAML and in this plugin.
+ * 4. Copy the template title screen definition in the YAML and rename the ID.
+ * 5. Add the new ID to the list at the top of the YAML.
+ * 6. Repeat steps 4 and 5 for every new title screen.
+ * 
+ * 
+ * --------------------------------------------------------------------------
  * Features (listed layers from bottom to top):
+ * --------------------------------------------------------------------------
  * 
  * - Color Background (opacity configurable)
  * - Scrolling Background (speed and opacity configurable)
@@ -36,10 +50,20 @@
  * - BGM (can configure pitch, pan, and volume)
  * - BGS (can configure pitch, pan, and volume)
  * 
+ * 
+ * --------------------------------------------------------------------------
+ * Notes
+ * --------------------------------------------------------------------------
+ * 
  * Unlike EasyTitleScreen, this plugin is designed for entirely custom title
- * screens that do not need to use default OMORI assets. This means that if
- * you want the base game assets in your title screen, please download 
- * FD_EasyTitleScreen.
+ * screens that do not need to use default OMORI assets. Therefore, the base
+ * game title assets do not work without modification. There is a version of
+ * the base game title screen assets arranged to work with YTS code in the
+ * img/pictures folder. All associated images are prefixed with 'YTS_'.
+ * 
+ * The settings for the base game title screen are:
+ * - Character: width 918, height 351, framecount 3, framerate 20, pattern [0,1,2] 
+ * - Title: width 1280, height 134, framecount 4, framerate 15, pattern [0,1,2,3]
  * 
  * Not every value has to be defined in order to work. For example, 
  * 
@@ -74,7 +98,7 @@
  *     name: MyMod_TitleSong
  *     volume: 50
  *  
- * This title ID will show only the Title Image and play background music
+ * This title ID will show only the Title Image and play background music.
  * 
  * The script for writing your titledata to file is 
  * DataManager.forceWriteToFile(TITLE ID). In addition, you must specify a
@@ -91,10 +115,12 @@
  * 
  * For extra features, install FD_WeatherExtension (used with Weather layer) or
  * TRain_Particles.js (used with Particles layer). Both are found in the 
- * OMORI Modding Resources Github.
+ * OMORI Modding Resources Github. Make sure both mentioned plugins are above
+ * this plugin in the Plugin Manager.
  * 
  * For more questions, please reach out to FruitDragon. Also please report any
- * bugs to FruitDragon. 
+ * bugs to FruitDragon. (Or TomatoRadio, which will be easier for you if you
+ * are in Modding Hub.)
  * 
  * NOTE: When naming any images used with the plugin, NEVER name them any of
  * the following:
@@ -162,7 +188,20 @@
  * Initial release
  * 
  * v1.0.1
- * Fixes a bug causing the Title layer to not animate.
+ * Fixed an error with the glitching mechanism
+ * Updated documentation
+ * 
+ * v1.0.2
+ * Fixed an error with title animation
+ * Updated documentation
+ * 
+ * v1.0.3
+ * Added Base OMORI title assets
+ * Updated documentation
+ * 
+ * v1.1.9
+ * Made it possible to change the positioning of weather
+ * 
  * 
  * --------------------------------------------------------------------------
  * 
@@ -170,7 +209,7 @@
  * @text Title Yaml Name  
  * @type
  * @default titles_template
- * @desc The name of the yaml that defines the photo album.
+ * @desc The name of the yaml that defines the title screens.
  * 
  * 
  *
@@ -516,7 +555,13 @@ Scene_OmoriTitleScreen.prototype.createWeatherLayer = function() {
   var World = this.getWorldTypeObject()
 
   this._weather = new Weather();
-  this.addChild(this._weather)
+  if (!World.Weather) {
+    this.addChild(this._weather);
+  } else {
+    var insert_index = World.Weather.index || this.children.length; // This is the index in the Scene.children array.
+    this.addChildAt(this._weather, insert_index);
+    //this.addChild(this._weather)
+  }
 
   if (!World.Weather || !World.Weather.type || !["leaves","rain","shine","storm","embers","snow"].contains(World.Weather.type)) {
     
