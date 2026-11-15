@@ -1,13 +1,13 @@
 //=============================================================================
-// ★ FD_BetterPluginCommands ★                                  v1.2.2      
+// ★ FD_BetterPluginCommands ★                                  v1.3.1     
 //=============================================================================
  /*:
  * @plugindesc A variety of plugin commands + better plugin functionality.
  * @author FruitDragon
- * @version 1.2.2
+ * @version 1.3.1
  * 
  * @help
- * Special Thanks: bajamaid, FoG, stahl, tomatoradio
+ * Special Thanks: bajamaid, FoG, stahl, tomatoradio, cooldry
  * 
  * Plugin Commands Available:
  * - SelfSwitch
@@ -16,9 +16,10 @@
  * - MapFog
  * - CustomPicture
  * - EventTremble
+ * - ChangeVolume
  * 
- * For requests, lmk on the Modding Hub discord server (feel free to ping)
- * Also please tell me if there are any bugs so I can release a patch
+ * For requests, let FruitDragon know on the Modding Hub discord server.
+ * Also please tell either of us if there are any bugs so I can release a patch.
  * 
  * =============================================================================
  * ALL COMMANDS BELOW:
@@ -42,6 +43,9 @@
  * 
  * Plugin: EventTremble start [eventid] [power] [speed] [stop_cycle]*
  * Plugin: EventTremble stop [eventid]
+ * 
+ * Plugin: ChangeVolume bgm [target] [duration]
+ * Plugin: ChangeVolume bgs [target] [duration]
  * 
  * 
  * =============================================================================
@@ -214,6 +218,25 @@
  * 
  * 
  * =============================================================================
+ * ChangeVolume (Omori BASE.js)
+ * =============================================================================
+ * Plugin: ChangeVolume bgm [target] [duration]
+ * Plugin: ChangeVolume bgm [target] [duration]
+ * 
+ * Fades the bgm/bgs from the current volume to the target volume over the
+ * given duration (in frames)
+ * 
+ * [target] The new volume, same range as any other audio code in the game
+ * [duration*] (optional) Number of frames to fade the music over (default 60)
+ * 
+ * ChangeVolume bgm 10 30
+ * ChangeVolume bgm 90 
+ * ChangeVolume bgs 50 10
+ * ChangeVolume bgs 90 1
+ * 
+ * 
+ * 
+ * =============================================================================
  * Changelog
  * =============================================================================
  * 
@@ -234,6 +257,11 @@
  * v1.2.1 TomatoRadio added more functionality to the fog command
  * 
  * v1.2.2 FruitDragon bugfixed a minor error that broke base game fog command
+ * 
+ * v1.3.0 Added one new command
+ * - ChangeVolume
+ * 
+ * v1.3.1 Bugfixed ChangeVolume, which now works correctly in all cases
  * 
  * 
  * 
@@ -715,6 +743,37 @@ Game_Interpreter.prototype.handleBalloonImage = function(args) {
 	}
 }
 
+//=============================================================================
+// * Fade BGM to
+//=============================================================================
+AudioManager.fadeBgmTo = function(volume, duration) {
+  if (this._bgmBuffer && this._currentBgm) {
+    this._bgmBuffer._fadeTo(AudioManager.bgmVolume * volume / 10000, duration / 60);
+  };
+};
+//=============================================================================
+// * Fade BGS to
+//=============================================================================
+AudioManager.fadeBgsTo = function(volume, duration) {
+  if (this._bgsBuffer && this._currentBgs) {
+    this._bgsBuffer._fadeTo(AudioManager.bgsVolume * volume / 10000, duration / 60);
+  };
+};
+
+Game_Interpreter.prototype.handleChangeVolume = function(args) {
+	//ChangeVolume bgm volume duration
+	//ChangeVolume bgs volume duration
+	temp = args.shift();
+	switch (temp.toLowerCase()) {
+		case 'bgm':
+			AudioManager.fadeBgmTo(Number(args[0]),Number(args[1]) || 60)
+			return;
+		case 'bgs':
+			AudioManager.fadeBgsTo(Number(args[0]),Number(args[1]) || 60)
+			return;
+	}
+}
+
 // Adds the plugin commands
 FD.BetterPluginCommands.GameInterpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
 Game_Interpreter.prototype.pluginCommand = function (command, args) {
@@ -739,6 +798,9 @@ Game_Interpreter.prototype.pluginCommand = function (command, args) {
 			return;
 		case 'balloonimage': 
 			this.handleBalloonImage(args)
+			return;
+		case 'changevolume':
+			this.handleChangeVolume(args)
 			return;
 		default:
 			FD.BetterPluginCommands.GameInterpreter_pluginCommand.call(this, command, args);

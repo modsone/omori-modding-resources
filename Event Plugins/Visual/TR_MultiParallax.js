@@ -11,13 +11,11 @@ TR.MP = TR.MP || {};
 
 /*: 
  *
- * @plugindesc v1.1 Allows multiple parallaxes.
+ * @plugindesc v1.2 Allows multiple parallaxes.
  * @author TomatoRadio
  * 
  * @help
  * This plugin allows you to add extra Parallaxes on top of the base one.
- * 
- * There are two ways to do this, being Map Notetags & Plugin Commands.
  * 
  * To add an ExtraParallax using a Map Notetag, add this tag to the notetags.
  * <ExtraParallax: name, opacity, xScroll, yScroll, xShift, yShift, blend>
@@ -39,32 +37,13 @@ TR.MP = TR.MP || {};
  * To add multiple ExtraParallaxes, simply include multiple notetags. They will be layered from top to bottom,
  * with the top being displayed furthest back.
  * 
- * To add an ExtraParallax using a Plugin Command, use this command.
- * AddExtraParallax name opacity xScroll yScroll xShift yShift blend index
- * 
  * All parameters are the same as the notetag, with the exception of index.
  * 
  * Index alls you to determine the layer position of the parallax, with lower indexes (down to 0)
  * being placed further backwards.
  * 
- * For the plugin command, 'x' (caseSensitive) may be used to revert to the default. The default of
- * index is to be placed at the front.
- * 
- * eg. AddExtraParallax Space_parallax x x 3
- * Will do the same as the last example.
- * 
- * To remove an ExtraParallax, use the Plugin Command
- * RemoveExtraParallax index
- * 
- * index functions identically to before, but does not default.
- * 
- * A reminder that adding and removing parallaxes will shift the index of the other parallaxes.
- * 
  * Note that ZeroParallaxes (parallaxes that begin with a ! which stay aligned with the map rather
  * than the camera) are supported by this plugin.
- * 
- * For people who used the 1.0 release of this plugin, make sure that any uses of AddExtraParallax
- * are updated to account for the extra parameter added. (blend)
  * 
 */
 
@@ -123,8 +102,10 @@ Spriteset_Map.prototype.updateExtraParallaxes = function() {
   for (const parallax of this._extraParallaxes.children) {
     //console.log(parallax.origin);
     parallax.blendMode = parallax._blend;
-    parallax._scroll.x = (parallax._scroll.x + parallax._scrollX) % parallax.bitmap.width;
-    parallax._scroll.y = (parallax._scroll.y + parallax._scrollY) % parallax.bitmap.height;
+    if (parallax.bitmap && parallax.bitmap.width) {
+      parallax._scroll.x = (parallax._scroll.x + parallax._scrollX) % parallax.bitmap.width;
+      parallax._scroll.y = (parallax._scroll.y + parallax._scrollY) % parallax.bitmap.height;
+    }
     if (!ImageManager.isZeroParallax(parallax._name)) {
       parallax.origin.x = ($gameMap.tileWidth() * parallax._shiftX) + parallax._scroll.x;
       parallax.origin.y = ($gameMap.tileHeight() * parallax._shiftY) + parallax._scroll.y;
@@ -134,7 +115,7 @@ Spriteset_Map.prototype.updateExtraParallaxes = function() {
     };
   };
 };
-
+/*
 TR.MP.pluginCommand = Game_Interpreter.prototype.pluginCommand;
 Game_Interpreter.prototype.pluginCommand = function(cmd,args) {
   if (cmd && cmd.toLowerCase() === "addextraparallax" && SceneManager._scene instanceof Scene_Map) {
@@ -145,3 +126,4 @@ Game_Interpreter.prototype.pluginCommand = function(cmd,args) {
     TR.MP.pluginCommand.call(this,cmd,args);
   };
 };
+*/
