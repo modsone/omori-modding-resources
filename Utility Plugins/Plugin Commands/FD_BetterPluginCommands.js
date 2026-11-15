@@ -1,13 +1,13 @@
 //=============================================================================
-// ★ FD_BetterPluginCommands ★                                  v1.2.2      
+// ★ FD_BetterPluginCommands ★                                  v1.3.1     
 //=============================================================================
  /*:
  * @plugindesc A variety of plugin commands + better plugin functionality.
  * @author FruitDragon
- * @version 1.2.2
+ * @version 1.3.1
  * 
  * @help
- * Special Thanks: bajamaid, FoG, stahl, tomatoradio
+ * Special Thanks: bajamaid, FoG, stahl, tomatoradio, cooldry
  * 
  * Plugin Commands Available:
  * - SelfSwitch
@@ -16,10 +16,10 @@
  * - MapFog
  * - CustomPicture
  * - EventTremble
+ * - ChangeVolume
  * 
- * For requests, let TomatoRadio know on the Modding Hub discord server or dm me directly.
+ * For requests, let FruitDragon know on the Modding Hub discord server.
  * Also please tell either of us if there are any bugs so I can release a patch.
- * TomatoRadio will relay that information to me.
  * 
  * =============================================================================
  * ALL COMMANDS BELOW:
@@ -260,6 +260,8 @@
  * 
  * v1.3.0 Added one new command
  * - ChangeVolume
+ * 
+ * v1.3.1 Bugfixed ChangeVolume, which now works correctly in all cases
  * 
  * 
  * 
@@ -746,7 +748,7 @@ Game_Interpreter.prototype.handleBalloonImage = function(args) {
 //=============================================================================
 AudioManager.fadeBgmTo = function(volume, duration) {
   if (this._bgmBuffer && this._currentBgm) {
-    this._bgmBuffer._fadeTo(AudioManager.bgmVolume * volume / 100, duration / 60);
+    this._bgmBuffer._fadeTo(AudioManager.bgmVolume * volume / 10000, duration / 60);
   };
 };
 //=============================================================================
@@ -754,7 +756,7 @@ AudioManager.fadeBgmTo = function(volume, duration) {
 //=============================================================================
 AudioManager.fadeBgsTo = function(volume, duration) {
   if (this._bgsBuffer && this._currentBgs) {
-    this._bgsBuffer._fadeTo(AudioManager.bgsVolume * volume / 100, duration / 60);
+    this._bgsBuffer._fadeTo(AudioManager.bgsVolume * volume / 10000, duration / 60);
   };
 };
 

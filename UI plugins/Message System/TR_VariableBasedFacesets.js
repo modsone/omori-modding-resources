@@ -11,52 +11,60 @@
  * If you are using TR_GIRLMORI_IS_REAL, then the '_girl' suffix is added after the variable is added, so it would look like 'MainCharacters_ParallelsSunny4_girl'
  * @param FacesetGroup1
  * @text Faceset Group 1
- * @type []
+ * @type file[]
+ * @dir img/faces/
  * @desc All of the facesets in Faceset Group 1
  * @parent ---Faceset Group 1---
- * @default ["FaceName","FaceName","FaceName"]
+ * @default ["01_OMORI_BATTLE"]
  * 
  * @param FacesetGroup1Var
  * @text Faceset Group 1 Variable
+ * @type variable
  * @desc The ID of the variable that determines the alt faceset.
  * @parent ---Faceset Group 1---
  * @default 45
  * 
  * @param FacesetGroup2
  * @text Faceset Group 2
- * @type []
+ * @type file[]
+ * @dir img/faces/
  * @desc All of the facesets in Faceset Group 2
  * @parent ---Faceset Group 2---
- * @default ["FaceName","FaceName","FaceName"]
+ * @default ["02_AUBREY_BATTLE"]
  * 
  * @param FacesetGroup2Var
  * @text Faceset Group 2 Variable
+ * @type variable
  * @desc The ID of the variable that determines the alt faceset.
  * @parent ---Faceset Group 2---
  * @default 46
  * 
  * @param FacesetGroup3
  * @text Faceset Group 3
- * @type []
+ * @type file[]
+ * @dir img/faces/
  * @desc All of the facesets in Faceset Group 3
  * @parent ---Faceset Group 3---
- * @default ["FaceName","FaceName","FaceName"]
+ * @default ["03_KEL_BATTLE"]
  * 
  * @param FacesetGroup3Var
  * @text Faceset Group 3 Variable
+ * @type variable
  * @desc The ID of the variable that determines the alt faceset.
  * @parent ---Faceset Group 3---
  * @default 47
  * 
  * @param FacesetGroup4
  * @text Faceset Group 4
- * @type []
+ * @type file[]
+ * @dir img/faces/
  * @desc All of the facesets in Faceset Group 4
  * @parent ---Faceset Group 4---
- * @default ["FaceName","FaceName","FaceName"]
+ * @default ["04_HERO_BATTLE"]
  * 
  * @param FacesetGroup4Var
  * @text Faceset Group 4 Variable
+ * @type variable
  * @desc The ID of the variable that determines the alt faceset.
  * @parent ---Faceset Group 4---
  * @default 48
@@ -101,8 +109,8 @@ ImageManager.loadFace = function(filename, hue) {
 		let newname = this.faceSuffix(filename, 4);
 		return this.loadBitmap('img/faces/', newname, hue, true);
 	} else {
-    return this.loadBitmap('img/faces/', filename, hue, true);
-};
+    	return this.loadBitmap('img/faces/', filename, hue, true);
+	};
 };
 
 ImageManager.faceSuffix = function(filename, group) {
@@ -125,6 +133,6 @@ ImageManager.faceSuffix = function(filename, group) {
 		suffix = ''
 	}
 	let newname = `${filename}${suffix}`
-	console.log(`${newname} loaded from Group ${group}`);
+	//console.log(`${newname} loaded from Group ${group}`);
 	return newname;
 };
